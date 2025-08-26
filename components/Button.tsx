@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { tv } from 'tailwind-variants';
-import { LuLoaderCircle } from 'react-icons/lu';
+import { IconLoader2 } from '@tabler/icons-react';
 
 export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'gradient' | 'destructive';
@@ -64,7 +64,7 @@ export const Button = ({
     >
       {loader && (
         <span className="animate-spin">
-          <LuLoaderCircle size={loaderIconSize} />
+          <IconLoader2 size={loaderIconSize} />
         </span>
       )}
       {label}
