@@ -1,5 +1,5 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
+import storybook from 'eslint-plugin-storybook';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -32,9 +32,13 @@ const eslintConfig = [
       'out/**',
       'build/**',
       'next-env.d.ts',
+      '.husky/**',
+      '.vscode/**',
+      'storybook-static/**',
+      'stories/assets/**',
     ],
   },
-  ...storybook.configs["flat/recommended"]
+  ...storybook.configs['flat/recommended'],
 ];
 
 export default eslintConfig;
