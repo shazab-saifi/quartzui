@@ -15,11 +15,11 @@ const AnimatedButton = ({
     <motion.button
       initial={{
         backgroundImage:
-          'linear-gradient(to right, black, black), linear-gradient(0deg, yellow, purple, black 40%)',
+          'linear-gradient(to right, black, black), linear-gradient(0deg, beige, blue, black 40%)',
       }}
       animate={{
         backgroundImage:
-          'linear-gradient(to right, black, black), linear-gradient(360deg, yellow, purple, black 40%)',
+          'linear-gradient(to right, black, black), linear-gradient(360deg, beige, blue, black 40%)',
       }}
       transition={{
         type: 'tween',
