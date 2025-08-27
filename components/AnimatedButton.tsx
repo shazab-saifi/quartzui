@@ -2,9 +2,17 @@
 
 import { motion } from 'motion/react';
 
-const AnimatedButton = () => {
+const AnimatedButton = ({
+  label,
+  onClick,
+  className,
+}: {
+  label: string;
+  onClick: () => void;
+  className?: string;
+}) => {
   return (
-    <motion.div
+    <motion.button
       initial={{
         backgroundImage:
           'linear-gradient(to right, black, black), linear-gradient(0deg, yellow, purple, black 40%)',
@@ -31,9 +39,11 @@ const AnimatedButton = () => {
         alignItems: 'center',
         color: 'white',
       }}
+      onClick={onClick}
+      className={className}
     >
-      Button
-    </motion.div>
+      {label}
+    </motion.button>
   );
 };
 
