@@ -4,7 +4,6 @@ import {
   IconHome,
   IconTerminal2,
   IconNewSection,
-  IconSquareRoundedLetterQFilled,
   IconExchange,
   IconBrandX,
   IconBrandGithub,
@@ -17,6 +16,7 @@ import {
   useTransform,
 } from 'motion/react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 
@@ -45,7 +45,16 @@ const FloatingDockCore = () => {
     },
     {
       title: 'Quartz.UI',
-      icon: <IconSquareRoundedLetterQFilled className="h-full w-full" />,
+      icon: (
+        <Image
+          src="/quartzui.svg"
+          alt="Quartz.UI"
+          width={24}
+          height={24}
+          className="h-full w-full"
+          style={{ objectFit: 'contain' }}
+        />
+      ),
       href: '/',
     },
     {

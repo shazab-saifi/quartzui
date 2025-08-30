@@ -16,7 +16,6 @@ import {
   IconPencilSearch,
   IconSelector,
   IconSettings,
-  IconSquareRoundedLetterQFilled,
 } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -102,16 +101,27 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
     },
   ];
 
-  // Sidebar width classes
-  // Don't change px on open/close, always use px-2
   const sidebarWidth = open ? 'w-fit' : 'w-64';
 
   return (
-    <aside
-      className={`flex h-screen ${sidebarWidth} flex-col justify-between border-r border-neutral-200 bg-white p-2 py-4 text-neutral-700 transition-all duration-200 dark:border-white/10 dark:bg-neutral-900 dark:text-white`}
+    <motion.aside
+      initial={false}
+      animate={{ width: open ? '16rem' : '3.25rem' }}
+      transition={{ duration: 0.1, ease: 'linear' }}
+      className={`flex h-screen ${sidebarWidth} flex-col justify-between overflow-hidden border-r border-neutral-200 bg-white p-2 py-4 text-neutral-700 transition-all duration-200 dark:border-white/10 dark:bg-neutral-900 dark:text-white`}
     >
-      <div className={`flex items-center justify-between`}>
-        {!open && <IconSquareRoundedLetterQFilled size={28} />}
+      <div
+        className={`${open ? 'justify-between' : 'justify-end'} flex items-center`}
+      >
+        {open && (
+          <motion.div
+            initial={false}
+            animate={{ scale: open ? 1 : 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <Image src="/quartzui.svg" alt="logo" width={24} height={24} />
+          </motion.div>
+        )}
         <button
           type="button"
           aria-label="Toggle sidebar"
@@ -122,56 +132,79 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
         </button>
       </div>
 
-      <nav className={`mt-4 flex flex-1 flex-col gap-4 overflow-y-auto`}>
+      <nav className="mt-4 flex flex-1 flex-col gap-4 overflow-y-auto">
         {(sections ?? defaultSections).map((section, sectionIdx) => (
-          <div key={sectionIdx} className="flex flex-col gap-2">
-            {!open && (
-              <p className="px-2 text-left text-xs font-medium tracking-wide text-neutral-700 dark:text-neutral-200">
-                {section.title}
-              </p>
-            )}
-            <div className="flex flex-col">
-              {section.items.map(({ title, icon, href }, idx) => (
-                <Link
-                  key={`${sectionIdx}-${idx}`}
-                  href={href}
-                  onMouseEnter={() => setHoveredItem({ sectionIdx, idx })}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  className={`group relative flex items-center ${open ? 'justify-center' : 'gap-3'} rounded-md p-2 text-sm text-neutral-900 transition dark:text-white`}
+          <motion.div
+            key={sectionIdx}
+            className="flex flex-col gap-2"
+            layout
+            transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+          >
+            <AnimatePresence initial={false} mode="wait">
+              {open ? (
+                <motion.p
+                  key="section-title"
+                  className="px-2 text-left text-xs font-medium tracking-wide text-neutral-700 dark:text-neutral-200"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <AnimatePresence>
-                    {hoveredItem &&
-                      hoveredItem.sectionIdx === sectionIdx &&
-                      hoveredItem.idx === idx && (
-                        <motion.span
-                          layoutId="hovered-span"
-                          className="absolute inset-0 rounded-md bg-neutral-200/70 dark:bg-neutral-800/70"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            ease: 'easeInOut',
-                          }}
-                        />
+                  {section.title}
+                </motion.p>
+              ) : null}
+            </AnimatePresence>
+            <motion.div className="flex flex-col" layout>
+              {section.items.map(({ title, icon, href }, idx) => (
+                <motion.div
+                  key={`${sectionIdx}-${idx}`}
+                  layout
+                  transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+                >
+                  <Link
+                    href={href}
+                    onMouseEnter={() => setHoveredItem({ sectionIdx, idx })}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    className={`group relative flex items-center ${open && 'justify-start gap-2'} rounded-md p-2 text-sm text-neutral-900 transition dark:text-white`}
+                  >
+                    <AnimatePresence>
+                      {hoveredItem &&
+                        hoveredItem.sectionIdx === sectionIdx &&
+                        hoveredItem.idx === idx && (
+                          <motion.span
+                            layoutId="hovered-span"
+                            className="absolute inset-0 rounded-md bg-neutral-200/70 dark:bg-neutral-800/70"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{
+                              duration: 0.3,
+                              ease: 'easeInOut',
+                            }}
+                          />
+                        )}
+                    </AnimatePresence>
+                    <span className="z-10 text-neutral-900 transition dark:text-white">
+                      {React.cloneElement(icon, { size: 20 })}
+                    </span>
+                    <AnimatePresence initial={false} mode="wait">
+                      {open && (
+                        <motion.span key="item-title" className="z-10 truncate">
+                          {title}
+                        </motion.span>
                       )}
-                  </AnimatePresence>
-                  <span className="z-10 text-neutral-900 transition dark:text-white">
-                    {React.cloneElement(icon, { size: 20 })}
-                  </span>
-                  {!open && <span className="z-10 truncate">{title}</span>}
-                </Link>
+                    </AnimatePresence>
+                  </Link>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </nav>
 
       <div className="mt-2 border-t border-neutral-200 pt-3 dark:border-white/10">
-        <div className={`flex items-center justify-between gap-3`}>
-          <div
-            className={`flex items-center ${open ? 'justify-center gap-0' : 'gap-3'}`}
-          >
+        <div className="flex items-center justify-between gap-3">
+          <div className={`flex items-center ${open && 'gap-2'}`}>
             <Image
               src={
                 profile?.avatar ??
@@ -183,29 +216,45 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
               className="aspect-square rounded-lg object-cover"
               unoptimized
             />
-            {!open && (
-              <div className="leading-tight">
-                <p className="text-sm font-medium text-neutral-900 dark:text-white/90">
-                  {profile?.name ?? 'Neil'}
-                </p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  {profile?.email ?? 'neil@example.com'}
-                </p>
-              </div>
-            )}
+            <AnimatePresence initial={false} mode="wait">
+              {open && (
+                <motion.div
+                  key="profile-details"
+                  className="leading-tight"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                >
+                  <p className="text-sm font-medium text-neutral-900 dark:text-white/90">
+                    {profile?.name ?? 'Neil'}
+                  </p>
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                    {profile?.email ?? 'neil@example.com'}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-          {!open && (
-            <button
-              type="button"
-              aria-label="Account options"
-              className={`group flex items-center ${open ? 'gap-0' : 'gap-3'} rounded-md p-2 text-neutral-900 transition hover:bg-neutral-100 dark:text-white dark:hover:bg-white/5`}
-            >
-              <IconSelector size={18} />
-            </button>
-          )}
+          <AnimatePresence initial={false} mode="wait">
+            {open && (
+              <motion.button
+                key="account-options"
+                type="button"
+                aria-label="Account options"
+                className="group flex items-center rounded-md p-2 text-neutral-900 transition hover:bg-neutral-100 dark:text-white dark:hover:bg-white/5"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+              >
+                <IconSelector size={18} />
+              </motion.button>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-    </aside>
+    </motion.aside>
   );
 };
 
