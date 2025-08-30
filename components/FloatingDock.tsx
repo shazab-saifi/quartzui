@@ -18,13 +18,34 @@ import {
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 type DockLink = {
   title: string;
   icon: React.ReactNode;
   href: string;
 };
+
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < breakpoint;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < breakpoint);
+    }
+    window.addEventListener('resize', handleResize);
+    // Set on mount in case SSR mismatch
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+
+  return isMobile;
+}
 
 const FloatingDockCore = () => {
   const links: DockLink[] = [
@@ -74,6 +95,8 @@ const FloatingDockCore = () => {
     },
   ];
 
+  const isMobile = useIsMobile(640);
+  const visibleLinks = isMobile ? links.slice(0, 5) : links;
   const mouseX = useMotionValue(Infinity);
 
   return (
@@ -82,8 +105,8 @@ const FloatingDockCore = () => {
       onMouseLeave={() => mouseX.set(Infinity)}
       className="fixed inset-x-0 bottom-10 mx-auto flex h-16 w-fit items-center justify-center gap-4 rounded-2xl bg-neutral-900 p-4"
     >
-      {links.map((el, idx) => (
-        <IconContainer key={idx} el={el} mouseX={mouseX} />
+      {visibleLinks.map((el, idx) => (
+        <IconContainer key={idx} el={el} mouseX={mouseX} isMobile={isMobile} />
       ))}
     </motion.div>
   );
@@ -92,30 +115,39 @@ const FloatingDockCore = () => {
 const IconContainer = ({
   el,
   mouseX,
+  isMobile,
 }: {
   el: DockLink;
   mouseX: MotionValue<number>;
+  isMobile: boolean;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [hovered, setHovered] = useState<boolean>(false);
 
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransform = useTransform(
+    distance,
+    isMobile ? [-50, 0, 50] : [-150, 0, 150],
+    [40, 80, 40]
+  );
+  const heightTransform = useTransform(
+    distance,
+    isMobile ? [-50, 0, 50] : [-150, 0, 150],
+    [40, 80, 40]
+  );
 
   const iconWidthTransform = useTransform(
     distance,
-    [-150, 0, 150],
+    isMobile ? [-50, 0, 50] : [-150, 0, 150],
     [20, 40, 20]
   );
   const iconHeightTransform = useTransform(
     distance,
-    [-150, 0, 150],
+    isMobile ? [-50, 0, 50] : [-150, 0, 150],
     [20, 40, 20]
   );
 
