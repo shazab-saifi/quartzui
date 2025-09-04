@@ -159,7 +159,10 @@ const ProgressBar = ({ height }: { height: MotionValue<string> }) => (
         left: -160,
         transformOrigin: 'top',
         borderRadius: '9999px',
+        boxShadow:
+          '0 0 8px 2px rgba(128,0,255,0.15), 0 0 0 1px rgba(0,0,0,0.05)',
       }}
+      className="dark:shadow-[0_0_12px_4px_rgba(0,255,255,0.25)]"
     />
   </div>
 );
@@ -178,7 +181,7 @@ const ScrollProgress = () => {
   });
 
   return (
-    <div className="relative my-10 flex max-w-7xl">
+    <div className="relative my-10 flex max-w-7xl bg-white text-black transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
       <ProgressBar height={smoothHeight} />
       <div className="flex max-w-4xl flex-col gap-20">
         <div className="space-y-10">
@@ -190,12 +193,14 @@ const ScrollProgress = () => {
             alt={images[0].alt}
             width={960}
             height={600}
-            className="aspect-video"
+            className="aspect-video rounded-lg shadow-md dark:shadow-lg"
           />
         </div>
         <div className="space-y-6 text-xl leading-8">
           {paragraphs[0].map((text, idx) => (
-            <p key={idx}>{text}</p>
+            <p key={idx} className="dark:text-gray-200">
+              {text}
+            </p>
           ))}
         </div>
         <Image
@@ -203,10 +208,13 @@ const ScrollProgress = () => {
           alt={images[1].alt}
           width={960}
           height={600}
+          className="rounded-lg shadow-md dark:shadow-lg"
         />
         <div className="space-y-6 text-xl leading-8">
           {paragraphs[1].map((text, idx) => (
-            <p key={idx}>{text}</p>
+            <p key={idx} className="dark:text-gray-200">
+              {text}
+            </p>
           ))}
         </div>
       </div>
