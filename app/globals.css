@@ -8,6 +8,30 @@
 
 @theme inline {
   --font-inter: 'Inter', sans-serif;
+
+  --color-primary: hsl(0, 0%, 100%);
+  --color-d-primary: hsl(240, 4.35%, 9.02%);
+
+  --color-secondary: hsl(223.13, 74.07%, 57.65%);
+
+  --color-tertiary: hsl(0, 0%, 98.04%);
+  --color-d-tertiary: hsl(240, 3.13%, 12.55%);
+
+  --color-quaternary: hsl(0, 0%, 93.33%);
+  --color-d-quaternary: hsl(240, 2.17%, 18.04%);
+
+  --spacing-2xs: 0.125rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 8rem;
+
+  --text-primary: #171717;
+  --text-secondary: #404040;
+  --text-tertiary: #737373;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
