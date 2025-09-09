@@ -1,14 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import SearchBar from './SearchBar';
+import Sidebar from './Sidebar';
 import { IconMenu4, IconShadow } from '@tabler/icons-react';
 
 const Navbar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const navItems = [
     { title: 'Components', link: '/components' },
     { title: 'Pricing', link: '/pricing' },
     { title: 'Owner', link: '/owner' },
-    { title: 'Templetes', link: '/templetes' },
+    { title: 'Templates', link: '/templates' },
   ];
 
   return (
@@ -49,9 +55,15 @@ const Navbar = () => {
         </div>
         <SearchBar />
       </div>
-      <button className="lg:hidden">
+      <button className="lg:hidden" onClick={() => setIsSidebarOpen(true)}>
         <IconMenu4 />
       </button>
+
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        navItems={navItems}
+      />
     </div>
   );
 };
