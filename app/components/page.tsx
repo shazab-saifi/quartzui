@@ -1,4 +1,4 @@
-import ComponentsBar from '@/ui/componetsPage/CompoentsBar';
+import ComponentsBar from '@/ui/componentsPage/ComponentsBar';
 
 const page = () => {
   return (
