@@ -109,8 +109,8 @@ const ComponentsBar = () => {
   ];
 
   return (
-    <div className="space-y-lg no-scrollbar fixed top-42 max-h-[700px] overflow-y-scroll">
-      <h3 className="text-para fixed top-30 font-semibold">Components</h3>
+    <div className="space-y-lg no-scrollbar sticky top-30 max-h-[700px] overflow-y-scroll">
+      <h3 className="text-para mb-4 font-semibold">Components</h3>
       <div className="gap-md flex flex-col">
         {sections.map((sec, sectionIdx) => {
           const items = components.filter((c) => c.category === sec.title);
@@ -150,7 +150,9 @@ const ComponentsBar = () => {
                         </AnimatePresence>
                         <span
                           className={`relative z-10 ${
-                            isClicked ? 'text-neutral-200' : ''
+                            isClicked
+                              ? 'text-neutral-600 dark:text-neutral-200'
+                              : ''
                           }`}
                         >
                           {item.title}

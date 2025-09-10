@@ -18,7 +18,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="sticky top-0 left-0 flex w-full items-center justify-between bg-white py-4 dark:bg-neutral-950">
+    <div className="sticky top-0 left-0 z-50 flex w-full items-center justify-between bg-white py-4 dark:bg-neutral-950">
       <div className="gap-xl flex items-center">
         <Link href="/" className="gap-sm flex items-center">
           <Image

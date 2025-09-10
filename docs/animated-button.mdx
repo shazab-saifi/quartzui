@@ -1,0 +1,49 @@
+# Animated Button
+
+import { CodeBlock } from './CodeBlock';
+
+A minimal, animated CTA button with a subtle moving gradient border powered by `motion`.
+
+## When to use
+
+- **Call to action**: primary actions like Submit, Continue, or Buy
+- **Interactive touch**: add motion without overwhelming the UI
+
+## Import
+
+<div className="not-prose">
+  <CodeBlock
+    code={`import AnimatedButton from '@/components/AnimatedButton';`}
+    language="tsx"
+  />
+</div>
+
+## Props
+
+- **label**: string – button text
+- **onClick**: () => void – click handler
+- **className**: string (optional) – extend styles (e.g. width, font)
+
+## Usage
+
+<div className="not-prose">
+  <CodeBlock
+    language="tsx"
+    code={`import AnimatedButton from '@/components/AnimatedButton';
+
+export default function Example() {
+  return (
+    <AnimatedButton
+      label="Get Started"
+      onClick={() => alert('Clicked!')}
+      className="w-48 text-sm"
+    />
+  );
+}`}
+  />
+</div>
+
+## Notes
+
+- The component uses an animated gradient border via `background-clip`.
+- You can override dimensions and typography with `className`.
