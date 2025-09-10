@@ -18,35 +18,35 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: 'primary',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Secondary: Story = {
   args: {
     variant: 'secondary',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Small: Story = {
   args: {
     size: 'sm',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Medium: Story = {
   args: {
     size: 'md',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Large: Story = {
   args: {
     size: 'lg',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
@@ -54,7 +54,7 @@ export const Loading: Story = {
   args: {
     size: 'md',
     loader: true,
-    label: 'Button',
+    children: 'Button',
   },
 };
 
@@ -62,7 +62,7 @@ export const Gradient: Story = {
   args: {
     size: 'md',
     variant: 'gradient',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
@@ -70,6 +70,6 @@ export const Destructive: Story = {
   args: {
     size: 'md',
     variant: 'destructive',
-    label: 'Button',
+    children: 'Button',
   },
 };

@@ -7,7 +7,7 @@ export interface ButtonProps {
   loader?: boolean;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
-  label: string;
+  children: React.ReactNode;
   onClick?: () => void;
 }
 
@@ -43,7 +43,7 @@ export const Button = ({
   variant,
   className,
   size,
-  label,
+  children,
   onClick,
   loader,
   ...props
@@ -67,7 +67,7 @@ export const Button = ({
           <IconLoader2 size={loaderIconSize} />
         </span>
       )}
-      {label}
+      {children}
     </button>
   );
 };

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
   images: {
@@ -8,7 +9,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.pexels.com', 
       },
     ],
-  }
+  },
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  extension: /\.(md|mdx)$/,
+})
+ 
+export default withMDX(nextConfig)
