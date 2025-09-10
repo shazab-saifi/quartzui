@@ -1,0 +1,150 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="mt-24 border-t border-neutral-200/60 bg-gradient-to-b from-transparent to-neutral-50/40 py-14 text-sm text-neutral-600 dark:border-neutral-800/60 dark:to-neutral-900/20 dark:text-neutral-400">
+      <div className="flex w-full justify-between px-0">
+        <div className="flex w-full justify-between">
+          <div className="sm:col-span-3">
+            <Link href="/" className="gap-sm flex items-center">
+              <Image
+                src="quartzui-light.svg"
+                alt="logo"
+                width={22}
+                height={22}
+                className="hidden dark:inline"
+              />
+              <Image
+                src="quartzui-dark.svg"
+                alt="logo"
+                width={22}
+                height={22}
+                className="inline dark:hidden"
+              />
+              <h3 className="text-h5 hidden font-bold text-white sm:block">
+                Quartz UI
+              </h3>
+            </Link>
+            <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-500 dark:text-neutral-200">
+              A small collection of animated, accessible React components built
+              with care.
+            </p>
+            <p className="text-para mt-4 text-neutral-500 dark:text-neutral-200">
+              A project by{' '}
+              <a
+                href="https://github.com/"
+                className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Shahzaib
+              </a>
+              . Building in public at{' '}
+              <a
+                href="https://x.com/"
+                className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                target="_blank"
+                rel="noreferrer"
+              >
+                @quartzui
+              </a>
+              .
+            </p>
+            <p className="mt-6 text-[12px] text-neutral-500">
+              © {year} QuartzUI
+            </p>
+          </div>
+
+          <div>
+            <nav
+              aria-label="Footer"
+              className="gap-2xl grid grid-cols-2 sm:grid-cols-3"
+            >
+              <FooterColumn
+                title="Explore"
+                links={[
+                  { label: 'Components', href: '/components' },
+                  { label: 'Templates', href: '/templates' },
+                  { label: 'Showcase', href: '/showcase' },
+                  { label: 'Playground', href: '/play' },
+                ]}
+              />
+              <FooterColumn
+                title="Resources"
+                links={[
+                  { label: 'Docs', href: '/docs' },
+                  { label: 'Guides', href: '/docs/guides' },
+                  { label: 'Changelog', href: '/docs/changelog' },
+                  { label: 'FAQ', href: '/docs/faq' },
+                ]}
+              />
+              <FooterColumn
+                title="Community"
+                links={[
+                  {
+                    label: 'GitHub',
+                    href: 'https://github.com/',
+                    external: true,
+                  },
+                  {
+                    label: 'Discord',
+                    href: 'https://discord.com/',
+                    external: true,
+                  },
+                  { label: 'Twitter', href: 'https://x.com/', external: true },
+                  {
+                    label: 'Sponsor',
+                    href: 'https://github.com/sponsors',
+                    external: true,
+                  },
+                ]}
+              />
+            </nav>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: { label: string; href: string; external?: boolean }[];
+}) {
+  return (
+    <div>
+      <h3 className="mb-3 text-xs font-medium tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
+        {title}
+      </h3>
+      <ul className="space-y-2">
+        {links.map((link) => (
+          <li key={link.label}>
+            {link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                href={link.href}
+                className="text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
+              >
+                {link.label}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
