@@ -1,6 +1,5 @@
 import Badge from '@/components/Badge';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { IconBrandReact } from '@tabler/icons-react';
 
 const meta = {
   title: 'Badge',
@@ -16,16 +15,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'React.js',
-    icon: IconBrandReact,
+    label: 'Tailwindcss',
     variant: 'cyan',
   },
 };
 
 export const Red: Story = {
   args: {
-    label: 'React.js',
-    icon: IconBrandReact,
+    label: 'Next.js',
     variant: 'red',
   },
 };
@@ -33,7 +30,26 @@ export const Red: Story = {
 export const Green: Story = {
   args: {
     label: 'React.js',
-    icon: IconBrandReact,
-    variant: 'green',
+  },
+};
+
+export const Blue: Story = {
+  args: {
+    label: 'TypeScript',
+    variant: 'blue',
+  },
+};
+
+export const Yellow: Story = {
+  args: {
+    label: 'JavaScript',
+    variant: 'yellow',
+  },
+};
+
+export const Purple: Story = {
+  args: {
+    label: 'GraphQL',
+    variant: 'purple',
   },
 };
