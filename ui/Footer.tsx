@@ -38,16 +38,16 @@ export default function Footer() {
               <p className="text-para mt-4 text-neutral-500 dark:text-neutral-400">
                 A project by{' '}
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/shazab-saifi"
                   className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Shahzaib
+                  Shazab
                 </a>
                 . Building in public at{' '}
                 <a
-                  href="https://x.com/"
+                  href="https://x.com/shazabsaifi_s9"
                   className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
                   target="_blank"
                   rel="noreferrer"

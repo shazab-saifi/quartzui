@@ -17,7 +17,7 @@ const page = () => {
           <AnimatedButtonMdx />
         </DocsLayout>
       </div>
-      <div className="space-y-sm sticky top-30 h-fit max-w-54 rounded-lg bg-conic-180 [background-image:conic-gradient(from_180deg_at_0%_0%,theme(colors.indigo.600),theme(colors.neutral.700),theme(colors.neutral.900))] from-neutral-800 to-neutral-900 [background-position:top_left] [background-origin:padding-box] p-4">
+      <div className="space-y-sm sticky top-30 h-fit max-w-54 rounded-lg [background-image:conic-gradient(from_180deg_at_0%_0%,theme(colors.indigo.600),theme(colors.neutral.700),theme(colors.neutral.900))] [background-position:top_left] [background-origin:padding-box] p-4">
         <p className="text-para font-semibold text-neutral-200">
           Hii, I&apos;m Shazab. I&apos;m the creater of Quartz UI.
         </p>
