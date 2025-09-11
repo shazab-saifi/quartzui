@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
 export type AnimatedButtonProps = {
   label: string;
@@ -20,44 +20,28 @@ const AnimatedButton = ({
   disabled = false,
 }: AnimatedButtonProps) => {
   return (
-    <motion.button
+    <button
       type={type}
       aria-label={ariaLabel ?? label}
       disabled={disabled}
-      initial={{
-        backgroundImage:
-          'linear-gradient(to right, black, black), linear-gradient(0deg, beige, blue, black 40%)',
-      }}
-      animate={{
-        backgroundImage:
-          'linear-gradient(360deg, beige, blue, black 40%), linear-gradient(360deg, beige, blue, black 40%)',
-      }}
-      transition={{
-        type: 'tween',
-        ease: 'linear',
-        duration: 3,
-        repeat: Infinity,
-      }}
-      whileTap={{ scale: 0.98 }}
-      style={{
-        border: '2px solid transparent',
-        borderRadius: '20px',
-        backgroundClip: 'padding-box, border-box',
-        backgroundOrigin: 'padding-box, border-box',
-        width: 160,
-        height: 40,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        opacity: disabled ? 0.6 : 1,
-        cursor: disabled ? 'not-allowed' : 'pointer',
-      }}
       onClick={onClick}
-      className={className}
+      className={cn(
+        'relative h-12 w-32 overflow-hidden rounded-full bg-black p-[2px] text-white',
+        className
+      )}
     >
-      {label}
-    </motion.button>
+      <div
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full scale-[1.4] animate-spin rounded-full [background-image:conic-gradient(at_center,transparent,#00b4d8_20%,transparent_30%)] [animation-duration:1.5s]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full scale-[1.4] animate-spin rounded-full [background-image:conic-gradient(at_center,transparent,#0077b6_20%,transparent_30%)] [animation-delay:0.8s] [animation-duration:1.5s]"
+        aria-hidden="true"
+      />
+      <div className="relative z-20 flex h-full w-full items-center justify-center rounded-full bg-black px-6 py-2">
+        {label}
+      </div>
+    </button>
   );
 };
 
