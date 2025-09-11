@@ -6,7 +6,7 @@ import DocsLayout from '@/docs/layout';
 const page = () => {
   return (
     <div className="flex w-full justify-between">
-      <div className="w-64 flex-shrink-0">
+      <div className="w-54 flex-shrink-0">
         <ComponentsBar />
       </div>
       <div className="ml-4 p-6">
