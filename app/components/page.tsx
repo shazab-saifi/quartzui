@@ -12,7 +12,7 @@ const page = () => {
       <div className="ml-4 p-6">
         <DocsLayout>
           {/* <ButtonMdx /> */}
-          <hr className="my-8" />
+          {/* <hr className="my-8" /> */}
           <AnimatedButtonMdx />
         </DocsLayout>
       </div>

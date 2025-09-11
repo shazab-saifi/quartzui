@@ -5,63 +5,67 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-neutral-200/60 bg-gradient-to-b from-transparent to-neutral-50/40 py-14 text-sm text-neutral-600 dark:border-neutral-800/60 dark:to-neutral-900/20 dark:text-neutral-400">
-      <div className="flex w-full justify-between px-0">
-        <div className="flex w-full justify-between">
-          <div className="sm:col-span-3">
-            <Link href="/" className="gap-sm flex items-center">
-              <Image
-                src="quartzui-light.svg"
-                alt="logo"
-                width={22}
-                height={22}
-                className="hidden dark:inline"
-              />
-              <Image
-                src="quartzui-dark.svg"
-                alt="logo"
-                width={22}
-                height={22}
-                className="inline dark:hidden"
-              />
-              <h3 className="text-h5 hidden font-bold text-white sm:block">
-                Quartz UI
-              </h3>
-            </Link>
-            <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-500 dark:text-neutral-200">
-              A small collection of animated, accessible React components built
-              with care.
-            </p>
-            <p className="text-para mt-4 text-neutral-500 dark:text-neutral-200">
-              A project by{' '}
-              <a
-                href="https://github.com/"
-                className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Shahzaib
-              </a>
-              . Building in public at{' '}
-              <a
-                href="https://x.com/"
-                className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
-                target="_blank"
-                rel="noreferrer"
-              >
-                @quartzui
-              </a>
-              .
-            </p>
-            <p className="mt-6 text-[12px] text-neutral-500">
-              © {year} QuartzUI
-            </p>
+    <footer className="mt-16 w-full border-t border-neutral-200/60 py-8 text-sm text-neutral-600 sm:mt-20 sm:px-20 sm:py-12 lg:mt-24 lg:py-14 xl:px-50 dark:border-neutral-800/60 dark:text-neutral-400">
+      <div className="flex w-full flex-col justify-between md:flex-row">
+        <div className="flex w-full flex-col justify-between md:flex-row">
+          <div className="space-y-8 sm:space-y-16 lg:space-y-20">
+            <div>
+              <Link href="/" className="gap-sm flex items-center">
+                <Image
+                  src="quartzui-light.svg"
+                  alt="logo"
+                  width={22}
+                  height={22}
+                  className="hidden dark:inline"
+                />
+                <Image
+                  src="quartzui-dark.svg"
+                  alt="logo"
+                  width={22}
+                  height={22}
+                  className="inline dark:hidden"
+                />
+                <h3 className="text-h5 hidden font-bold text-black sm:block dark:text-white">
+                  Quartz UI
+                </h3>
+              </Link>
+              <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-500 dark:text-neutral-200">
+                A small collection of animated, accessible React components
+                built with care.
+              </p>
+            </div>
+            <div>
+              <p className="text-para mt-4 text-neutral-500 dark:text-neutral-400">
+                A project by{' '}
+                <a
+                  href="https://github.com/"
+                  className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Shahzaib
+                </a>
+                . Building in public at{' '}
+                <a
+                  href="https://x.com/"
+                  className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  @quartzui
+                </a>
+                .
+              </p>
+              <p className="mt-4 text-[12px] text-neutral-500 sm:mt-6">
+                © {year} QuartzUI
+              </p>
+            </div>
           </div>
 
-          <div>
+          <div className="mt-xl md:mt-0">
             <nav
               aria-label="Footer"
-              className="gap-2xl grid grid-cols-2 sm:grid-cols-3"
+              className="gap-xl md:gap-2xl grid grid-cols-2 sm:grid-cols-3"
             >
               <FooterColumn
                 title="Explore"
@@ -119,10 +123,10 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h3 className="mb-3 text-xs font-medium tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
+      <h3 className="mb-3 text-xs font-medium tracking-wider text-neutral-500 uppercase sm:mb-4 dark:text-neutral-400">
         {title}
       </h3>
-      <ul className="space-y-2">
+      <ul className="space-y-2 sm:space-y-3">
         {links.map((link) => (
           <li key={link.label}>
             {link.external ? (
