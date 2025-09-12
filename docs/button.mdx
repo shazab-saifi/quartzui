@@ -1,11 +1,104 @@
-# Welcome to my MDX page!
+# Button
 
-This is some **bold** and _italics_ text.
+import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
 
-This is a list in markdown:
+A simple, accessible button component for all your UI actions.
 
-- One
-- Two
-- Three
+## Live Preview
 
-Checkout my React component:
+<div className="not-prose">
+  <LiveCode code={`<Button>Click me</Button>`} />
+</div>
+
+## Usage
+
+To use the button component, import it from `@/components/Button`.
+
+<CodeBlock code={`import { Button } from '@/components/Button';`} />
+
+## Variants
+
+The button comes in four variants: `primary`, `secondary`, `gradient`, and `destructive`.
+
+### Primary
+
+The primary button is the default button.
+
+<div className="not-prose">
+  <LiveCode code={`<Button variant="primary">Primary Button</Button>`} />
+</div>
+
+<CodeBlock code={`<Button variant="primary">Primary Button</Button>`} />
+
+### Secondary
+
+The secondary button is a button with a white background and black text.
+
+<div className="not-prose">
+  <LiveCode code={`<Button variant="secondary">Secondary Button</Button>`} />
+</div>
+
+<CodeBlock code={`<Button variant="secondary">Secondary Button</Button>`} />
+
+### Gradient
+
+The gradient button is a button with a gradient background.
+
+<div className="not-prose">
+  <LiveCode code={`<Button variant="gradient">Gradient Button</Button>`} />
+</div>
+
+<CodeBlock code={`<Button variant="gradient">Gradient Button</Button>`} />
+
+### Destructive
+
+The destructive button is a button with a red background.
+
+<div className="not-prose">
+  <LiveCode
+    code={`<Button variant="destructive">Destructive Button</Button>`}
+  />
+</div>
+
+<CodeBlock code={`<Button variant="destructive">Destructive Button</Button>`} />
+
+## Sizes
+
+The button comes in three sizes: `sm`, `md`, and `lg`.
+
+### Small
+
+<div className="not-prose">
+  <LiveCode code={`<Button size="sm">Small Button</Button>`} />
+</div>
+
+<CodeBlock code={`<Button size="sm">Small Button</Button>`} />
+
+### Medium
+
+The medium button is the default button size.
+
+<div className="not-prose">
+  <LiveCode code={`<Button size="md">Medium Button</Button>`} />
+</div>
+
+<CodeBlock code={`<Button size="md">Medium Button</Button>`} />
+
+### Large
+
+<div className="not-prose">
+  <LiveCode code={`<Button size="lg">Large Button</Button>`} />
+</div>
+
+<CodeBlock code={`<Button size="lg">Large Button</Button>`} />
+
+## Loader
+
+The button can show a loader.
+
+<div className="not-prose">
+  <LiveCode code={`<Button loader>Loading...</Button>`} />
+</div>
+
+<CodeBlock code={`<Button loader>Loading...</Button>`} />

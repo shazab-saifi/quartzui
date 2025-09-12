@@ -1,0 +1,45 @@
+# Sidebar
+
+import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
+
+A collapsible sidebar component with sections and items.
+
+## Live Preview
+
+<div className="not-prose">
+  <LiveCode code={`<Sidebar />`} />
+</div>
+
+## Usage
+
+To use the sidebar component, import it from `@/components/Sidebar`.
+
+<CodeBlock code={`import Sidebar from '@/components/Sidebar';`} />
+
+## Props
+
+The sidebar component takes the following optional props:
+
+- `sections`: An array of sections, each with a title and an array of items.
+- `profile`: An object with the user's avatar, name, and email.
+
+<CodeBlock
+  code={`
+interface SidebarProps {
+  sections?: {
+    title: string;
+    items: {
+      title: string;
+      icon: React.ReactElement;
+      href: string;
+    }[];
+  }[];
+  profile?: {
+    avatar: string;
+    name: string;
+    email: string;
+  };
+}
+`}
+/>

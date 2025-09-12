@@ -1,0 +1,46 @@
+# Accordion
+
+import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
+
+A component that displays a list of items that can be expanded or collapsed.
+
+## Live Preview
+
+<div className="not-prose">
+  <LiveCode code={`<Accordion />`} />
+</div>
+
+## Usage
+
+To use the accordion component, import it from `@/components/Accordion`.
+
+<CodeBlock code={`import Accordion from '@/components/Accordion';`} />
+
+## Props
+
+The accordion component takes an optional `items` prop, which is an array of objects with `title` and `content` properties.
+
+<CodeBlock code={`
+interface AccordionItem {
+  title: string;
+  content: React.ReactNode;
+}
+
+const items: AccordionItem[] = [
+{
+title: 'Section 1',
+content: <div>Lorem ipsum dolor sit amet...</div>,
+},
+{
+title: 'Section 2',
+content: <div>Sed do eiusmod tempor incididunt...</div>,
+},
+{
+title: 'Section 3',
+content: <div>Duis aute irure dolor in reprehenderit...</div>,
+},
+];
+
+<Accordion items={items} />
+`} />

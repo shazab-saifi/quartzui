@@ -3,56 +3,40 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 
-A minimal, animated CTA button with a subtle moving gradient border powered by `motion`.
+A button with a cool animation.
 
 ## Live Preview
 
 <div className="not-prose">
-  <LiveCode
-    code={`<AnimatedButton label="Get Started" onClick={() => alert('Clicked!')} className="w-48 text-sm" />`}
-  />
+  <LiveCode code={`<AnimatedButton label="Button" />`} />
 </div>
-
-## When to use
-
-- **Call to action**: primary actions like Submit, Continue, or Buy
-- **Interactive touch**: add motion without overwhelming the UI
-
-## Import
-
-<div className="not-prose">
-  <CodeBlock
-    code={`import AnimatedButton from '@/components/AnimatedButton';`}
-    language="tsx"
-  />
-</div>
-
-## Props
-
-- **label**: string – button text
-- **onClick**: () => void – click handler
-- **className**: string (optional) – extend styles (e.g. width, font)
 
 ## Usage
 
-<div className="not-prose">
-  <CodeBlock
-    language="tsx"
-    code={`import AnimatedButton from '@/components/AnimatedButton';
+To use the animated button component, import it from `@/components/AnimatedButton`.
 
-export default function Example() {
-  return (
-    <AnimatedButton
-      label="Get Started"
-      onClick={() => alert('Clicked!')}
-      className="w-48 text-sm"
-    />
-  );
-}`}
-  />
-</div>
+<CodeBlock code={`import AnimatedButton from '@/components/AnimatedButton';`} />
 
-## Notes
+## Props
 
-- The component uses an animated gradient border via `background-clip`.
-- You can override dimensions and typography with `className`.
+The animated button component takes the following props:
+
+- `label`: The text to display on the button.
+- `onClick`: The function to call when the button is clicked.
+- `className`: Additional classes to apply to the button.
+- `type`: The type of the button.
+- `ariaLabel`: The aria-label for the button.
+- `disabled`: Whether the button is disabled.
+
+<CodeBlock
+  code={`
+export type AnimatedButtonProps = {
+  label: string;
+  onClick: () => void;
+  className?: string;
+  type?: 'button' | 'submit' | 'reset';
+  ariaLabel?: string;
+  disabled?: boolean;
+};
+`}
+/>

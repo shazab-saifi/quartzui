@@ -1,0 +1,60 @@
+# Badge
+
+import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
+
+A component to display a badge with a label and a colored dot.
+
+## Live Preview
+
+<div className="not-prose">
+  <LiveCode code={`<Badge label="Badge" />`} />
+</div>
+
+## Usage
+
+To use the badge component, import it from `@/components/Badge`.
+
+<CodeBlock code={`import Badge from '@/components/Badge';`} />
+
+## Variants
+
+The badge comes in six variants: `green`, `cyan`, `red`, `blue`, `yellow`, and `purple`.
+
+<div className="not-prose flex gap-4">
+  <LiveCode code={`<Badge label="Green" variant="green" />`} />
+  <LiveCode code={`<Badge label="Cyan" variant="cyan" />`} />
+  <LiveCode code={`<Badge label="Red" variant="red" />`} />
+  <LiveCode code={`<Badge label="Blue" variant="blue" />`} />
+  <LiveCode code={`<Badge label="Yellow" variant="yellow" />`} />
+  <LiveCode code={`<Badge label="Purple" variant="purple" />`} />
+</div>
+
+<CodeBlock
+  code={`
+<Badge label="Green" variant="green" />
+<Badge label="Cyan" variant="cyan" />
+<Badge label="Red" variant="red" />
+<Badge label="Blue" variant="blue" />
+<Badge label="Yellow" variant="yellow" />
+<Badge label="Purple" variant="purple" />
+`}
+/>
+
+## Props
+
+The badge component takes the following props:
+
+- `label`: The text to display on the badge.
+- `variant`: The color of the badge.
+- `className`: Additional classes to apply to the badge.
+
+<CodeBlock
+  code={`
+{
+  label: string;
+  variant?: 'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple';
+  className?: string;
+}
+`}
+/>

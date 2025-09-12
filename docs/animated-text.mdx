@@ -1,0 +1,31 @@
+# Animated Text
+
+import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
+
+A component that animates text word by word.
+
+## Live Preview
+
+<div className="not-prose">
+  <LiveCode code={`<AnimatedText text="This is an animated text." />`} />
+</div>
+
+## Usage
+
+To use the animated text component, import it from `@/components/AnimatedText`.
+
+<CodeBlock code={`import AnimatedText from '@/components/AnimatedText';`} />
+
+## Props
+
+The animated text component takes the following props:
+
+- `text`: The text to animate.
+- `className`: Additional classes to apply to the text.
+
+<CodeBlock
+  code={`
+<AnimatedText text="This is an animated text." className="text-2xl" />
+`}
+/>
