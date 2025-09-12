@@ -26,7 +26,7 @@ const AnimatedButton = ({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'relative h-12 w-32 overflow-hidden rounded-full bg-black p-[2px] text-white',
+        'relative h-12 w-32 overflow-hidden rounded-full bg-neutral-100 p-[2px] dark:bg-black',
         className
       )}
     >
@@ -38,7 +38,7 @@ const AnimatedButton = ({
         className="pointer-events-none absolute inset-0 z-10 h-full w-full scale-[1.4] animate-spin rounded-full [background-image:conic-gradient(at_center,transparent,#0077b6_20%,transparent_30%)] [animation-delay:0.8s] [animation-duration:1.5s]"
         aria-hidden="true"
       />
-      <div className="relative z-20 flex h-full w-full items-center justify-center rounded-full bg-black px-6 py-2">
+      <div className="relative z-20 flex h-full w-full items-center justify-center rounded-full bg-white px-6 py-2 text-black dark:bg-black dark:text-white">
         {label}
       </div>
     </button>

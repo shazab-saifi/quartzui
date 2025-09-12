@@ -9,37 +9,37 @@ export default function Footer() {
       <div className="flex w-full flex-col justify-between md:flex-row">
         <div className="flex w-full flex-col justify-between md:flex-row">
           <div className="space-y-8 sm:space-y-16 lg:space-y-20">
-            <div>
-              <Link href="/" className="gap-sm flex items-center">
-                <Image
-                  src="quartzui-light.svg"
-                  alt="logo"
-                  width={22}
-                  height={22}
-                  className="hidden dark:inline"
-                />
-                <Image
-                  src="quartzui-dark.svg"
-                  alt="logo"
-                  width={22}
-                  height={22}
-                  className="inline dark:hidden"
-                />
-                <h3 className="text-h5 hidden font-bold text-black sm:block dark:text-white">
-                  Quartz UI
-                </h3>
-              </Link>
-              <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-500 dark:text-neutral-200">
-                A small collection of animated, accessible React components
-                built with care.
-              </p>
-            </div>
-            <div>
-              <p className="text-para mt-4 text-neutral-500 dark:text-neutral-400">
+            <div className="space-y-lg">
+              <div>
+                <Link href="/" className="gap-sm flex items-center">
+                  <Image
+                    src="quartzui-light.svg"
+                    alt="logo"
+                    width={22}
+                    height={22}
+                    className="hidden dark:inline"
+                  />
+                  <Image
+                    src="quartzui-dark.svg"
+                    alt="logo"
+                    width={22}
+                    height={22}
+                    className="inline dark:hidden"
+                  />
+                  <h3 className="text-h5 hidden font-bold text-black sm:block dark:text-white">
+                    Quartz UI
+                  </h3>
+                </Link>
+                <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-500 dark:text-neutral-200">
+                  A small collection of animated, accessible React components
+                  built with care.
+                </p>
+              </div>
+              <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
                 A project by{' '}
                 <a
                   href="https://github.com/shazab-saifi"
-                  className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                  className="font-semibold text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:text-sky-500 dark:decoration-neutral-700 dark:hover:text-neutral-200"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -48,7 +48,7 @@ export default function Footer() {
                 . Building in public at{' '}
                 <a
                   href="https://x.com/shazabsaifi_s9"
-                  className="underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                  className="font-semibold text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:text-sky-500 dark:decoration-neutral-700 dark:hover:text-neutral-200"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -56,10 +56,10 @@ export default function Footer() {
                 </a>
                 .
               </p>
-              <p className="mt-4 text-[12px] text-neutral-500 sm:mt-6">
-                © {year} QuartzUI
-              </p>
             </div>
+            <p className="mt-4 text-[12px] text-neutral-500 sm:mt-6">
+              © {year} QuartzUI
+            </p>
           </div>
 
           <div className="mt-xl md:mt-0">
