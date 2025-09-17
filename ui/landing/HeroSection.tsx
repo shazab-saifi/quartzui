@@ -26,7 +26,7 @@ const HeroSection = () => {
         <h1 className="xl:text-h1 md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold">
           Build Beautiful Interfaces, Faster with Quartz UI
         </h1>
-        <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-400">
+        <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 dark:text-neutral-400">
           Our UI library gives you elegant, production-ready components built
           for speed, flexibility, and creativity. Design smarter, ship faster,
           and focus on what truly matters — your product.
@@ -51,7 +51,10 @@ const HeroSection = () => {
       </div>
       <div className="mt-20 flex w-[80%] justify-between">
         {items.map(({ title, icon: Icon }, idx) => (
-          <div key={idx} className="flex items-center gap-2 text-neutral-400">
+          <div
+            key={idx}
+            className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400"
+          >
             <Icon className="size-8" />
             <span className="text-2xl">{title}</span>
           </div>
