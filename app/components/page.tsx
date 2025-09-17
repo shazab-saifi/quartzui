@@ -68,17 +68,17 @@ const Page = () => {
     componentDocs[getClickedComponentTitle() || 'Button'];
 
   return (
-    <div className="flex w-full justify-between">
+    <div className="mt-16 flex w-full justify-between">
       <div className="w-54 flex-shrink-0">
         <ComponentsBar
           clickedItem={clickedItem}
           setClickedItem={setClickedItem}
         />
       </div>
-      <div className="ml-4 p-6">
+      <div>
         <DocsLayout>{ComponentToRender && <ComponentToRender />}</DocsLayout>
       </div>
-      <div className="space-y-sm mt-16 h-fit max-w-54 rounded-lg border border-neutral-200 bg-neutral-100 [background-position:top_left] [background-origin:padding-box] p-4 dark:border-none dark:[background-image:conic-gradient(from_180deg_at_0%_0%,theme(colors.indigo.600),theme(colors.neutral.700),theme(colors.neutral.900))]">
+      <div className="space-y-sm h-fit max-w-54 rounded-lg border border-neutral-200 [background-image:linear-gradient(125deg,theme(colors.neutral.100),theme(colors.neutral.50))] [background-position:0_0] [background-origin:padding-box] p-4 dark:border-none dark:[background-image:linear-gradient(125deg,theme(colors.neutral.800),theme(colors.neutral.900))]">
         <p className="text-para font-semibold text-black dark:text-neutral-200">
           Hii, I&apos;m Shazab. I&apos;m the creater of Quartz UI.
         </p>
@@ -91,6 +91,9 @@ const Page = () => {
             size="sm"
             variant="secondary"
             className="rounded-xl bg-neutral-200 font-normal text-black hover:bg-neutral-300"
+            onClick={() =>
+              window.open('https://x.com/shazabsaifi_s9', '_blank')
+            }
           >
             Follor on 𝕏
           </Button>

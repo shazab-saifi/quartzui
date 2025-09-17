@@ -1,12 +1,9 @@
-import React from 'react';
-// import FloatingDock from './FloatingDock';
-import Sidebar from '../components/Sidebar';
+import HeroSection from './landing/HeroSection';
 
 const Landing = () => {
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[96rem] items-center justify-center">
-      {/* <FloatingDock /> */}
-      <Sidebar />
+    <div>
+      <HeroSection />
     </div>
   );
 };

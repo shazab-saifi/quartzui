@@ -1,19 +1,20 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
+import React, { memo } from 'react';
 
 interface HoverObjTypes {
   idx: number | null;
   sectionIdx: number | null;
 }
 
-const ComponentsBar = ({
+const ComponentsBar = memo(function ComponentsBar({
   setClickedItem,
   clickedItem,
 }: {
   setClickedItem: (item: HoverObjTypes) => void;
   clickedItem: HoverObjTypes;
-}) => {
+}) {
   const sections = [
     { title: 'Buttons' },
     { title: 'Cards' },
@@ -84,7 +85,7 @@ const ComponentsBar = ({
   ];
 
   return (
-    <div className="space-y-lg no-scrollbar sticky top-30 max-h-[700px] overflow-y-scroll">
+    <div className="space-y-lg no-scrollbar sticky top-24 max-h-[700px] overflow-y-scroll">
       <h3 className="text-para mb-4 font-semibold">Components</h3>
       <div className="gap-md flex flex-col">
         {sections.map((sec, sectionIdx) => {
@@ -143,6 +144,6 @@ const ComponentsBar = ({
       </div>
     </div>
   );
-};
+});
 
 export default ComponentsBar;
