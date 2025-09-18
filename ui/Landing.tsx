@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import HeroSection from './landing/HeroSection';
 import Testimonials from './landing/Testimonials';
 import UseSection from './landing/UseSection';
@@ -8,6 +9,7 @@ const Landing = () => {
       <HeroSection />
       <UseSection />
       <Testimonials />
+      <Banner />
     </div>
   );
 };

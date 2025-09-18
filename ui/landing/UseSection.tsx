@@ -8,7 +8,7 @@ const features = [
       'Quick and effortless — simply grab the component code from our documentation and drop it directly into your project. It’s the fastest way to experiment, customize instantly, and see results right away without worrying about setup or configuration.',
     buttonText: 'Documentation',
     image: {
-      src: 'copy.png',
+      src: 'copy.webp',
       alt: 'Copy & Paste',
     },
     reverse: false,

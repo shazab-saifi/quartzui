@@ -2,43 +2,43 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import { Button } from './Button';
 
 const Banner = () => {
   return (
-    <motion.div
-      className="relative min-w-4xl overflow-hidden rounded-4xl bg-neutral-950"
-      initial={{
-        borderImage:
-          'linear-gradient(to right, transparent, #0a1a3c00, #2563eb00, #0a1a3c00, transparent) 1',
-      }}
-      animate={{
-        borderImage:
-          'linear-gradient(to right, transparent, #0a1a3cb3, #2563ebb3, #0a1a3cb3, transparent) 1',
-      }}
-      transition={{
-        duration: 1,
-      }}
-      style={{
-        borderStyle: 'solid',
-        borderWidth: '2px',
-      }}
-    >
-      <div className="flex max-w-md flex-col gap-4 px-8 py-16">
-        <h1 className="text-4xl font-semibold">
-          Quartz.ui Presents This Awesome Banner Component
-        </h1>
-        <p className="text-neutral-300">
-          This is a responsive Banner Component designed to enhance your
-          application&apos;s visual appeal. Easily customizable and fully
-          adaptive.
-        </p>
+    <motion.div className="group relative min-w-4xl overflow-hidden rounded-4xl border border-neutral-800 bg-neutral-950">
+      <div className="flex max-w-3xl flex-col gap-12 p-20">
+        <div className="space-y-4">
+          <h1 className="text-4xl font-semibold">
+            Ready to Build Something Amazing?
+          </h1>
+          <p className="max-w-[400px] text-neutral-300">
+            Start using our UI library today and bring your ideas to life
+            faster, cleaner, and smarter. Your next project deserves the best
+            tools.
+          </p>
+        </div>
+        <Button
+          size="sm"
+          variant="secondary"
+          className="w-fit bg-gradient-to-b from-neutral-100 to-neutral-300"
+        >
+          Documentation
+        </Button>
       </div>
       <Image
-        src="https://ui.aceternity.com/linear.webp"
-        alt="demo-image"
-        width={400}
+        src="copy.webp"
+        alt="demo-image1"
+        width={500}
         height={300}
-        className="absolute -right-24 -bottom-4 rounded-xl"
+        className="absolute -right-4 -bottom-18 -rotate-6 rounded-lg border border-neutral-800 transition-transform duration-300 group-hover:scale-[1.05] group-hover:-rotate-[8deg]"
+      />
+      <Image
+        src="demo-white.webp"
+        alt="demo-image2"
+        width={500}
+        height={300}
+        className="absolute -right-24 -bottom-8 -rotate-[4deg] rounded-lg border transition-transform duration-300 group-hover:scale-[1.05] group-hover:-rotate-[6deg]"
       />
     </motion.div>
   );
