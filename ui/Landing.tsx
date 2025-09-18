@@ -5,7 +5,7 @@ import UseSection from './landing/UseSection';
 
 const Landing = () => {
   return (
-    <div className="space-y-50">
+    <div className="space-y-24 md:space-y-32 lg:space-y-40 xl:space-y-50">
       <HeroSection />
       <UseSection />
       <Testimonials />

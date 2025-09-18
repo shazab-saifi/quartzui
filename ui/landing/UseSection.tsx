@@ -40,39 +40,42 @@ const FeatureSection = ({
   reverse?: boolean;
 }) => (
   <div
-    className={`flex items-center gap-40 ${reverse ? 'flex-row-reverse' : ''}`}
+    className={`flex flex-col-reverse items-center gap-8 md:flex-row md:gap-12 lg:gap-40 ${reverse ? 'md:flex-row-reverse' : ''} `}
   >
-    <div className="flex-1 space-y-12">
-      <div className="flex flex-col gap-4">
-        <h3 className="text-3xl font-bold">{title}</h3>
+    <div className="flex w-full flex-col space-y-8 md:w-1/2 md:space-y-16">
+      <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
+        <h3 className="text-xl font-bold md:text-3xl">{title}</h3>
         <p className="md:text-para lg:text-para-big max-w-3xl text-sm text-neutral-600 dark:text-neutral-400">
           {description}
         </p>
       </div>
       <Button
-        className="bg-gradient-to-b from-neutral-100 to-neutral-300"
+        className="w-fit bg-gradient-to-b from-neutral-100 to-neutral-300"
         size="sm"
         variant="secondary"
       >
         {buttonText}
       </Button>
     </div>
-    <div className="flex-1 rounded-3xl bg-gradient-to-t from-neutral-100 to-white p-4 dark:from-neutral-950 dark:to-neutral-900">
-      <Image
-        src={image.src}
-        className="rounded-lg"
-        alt={image.alt}
-        width={764}
-        height={300}
-      />
+    <div className="flex w-full items-center justify-center md:w-1/2">
+      <div className="w-full rounded-3xl bg-gradient-to-t from-neutral-100 to-white p-2 sm:p-4 dark:from-neutral-950 dark:to-neutral-900">
+        <Image
+          src={image.src}
+          className="h-auto w-full rounded-lg object-cover"
+          alt={image.alt}
+          width={764}
+          height={300}
+          sizes="(max-width: 768px) 100vw, 764px"
+        />
+      </div>
     </div>
   </div>
 );
 
 const UseSection = () => (
-  <div className="space-y-32">
-    <div className="flex flex-col items-center gap-4">
-      <h3 className="text-h4 text-center font-semibold">
+  <div className="space-y-16 md:space-y-32">
+    <div className="flex flex-col items-center gap-4 md:gap-6">
+      <h3 className="md:text-h4 text-h5 text-center leading-7 font-semibold">
         We&apos;ve Awesome Components for you
       </h3>
       <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 dark:text-neutral-400">
@@ -80,7 +83,7 @@ const UseSection = () => (
         your project, depending on what best fits your workflow.
       </p>
     </div>
-    <div className="space-y-32">
+    <div className="space-y-20 md:space-y-32">
       {features.map((feature, idx) => (
         <FeatureSection key={idx} {...feature} />
       ))}
