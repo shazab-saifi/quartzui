@@ -7,7 +7,7 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
   const [clickedIndex, setClickedIndex] = useState<number>(0);
 
   return (
-    <div className="flex rounded-full border border-neutral-200 bg-black/30 p-2 backdrop-blur-xs dark:border-neutral-800 dark:bg-black/40">
+    <div className="mx-auto flex w-fit rounded-full border border-neutral-200 bg-black/30 p-2 text-sm backdrop-blur-xs dark:border-neutral-800 dark:bg-black/40">
       {tabs.map((str, idx) => (
         <button
           onClick={() => setClickedIndex(idx)}
