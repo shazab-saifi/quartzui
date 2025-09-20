@@ -26,7 +26,7 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
                 transition={{
                   type: 'spring',
                   duration: 0.3,
-                  damping: 50,
+                  damping: 30,
                   stiffness: 300,
                 }}
                 className="absolute top-0 left-0 z-0 h-full w-full rounded-full bg-neutral-100"

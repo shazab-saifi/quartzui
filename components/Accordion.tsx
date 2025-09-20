@@ -151,7 +151,7 @@ const Accordion = ({ items = defaultItems }: { items?: AccordionItem[] }) => {
   return (
     <div
       ref={containerRef}
-      className={`relative w-lg rounded-md bg-white text-sm dark:bg-neutral-950`}
+      className={`relative max-w-192 rounded-md bg-white text-sm dark:bg-neutral-950`}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
