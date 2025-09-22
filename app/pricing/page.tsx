@@ -11,10 +11,25 @@ interface PlanType {
 }
 
 const PricingCard = ({ plan }: { plan: PlanType }) => {
-  const isProfessional = plan.title === 'Professional' ? true : false;
+  const isProfessional = plan.title === 'Professional';
+  const isEnterprise = plan.title === 'Enterprise';
+
+  let bgGradient;
+  if (isProfessional) {
+    bgGradient =
+      'bg-[radial-gradient(circle_at_top,theme(colors.neutral.700),theme(colors.neutral.950),theme(colors.neutral.950))]';
+  } else if (isEnterprise) {
+    bgGradient =
+      'bg-[radial-gradient(circle_at_top_left,theme(colors.neutral.700),theme(colors.neutral.950),theme(colors.neutral.950),theme(colors.neutral.950))]';
+  } else {
+    bgGradient =
+      'bg-[radial-gradient(circle_at_top_right,theme(colors.neutral.700),theme(colors.neutral.950),theme(colors.neutral.950),theme(colors.neutral.950))]';
+  }
 
   return (
-    <div className="mx-auto flex w-84 flex-col justify-between gap-20 rounded-2xl border-2 border-transparent bg-[conic-gradient(at_top_left,_theme(colors.neutral.700),_theme(colors.neutral.950),_theme(colors.neutral.950),_theme(colors.neutral.700))] p-4 md:min-h-[800px] md:w-92 md:p-6">
+    <div
+      className={`mx-auto flex w-84 flex-col justify-between gap-20 rounded-2xl border border-neutral-800 md:rounded-3xl ${bgGradient} p-4 md:min-h-[800px] md:w-92 md:p-6`}
+    >
       <div className="space-y-9">
         <div className="space-y-md md:space-y-6">
           <div
@@ -143,14 +158,14 @@ const page = () => {
         </div>
         <div className="w-full space-y-8 md:space-y-12">
           <TabSelect tabs={['Monthly', 'Yearly']} />
-          <div className="flex w-full flex-wrap gap-16 md:gap-24">
+          <div className="flex w-full flex-wrap gap-16">
             {plans.map((plan) => (
               <PricingCard key={plan.title} plan={plan} />
             ))}
           </div>
         </div>
       </div>
-      <div className="mt-32 space-y-16">
+      <div className="mt-32 space-y-12 md:space-y-16">
         <h1 className="md:text-h4 text-h5 text-center leading-7 font-semibold">
           Frequently Asked Questions
         </h1>

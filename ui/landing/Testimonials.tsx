@@ -65,7 +65,7 @@ const Testimonials = () => {
       <h3 className="md:text-h4 text-h5 text-center leading-7 font-semibold">
         Our Trusted Users
       </h3>
-      <div className="mt-10 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
+      <div className="mt-12 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
         {testimonials.map((testimonial, idx) => (
           <div
             key={idx}

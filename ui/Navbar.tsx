@@ -14,7 +14,6 @@ const Navbar = () => {
     { title: 'Components', link: '/components' },
     { title: 'Pricing', link: '/pricing' },
     { title: 'Owner', link: '/owner' },
-    { title: 'Templates', link: '/templates' },
   ];
 
   return (

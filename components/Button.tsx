@@ -15,8 +15,9 @@ const buttonVariants = tv({
   base: 'font-medium bg-blue-500 text-white rounded-lg active:opacity-80 transition-colors cursor-pointer inline-flex gap-2 items-center justify-center',
   variants: {
     color: {
-      primary: 'bg-black hover:bg-neutral-900 border-1 border-neutral-800',
-      secondary: 'bg-white text-black hover:bg-neutral-200',
+      primary:
+        'bg-neutral-950 hover:bg-neutral-900 border-1 border-neutral-800',
+      secondary: 'bg-neutral-100 text-black hover:bg-neutral-200',
       gradient:
         'bg-linear-65 from-purple-500 to-pink-500 rounded-full font-semibold hover:ring-1',
       destructive: 'bg-red-500 hover:bg-red-400',

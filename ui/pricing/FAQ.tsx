@@ -18,7 +18,7 @@ const FAQ = ({ faqs }: { faqs: { qes: string; ans: string }[] }) => {
           className="mx-auto max-w-192 border-b border-neutral-200 pb-6 last:border-b-0 dark:border-white/10"
         >
           <button
-            className="flex w-full items-center justify-between py-3 text-left text-neutral-900 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-white dark:focus-visible:ring-white/30"
+            className="flex w-full cursor-pointer items-center justify-between py-3 text-left text-neutral-900 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-white dark:focus-visible:ring-white/30"
             onClick={() => handleToggle(idx)}
             aria-expanded={openIndex === idx}
             aria-controls={`accordion-content-${idx}`}
@@ -36,7 +36,7 @@ const FAQ = ({ faqs }: { faqs: { qes: string; ans: string }[] }) => {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-plus"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-plus shrink-0"
             >
               <path stroke="none" d="M0 0h24v24H0z" />
               <path
