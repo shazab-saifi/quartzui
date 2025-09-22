@@ -78,8 +78,7 @@ const PointerCard = ({
   className,
   title,
 }: {
-  // children is temporarily optional
-  children?: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
   title?: string;
 }) => {
