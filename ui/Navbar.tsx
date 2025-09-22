@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 left-0 z-50 flex w-full items-center justify-between border-b border-neutral-100 bg-white px-4 py-4 sm:px-16 md:px-20 2xl:px-70 dark:border-neutral-800/60 dark:bg-neutral-950">
+    <nav className="sticky top-0 left-0 z-50 flex w-full items-center justify-between border-b border-neutral-100 bg-white px-4 py-4 transition-colors sm:px-16 md:px-20 2xl:px-70 dark:border-neutral-800/60 dark:bg-neutral-950">
       <div className="gap-xl flex items-center">
         <Link href="/" className="gap-sm flex items-center">
           <Image
@@ -36,7 +36,9 @@ const Navbar = () => {
             height={22}
             className="inline dark:hidden"
           />
-          <h3 className="text-h5 hidden font-bold sm:block">Quartz UI</h3>
+          <h3 className="text-h5 hidden font-bold text-neutral-950 sm:block dark:text-neutral-100">
+            Quartz UI
+          </h3>
         </Link>
         <div className="gap-lg hidden lg:flex">
           {navItems.map((item, idx) => (

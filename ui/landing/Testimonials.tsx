@@ -62,20 +62,20 @@ const testimonials: Testimonial[] = [
 const Testimonials = () => {
   return (
     <div>
-      <h3 className="md:text-h4 text-h5 text-center leading-7 font-semibold">
+      <h3 className="md:text-h4 text-h5 text-center leading-7 font-semibold text-neutral-950 dark:text-neutral-100">
         Our Trusted Users
       </h3>
       <div className="mt-12 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
         {testimonials.map((testimonial, idx) => (
           <div
             key={idx}
-            className={`flex h-full flex-col justify-between gap-8 rounded-2xl border border-neutral-200 bg-neutral-900 [background-image:linear-gradient(125deg,theme(colors.neutral.50),theme(colors.neutral.100))] p-6 dark:border-neutral-800 dark:[background-image:linear-gradient(125deg,theme(colors.neutral.900),theme(colors.neutral.950),theme(colors.neutral.950))] ${
+            className={`flex h-full flex-col justify-between gap-8 rounded-2xl border border-neutral-200 [background-image:linear-gradient(125deg,theme(colors.neutral.50),theme(colors.neutral.100))] p-6 dark:border-neutral-800 dark:[background-image:linear-gradient(125deg,theme(colors.neutral.900),theme(colors.neutral.950),theme(colors.neutral.950))] ${
               testimonial.highlight &&
               'border-none [background-image:linear-gradient(125deg,theme(colors.sky.400),theme(colors.sky.500),theme(colors.sky.600))] text-white shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:-translate-x-2 lg:-translate-y-2 lg:scale-[1.03] dark:[background-image:linear-gradient(125deg,theme(colors.sky.400),theme(colors.sky.500),theme(colors.sky.600))] dark:shadow-none'
             }`}
           >
             <div className="space-y-10">
-              <IconQuoteFilled className="rotate-180" />
+              <IconQuoteFilled className="rotate-180 dark:text-neutral-100" />
               <p
                 className={`text-sm text-neutral-950 dark:text-neutral-300 ${testimonial.highlight && 'font-bold text-white dark:text-white'}`}
               >

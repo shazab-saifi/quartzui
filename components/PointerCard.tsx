@@ -65,7 +65,7 @@ const Pointer = ({
           scale: 0.5,
           opacity: 0,
         }}
-        className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 bg-sky-500 p-1 text-lg leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
+        className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 bg-sky-500 p-1 text-sm leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
       >
         <Image src="quartzui-light.svg" alt="quartzui" width={24} height={24} />
         <span>{title || 'Quartz UI'}</span>

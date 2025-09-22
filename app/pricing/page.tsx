@@ -28,7 +28,7 @@ const PricingCard = ({ plan }: { plan: PlanType }) => {
 
   return (
     <div
-      className={`mx-auto flex w-84 flex-col justify-between gap-20 rounded-2xl border border-neutral-800 md:rounded-3xl ${bgGradient} p-4 md:min-h-[800px] md:w-92 md:p-6`}
+      className={`mx-auto flex w-84 flex-col justify-between gap-20 rounded-2xl border border-neutral-200 md:rounded-3xl ${bgGradient} p-4 md:min-h-[800px] md:w-92 md:p-6 dark:border-neutral-800`}
     >
       <div className="space-y-9">
         <div className="space-y-md md:space-y-6">
@@ -41,14 +41,18 @@ const PricingCard = ({ plan }: { plan: PlanType }) => {
             <span className="text-4xl font-semibold md:text-5xl">
               ${plan.price}
             </span>
-            <span className="text-xs text-neutral-400 md:text-sm">/month</span>
+            <span className="text-xs text-neutral-500 md:text-sm dark:text-neutral-400">
+              /month
+            </span>
           </div>
-          <p className="text-sm text-neutral-400">{plan.desc}</p>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {plan.desc}
+          </p>
         </div>
-        <div className="flex items-center justify-center gap-2 text-xs text-neutral-700">
-          <span className="h-[2px] w-full bg-neutral-700"></span>
+        <div className="flex items-center justify-center gap-2 text-xs text-neutral-500 dark:text-neutral-700">
+          <span className="h-[2px] w-full bg-neutral-300 dark:bg-neutral-700"></span>
           <span>Includes</span>
-          <span className="h-[2px] w-full bg-neutral-700"></span>
+          <span className="h-[2px] w-full bg-neutral-300 dark:bg-neutral-700"></span>
         </div>
         <div className="space-y-4">
           {plan.offerings.map((item, idx) => (

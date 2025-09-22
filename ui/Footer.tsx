@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-neutral-200/60 px-4 py-8 text-sm text-neutral-600 sm:mt-20 sm:px-16 sm:py-12 md:px-20 lg:mt-24 lg:py-14 xl:mt-42 2xl:px-70 dark:border-neutral-800/60 dark:text-neutral-400">
+    <footer className="w-full border-t border-neutral-200/60 bg-white px-4 py-8 text-sm text-neutral-600 transition-colors sm:mt-20 sm:px-16 sm:py-12 md:px-20 lg:mt-24 lg:py-14 xl:mt-42 2xl:px-70 dark:border-neutral-800/60 dark:bg-neutral-950 dark:text-neutral-400">
       <div className="flex w-full flex-col justify-between md:flex-row">
         <div className="flex w-full flex-col justify-between md:flex-row">
           <div className="space-y-8 sm:space-y-16 lg:space-y-20">
@@ -30,7 +30,7 @@ export default function Footer() {
                     Quartz UI
                   </h3>
                 </Link>
-                <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-500 dark:text-neutral-200">
+                <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-800 dark:text-neutral-200">
                   A small collection of animated, accessible React components
                   built with care.
                 </p>
@@ -39,7 +39,7 @@ export default function Footer() {
                 A project by{' '}
                 <a
                   href="https://github.com/shazab-saifi"
-                  className="font-semibold text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:text-sky-500 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                  className="font-semibold text-sky-500 underline decoration-sky-500 underline-offset-4"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -48,7 +48,7 @@ export default function Footer() {
                 . Building in public at{' '}
                 <a
                   href="https://x.com/shazabsaifi_s9"
-                  className="font-semibold text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800 dark:text-sky-500 dark:decoration-neutral-700 dark:hover:text-neutral-200"
+                  className="font-semibold text-sky-500 underline decoration-sky-500 underline-offset-4"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -57,7 +57,7 @@ export default function Footer() {
                 .
               </p>
             </div>
-            <p className="mt-4 text-[12px] text-neutral-500 sm:mt-6">
+            <p className="mt-4 text-[12px] text-neutral-500 sm:mt-6 dark:text-neutral-400">
               © {year} QuartzUI
             </p>
           </div>

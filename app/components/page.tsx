@@ -78,19 +78,19 @@ const Page = () => {
       <div>
         <DocsLayout>{ComponentToRender && <ComponentToRender />}</DocsLayout>
       </div>
-      <div className="space-y-sm h-fit max-w-54 rounded-lg border border-neutral-200 [background-image:linear-gradient(125deg,theme(colors.neutral.100),theme(colors.neutral.50))] [background-position:0_0] [background-origin:padding-box] p-4 dark:border-none dark:[background-image:linear-gradient(125deg,theme(colors.neutral.800),theme(colors.neutral.900))]">
-        <p className="text-para font-semibold text-black dark:text-neutral-200">
+      <div className="space-y-sm dark:[background-image:linear-gradient(125deg,theme(colors.neutral.850),theme(colors.neutral.900))] h-fit max-w-54 rounded-lg border border-neutral-200 [background-image:linear-gradient(125deg,theme(colors.neutral.100),theme(colors.neutral.50))] [background-position:0_0] [background-origin:padding-box] p-4 dark:border-neutral-800">
+        <p className="text-para font-semibold text-neutral-900 dark:text-neutral-200">
           Hii, I&apos;m Shazab. I&apos;m the creater of Quartz UI.
         </p>
         <div className="space-y-md">
-          <p className="text-small text-neutral-600 dark:text-neutral-400">
+          <p className="text-small text-neutral-700 dark:text-neutral-400">
             Quartz UI is a modern React component library focused on simplicity,
             accessibility, and beautiful design.
           </p>
           <Button
             size="sm"
             variant="secondary"
-            className="rounded-xl bg-neutral-200 font-normal text-black hover:bg-neutral-300"
+            className="rounded-xl bg-neutral-200 font-normal text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
             onClick={() =>
               window.open('https://x.com/shazabsaifi_s9', '_blank')
             }

@@ -23,7 +23,7 @@ const HeroSection = () => {
   return (
     <div className="mt-16 flex flex-col items-center md:mt-32">
       <div className="z-10 flex flex-col items-center gap-6 md:gap-8">
-        <h1 className="xl:text-h1 md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold">
+        <h1 className="xl:text-h1 md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold text-neutral-950 dark:text-neutral-100">
           Build Beautiful Interfaces, Faster with Quartz UI
         </h1>
         <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 dark:text-neutral-400">
@@ -37,7 +37,7 @@ const HeroSection = () => {
         alt="light-beams"
         width={1000}
         height={1000}
-        className="absolute -top-24 right-12 z-0"
+        className="absolute -top-24 right-12 z-0 opacity-60 dark:opacity-20"
       />
       <div className="z-10 mt-12 space-x-4 md:mt-16 md:space-x-6">
         <Button
