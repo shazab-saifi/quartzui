@@ -131,7 +131,7 @@ const FloatingDockCore = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        'mx-auto flex h-16 w-fit items-center justify-center gap-4 rounded-2xl border border-neutral-200 bg-neutral-950 p-4 dark:border-neutral-800',
+        'mx-auto flex h-16 w-fit items-center justify-center gap-4 rounded-2xl border border-neutral-200 bg-white p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-950',
         className
       )}
     >
@@ -244,6 +244,7 @@ const IconContainer = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       href={el.href}
+      className="cursor-none"
     >
       <motion.div
         ref={ref}
@@ -252,7 +253,7 @@ const IconContainer = ({
           height,
         }}
         className={cn(
-          'relative flex items-center justify-center rounded-full bg-neutral-800',
+          'relative flex items-center justify-center rounded-full bg-neutral-100 transition-colors dark:bg-neutral-800',
           itemClassName
         )}
       >
@@ -263,7 +264,7 @@ const IconContainer = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 2 }}
               transition={{ duration: 0.2 }}
-              className="absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-neutral-900 px-2 py-0.5 text-xs whitespace-pre"
+              className="absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-neutral-200 px-2 py-0.5 text-xs whitespace-pre text-neutral-800 shadow-md dark:bg-neutral-900 dark:text-neutral-100"
             >
               {el.title}
             </motion.div>

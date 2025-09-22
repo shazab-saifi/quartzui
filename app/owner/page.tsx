@@ -63,6 +63,7 @@ const page = () => {
             },
           ]}
           className="mt-20 mb-4"
+          itemClassName="cursor-none"
         />
       </PointerCard>
     </div>

@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
 import Sidebar from './Sidebar';
-import { IconMenu4, IconShadow } from '@tabler/icons-react';
+import { IconMenu4 } from '@tabler/icons-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const navItems = [
+    { title: 'Home', link: '/' },
     { title: 'Components', link: '/components' },
     { title: 'Pricing', link: '/pricing' },
     { title: 'Owner', link: '/owner' },
@@ -49,9 +51,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="gap-md hidden items-center text-neutral-600 lg:flex dark:text-neutral-400">
-        <div className="cursor-pointer rounded-md border border-neutral-200 bg-white p-2 transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
-          <IconShadow size={16} />
-        </div>
+        <ThemeToggle />
         <SearchBar />
       </div>
       <button className="lg:hidden" onClick={() => setIsSidebarOpen(true)}>

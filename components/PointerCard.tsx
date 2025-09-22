@@ -45,7 +45,7 @@ const Pointer = ({
         fill="currentColor"
         strokeWidth="1"
         viewBox="0 0 16 16"
-        className="h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-neutral-600 text-neutral-900 dark:text-neutral-500"
+        className="h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-white text-sky-500"
         height="1em"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -65,9 +65,10 @@ const Pointer = ({
           scale: 0.5,
           opacity: 0,
         }}
-        className="min-w-max rounded-full border border-neutral-200 bg-black/50 px-2 py-2 text-xs whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
+        className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 bg-sky-500 p-1 text-lg leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
       >
-        {title || 'Quartz UI Library'}
+        <Image src="quartzui-light.svg" alt="quartzui" width={24} height={24} />
+        <span>{title || 'Quartz UI'}</span>
       </motion.div>
     </motion.div>
   );
