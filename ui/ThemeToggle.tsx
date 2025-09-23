@@ -1,8 +1,8 @@
-import { IconShadow } from '@tabler/icons-react';
 import React, { useState, useEffect } from 'react';
+import { Classic } from '@theme-toggles/react';
 
 function ThemeToggle() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -30,9 +30,15 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="cursor-pointer rounded-md border border-neutral-200 bg-white p-2 transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900"
+      className="flex cursor-pointer items-center rounded-md border border-neutral-200 bg-white p-2 px-2 transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900"
     >
-      <IconShadow size={16} />
+      <Classic
+        toggled={isDarkMode}
+        toggle={setIsDarkMode}
+        onPointerEnterCapture={null}
+        placeholder={null}
+        onPointerLeaveCapture={null}
+      />
     </button>
   );
 }
