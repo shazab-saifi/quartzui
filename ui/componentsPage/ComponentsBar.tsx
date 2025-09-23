@@ -85,17 +85,21 @@ const ComponentsBar = memo(function ComponentsBar({
   ];
 
   return (
-    <div className="space-y-lg no-scrollbar sticky top-24 max-h-[700px] overflow-y-scroll">
-      <h3 className="text-para mb-4 font-semibold">Components</h3>
+    <div className="space-y-lg no-scrollbar sticky top-24 max-h-[700px] overflow-y-scroll bg-white transition-colors dark:bg-neutral-950">
+      <h3 className="text-para mb-4 font-semibold text-neutral-900 transition-colors dark:text-neutral-100">
+        Components
+      </h3>
       <div className="gap-md flex flex-col">
         {sections.map((sec, sectionIdx) => {
           const items = components.filter((c) => c.category === sec.title);
           return (
             <div key={sectionIdx} className="flex flex-col">
-              <h4 className="text-small font-semibold">{sec.title}</h4>
+              <h4 className="text-small font-semibold text-neutral-800 transition-colors dark:text-neutral-200">
+                {sec.title}
+              </h4>
               <div className="mt-2 flex flex-col">
                 {items.length === 0 ? (
-                  <span className="text-small p-2 text-neutral-500">
+                  <span className="text-small p-2 text-neutral-500 transition-colors dark:text-neutral-400">
                     No items
                   </span>
                 ) : (
@@ -107,13 +111,17 @@ const ComponentsBar = memo(function ComponentsBar({
                       <button
                         onClick={() => setClickedItem({ sectionIdx, idx })}
                         key={idx}
-                        className={`text-small relative min-w-48 cursor-pointer overflow-hidden rounded-md p-2 text-left text-neutral-600 transition-colors dark:text-neutral-400 dark:hover:text-neutral-200`}
+                        className={`text-small relative min-w-48 cursor-pointer overflow-hidden rounded-md p-2 text-left transition-colors ${
+                          isClicked
+                            ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
+                            : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900/40 dark:hover:text-neutral-200'
+                        } `}
                       >
                         <AnimatePresence>
                           {isClicked && (
                             <motion.span
                               layoutId="hovered-span"
-                              className="absolute inset-0 rounded-md bg-neutral-200/70 dark:bg-neutral-800"
+                              className="absolute inset-0 rounded-md bg-neutral-200/70 transition-colors dark:bg-neutral-800"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
@@ -124,13 +132,7 @@ const ComponentsBar = memo(function ComponentsBar({
                             />
                           )}
                         </AnimatePresence>
-                        <span
-                          className={`relative z-10 ${
-                            isClicked
-                              ? 'text-neutral-600 dark:text-neutral-200'
-                              : ''
-                          }`}
-                        >
+                        <span className={`relative z-10 transition-colors`}>
                           {item.title}
                         </span>
                       </button>
