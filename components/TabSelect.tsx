@@ -7,15 +7,15 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
   const [clickedIndex, setClickedIndex] = useState<number>(0);
 
   return (
-    <div className="mx-auto flex w-fit rounded-full border border-neutral-200 bg-black/30 p-2 text-sm backdrop-blur-xs dark:border-neutral-800 dark:bg-black/40">
+    <div className="mx-auto flex w-fit rounded-full border border-neutral-200 bg-black/30 p-2 text-sm backdrop-blur-xs transition-colors dark:border-neutral-800 dark:bg-black/40">
       {tabs.map((str, idx) => (
         <button
           onClick={() => setClickedIndex(idx)}
           key={idx}
-          className="relative z-10 px-4 py-2"
+          className="relative z-10 px-4 py-2 transition-colors"
         >
           <span
-            className={`${clickedIndex === idx ? 'text-black' : 'text-white'} relative z-10 transition-colors duration-300`}
+            className={`${clickedIndex === idx ? 'text-black' : 'text-white'} relative z-10 transition-colors`}
           >
             {str}
           </span>
@@ -29,7 +29,7 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
                   damping: 30,
                   stiffness: 300,
                 }}
-                className="absolute top-0 left-0 z-0 h-full w-full rounded-full bg-neutral-100"
+                className="absolute top-0 left-0 z-0 h-full w-full rounded-full bg-neutral-100 transition-colors"
               ></motion.div>
             )}
           </AnimatePresence>
