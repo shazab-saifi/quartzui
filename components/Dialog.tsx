@@ -74,9 +74,9 @@ const Dialog = ({ children }: { children: React.ReactNode }) => {
                 transition={{
                   duration: 0.6,
                 }}
+                style={{ transformStyle: 'preserve-3d' }}
                 ref={dialogRef}
                 className="relative max-w-3xl space-y-2 rounded-2xl border border-neutral-200 bg-neutral-100 p-6 text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
-                style={{ pointerEvents: 'auto' }}
                 onClick={(e) => e.stopPropagation()}
               >
                 {children}
