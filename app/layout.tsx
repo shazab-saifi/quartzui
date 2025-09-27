@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../ui/Navbar';
 import Footer from '../ui/Footer';
+import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -20,15 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} bg-white antialiased transition-colors dark:bg-neutral-950`}
       >
-        <Navbar />
-        <div className="w-full px-4 sm:px-16 md:px-20 2xl:px-70">
-          {children}
-        </div>
-        <Footer />
+        <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
+          <Navbar />
+          <div className="w-full px-4 sm:px-16 md:px-20 2xl:px-70">
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
