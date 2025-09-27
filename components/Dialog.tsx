@@ -49,13 +49,13 @@ const Dialog = ({ children }: { children: React.ReactNode }) => {
             {/* Dialog */}
             <div
               className="fixed inset-0 z-50 flex items-center justify-center"
-              style={{ pointerEvents: 'none' }}
+              style={{ pointerEvents: 'none', perspective: '1000px' }}
             >
               <motion.div
                 initial={{
                   filter: 'blur(6px)',
                   opacity: 0,
-                  rotateY: '-15deg',
+                  rotateY: '8deg',
                   transformOrigin: 'left center',
                 }}
                 animate={{
@@ -67,14 +67,18 @@ const Dialog = ({ children }: { children: React.ReactNode }) => {
                 exit={{
                   filter: 'blur(6px)',
                   opacity: 0,
-                  rotateY: '-15deg',
+                  rotateY: '15deg',
                   transformOrigin: 'left center',
                   transition: { duration: 0.3 },
                 }}
                 transition={{
                   duration: 0.6,
                 }}
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  perspective: 1000,
+                  pointerEvents: 'auto',
+                }}
                 ref={dialogRef}
                 className="relative max-w-3xl space-y-2 rounded-2xl border border-neutral-200 bg-neutral-100 p-6 text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
                 onClick={(e) => e.stopPropagation()}
