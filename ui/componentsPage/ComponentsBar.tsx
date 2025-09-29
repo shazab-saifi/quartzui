@@ -89,7 +89,7 @@ const ComponentsBar = memo(function ComponentsBar({
       <h3 className="text-para mb-4 font-semibold text-neutral-900 transition-colors dark:text-neutral-100">
         Components
       </h3>
-      <div className="gap-md flex flex-col">
+      <div className="flex flex-col gap-8">
         {sections.map((sec, sectionIdx) => {
           const items = components.filter((c) => c.category === sec.title);
           return (

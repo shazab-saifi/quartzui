@@ -36,14 +36,13 @@ const LinesCard = ({
 }: LinesCardProps) => {
   return (
     <div className="relative flex max-w-108 flex-col gap-8 overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 p-6 dark:border-neutral-800 dark:bg-neutral-950">
-      {/* Dashed Top Fade Grid */}
       <div
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `
-        linear-gradient(to right, #e7e5e4 1px, transparent 1px),
-        linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
-      `,
+            linear-gradient(to right, #e7e5e4 1px, transparent 1px),
+            linear-gradient(to bottom, #e7e5e4 1px, transparent 1px)
+          `,
           backgroundSize: '20px 20px',
           backgroundPosition: '0 0, 0 0',
           maskImage: `
@@ -62,7 +61,7 @@ const LinesCard = ({
               transparent 8px
             ),
             radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
-      `,
+          `,
           WebkitMaskImage: `
               repeating-linear-gradient(
               to right,
@@ -79,7 +78,7 @@ const LinesCard = ({
               transparent 8px
             ),
             radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)
-      `,
+          `,
           maskComposite: 'intersect',
           WebkitMaskComposite: 'source-in',
         }}

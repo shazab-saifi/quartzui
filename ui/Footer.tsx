@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="space-y-8 sm:space-y-16 lg:space-y-20">
             <div className="space-y-lg">
               <div>
-                <Link href="/" className="gap-sm flex items-center">
+                <Link href="/" className="flex items-center gap-2">
                   <Image
                     src="quartzui-light.svg"
                     alt="logo"
@@ -30,7 +30,7 @@ export default function Footer() {
                     Quartz UI
                   </h3>
                 </Link>
-                <p className="text-para-big mt-3 max-w-96 leading-relaxed text-neutral-800 dark:text-neutral-200">
+                <p className="text-para mt-3 max-w-96 leading-relaxed text-neutral-800 dark:text-neutral-200">
                   A small collection of animated, accessible React components
                   built with care.
                 </p>
@@ -62,10 +62,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="mt-xl md:mt-0">
+          <div className="mt-14 md:mt-0">
             <nav
               aria-label="Footer"
-              className="gap-xl md:gap-2xl grid grid-cols-2 sm:grid-cols-3"
+              className="grid grid-cols-2 gap-12 sm:grid-cols-3 md:gap-16"
             >
               <FooterColumn
                 title="Explore"

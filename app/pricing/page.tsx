@@ -170,7 +170,7 @@ const page = () => {
     <div className="mt-16 space-y-24 bg-white transition-colors md:space-y-32 lg:space-y-40 xl:space-y-50 dark:bg-neutral-950">
       <div className="space-y-16 md:space-y-20">
         <div className="flex w-full flex-col items-center gap-6 md:gap-8">
-          <h1 className="xl:text-h1 md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold text-neutral-950 transition-colors dark:text-neutral-100">
+          <h1 className="md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold text-neutral-950 transition-colors dark:text-neutral-100">
             Simple, Transparent Pricing Built for Every Team
           </h1>
           <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 transition-colors dark:text-neutral-400">

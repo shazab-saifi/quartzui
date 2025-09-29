@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 
 export type AnimatedButtonProps = {
-  label: string;
+  children: string;
   onClick: () => void;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -12,7 +12,7 @@ export type AnimatedButtonProps = {
 };
 
 const AnimatedButton = ({
-  label,
+  children,
   onClick,
   className,
   type = 'button',
@@ -22,7 +22,7 @@ const AnimatedButton = ({
   return (
     <button
       type={type}
-      aria-label={ariaLabel ?? label}
+      aria-label={ariaLabel ?? children}
       disabled={disabled}
       onClick={onClick}
       className={cn(
@@ -39,7 +39,7 @@ const AnimatedButton = ({
         aria-hidden="true"
       />
       <div className="relative z-20 flex h-full w-full items-center justify-center rounded-full bg-white px-6 py-2 text-black dark:bg-black dark:text-white">
-        {label}
+        {children}
       </div>
     </button>
   );

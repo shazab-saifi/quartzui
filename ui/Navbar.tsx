@@ -20,8 +20,8 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 left-0 z-50 flex w-full items-center justify-between border-b border-neutral-100 bg-white px-4 py-4 transition-colors sm:px-16 md:px-20 2xl:px-70 dark:border-neutral-800/60 dark:bg-neutral-950">
-      <div className="gap-xl flex items-center">
-        <Link href="/" className="gap-sm flex items-center">
+      <div className="flex items-center gap-16">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="quartzui-light.svg"
             alt="logo"
@@ -40,7 +40,7 @@ const Navbar = () => {
             Quartz UI
           </h3>
         </Link>
-        <div className="gap-lg hidden lg:flex">
+        <div className="hidden gap-6 lg:flex">
           {navItems.map((item, idx) => (
             <Link
               key={idx}
@@ -52,7 +52,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      <div className="gap-md hidden items-center text-neutral-600 lg:flex dark:text-neutral-400">
+      <div className="hidden items-center gap-6 text-neutral-600 lg:flex dark:text-neutral-400">
         <ThemeToggle />
         <SearchBar />
       </div>

@@ -78,11 +78,11 @@ const Page = () => {
       <div className="transition-colors">
         <DocsLayout>{ComponentToRender && <ComponentToRender />}</DocsLayout>
       </div>
-      <div className="space-y-sm dark:from-neutral-850 h-fit max-w-54 rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-50 p-4 transition-colors dark:border-neutral-800 dark:bg-gradient-to-br dark:from-neutral-800 dark:to-neutral-900">
+      <div className="dark:from-neutral-850 h-fit max-w-54 space-y-2 rounded-lg border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-50 p-4 transition-colors dark:border-neutral-800 dark:bg-gradient-to-br dark:from-neutral-800 dark:to-neutral-900">
         <p className="text-para font-semibold text-neutral-900 transition-colors dark:text-neutral-200">
           Hii, I&apos;m Shazab. I&apos;m the creater of Quartz UI.
         </p>
-        <div className="space-y-md">
+        <div className="space-y-4">
           <p className="text-small text-neutral-700 transition-colors dark:text-neutral-400">
             Quartz UI is a modern React component library focused on simplicity,
             accessibility, and beautiful design.
