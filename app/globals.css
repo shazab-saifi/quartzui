@@ -8,14 +8,6 @@
 }
 
 @theme inline {
-  --spacing-2xs: 0.125rem;
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
-  --spacing-2xl: 8rem;
-
   --text-h1: 4rem; /* 64px */
   --text-h2: 3.5rem; /* 60px */
   --text-h3: 3rem; /* 48px */
