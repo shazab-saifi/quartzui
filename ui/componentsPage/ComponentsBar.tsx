@@ -1,20 +1,12 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
 import React, { memo } from 'react';
 
-interface HoverObjTypes {
-  idx: number | null;
-  sectionIdx: number | null;
-}
+const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
+  const router = useRouter();
 
-const ComponentsBar = memo(function ComponentsBar({
-  setClickedItem,
-  clickedItem,
-}: {
-  setClickedItem: (item: HoverObjTypes) => void;
-  clickedItem: HoverObjTypes;
-}) {
   const sections = [
     { title: 'Buttons' },
     { title: 'Cards' },
@@ -25,62 +17,77 @@ const ComponentsBar = memo(function ComponentsBar({
     {
       title: 'Accordion',
       category: 'Other Components',
+      identifier: 'accordion',
     },
     {
       title: 'Animated Button',
       category: 'Buttons',
+      identifier: 'animated-button',
     },
     {
       title: 'Animated Text',
       category: 'Other Components',
+      identifier: 'animated-text',
     },
     {
       title: 'Banner',
       category: 'Other Components',
+      identifier: 'banner',
     },
     {
       title: 'Bento Grid',
       category: 'Other Components',
+      identifier: 'bento-grid',
     },
     {
       title: 'Button',
       category: 'Buttons',
+      identifier: 'button',
     },
     {
       title: 'Expandable Card',
       category: 'Cards',
+      identifier: 'expandable-card',
     },
     {
       title: 'Floating Dock',
       category: 'Other Components',
+      identifier: 'floating-dock',
     },
     {
       title: 'Pointer Card',
       category: 'Cards',
+      identifier: 'pointer-card',
     },
     {
       title: 'Price Switcher',
       category: 'Other Components',
+      identifier: 'price-switcher',
     },
     {
       title: 'Scale Card',
       category: 'Cards',
+      identifier: 'scale-card',
     },
     {
       title: 'Scroll Progress',
       category: 'Other Components',
+      identifier: 'scroll-progress',
     },
     {
       title: 'Sidebar',
       category: 'Other Components',
+      identifier: 'sidebar',
     },
     {
       title: 'Tab Select',
       category: 'Other Components',
+      identifier: 'tab-select',
     },
     {
       title: 'Badge',
       category: 'Other Components',
+      identifier: 'badge',
     },
   ];
 
@@ -104,21 +111,18 @@ const ComponentsBar = memo(function ComponentsBar({
                   </span>
                 ) : (
                   items.map((item, idx) => {
-                    const isClicked =
-                      clickedItem?.sectionIdx === sectionIdx &&
-                      clickedItem.idx === idx;
                     return (
                       <button
-                        onClick={() => setClickedItem({ sectionIdx, idx })}
+                        onClick={() => router.push(`/components/${slug}`)}
                         key={idx}
                         className={`text-small relative min-w-48 cursor-pointer overflow-hidden rounded-md p-2 text-left transition-colors ${
-                          isClicked
+                          item.identifier === slug
                             ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
                             : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900/40 dark:hover:text-neutral-200'
                         } `}
                       >
                         <AnimatePresence>
-                          {isClicked && (
+                          {item.identifier === slug && (
                             <motion.span
                               layoutId="hovered-span"
                               className="absolute inset-0 rounded-md bg-neutral-200/70 transition-colors dark:bg-neutral-800"
