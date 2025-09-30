@@ -113,7 +113,10 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
                   items.map((item, idx) => {
                     return (
                       <button
-                        onClick={() => router.push(`/components/${slug}`)}
+                        onClick={() => {
+                          console.log(slug);
+                          router.push(`/components/${item.identifier}`);
+                        }}
                         key={idx}
                         className={`text-small relative min-w-48 cursor-pointer overflow-hidden rounded-md p-2 text-left transition-colors ${
                           item.identifier === slug
