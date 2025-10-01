@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export function CodeBlock({
   code,
@@ -33,7 +33,7 @@ export function CodeBlock({
       </button>
       <SyntaxHighlighter
         language={language}
-        style={atomDark}
+        style={a11yDark}
         customStyle={{
           background: 'transparent',
           backgroundColor: 'transparent',
