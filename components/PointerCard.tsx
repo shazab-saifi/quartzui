@@ -67,7 +67,12 @@ const Pointer = ({
         }}
         className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 bg-sky-500 p-1 text-sm leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
       >
-        <Image src="quartzui-light.svg" alt="quartzui" width={24} height={24} />
+        <Image
+          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+          alt="quartzui"
+          width={24}
+          height={24}
+        />
         <span>{title || 'Quartz UI'}</span>
       </motion.div>
     </motion.div>

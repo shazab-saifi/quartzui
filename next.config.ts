@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
+import remarkSlug from "remark-slug";
 
 const nextConfig: NextConfig = {
   images: {
@@ -16,7 +17,7 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkSlug],
     rehypePlugins: [],
   },
 })

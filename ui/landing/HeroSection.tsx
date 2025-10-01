@@ -1,3 +1,5 @@
+'use client';
+
 import AnimatedButton from '@/components/AnimatedButton';
 
 import {

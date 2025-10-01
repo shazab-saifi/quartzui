@@ -13,14 +13,14 @@ export default function Footer() {
               <div>
                 <Link href="/" className="flex items-center gap-2">
                   <Image
-                    src="quartzui-light.svg"
+                    src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
                     alt="logo"
                     width={22}
                     height={22}
                     className="hidden dark:inline"
                   />
                   <Image
-                    src="quartzui-dark.svg"
+                    src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
                     alt="logo"
                     width={22}
                     height={22}
