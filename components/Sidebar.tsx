@@ -119,7 +119,12 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
             animate={{ scale: open ? 1 : 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Image src="/quartzui.svg" alt="logo" width={24} height={24} />
+            <Image
+              src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+              alt="logo"
+              width={24}
+              height={24}
+            />
           </motion.div>
         )}
         <button

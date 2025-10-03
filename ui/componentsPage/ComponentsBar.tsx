@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import React, { memo } from 'react';
 
-const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
+const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
   const router = useRouter();
 
   const sections = [
@@ -92,8 +92,8 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
   ];
 
   return (
-    <div className="space-y-lg no-scrollbar sticky top-24 max-h-[700px] overflow-y-scroll bg-white transition-colors dark:bg-neutral-950">
-      <h3 className="text-para mb-4 font-semibold text-neutral-900 transition-colors dark:text-neutral-100">
+    <div className="space-y-lg no-scrollbar sticky top-24 max-h-[700px] overflow-y-scroll">
+      <h3 className="text-para mb-4 font-semibold text-neutral-900 dark:text-neutral-100">
         Components
       </h3>
       <div className="flex flex-col gap-8">
@@ -101,12 +101,12 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
           const items = components.filter((c) => c.category === sec.title);
           return (
             <div key={sectionIdx} className="flex flex-col">
-              <h4 className="text-small font-semibold text-neutral-800 transition-colors dark:text-neutral-200">
+              <h4 className="text-small font-semibold text-neutral-800 dark:text-neutral-200">
                 {sec.title}
               </h4>
               <div className="mt-2 flex flex-col">
                 {items.length === 0 ? (
-                  <span className="text-small p-2 text-neutral-500 transition-colors dark:text-neutral-400">
+                  <span className="text-small p-2 text-neutral-500 dark:text-neutral-400">
                     No items
                   </span>
                 ) : (
@@ -118,7 +118,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
                           router.push(`/components/${item.identifier}`);
                         }}
                         key={idx}
-                        className={`text-small relative min-w-48 cursor-pointer overflow-hidden rounded-md p-2 text-left transition-colors ${
+                        className={`text-small relative min-w-48 cursor-pointer overflow-hidden rounded-md p-2 text-left ${
                           item.identifier === slug
                             ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
                             : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900/40 dark:hover:text-neutral-200'
@@ -128,7 +128,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
                           {item.identifier === slug && (
                             <motion.span
                               layoutId="hovered-span"
-                              className="absolute inset-0 rounded-md bg-neutral-200/70 transition-colors dark:bg-neutral-800"
+                              className="absolute inset-0 rounded-md bg-neutral-200/70 dark:bg-neutral-800"
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
@@ -139,9 +139,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug: string }) {
                             />
                           )}
                         </AnimatePresence>
-                        <span className={`relative z-10 transition-colors`}>
-                          {item.title}
-                        </span>
+                        <span className={`relative z-10`}>{item.title}</span>
                       </button>
                     );
                   })

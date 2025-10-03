@@ -27,12 +27,12 @@ const PricingCard = ({ plan }: { plan: PlanType }) => {
 
   return (
     <div
-      className={`mx-auto flex w-84 flex-col justify-between gap-20 rounded-2xl border border-neutral-200 transition-colors md:rounded-3xl ${bgGradient} p-4 md:min-h-[800px] md:w-92 md:p-6 dark:border-neutral-800`}
+      className={`mx-auto flex w-84 flex-col justify-between gap-20 rounded-2xl border border-neutral-200 md:rounded-3xl ${bgGradient} p-4 md:min-h-[800px] md:w-92 md:p-6 dark:border-neutral-800`}
     >
       <div className="space-y-9">
         <div className="space-y-md md:space-y-6">
           <div
-            className={`text-lg font-semibold transition-colors ${
+            className={`text-lg font-semibold ${
               isProfessional
                 ? 'text-neutral-950 dark:text-neutral-100'
                 : 'text-neutral-700 dark:text-neutral-400'
@@ -41,36 +41,36 @@ const PricingCard = ({ plan }: { plan: PlanType }) => {
             {plan.title}
           </div>
           <div>
-            <span className="text-4xl font-semibold text-neutral-950 transition-colors md:text-5xl dark:text-neutral-100">
+            <span className="text-4xl font-semibold text-neutral-950 md:text-5xl dark:text-neutral-100">
               ${plan.price}
             </span>
-            <span className="text-xs text-neutral-500 transition-colors md:text-sm dark:text-neutral-400">
+            <span className="text-xs text-neutral-500 md:text-sm dark:text-neutral-400">
               /month
             </span>
           </div>
           <p
-            className={`text-sm transition-colors ${isProfessional ? 'text-neutral-800 dark:text-neutral-100' : 'text-neutral-600 dark:text-neutral-400'}`}
+            className={`text-sm ${isProfessional ? 'text-neutral-800 dark:text-neutral-100' : 'text-neutral-600 dark:text-neutral-400'}`}
           >
             {plan.desc}
           </p>
         </div>
-        <div className="flex items-center justify-center gap-2 text-xs text-neutral-500 transition-colors dark:text-neutral-400">
-          <span className="h-[2px] w-full bg-neutral-300 transition-colors dark:bg-neutral-700"></span>
-          <span className="transition-colors">Includes</span>
-          <span className="h-[2px] w-full bg-neutral-300 transition-colors dark:bg-neutral-700"></span>
+        <div className="flex items-center justify-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+          <span className="h-[2px] w-full bg-neutral-300 dark:bg-neutral-700"></span>
+          <span className="">Includes</span>
+          <span className="h-[2px] w-full bg-neutral-300 dark:bg-neutral-700"></span>
         </div>
         <div className="space-y-4">
           {plan.offerings.map((item, idx) => (
             <div
               key={idx}
-              className={`flex gap-2 text-sm transition-colors ${
+              className={`flex gap-2 text-sm ${
                 isProfessional
                   ? 'text-neutral-950 dark:text-neutral-100'
                   : 'text-neutral-700 dark:text-neutral-400'
               }`}
             >
-              <IconCircleCheckFilled className="transition-colors" />
-              <p className="transition-colors">{item}</p>
+              <IconCircleCheckFilled className="" />
+              <p className="">{item}</p>
             </div>
           ))}
         </div>
@@ -81,7 +81,7 @@ const PricingCard = ({ plan }: { plan: PlanType }) => {
           (isProfessional
             ? 'border-none bg-neutral-950 text-neutral-100 hover:bg-neutral-800 hover:text-neutral-50 dark:bg-gradient-to-b dark:from-neutral-100 dark:to-neutral-300 dark:text-neutral-950 dark:hover:from-neutral-200 dark:hover:to-neutral-400 dark:hover:text-neutral-900'
             : 'border-none bg-neutral-100 text-neutral-950 hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-50') +
-          ' transition-colors'
+          ' '
         }
       >
         Get {plan.title} Now
@@ -167,19 +167,19 @@ const page = () => {
   ];
 
   return (
-    <div className="mt-16 space-y-24 bg-white transition-colors md:space-y-32 lg:space-y-40 xl:space-y-50 dark:bg-neutral-950">
+    <div className="mt-16 space-y-24 bg-white md:space-y-32 lg:space-y-40 xl:space-y-50 dark:bg-neutral-950">
       <div className="space-y-16 md:space-y-20">
         <div className="flex w-full flex-col items-center gap-6 md:gap-8">
-          <h1 className="md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold text-neutral-950 transition-colors dark:text-neutral-100">
+          <h1 className="md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold text-neutral-950 dark:text-neutral-100">
             Simple, Transparent Pricing Built for Every Team
           </h1>
-          <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 transition-colors dark:text-neutral-400">
+          <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 dark:text-neutral-400">
             From solo devs to enterprises, we’ve got you covered.
           </p>
         </div>
         <div className="w-full space-y-8 md:space-y-12">
           <TabSelect tabs={['Monthly', 'Yearly']} />
-          <div className="flex w-full flex-wrap gap-16 transition-colors">
+          <div className="flex w-full flex-wrap gap-16">
             {plans.map((plan) => (
               <PricingCard key={plan.title} plan={plan} />
             ))}
@@ -187,7 +187,7 @@ const page = () => {
         </div>
       </div>
       <div className="mt-32 space-y-12 md:space-y-16">
-        <h1 className="md:text-h4 text-h5 text-center leading-7 font-semibold text-neutral-950 transition-colors dark:text-neutral-100">
+        <h1 className="md:text-h4 text-h5 text-center leading-7 font-semibold text-neutral-950 dark:text-neutral-100">
           Frequently Asked Questions
         </h1>
         <FAQ faqs={faqs} />

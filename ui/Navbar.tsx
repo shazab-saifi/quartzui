@@ -13,13 +13,13 @@ const Navbar = () => {
 
   const navItems = [
     { title: 'Home', link: '/' },
-    { title: 'Components', link: '/components/animated-button' },
+    { title: 'Components', link: '/components' },
     { title: 'Pricing', link: '/pricing' },
     { title: 'Owner', link: '/owner' },
   ];
 
   return (
-    <nav className="sticky top-0 left-0 z-50 flex w-full items-center justify-between border-b border-neutral-100 bg-white px-4 py-4 transition-colors sm:px-16 md:px-20 2xl:px-70 dark:border-neutral-800/60 dark:bg-neutral-950">
+    <nav className="sticky top-0 left-0 z-50 flex w-full items-center justify-between border-b border-neutral-100 bg-white px-4 py-4 sm:px-16 md:px-20 2xl:px-70 dark:border-neutral-800/60 dark:bg-neutral-950">
       <div className="flex items-center gap-16">
         <Link href="/" className="flex items-center gap-2">
           <Image

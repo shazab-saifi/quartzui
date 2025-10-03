@@ -82,7 +82,7 @@ const defaultLinks: DockLink[] = [
     title: 'Quartz.UI',
     icon: (
       <Image
-        src="/quartzui.svg"
+        src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
         alt="Quartz.UI"
         width={24}
         height={24}
@@ -244,7 +244,6 @@ const IconContainer = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       href={el.href}
-      className="cursor-none"
     >
       <motion.div
         ref={ref}
@@ -253,7 +252,7 @@ const IconContainer = ({
           height,
         }}
         className={cn(
-          'relative flex items-center justify-center rounded-full bg-neutral-100 transition-colors dark:bg-neutral-800',
+          'relative flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800',
           itemClassName
         )}
       >

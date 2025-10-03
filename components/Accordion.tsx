@@ -11,7 +11,7 @@ interface AccordionItem {
 
 const defaultItems: AccordionItem[] = [
   {
-    title: 'Section 1',
+    title: 'Why chosse QuartzUI?',
     content: (
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
@@ -24,7 +24,7 @@ const defaultItems: AccordionItem[] = [
     ),
   },
   {
-    title: 'Section 2',
+    title: 'How many components QuartzUI has?',
     content: (
       <div>
         Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -37,7 +37,7 @@ const defaultItems: AccordionItem[] = [
     ),
   },
   {
-    title: 'Section 3',
+    title: 'How built QuartzUI',
     content: (
       <div>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
@@ -165,7 +165,7 @@ const Accordion = ({ items = defaultItems }: { items?: AccordionItem[] }) => {
             className="border-b border-neutral-200 last:border-b-0 dark:border-white/10"
           >
             <button
-              className="flex w-full items-center justify-between px-4 py-3 text-left text-neutral-900 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-white dark:focus-visible:ring-white/30"
+              className="flex w-full items-center justify-between px-4 py-3 text-left text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-white dark:focus-visible:ring-white/30"
               onClick={() => handleToggle(idx)}
               aria-expanded={openIndex === idx}
               aria-controls={`accordion-content-${idx}`}

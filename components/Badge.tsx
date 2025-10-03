@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { tv } from 'tailwind-variants';
 
 const badgeVariants = tv({
-  base: 'gap-sm flex items-center justify-center rounded-md cursor-pointer text-xs overflow-hidden',
+  base: 'gap-sm flex items-center justify-center rounded-md gap-1 cursor-pointer text-xs overflow-hidden',
   variants: {
     color: {
       green: 'bg-green-500/20 text-green-500',

@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} mx-auto max-w-[128rem] bg-white antialiased transition-colors dark:bg-neutral-950`}
+        className={`${inter.variable} mx-auto max-w-[128rem] bg-white antialiased dark:bg-neutral-950`}
       >
         <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
           <Navbar />

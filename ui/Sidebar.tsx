@@ -63,7 +63,7 @@ const Sidebar = ({ isOpen, onClose, navItems }: SidebarProps) => {
               </Link>
               <button
                 onClick={onClose}
-                className="rounded-md p-2 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300"
+                className="rounded-md p-2 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300"
               >
                 <IconX size={20} />
               </button>
@@ -74,7 +74,7 @@ const Sidebar = ({ isOpen, onClose, navItems }: SidebarProps) => {
                   key={idx}
                   href={item.link}
                   onClick={onClose}
-                  className="text-para-big rounded-md px-3 py-3 text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300"
+                  className="text-para-big rounded-md px-3 py-3 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-950 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300"
                 >
                   {item.title}
                 </Link>

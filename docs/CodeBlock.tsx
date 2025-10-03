@@ -24,29 +24,43 @@ export function CodeBlock({
   };
 
   return (
-    <div className="group relative rounded-md bg-neutral-900">
+    <div className="group relative w-full overflow-x-auto rounded-md bg-neutral-900">
       <button
         onClick={handleCopy}
-        className="absolute top-2 right-2 cursor-pointer rounded bg-neutral-800 px-2 py-1 text-xs text-white opacity-0 transition group-hover:opacity-100"
+        className="absolute top-2 right-2 cursor-pointer rounded bg-neutral-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100"
       >
         {copied ? 'Copied!' : 'Copy'}
       </button>
-      <SyntaxHighlighter
-        language={language}
-        style={a11yDark}
-        customStyle={{
-          background: 'transparent',
-          backgroundColor: 'transparent',
-          margin: 0,
-          padding: '1rem',
-          borderRadius: '0.5rem',
-        }}
-        codeTagProps={{
-          style: { background: 'transparent', backgroundColor: 'transparent' },
-        }}
-      >
-        {code}
-      </SyntaxHighlighter>
+      <div className="w-full overflow-x-auto">
+        <SyntaxHighlighter
+          language={language}
+          style={a11yDark}
+          customStyle={{
+            background: 'transparent',
+            backgroundColor: 'transparent',
+            margin: 0,
+            padding: '1rem',
+            borderRadius: '0.5rem',
+            minWidth: 0,
+            width: '100%',
+            boxSizing: 'border-box',
+            fontSize: '0.95rem',
+            overflowX: 'auto',
+          }}
+          codeTagProps={{
+            style: {
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              minWidth: 0,
+              width: '100%',
+              boxSizing: 'border-box',
+              overflowX: 'auto',
+            },
+          }}
+        >
+          {code}
+        </SyntaxHighlighter>
+      </div>
     </div>
   );
 }

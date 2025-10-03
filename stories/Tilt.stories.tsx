@@ -43,7 +43,7 @@ export const Default: Story = {
           This card tilts with your mouse and adapts to light and dark themes.
           Add your own content here!
         </p>
-        <button className="mt-2 rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-white shadow transition-colors hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200">
+        <button className="mt-2 rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200">
           Get Started
         </button>
       </div>

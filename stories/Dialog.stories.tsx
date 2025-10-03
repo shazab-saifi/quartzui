@@ -38,10 +38,10 @@ export const Default: Story = {
         </ul>
 
         <div className="mt-6 flex justify-end gap-3">
-          <button className="rounded-xl border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-950 transition-colors hover:border-neutral-300 hover:bg-neutral-100">
+          <button className="rounded-xl border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-950 hover:border-neutral-300 hover:bg-neutral-100">
             Secondary Action
           </button>
-          <button className="rounded-xl border border-neutral-950 bg-neutral-950 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-neutral-800 hover:bg-neutral-800">
+          <button className="rounded-xl border border-neutral-950 bg-neutral-950 px-5 py-3 text-sm font-semibold text-white hover:border-neutral-800 hover:bg-neutral-800">
             Primary Action
           </button>
         </div>

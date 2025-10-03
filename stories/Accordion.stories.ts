@@ -5,7 +5,7 @@ const meta = {
   title: 'Accordian',
   component: Accordion,
   parameters: {
-    layout: 'top',
+    layout: 'centered',
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Accordion>;

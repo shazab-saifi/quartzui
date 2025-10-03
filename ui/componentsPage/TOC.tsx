@@ -67,11 +67,13 @@ const TOC = () => {
     <nav>
       <div className="mb-4 flex items-center gap-2 text-neutral-950 dark:text-white">
         <IconTable size={14} />
-        <h3 className="text-sm font-bold">Table of Contents</h3>
+        <h3 className="text-sm font-bold">
+          Table of Contents
+        </h3>
       </div>
       <div className="relative flex items-stretch gap-2">
         <span
-          className="absolute w-1 rounded-full bg-neutral-200 dark:bg-neutral-600"
+          className="absolute left-px w-[2px] rounded-full bg-neutral-200 dark:bg-neutral-800"
           style={{ minHeight: '100%' }}
         ></span>
         <Headings headings={nestedHeadings} activeId={activeId} />

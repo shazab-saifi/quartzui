@@ -75,7 +75,7 @@ const FeatureSection = ({
 );
 
 const UseSection = () => (
-  <div className="space-y-16 rounded-3xl bg-white p-4 transition-colors md:space-y-32 md:p-8 dark:bg-neutral-950">
+  <div className="space-y-16 rounded-3xl bg-white p-4 md:space-y-32 md:p-8 dark:bg-neutral-950">
     <div className="flex flex-col items-center gap-4 md:gap-6">
       <h3 className="md:text-h4 text-h5 text-center leading-7 font-semibold text-neutral-950 dark:text-neutral-100">
         We&apos;ve Awesome Components for you

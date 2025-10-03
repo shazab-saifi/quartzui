@@ -87,7 +87,7 @@ const Dialog = ({ children }: { children: React.ReactNode }) => {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 rounded-full p-1 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                  className="absolute top-4 right-4 rounded-full p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
                 >
                   <IconX
                     size={16}

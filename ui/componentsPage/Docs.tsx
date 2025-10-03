@@ -42,7 +42,7 @@ const Docs = ({ slug }: { slug: string }) => {
   const ComponentToRender = componentDocs[key] || componentDocs['button'];
 
   return (
-    <div className="transition-colors">
+    <div>
       <DocsLayout>{ComponentToRender && <ComponentToRender />}</DocsLayout>
     </div>
   );

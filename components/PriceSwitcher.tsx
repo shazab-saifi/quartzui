@@ -12,7 +12,7 @@ const PriceSwitcher = () => {
       <motion.div
         layout
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="font-inter flex overflow-hidden text-6xl font-semibold"
+        className="font-inter flex overflow-hidden text-6xl font-semibold text-black dark:text-white"
         style={{ display: 'flex', alignItems: 'center' }}
       >
         <span className="w-fit">$</span>
