@@ -102,6 +102,7 @@ const page = () => {
             heading={item.title}
             desc={item.desc}
             link={item.link}
+            idx={idx}
           />
         ))}
       </div>

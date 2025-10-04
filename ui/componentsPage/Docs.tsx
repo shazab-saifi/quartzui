@@ -17,7 +17,9 @@ const Docs = ({ slug }: { slug: string }) => {
 
   return (
     <div>
-      <DocsLayout>{ComponentToRender && <ComponentToRender />}</DocsLayout>
+      <DocsLayout>
+        <ComponentToRender />
+      </DocsLayout>
     </div>
   );
 };
