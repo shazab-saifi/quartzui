@@ -7,10 +7,6 @@
   --foreground: #171717;
 }
 
-* {
-  @apply transition-colors duration-300 ease-in-out;
-}
-
 @theme inline {
   --text-h1: 4rem; /* 64px */
   --text-h2: 3.5rem; /* 60px */
