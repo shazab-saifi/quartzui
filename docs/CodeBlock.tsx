@@ -24,14 +24,14 @@ export function CodeBlock({
   };
 
   return (
-    <div className="group relative w-full overflow-x-auto rounded-md bg-neutral-900">
+    <div className="group relative max-w-85 overflow-x-auto rounded-md bg-neutral-900 sm:max-w-full">
       <button
         onClick={handleCopy}
         className="absolute top-2 right-2 cursor-pointer rounded bg-neutral-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100"
       >
         {copied ? 'Copied!' : 'Copy'}
       </button>
-      <div className="w-full overflow-x-auto">
+      <div className="w-full">
         <SyntaxHighlighter
           language={language}
           style={a11yDark}

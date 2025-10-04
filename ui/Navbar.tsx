@@ -56,7 +56,10 @@ const Navbar = () => {
         <ThemeToggle />
         <SearchBar />
       </div>
-      <button className="lg:hidden" onClick={() => setIsSidebarOpen(true)}>
+      <button
+        className="text-neutral-950 lg:hidden dark:text-white"
+        onClick={() => setIsSidebarOpen(true)}
+      >
         <IconMenu4 />
       </button>
 
