@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Tilt from '@/components/Tilt';
+import { Tilt } from '@/components/Tilt';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {

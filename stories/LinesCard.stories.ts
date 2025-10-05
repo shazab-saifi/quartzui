@@ -1,4 +1,4 @@
-import LinesCard from '@/components/LinesCard';
+import { LinesCard } from '@/components/LinesCard';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {

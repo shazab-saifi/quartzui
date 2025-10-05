@@ -54,7 +54,7 @@ export const Tilt = ({ children }: { children: React.ReactNode }) => {
           transform: 'translateZ(75px)',
           transformStyle: 'preserve-3d',
         }}
-        className="absolute inset-3 flex flex-col items-center justify-center space-y-4 rounded-xl border border-neutral-100 bg-[radial-gradient(var(--color-neutral-300)_1px,_transparent_1px)] [background-size:10px_10px] p-6 shadow-2xl transition-colors duration-300 dark:border-neutral-800 dark:bg-neutral-900/90"
+        className="absolute inset-3 overflow-hidden rounded-xl shadow-2xl"
       >
         {children}
       </div>

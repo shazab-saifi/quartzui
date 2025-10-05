@@ -7,10 +7,32 @@ import { CodeBlock } from './CodeBlock';
 The Tilt component is a container that tilts in response to mouse movement, creating a 3D effect.
 
 <LiveCode code='<Tilt>
-    <div className="text-center">
-      <h2 className="text-xl font-bold">Tilt Me</h2>
-      <p>Move your mouse over me.</p>
-    </div>
+    <div className="flex flex-col items-center justify-center p-4 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-700 dark:to-neutral-800 h-full space-y-4 text-center">
+        <span className="block dark:hidden">
+          <img
+            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+            alt="quartz-ui"
+            className="not-prose my-0 size-16"
+          />
+        </span>
+        <span className="hidden dark:inline">
+          <img
+            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+            alt="quartz-ui"
+            className="not-prose my-0 size-16"
+          />
+        </span>
+        <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
+          Beautiful 3D Card
+        </h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-300">
+          This card tilts with your mouse and adapts to light and dark themes.
+          Add your own content here!
+        </p>
+        <button className="mt-2 rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200">
+          Get Started
+        </button>
+      </div>
   </Tilt>' />
 
 ## Usage

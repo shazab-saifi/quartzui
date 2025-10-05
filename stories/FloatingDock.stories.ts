@@ -1,6 +1,5 @@
 import FloatingDock from '@/components/FloatingDock';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { fn } from 'storybook/test';
 
 const meta = {
   title: 'Floating Dock',
@@ -9,7 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
 } satisfies Meta<typeof FloatingDock>;
 
 export default meta;

@@ -1,5 +1,4 @@
-import React from 'react';
-import Dialog from '@/components/Dialog';
+import { Dialog } from '@/components/Dialog';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {
