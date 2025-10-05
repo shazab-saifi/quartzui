@@ -1,4 +1,4 @@
-import Banner from '@/components/Banner';
+import Banner from '@/ui/landing/Banner';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {

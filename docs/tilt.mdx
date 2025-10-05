@@ -1,0 +1,41 @@
+import { Tilt } from '../components/Tilt';
+import LiveCode from './LiveCode';
+import { CodeBlock } from './CodeBlock';
+
+# Tilt
+
+The Tilt component is a container that tilts in response to mouse movement, creating a 3D effect.
+
+<LiveCode code='<Tilt>
+    <div className="text-center">
+      <h2 className="text-xl font-bold">Tilt Me</h2>
+      <p>Move your mouse over me.</p>
+    </div>
+  </Tilt>' />
+
+## Usage
+
+<CodeBlock code={`import { Tilt } from '@/components/Tilt';
+
+  export default function MyComponent() {
+    return (
+      <Tilt>
+        <div className="text-center">
+          <h2 className="text-xl font-bold">Tilt Me</h2>
+          <p>Move your mouse over me.</p>
+        </div>
+      </Tilt>
+    );
+  }
+`} />
+
+## Props
+
+The Tilt component accepts the following props:
+
+- `children`: The content to be displayed inside the tilt container.
+
+## Behavior
+
+- When the mouse moves over the component, the container tilts to create a 3D effect.
+- When the mouse leaves the component, the container returns to its original position.

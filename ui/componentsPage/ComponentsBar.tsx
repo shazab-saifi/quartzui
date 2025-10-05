@@ -30,11 +30,6 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
       identifier: 'animated-text',
     },
     {
-      title: 'Banner',
-      category: 'Other Components',
-      identifier: 'banner',
-    },
-    {
       title: 'Bento Grid',
       category: 'Other Components',
       identifier: 'bento-grid',
@@ -88,6 +83,26 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
       title: 'Badge',
       category: 'Other Components',
       identifier: 'badge',
+    },
+    {
+      title: 'Dialog',
+      category: 'Other Components',
+      identifier: 'dialog',
+    },
+    {
+      title: 'Lines Card',
+      category: 'Cards',
+      identifier: 'lines-card',
+    },
+    {
+      title: 'Text Shimmer',
+      category: 'Other Components',
+      identifier: 'text-shimmer',
+    },
+    {
+      title: 'Tilt',
+      category: 'Other Components',
+      identifier: 'tilt',
     },
   ];
 

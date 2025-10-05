@@ -1,0 +1,46 @@
+import { TextShimmer } from '../components/TextShimmer';
+import LiveCode from './LiveCode';
+import { CodeBlock } from './CodeBlock';
+
+# TextShimmer
+
+The TextShimmer component is a text component with a shimmer effect.
+
+<LiveCode code='<TextShimmer>Text Shimmer</TextShimmer>' />
+
+## Usage
+
+<CodeBlock code={`import { TextShimmer } from '@/components/TextShimmer';
+
+  export default function MyComponent() {
+    return <TextShimmer>Text Shimmer</TextShimmer>;
+  }
+`} />
+
+## Custom Duration and Spread
+
+You can also provide a custom duration and spread for the shimmer effect.
+
+<LiveCode code='<TextShimmer duration={5} spread={4}>
+    Custom Text Shimmer
+  </TextShimmer>' />
+
+<CodeBlock code={`import { TextShimmer } from '@/components/TextShimmer';
+
+  export default function MyComponent() {
+    return (
+      <TextShimmer duration={5} spread={4}>
+        Custom Text Shimmer
+      </TextShimmer>
+    );
+  }
+`} />
+
+## Props
+
+The TextShimmer component accepts the following props:
+
+- `duration`: The duration of the shimmer animation in seconds. Defaults to `3`.
+- `children`: The text to be displayed.
+- `className`: Additional CSS classes to be applied to the component.
+- `spread`: The spread of the shimmer effect. Defaults to `2`.

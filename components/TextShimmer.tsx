@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
 
-const TextShimmer = ({
+export const TextShimmer = ({
   duration = 3,
   children,
   className,
@@ -45,5 +45,3 @@ const TextShimmer = ({
     </motion.p>
   );
 };
-
-export default TextShimmer;

@@ -16,3 +16,4 @@ README.md
 tsconfig.json
 vitest.config.ts
 vitest.shimes.d.ts
+docs/*.mdx

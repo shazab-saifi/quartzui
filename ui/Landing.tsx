@@ -1,4 +1,4 @@
-import Banner from '@/components/Banner';
+import Banner from '@/ui/landing/Banner';
 import HeroSection from './landing/HeroSection';
 import Testimonials from './landing/Testimonials';
 import UseSection from './landing/UseSection';

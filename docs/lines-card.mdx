@@ -1,0 +1,63 @@
+import { LinesCard } from '../components/LinesCard';
+import LiveCode from './LiveCode';
+import { CodeBlock } from './CodeBlock';
+
+# LinesCard
+
+The LinesCard component is a card with animated lines and logos.
+
+<LiveCode code='<LinesCard />' />
+
+## Usage
+
+<CodeBlock code={`import { LinesCard } from '@/components/LinesCard';
+
+  export default function MyComponent() {
+    return <LinesCard />;
+  }
+`} />
+
+## Custom Content
+
+You can also provide custom content for the card.
+
+<LiveCode code={`<LinesCard
+    topLogos={[
+      { src: '/nextjs.svg', alt: 'nextjs' },
+      { src: '/react.svg', alt: 'reactjs' },
+    ]}
+    bottomLogo={{ src: '/motion.svg', alt: 'motion.dev' }}
+    title="Custom Title"
+    description="This is a custom description."
+  />`} />
+  
+
+<CodeBlock code={`import { LinesCard } from '@/components/LinesCard';
+
+  export default function MyComponent() {
+    return (
+      <LinesCard
+        topLogos={[
+          { src: '/nextjs.svg', alt: 'nextjs' },
+          { src: '/react.svg', alt: 'reactjs' },
+        ]}
+        bottomLogo={{ src: '/motion.svg', alt: 'motion.dev' }}
+        title="Custom Title"
+        description="This is a custom description."
+      />
+    );
+  }
+`} />
+
+## Props
+
+The LinesCard component accepts the following props:
+
+- `topLogos`: An array of logos to be displayed at the top of the card. Each logo is an object with `src`, `alt`, `width`, and `height` properties.
+- `bottomLogo`: The logo to be displayed at the bottom of the card. The logo is an object with `src`, `alt`, `width`, and `height` properties.
+- `title`: The title of the card.
+- `description`: The description of the card.
+
+## Default Props
+
+The component has default props for `topLogos`, `bottomLogo`, `title`, and `description`.

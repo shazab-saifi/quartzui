@@ -1,0 +1,61 @@
+import { Dialog } from '../components/Dialog';
+import LiveCode from './LiveCode';
+import { CodeBlock } from './CodeBlock';
+
+# Dialog
+
+The Dialog component is a modal window that can be used to display content on top of the main application window.
+
+<LiveCode
+  code={`
+    <Dialog>
+      <h2 className="text-xl font-bold">Dialog Title</h2>
+      <p>This is the content of the dialog.</p>CodeBlock 
+    </Dialog>
+  `}
+/>
+
+## Usage
+
+<CodeBlock code={`import { Dialog } from '@/components/Dialog';
+
+  export default function MyComponent() {
+    return (
+      <Dialog>
+        <h2 className="text-xl font-bold">Dialog Title</h2>
+        <p>This is the content of the dialog.</p>
+      </Dialog>
+    );
+  }
+`}
+/>
+
+## Custom Trigger
+
+You can also provide a custom trigger for the dialog.
+
+<LiveCode
+  code={`<Dialog
+    trigger={
+      <button className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white">
+        Open Custom Dialog
+      </button>
+    }
+  >
+    <h2 className="text-xl font-bold">Custom Dialog Title</h2>
+    <p>This is the content of the custom dialog.</p>
+  </Dialog>`}
+/>
+
+## Props
+
+The Dialog component accepts the following props:
+
+- `children`: The content to be displayed inside the dialog.
+- `trigger`: An optional element to be used as the trigger to open the dialog.
+
+## Behavior
+
+- The dialog can be opened by clicking the trigger element.
+- The dialog can be closed by clicking the backdrop, pressing the Escape key, or clicking the close button in the top-right corner.
+- When the dialog is open, the rest of the page is not scrollable.

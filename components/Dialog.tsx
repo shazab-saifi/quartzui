@@ -2,7 +2,13 @@ import { IconX } from '@tabler/icons-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
-const Dialog = ({ children }: { children: React.ReactNode }) => {
+export const Dialog = ({
+  children,
+  trigger,
+}: {
+  children: React.ReactNode;
+  trigger?: React.ReactNode;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
@@ -26,12 +32,16 @@ const Dialog = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="max-w-3xl">
-      <button
-        className="rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-neutral-100 dark:bg-neutral-100 dark:text-neutral-950"
-        onClick={() => setIsOpen(true)}
-      >
-        Open Dialog
-      </button>
+      {trigger ? (
+        <div onClick={() => setIsOpen(true)}>{trigger}</div>
+      ) : (
+        <button
+          className="rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-neutral-100 dark:bg-neutral-100 dark:text-neutral-950"
+          onClick={() => setIsOpen(true)}
+        >
+          Open Dialog
+        </button>
+      )}
 
       <AnimatePresence>
         {isOpen && (
@@ -102,5 +112,3 @@ const Dialog = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
-
-export default Dialog;

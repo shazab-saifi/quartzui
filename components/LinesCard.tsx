@@ -28,7 +28,7 @@ const defaultBottomLogo: Logo = {
   height: 32,
 };
 
-const LinesCard = ({
+export const LinesCard = ({
   topLogos = defaultTopLogos,
   bottomLogo = defaultBottomLogo,
   title = 'Quartz UI',
@@ -235,5 +235,3 @@ const SvgRight = () => {
     </svg>
   );
 };
-
-export default LinesCard;

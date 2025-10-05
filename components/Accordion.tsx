@@ -53,7 +53,11 @@ const defaultItems: AccordionItem[] = [
 
 const GRADIENT_RADIUS = 160;
 
-const Accordion = ({ items = defaultItems }: { items?: AccordionItem[] }) => {
+export const Accordion = ({
+  items = defaultItems,
+}: {
+  items?: AccordionItem[];
+}) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
