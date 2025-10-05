@@ -7,6 +7,13 @@ import {
   IconWorld,
 } from '@tabler/icons-react';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Owner of Quartz UI',
+  description:
+    "Hi, I'm Shazab Saifi, a developer and designer passionate about building beautiful, functional user interfaces. I love working with modern web technologies and enjoy creating tools that help others build better products. Quartz UI is my project to make sleek, flexible, and production-ready components accessible to everyone.",
+};
 
 const page = () => {
   return (

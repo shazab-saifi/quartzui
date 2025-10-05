@@ -15,7 +15,7 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
           className="relative z-10 px-4 py-2"
         >
           <span
-            className={`${clickedIndex === idx ? 'text-black' : 'text-white'} relative z-10`}
+            className={`${clickedIndex === idx ? 'text-black' : 'text-white'} relative z-10 transition-colors duration-300`}
           >
             {str}
           </span>

@@ -36,7 +36,7 @@ export const Dialog = ({
         <div onClick={() => setIsOpen(true)}>{trigger}</div>
       ) : (
         <button
-          className="rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-neutral-100 dark:bg-neutral-100 dark:text-neutral-950"
+          className="cursor-pointer rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-neutral-100 dark:bg-neutral-100 dark:text-neutral-950"
           onClick={() => setIsOpen(true)}
         >
           Open Dialog
@@ -52,7 +52,7 @@ export const Dialog = ({
               animate={{ filter: 'blur(0px)', opacity: 1 }}
               exit={{ filter: 'blur(10px)', opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-lg"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
               aria-hidden="true"
             />
@@ -65,19 +65,22 @@ export const Dialog = ({
                 initial={{
                   filter: 'blur(6px)',
                   opacity: 0,
-                  rotateY: '8deg',
+                  rotateY: '20deg',
+                  rotateX: '20deg',
                   transformOrigin: 'left center',
                 }}
                 animate={{
                   filter: 'blur(0px)',
                   opacity: 1,
                   rotateY: '0deg',
+                  rotateX: '0deg',
                   transformOrigin: 'left center',
                 }}
                 exit={{
                   filter: 'blur(6px)',
                   opacity: 0,
-                  rotateY: '15deg',
+                  rotateY: '20deg',
+                  rotateX: '20deg',
                   transformOrigin: 'left center',
                   transition: { duration: 0.3 },
                 }}
@@ -97,7 +100,7 @@ export const Dialog = ({
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 rounded-full p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                  className="absolute top-4 right-4 cursor-pointer rounded-full p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
                 >
                   <IconX
                     size={16}

@@ -1,5 +1,12 @@
 import ComponentPreviewCard from '@/ui/componentsPage/ComponentPreviewCard';
 import ComponentsBar from '@/ui/componentsPage/ComponentsBar';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Components - Quartz UI',
+  description:
+    'Browse a collection of reusable, modern UI components for your next project. Explore sidebars, tabs, accordions, animated buttons, badges, and more—all designed for seamless integration and customization.',
+};
 
 const previewData = [
   {

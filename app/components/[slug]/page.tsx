@@ -1,6 +1,22 @@
 import TOC from '@/ui/componentsPage/TOC';
 import Docs from '@/ui/componentsPage/Docs';
 import ComponentsBar from '@/ui/componentsPage/ComponentsBar';
+import type { Metadata } from 'next';
+import { slugFormatter } from '@/lib/utils';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const title = slugFormatter(slug);
+
+  return {
+    title: `${title} - Quartz UI`,
+    description: `Documentation and usage details for the ${title} component in Quartz UI.`,
+  };
+}
 
 export default async function Page({
   params,

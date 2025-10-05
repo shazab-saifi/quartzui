@@ -2,6 +2,13 @@ import { Button } from '@/components/Button';
 import TabSelect from '@/components/TabSelect';
 import FAQ from '@/ui/pricing/FAQ';
 import { IconCircleCheckFilled } from '@tabler/icons-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Pricing - Quartz UI',
+  description:
+    'Discover flexible pricing plans for Quartz UI. Choose the perfect plan to access a comprehensive library of modern, customizable UI components designed to accelerate your next project.',
+};
 
 interface PlanType {
   title: string;
