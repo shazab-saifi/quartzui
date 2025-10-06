@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: 'Pricing - Quartz UI',
   description:
     'Discover flexible pricing plans for Quartz UI. Choose the perfect plan to access a comprehensive library of modern, customizable UI components designed to accelerate your next project.',
+  openGraph: {
+    images:
+      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759754638/Thumbnail_w6bgrf.webp',
+  },
 };
 
 interface PlanType {

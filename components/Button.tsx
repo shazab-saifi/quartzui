@@ -12,15 +12,16 @@ export interface ButtonProps {
 }
 
 const buttonVariants = tv({
-  base: 'font-medium bg-blue-500 text-white rounded-lg cursor-pointer inline-flex gap-2 items-center justify-center',
+  base: 'font-medium bg-blue-500 text-white inset-shadow-xs rounded-lg cursor-pointer inline-flex gap-2 items-center justify-center',
   variants: {
     color: {
       primary:
-        'bg-neutral-950 hover:bg-neutral-900 border-1 border-neutral-800',
-      secondary: 'bg-neutral-100 text-black hover:bg-neutral-200',
+        'bg-neutral-950 hover:bg-neutral-900 border-1 border-neutral-800 inset-shadow-neutral-500',
+      secondary:
+        'bg-neutral-100 text-black hover:bg-neutral-200 inset-shadow-sm inset-shadow-neutral-400',
       gradient:
         'bg-linear-65 from-purple-500 to-pink-500 rounded-full font-semibold hover:ring-1',
-      destructive: 'bg-red-500 hover:bg-red-400',
+      destructive: 'bg-red-500 hover:bg-red-400 inset-shadow-neutral-400',
     },
     size: {
       sm: 'text-sm',

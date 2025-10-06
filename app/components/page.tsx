@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: 'Components - Quartz UI',
   description:
     'Browse a collection of reusable, modern UI components for your next project. Explore sidebars, tabs, accordions, animated buttons, badges, and more—all designed for seamless integration and customization.',
+  openGraph: {
+    images:
+      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759754638/Thumbnail_w6bgrf.webp',
+  },
 };
 
 const previewData = [

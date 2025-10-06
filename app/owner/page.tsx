@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: 'Owner of Quartz UI',
   description:
     "Hi, I'm Shazab Saifi, a developer and designer passionate about building beautiful, functional user interfaces. I love working with modern web technologies and enjoy creating tools that help others build better products. Quartz UI is my project to make sleek, flexible, and production-ready components accessible to everyone.",
+  openGraph: {
+    images:
+      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759754638/Thumbnail_w6bgrf.webp',
+  },
 };
 
 const page = () => {
