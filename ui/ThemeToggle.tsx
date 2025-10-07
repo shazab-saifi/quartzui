@@ -31,18 +31,26 @@ function ThemeToggle() {
       playDark();
     }
 
-    switch (theme) {
-      case 'light': {
-        setTheme('dark');
-        return;
+    const switchTheme = () => {
+      switch (theme) {
+        case 'light': {
+          setTheme('dark');
+          return;
+        }
+        case 'dark': {
+          setTheme('light');
+          return;
+        }
+        case 'system': {
+          setTheme(systemTheme === 'dark' ? 'light' : 'dark');
+        }
       }
-      case 'dark': {
-        setTheme('light');
-        return;
-      }
-      case 'system': {
-        setTheme(systemTheme === 'dark' ? 'light' : 'dark');
-      }
+    };
+
+    if (document.startViewTransition) {
+      document.startViewTransition(switchTheme);
+    } else {
+      switchTheme();
     }
   };
 
