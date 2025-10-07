@@ -1,15 +1,17 @@
-import { IconX } from '@tabler/icons-react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
 export const Dialog = ({
   children,
   trigger,
+  isOpen,
+  setIsOpen,
 }: {
   children: React.ReactNode;
   trigger?: React.ReactNode;
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -20,6 +22,7 @@ export const Dialog = ({
     };
 
     if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
       const scrollbarWidth =
         window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = 'hidden';
@@ -31,7 +34,7 @@ export const Dialog = ({
       document.body.style.overflow = '';
       document.body.style.paddingRight = '0px';
     };
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   return (
     <div className="max-w-3xl">
@@ -96,20 +99,10 @@ export const Dialog = ({
                   pointerEvents: 'auto',
                 }}
                 ref={dialogRef}
-                className="relative max-w-3xl space-y-2 rounded-2xl border border-neutral-200 bg-neutral-100 p-6 text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
+                className="relative"
                 onClick={(e) => e.stopPropagation()}
               >
                 {children}
-
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 cursor-pointer rounded-full p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
-                >
-                  <IconX
-                    size={16}
-                    className="text-neutral-600 dark:text-neutral-400"
-                  />
-                </button>
               </motion.div>
             </div>
           </>

@@ -52,7 +52,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      <div className="hidden items-center gap-6 text-neutral-600 lg:flex dark:text-neutral-400">
+      <div className="hidden items-center gap-4 text-neutral-600 lg:flex dark:text-neutral-400">
         <ThemeToggle />
         <SearchBar />
       </div>
