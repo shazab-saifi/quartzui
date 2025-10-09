@@ -40,32 +40,54 @@ const Pointer = ({
         opacity: 0,
       }}
     >
-      <svg
+      <motion.svg
         stroke="currentColor"
         fill="currentColor"
         strokeWidth="1"
         viewBox="0 0 16 16"
-        className="h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-white text-sky-500"
+        className="h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-white"
         height="1em"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
+        initial={{
+          color: 'var(--color-yellow-500)',
+        }}
+        animate={{
+          color: 'var(--color-purple-500)',
+        }}
+        transition={{
+          color: {
+            duration: 10,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          },
+        }}
       >
         <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
-      </svg>
+      </motion.svg>
       <motion.div
         initial={{
           scale: 0.5,
           opacity: 0,
+          backgroundColor: 'var(--color-yellow-500)',
         }}
         animate={{
           scale: 1,
           opacity: 1,
+          backgroundColor: 'var(--color-purple-500)',
         }}
         exit={{
           scale: 0.5,
           opacity: 0,
         }}
-        className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 bg-sky-500 p-1 text-sm leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
+        transition={{
+          backgroundColor: {
+            duration: 10,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          },
+        }}
+        className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 p-1 text-sm leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
       >
         <Image
           src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
@@ -73,7 +95,7 @@ const Pointer = ({
           width={24}
           height={24}
         />
-        <span>{title || 'Quartz UI'}</span>
+        <span className="mr-1">{title || 'Quartz UI'}</span>
       </motion.div>
     </motion.div>
   );
@@ -84,7 +106,7 @@ const PointerCard = ({
   className,
   title,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   title?: string;
 }) => {
