@@ -92,6 +92,7 @@ export const Dialog = ({
                 }}
                 transition={{
                   duration: 0.6,
+                  ease: 'easeOut',
                 }}
                 style={{
                   transformStyle: 'preserve-3d',

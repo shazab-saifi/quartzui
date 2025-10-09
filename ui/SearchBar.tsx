@@ -38,7 +38,7 @@ const SearchBar = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key === 'k') {
         event.preventDefault();
-        setIsOpen(!isOpen);
+        setIsOpen((prev) => !prev);
       }
     };
 
@@ -77,7 +77,7 @@ const SearchBar = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <div className="no-scrollbar flex max-h-64 flex-col gap-2 overflow-y-scroll p-2">
+          <div className="flex max-h-64 flex-col gap-2 overflow-y-scroll p-2">
             <h6 className="px-2 text-xs text-neutral-600 dark:text-neutral-400">
               Components
             </h6>

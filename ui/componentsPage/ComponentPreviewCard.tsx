@@ -23,7 +23,7 @@ const ComponentPreviewCard = ({
       initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
       whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.1 }}
+      transition={{ duration: 0.3, ease: 'easeOut', delay: idx * 0.1 }}
       className="group relative h-64 cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 md:h-72 lg:h-76 dark:border-neutral-800"
     >
       <Link href={link}>

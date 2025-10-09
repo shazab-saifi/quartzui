@@ -1,42 +1,91 @@
 'use client';
 
-import { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 
-const TabSelect = ({ tabs }: { tabs: string[] }) => {
-  const [clickedIndex, setClickedIndex] = useState<number>(0);
+const ClipPathTabs = ({ tabs }: { tabs: string[] }) => {
+  if (tabs.length > 4) {
+    throw new Error('ClipPathTabs only accept up to 4 tabs!');
+  }
+  const [activeTab, setActiveTab] = useState<string>(tabs[0]);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const tabButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const idx = tabs.indexOf(activeTab);
+    const activeBtn = tabButtonRefs.current[idx];
+
+    if (container && activeBtn) {
+      const { offsetLeft, offsetWidth } = activeBtn;
+      const containerWidth = container.offsetWidth;
+
+      if (containerWidth === 0) return;
+
+      const leftPercent = (offsetLeft / containerWidth) * 100;
+      const rightPercent =
+        100 - ((offsetLeft + offsetWidth) / containerWidth) * 100;
+
+      container.style.clipPath = `inset(0% ${rightPercent.toFixed(2)}% 0% ${leftPercent.toFixed(2)}% round 17px)`;
+    }
+  }, [activeTab, tabs]);
 
   return (
-    <div className="mx-auto flex w-fit rounded-full border border-neutral-200 bg-black/30 p-2 text-sm backdrop-blur-xs dark:border-neutral-800 dark:bg-black/40">
-      {tabs.map((str, idx) => (
-        <button
-          onClick={() => setClickedIndex(idx)}
-          key={idx}
-          className="relative z-10 px-4 py-2"
-        >
-          <span
-            className={`${clickedIndex === idx ? 'text-black' : 'text-white'} relative z-10 transition-colors duration-300`}
-          >
-            {str}
-          </span>
-          <AnimatePresence>
-            {clickedIndex === idx && (
-              <motion.div
-                layoutId="clicked"
-                transition={{
-                  type: 'spring',
-                  duration: 0.3,
-                  damping: 30,
-                  stiffness: 300,
+    <div className="relative mx-auto flex w-fit flex-col items-center">
+      <ul className="relative flex w-full justify-center gap-8">
+        {tabs.map((tab, idx) => (
+          <li key={tab}>
+            <button
+              ref={(el) => {
+                tabButtonRefs.current[idx] = el;
+              }}
+              data-tab={tab}
+              onClick={() => setActiveTab(tab)}
+              className="flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold transition-colors dark:text-neutral-400"
+              type="button"
+            >
+              {tab}
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <div
+        aria-hidden="true"
+        ref={containerRef}
+        style={{
+          position: 'absolute',
+          zIndex: 0,
+          width: '100%',
+          height: '100%',
+          top: 0,
+          left: 0,
+          overflow: 'hidden',
+          transition: 'clip-path 0.25s ease',
+          pointerEvents: 'none',
+          clipPath: 'inset(0px 75% 0px 0% round 17px)',
+        }}
+      >
+        <ul className="relative flex w-full justify-center gap-8 bg-neutral-950 dark:bg-neutral-100">
+          {tabs.map((tab) => (
+            <li key={tab}>
+              <button
+                tabIndex={-1}
+                aria-hidden="true"
+                className="flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold text-neutral-100 dark:text-black"
+                type="button"
+                style={{
+                  pointerEvents: 'none',
+                  background: 'transparent',
                 }}
-                className="absolute top-0 left-0 z-0 h-full w-full rounded-full bg-neutral-100"
-              ></motion.div>
-            )}
-          </AnimatePresence>
-        </button>
-      ))}
+              >
+                {tab}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
-export default TabSelect;
+export default ClipPathTabs;

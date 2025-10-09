@@ -3,19 +3,59 @@
 @plugin '@tailwindcss/typography';
 
 ::view-transition-old(root) {
-  animation-delay: 500ms;
+  animation-delay: 1s;
 }
 
 ::view-transition-new(root) {
-  animation: circle-in 500ms;
+  clip-path: inset(0 0 100% 0);
+  animation: revealClipPath 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 
-@keyframes circle-in {
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-200);
+  border-radius: 9999px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: var(--color-white);
+}
+
+.dark .scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-800);
+}
+
+.dark .scrollbar::-webkit-scrollbar-track {
+  background-color: var(--color-neutral-950);
+}
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-200) var(--color-white);
+}
+
+.dark .scrollbar {
+  scrollbar-color: var(--color-neutral-800) var(--color-neutral-950);
+}
+
+/* @keyframes circle-in {
   from {
     clip-path: circle(0% at 100% 0);
   }
   to {
     clip-path: circle(150% at 100% 0);
+  }
+} */
+
+@keyframes revealClipPath {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }
 

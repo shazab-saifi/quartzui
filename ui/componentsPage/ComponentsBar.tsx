@@ -107,7 +107,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
   ];
 
   return (
-    <div className="space-y-lg no-scrollbar sticky top-24 max-h-[700px] overflow-y-scroll">
+    <div className="scrollbar-thin scrollbar sticky top-24 max-h-[750px] overflow-y-scroll pr-4">
       <h3 className="text-para mb-4 font-semibold text-neutral-900 dark:text-neutral-100">
         Components
       </h3>
