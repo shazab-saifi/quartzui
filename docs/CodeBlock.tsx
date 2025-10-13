@@ -1,8 +1,9 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { vs, vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export function CodeBlock({
   code,
@@ -12,6 +13,7 @@ export function CodeBlock({
   language?: string;
 }) {
   const [copied, setCopied] = useState(false);
+  const { theme } = useTheme();
 
   const handleCopy = async () => {
     try {
@@ -24,17 +26,18 @@ export function CodeBlock({
   };
 
   return (
-    <div className="group relative max-w-85 overflow-x-auto rounded-md bg-neutral-900 sm:max-w-full">
+    <div className="group relative max-w-85 overflow-x-auto rounded-md bg-neutral-100 sm:max-w-full dark:bg-neutral-900">
       <button
         onClick={handleCopy}
-        className="absolute top-2 right-2 cursor-pointer rounded bg-neutral-800 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100"
+        className="absolute top-2 right-2 cursor-pointer rounded bg-neutral-100 px-2 py-1 text-xs text-neutral-950 opacity-0 group-hover:opacity-100 dark:bg-neutral-800 dark:text-white"
       >
         {copied ? 'Copied!' : 'Copy'}
       </button>
       <div className="w-full">
         <SyntaxHighlighter
+          showLineNumbers
           language={language}
-          style={a11yDark}
+          style={theme === 'dark' ? vs2015 : vs}
           customStyle={{
             background: 'transparent',
             backgroundColor: 'transparent',

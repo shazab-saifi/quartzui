@@ -9,7 +9,7 @@ import Accordion from '@/components/Accordion';
 import AnimatedText from '@/components/AnimatedText';
 import Badge from '@/components/Badge';
 import BentoGrid from '@/components/BentoGrid';
-import ExpandableCard from '@/components/ExpandableCard';
+import ExpandableCard from '@/components/ExpendableCard';
 import FloatingDock from '@/components/FloatingDock';
 import PointerCard from '@/components/PointerCard';
 import PriceSwitcher from '@/components/PriceSwitcher';

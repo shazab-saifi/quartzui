@@ -108,25 +108,28 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
       initial={false}
       animate={{ width: open ? '16rem' : '3.25rem' }}
       transition={{ duration: 0.1, ease: 'linear' }}
-      className={`flex h-screen ${sidebarWidth} flex-col justify-between overflow-hidden border-r border-neutral-200 bg-white p-2 py-4 text-neutral-700 transition-all duration-200 dark:border-white/10 dark:bg-neutral-900 dark:text-white`}
+      className={`flex h-screen ${sidebarWidth} flex-col justify-between overflow-hidden border-r border-neutral-200 bg-neutral-100 p-2 py-4 text-neutral-700 transition-all duration-200 dark:border-white/10 dark:bg-neutral-900 dark:text-white`}
     >
       <div
         className={`${open ? 'justify-between' : 'justify-end'} flex items-center`}
       >
-        {open && (
-          <motion.div
-            initial={false}
-            animate={{ scale: open ? 1 : 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <Image
-              src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
-              alt="logo"
-              width={24}
-              height={24}
-            />
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={false}
+              animate={{ scale: open ? 1 : 0 }}
+              exit={{ scale: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Image
+                src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+                alt="logo"
+                width={24}
+                height={24}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
         <button
           type="button"
           aria-label="Toggle sidebar"
@@ -159,36 +162,32 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
                 </motion.p>
               ) : null}
             </AnimatePresence>
-            <motion.div className="flex flex-col" layout>
+            <motion.div className="flex flex-col">
               {section.items.map(({ title, icon, href }, idx) => (
                 <motion.div
                   key={`${sectionIdx}-${idx}`}
                   layout
-                  transition={{ type: 'spring', stiffness: 400, damping: 40 }}
+                  transition={{ type: 'spring', stiffness: 500, damping: 100 }}
                 >
                   <Link
                     href={href}
                     onMouseEnter={() => setHoveredItem({ sectionIdx, idx })}
                     onMouseLeave={() => setHoveredItem(null)}
-                    className={`group relative flex items-center ${open && 'justify-start gap-2'} rounded-md p-2 text-sm text-neutral-900 transition dark:text-white`}
+                    className={`group relative flex items-center ${open && 'justify-start gap-2'} rounded-md p-2 text-sm text-neutral-900 dark:text-white`}
                   >
-                    <AnimatePresence>
-                      {hoveredItem &&
-                        hoveredItem.sectionIdx === sectionIdx &&
-                        hoveredItem.idx === idx && (
-                          <motion.span
-                            layoutId="hovered-span"
-                            className="absolute inset-0 rounded-md bg-neutral-200/70 dark:bg-neutral-800/70"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{
-                              duration: 0.3,
-                              ease: 'easeInOut',
-                            }}
-                          />
-                        )}
-                    </AnimatePresence>
+                    {hoveredItem &&
+                      hoveredItem.sectionIdx === sectionIdx &&
+                      hoveredItem.idx === idx && (
+                        <motion.span
+                          layoutId="sidebar"
+                          transition={{
+                            duration: 0.3,
+                            stiffness: 500,
+                            damping: 30,
+                          }}
+                          className="absolute inset-0 h-full w-full rounded-md bg-neutral-200/70 dark:bg-neutral-800/70"
+                        />
+                      )}
                     <span className="z-10 text-neutral-900 transition dark:text-white">
                       {React.cloneElement(icon, { size: 20 })}
                     </span>
@@ -213,7 +212,7 @@ const Sidebar = ({ sections, profile }: SidebarProps) => {
             <Image
               src={
                 profile?.avatar ??
-                'https://images.pexels.com/photos/1704120/pexels-photo-1704120.jpeg?_gl=1*o2gzc1*_ga*MTk4MjEwNjY3Ny4xNzMxMDc3NTk0*_ga_8JE65Q40S6*czE3NTY0NjIxMzkkbzE4MSRnMSR0MTc1NjQ2MjE2MyRqMzYkbDAkaDA.'
+                'https://images.pexels.com/photos/30938835/pexels-photo-30938835.jpeg'
               }
               alt="profile-avatar"
               width={36}

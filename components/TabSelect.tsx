@@ -2,10 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const ClipPathTabs = ({ tabs }: { tabs: string[] }) => {
-  if (tabs.length > 4) {
-    throw new Error('ClipPathTabs only accept up to 4 tabs!');
-  }
+const TabSelect = ({ tabs }: { tabs: string[] }) => {
   const [activeTab, setActiveTab] = useState<string>(tabs[0]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const tabButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -31,7 +28,7 @@ const ClipPathTabs = ({ tabs }: { tabs: string[] }) => {
 
   return (
     <div className="relative mx-auto flex w-fit flex-col items-center">
-      <ul className="relative flex w-full justify-center gap-8">
+      <ul className="relative flex w-full flex-wrap justify-center gap-8">
         {tabs.map((tab, idx) => (
           <li key={tab}>
             <button
@@ -62,10 +59,9 @@ const ClipPathTabs = ({ tabs }: { tabs: string[] }) => {
           overflow: 'hidden',
           transition: 'clip-path 0.25s ease',
           pointerEvents: 'none',
-          clipPath: 'inset(0px 75% 0px 0% round 17px)',
         }}
       >
-        <ul className="relative flex w-full justify-center gap-8 bg-neutral-950 dark:bg-neutral-100">
+        <ul className="relative flex w-full flex-wrap justify-center gap-8 bg-neutral-950 dark:bg-neutral-100">
           {tabs.map((tab) => (
             <li key={tab}>
               <button
@@ -88,4 +84,4 @@ const ClipPathTabs = ({ tabs }: { tabs: string[] }) => {
   );
 };
 
-export default ClipPathTabs;
+export default TabSelect;

@@ -1,17 +1,31 @@
-import React, { useEffect, useRef } from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { cn } from '@/lib/utils';
+
+type DialogProps = {
+  children: React.ReactNode;
+  trigger?: React.ReactNode;
+  isOpen?: boolean;
+  className: string;
+  setIsOpen?: (open: boolean) => void;
+};
 
 export const Dialog = ({
   children,
   trigger,
-  isOpen,
-  setIsOpen,
-}: {
-  children: React.ReactNode;
-  trigger?: React.ReactNode;
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
-}) => {
+  isOpen: controlledIsOpen,
+  className,
+  setIsOpen: controlledSetIsOpen,
+}: DialogProps) => {
+  const [internalIsOpen, internalSetIsOpen] = useState(false);
+  const isControlled =
+    typeof controlledIsOpen === 'boolean' &&
+    typeof controlledSetIsOpen === 'function';
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+  const setIsOpen = isControlled ? controlledSetIsOpen! : internalSetIsOpen;
+
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -100,7 +114,7 @@ export const Dialog = ({
                   pointerEvents: 'auto',
                 }}
                 ref={dialogRef}
-                className="relative"
+                className={cn('relative', className)}
                 onClick={(e) => e.stopPropagation()}
               >
                 {children}

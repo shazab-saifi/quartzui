@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    tabs: ['Home', 'Docs', 'Pricing', 'Join'],
+    tabs: ['Home', 'Components', 'Pricing', 'Docs'],
   },
 };

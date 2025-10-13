@@ -1,7 +1,12 @@
 'use client';
 
 import { Dialog } from '@/components/Dialog';
-import { IconCircle, IconSearch, IconX } from '@tabler/icons-react';
+import {
+  IconCircle,
+  IconCommand,
+  IconSearch,
+  IconX,
+} from '@tabler/icons-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -36,7 +41,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key === 'k') {
+      if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
         event.preventDefault();
         setIsOpen((prev) => !prev);
       }
@@ -55,8 +60,8 @@ const SearchBar = () => {
         trigger={
           <div className="gap-sm flex cursor-pointer items-center rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-sm hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
             <span className="mr-2">Search Commponents</span>
-            <span className="rounded-sm bg-neutral-200 px-1 py-0.5 text-xs dark:bg-neutral-800">
-              ctrl + k
+            <span className="flex items-center gap-0.5 rounded-sm bg-neutral-200 px-1 py-0.5 text-xs dark:bg-neutral-800">
+              <IconCommand size={14} /> + k
             </span>
           </div>
         }

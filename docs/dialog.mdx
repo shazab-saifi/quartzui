@@ -8,7 +8,7 @@ The Dialog component is a modal window that can be used to display content on to
 
 <LiveCode
   code={`
-    <Dialog>
+    <Dialog className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4" >
       <h2 className="text-xl font-bold">Quartz Ui</h2>
       <p className="max-w-sm mt-2">This is a dialog component with 3d enter and exist animtions, You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
       <div className="flex justify-end mb-0 mt-6">
@@ -44,6 +44,7 @@ You can also provide a custom trigger for the dialog.
         Open Custom Dialog
       </button>
     }
+    className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4"
   >
     <h2 className="text-xl font-bold">Custom Trigger</h2>
     <p className="max-w-sm mt-2">This is a dialog component with 3d enter and exist animtions, You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
