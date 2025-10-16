@@ -101,9 +101,9 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
       identifier: 'text-shimmer',
     },
     {
-      title: 'Tilt',
-      category: 'Other Components',
-      identifier: 'tilt',
+      title: 'Tilt Card',
+      category: 'Cards',
+      identifier: 'tilt-card',
     },
   ];
 

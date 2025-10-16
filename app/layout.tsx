@@ -22,6 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <link
+        rel="icon"
+        href="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
+        type="image/svg"
+      />
       <body
         className={`${inter.variable} mx-auto max-w-[128rem] bg-white antialiased dark:bg-neutral-950`}
       >

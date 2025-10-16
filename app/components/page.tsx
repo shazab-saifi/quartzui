@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Browse a collection of reusable, modern UI components for your next project. Explore sidebars, tabs, accordions, animated buttons, badges, and more—all designed for seamless integration and customization.',
   openGraph: {
     images:
-      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759754638/Thumbnail_w6bgrf.webp',
+      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760620351/ogimage_s4dmmb.png',
   },
 };
 
@@ -53,7 +53,7 @@ const previewData = [
     desc: 'A card component with a 3D tilt effect that responds to your pointer, creating an interactive and modern visual experience.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603718/Screenshot_from_2025-10-16_14-04-57_qsznjk.png',
-    link: '/components/tilt',
+    link: '/components/tilt-card',
   },
   {
     title: 'Floating Dock',

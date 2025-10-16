@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     'Quartz UI is a modern component library offering a curated collection of reusable, customizable UI components. Effortlessly build beautiful, responsive interfaces with sidebars, tabs, accordions, animated buttons, badges, and more—designed for seamless integration and rapid development in your next project.',
   openGraph: {
     images:
-      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759754638/Thumbnail_w6bgrf.webp',
+      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760620351/ogimage_s4dmmb.png',
   },
 };
 

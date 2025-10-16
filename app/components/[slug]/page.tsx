@@ -15,6 +15,10 @@ export async function generateMetadata({
   return {
     title: `${title} - Quartz UI`,
     description: `Documentation and usage details for the ${title} component in Quartz UI.`,
+    openGraph: {
+      images:
+        'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760620351/ogimage_s4dmmb.png',
+    },
   };
 }
 
