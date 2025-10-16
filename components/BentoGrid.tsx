@@ -104,8 +104,8 @@ const BentoGridItem = ({
       onMouseLeave={handleMouseLeave}
     >
       <div className="h-[65%] w-full rounded-xl bg-gradient-to-l from-neutral-800 to-neutral-900"></div>
-      <div className="mt-4 flex w-full flex-col items-start">
-        <h3 className="text-lg font-semibold text-white">{heading}</h3>
+      <div className="mt-4 flex w-full flex-col items-start gap-1">
+        <h3 className="font-semibold text-white">{heading}</h3>
         <p className="text-sm text-neutral-400">{desc}</p>
       </div>
     </motion.div>

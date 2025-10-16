@@ -9,6 +9,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
 
   const sections = [
     { title: 'Buttons' },
+    { title: 'Text' },
     { title: 'Cards' },
     { title: 'Other Components' },
   ];
@@ -26,7 +27,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
     },
     {
       title: 'Animated Text',
-      category: 'Other Components',
+      category: 'Text',
       identifier: 'animated-text',
     },
     {
@@ -59,16 +60,16 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
       category: 'Other Components',
       identifier: 'price-switcher',
     },
-    {
-      title: 'Scale Card',
-      category: 'Cards',
-      identifier: 'scale-card',
-    },
-    {
-      title: 'Scroll Progress',
-      category: 'Other Components',
-      identifier: 'scroll-progress',
-    },
+    // {
+    //   title: 'Scale Card',
+    //   category: 'Cards',
+    //   identifier: 'scale-card',
+    // },
+    // {
+    //   title: 'Scroll Progress',
+    //   category: 'Other Components',
+    //   identifier: 'scroll-progress',
+    // },
     {
       title: 'Sidebar',
       category: 'Other Components',
@@ -96,7 +97,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
     },
     {
       title: 'Text Shimmer',
-      category: 'Other Components',
+      category: 'Text',
       identifier: 'text-shimmer',
     },
     {

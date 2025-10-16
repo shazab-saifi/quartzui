@@ -19,7 +19,7 @@ import Sidebar from '@/components/Sidebar';
 import TabSelect from '@/components/TabSelect';
 import { Dialog } from '@/components/Dialog';
 import { LinesCard } from '@/components/LinesCard';
-import { TextShimmer } from '@/components/TextShimmer';
+import TextShimmer from '@/components/TextShimmer';
 import { Tilt } from '@/components/Tilt';
 
 const scope = {
