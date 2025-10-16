@@ -114,7 +114,7 @@ const BentoGridItem = ({
 
 const BentoGrid = () => {
   return (
-    <div className="grid w-4xl grid-cols-3 grid-rows-2 gap-4">
+    <div className="grid w-full grid-cols-3 grid-rows-2 gap-4">
       {gridItems.map((item, i) => (
         <BentoGridItem key={i} {...item} />
       ))}

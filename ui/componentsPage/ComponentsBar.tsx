@@ -42,7 +42,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
     {
       title: 'Expandable Card',
       category: 'Cards',
-      identifier: 'expandable-card',
+      identifier: 'expendable-card',
     },
     {
       title: 'Floating Dock',

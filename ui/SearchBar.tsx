@@ -18,7 +18,7 @@ const components = [
   { name: 'Bento Grid', href: '/components/bento-grid' },
   { name: 'Button', href: '/components/button' },
   { name: 'Dialog', href: '/components/dialog' },
-  { name: 'Expandable Card', href: '/components/expandable-card' },
+  { name: 'Expandable Card', href: '/components/expendable-card' },
   { name: 'Floating Dock', href: '/components/floating-dock' },
   { name: 'Lines Card', href: '/components/lines-card' },
   { name: 'Pointer Card', href: '/components/pointer-card' },

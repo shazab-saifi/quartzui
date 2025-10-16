@@ -8,7 +8,7 @@ type DialogProps = {
   children: React.ReactNode;
   trigger?: React.ReactNode;
   isOpen?: boolean;
-  className: string;
+  className?: string;
   setIsOpen?: (open: boolean) => void;
 };
 

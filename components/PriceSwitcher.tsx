@@ -11,11 +11,12 @@ const PriceSwitcher = () => {
     <div className="flex flex-col items-center gap-8">
       <motion.div
         layout
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         className="font-inter flex overflow-hidden text-6xl font-semibold text-black dark:text-white"
         style={{ display: 'flex', alignItems: 'center' }}
       >
-        <span className="w-fit">$</span>
+        <motion.span layout className="w-fit">
+          $
+        </motion.span>
         <motion.span
           initial={false}
           animate={{
@@ -59,7 +60,9 @@ const PriceSwitcher = () => {
             ))}
           </motion.span>
         </span>
-        <span className="w-fit">9</span>
+        <motion.span layout className="w-fit">
+          9
+        </motion.span>
       </motion.div>
       {/* this div is just for testing */}
       <div className="space-x-8">
