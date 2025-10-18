@@ -12,7 +12,7 @@ export interface ButtonProps {
 }
 
 const buttonVariants = tv({
-  base: 'font-medium bg-blue-500 text-white inset-shadow-xs rounded-lg cursor-pointer inline-flex gap-2 items-center justify-center',
+  base: 'font-medium bg-blue-500 text-white transition-colors inset-shadow-xs rounded-lg cursor-pointer inline-flex gap-2 items-center justify-center',
   variants: {
     color: {
       primary:

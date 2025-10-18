@@ -1,62 +1,112 @@
 'use client';
 
-import AnimatedButton from '@/components/AnimatedButton';
-
+import { Button } from '@/components/Button';
+import TextShimmer from '@/components/TextShimmer';
 import {
   IconBrandFramerMotion,
+  IconBrandGithub,
   IconBrandNextjs,
   IconBrandReact,
   IconBrandStorybook,
+  IconBrandTailwind,
 } from '@tabler/icons-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { motion } from 'motion/react';
+import AnimatedText from '@/components/AnimatedText';
+import Marquee from 'react-fast-marquee';
 
 interface ItemType {
   icon: React.ElementType;
   title: string;
 }
 
+const items: ItemType[] = [
+  { icon: IconBrandReact, title: 'React.js' },
+  { icon: IconBrandFramerMotion, title: 'Motion.dev' },
+  { icon: IconBrandNextjs, title: 'Next.js' },
+  { icon: IconBrandStorybook, title: 'Storybook.js' },
+  { icon: IconBrandGithub, title: 'Github' },
+  { icon: IconBrandTailwind, title: 'Tailwind.css' },
+];
+
 const HeroSection = () => {
-  const items: ItemType[] = [
-    { icon: IconBrandReact, title: 'React.js' },
-    { icon: IconBrandFramerMotion, title: 'Motion.dev' },
-    { icon: IconBrandNextjs, title: 'Next.js' },
-    { icon: IconBrandStorybook, title: 'Storybook.js' },
-  ];
+  const router = useRouter();
 
   return (
-    <div className="mt-16 flex flex-col items-center md:mt-32">
+    <div className="mt-16 flex flex-col items-center overflow-hidden md:mt-28">
       <div className="z-10 flex flex-col items-center gap-4 md:gap-6">
-        <h1 className="md:text-h3 lg:text-h2 max-w-4xl text-center text-3xl font-bold text-neutral-950 dark:text-neutral-100">
-          Build Beautiful Interfaces, Faster with Quartz UI
-        </h1>
-        <p className="md:text-para lg:text-para-big max-w-3xl text-center text-sm text-neutral-600 dark:text-neutral-400">
+        <motion.button
+          initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
+          onClick={() => router.push('/components')}
+          className="mb-4 flex cursor-pointer items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-2 py-1 text-xs dark:border-neutral-800 dark:bg-neutral-900"
+        >
+          <Image
+            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+            alt="logo"
+            width={12}
+            height={12}
+            className="hidden dark:inline"
+          />
+          <Image
+            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
+            alt="logo"
+            width={12}
+            height={12}
+            className="inline dark:hidden"
+          />
+          <TextShimmer>
+            Beautiful components. Effortless experience. »
+          </TextShimmer>
+        </motion.button>
+        <div className="max-w-2xl">
+          <AnimatedText className="md:text-h3 text-center text-3xl font-bold text-neutral-950 dark:text-neutral-100">
+            Build Beautiful Interfaces, Faster with Quartz UI
+          </AnimatedText>
+        </div>
+        <motion.p
+          initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
+          animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="md:text-para max-w-xl text-center text-sm text-neutral-600 dark:text-neutral-400"
+        >
           Our UI library gives you elegant, production-ready components built
           for speed, flexibility, and creativity. Design smarter, ship faster,
-          and focus on what truly matters — your product.
-        </p>
+          and focus on what truly matters your product.
+        </motion.p>
       </div>
-      <Image
-        src="beam.svg"
-        alt="light-beams"
-        width={1000}
-        height={1000}
-        className="absolute -top-24 right-12 z-0 opacity-60 dark:opacity-20"
-      />
       <div className="z-10 mt-12 space-x-4 md:mt-14 md:space-x-6">
-        <AnimatedButton onClick={() => null} className="cursor-pointer">
+        <Button
+          variant="secondary"
+          onClick={() => router.push('/components')}
+          className="px-6"
+        >
           Components
-        </AnimatedButton>
+        </Button>
+        <Button
+          onClick={() =>
+            (window.location.href = 'https://x.com/shazabsaifi_s9')
+          }
+          className="px-5"
+        >
+          Request component
+        </Button>
       </div>
-      <div className="mt-16 flex w-[80%] max-w-full flex-wrap justify-between gap-4 md:mt-24 lg:mt-32">
-        {items.map(({ title, icon: Icon }, idx) => (
-          <div
-            key={idx}
-            className="mx-auto flex items-center gap-2 text-neutral-600 dark:text-neutral-400"
-          >
-            <Icon className="size-4 sm:size-6 md:size-8" />
-            <span className="sm:text-lg md:text-2xl">{title}</span>
+      <div className="mt-16 flex justify-between gap-4 overflow-hidden mask-r-from-80% mask-l-from-80% sm:w-[80%] md:mt-24 lg:mt-32">
+        <Marquee>
+          <div className="flex justify-between gap-16">
+            {items.map(({ title, icon: Icon }, idx) => (
+              <div
+                key={idx}
+                className="mx-auto flex items-center gap-2 text-neutral-600 dark:text-neutral-400"
+              >
+                <Icon className="size-4 md:size-6" />
+                <span className="md:text-lg">{title}</span>
+              </div>
+            ))}
           </div>
-        ))}
+        </Marquee>
       </div>
     </div>
   );

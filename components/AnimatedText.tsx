@@ -4,15 +4,15 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
 const AnimatedText = ({
-  text,
+  children,
   className,
 }: {
-  text: string;
+  children: string;
   className?: string;
 }) => {
   return (
     <div className="flex max-w-4xl flex-wrap justify-center">
-      {text.split(' ').map((word, idx) => (
+      {children.split(' ').map((word, idx) => (
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
