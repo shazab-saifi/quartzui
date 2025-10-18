@@ -80,7 +80,7 @@ const HeroSection = () => {
         <Button
           variant="secondary"
           onClick={() => router.push('/components')}
-          className="px-6"
+          className="px-6 text-sm"
         >
           Components
         </Button>
@@ -88,7 +88,7 @@ const HeroSection = () => {
           onClick={() =>
             (window.location.href = 'https://x.com/shazabsaifi_s9')
           }
-          className="px-5"
+          className="px-5 text-sm"
         >
           Request component
         </Button>
