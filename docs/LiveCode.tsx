@@ -20,7 +20,7 @@ import TabSelect from '@/components/TabSelect';
 import { Dialog } from '@/components/Dialog';
 import { LinesCard } from '@/components/LinesCard';
 import TextShimmer from '@/components/TextShimmer';
-import { Tilt } from '@/components/Tilt';
+import { TiltCard } from '@/components/TiltCard';
 
 const scope = {
   React,
@@ -41,7 +41,7 @@ const scope = {
   Dialog,
   LinesCard,
   TextShimmer,
-  Tilt,
+  TiltCard,
 };
 
 export default function LiveCode({ code }: { code: string }) {

@@ -1,16 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
-import { Tilt } from '@/components/Tilt';
+import { TiltCard } from '@/components/TiltCard';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {
   title: 'Tilt Card',
-  component: Tilt,
+  component: TiltCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Tilt>;
+} satisfies Meta<typeof TiltCard>;
 
 export default meta;
 

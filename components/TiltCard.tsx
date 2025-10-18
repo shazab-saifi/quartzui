@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { useRef } from 'react';
 
-export const Tilt = ({ children }: { children: React.ReactNode }) => {
+export const TiltCard = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
