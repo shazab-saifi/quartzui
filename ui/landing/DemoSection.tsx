@@ -64,25 +64,31 @@ const DemoSection = () => {
     <div className="relative columns-1 gap-4 overflow-hidden rounded-4xl sm:columns-2 md:columns-3 [&>div]:mb-4">
       <div
         aria-hidden
-        className="absolute inset-x-0 -bottom-6 z-0 h-[60%] bg-gradient-to-t from-white from-12% to-transparent dark:from-neutral-950"
+        className="pointer-events-none absolute inset-x-0 -bottom-6 z-0 h-[60%] bg-gradient-to-t from-white from-12% to-transparent dark:from-neutral-950"
       />
-      {vidoesData.map((item, idx) => (
-        <div
-          key={idx}
-          onClick={() => router.push(`/components/${item.link}`)}
-          className="cursor-pointer break-inside-avoid"
-        >
-          <video
-            src={item.href}
-            className="w-full rounded-lg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          />
-        </div>
-      ))}
+      {vidoesData.map((item, idx) => {
+        let roundedExtra = '';
+        if (item.link === 'expendable-card') roundedExtra = 'rounded-tr-4xl';
+        if (item.link === 'tab-select') roundedExtra = 'rounded-tl-4xl';
+
+        return (
+          <div
+            key={idx}
+            onClick={() => router.push(`/components/${item.link}`)}
+            className={`cursor-pointer break-inside-avoid rounded-lg dark:border dark:border-neutral-800 ${roundedExtra} transition-shadow hover:shadow-md`}
+          >
+            <video
+              src={item.href}
+              className={`w-full rounded-lg ${roundedExtra}`}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            />
+          </div>
+        );
+      })}
       <Button
         variant="secondary"
         className="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 text-sm"

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "price-switcher",
+  "type": "registry:component",
+  "title": "Price Switcher",
+  "description": "A price switcher component with subtle animated transitions between monthly and yearly prices.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/PriceSwitcher.tsx",
+      "content": "'use client';\n\nimport { useState } from 'react';\nimport { motion } from 'motion/react';\n\nconst PriceSwitcher = () => {\n  const [isMonthly, setIsMonthly] = useState<boolean>(false);\n  const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9];\n\n  return (\n    <div className=\"flex flex-col items-center gap-8\">\n      <motion.div\n        layout\n        className=\"font-inter flex overflow-hidden text-6xl font-semibold text-black dark:text-white\"\n        style={{ display: 'flex', alignItems: 'center' }}\n      >\n        <motion.span layout className=\"w-fit\">\n          $\n        </motion.span>\n        <motion.span\n          initial={false}\n          animate={{\n            y: isMonthly ? '100%' : '0%',\n          }}\n          style={{\n            display: isMonthly ? 'none' : 'inline-block',\n          }}\n          transition={{ type: 'spring', stiffness: 120, damping: 16 }}\n        >\n          1\n        </motion.span>\n        <span className=\"flex h-[1em] w-auto min-w-0 flex-col overflow-hidden\">\n          <motion.span\n            className=\"flex w-auto min-w-0 flex-col\"\n            initial={false}\n            animate={{ y: isMonthly ? 0 : `-${(oneToNine.length - 1) * 1}em` }}\n            transition={{ type: 'spring', stiffness: 120, damping: 16 }}\n            style={{\n              display: 'flex',\n              flexDirection: 'column',\n              width: 'auto',\n              minWidth: 0,\n              alignItems: 'center',\n            }}\n          >\n            {oneToNine.map((num) => (\n              <span\n                key={num}\n                style={{\n                  height: '1em',\n                  lineHeight: '1em',\n                  width: 'fit-content',\n                  minWidth: 0,\n                  display: 'inline-block',\n                  textAlign: 'center',\n                }}\n              >\n                {num}\n              </span>\n            ))}\n          </motion.span>\n        </span>\n        <motion.span layout className=\"w-fit\">\n          9\n        </motion.span>\n      </motion.div>\n      {/* this div is just for testing */}\n      <div className=\"space-x-8\">\n        <button\n          onClick={() => setIsMonthly(true)}\n          className={`rounded-lg px-4 py-2 ${isMonthly ? 'bg-neutral-100 text-black' : 'bg-black text-neutral-400'}`}\n        >\n          Monthly\n        </button>\n        <button\n          onClick={() => setIsMonthly(false)}\n          className={`rounded-lg px-4 py-2 ${!isMonthly ? 'bg-neutral-100 text-black' : 'bg-black text-neutral-400'}`}\n        >\n          Annually\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default PriceSwitcher;\n",
+      "type": "registry:component"
+    }
+  ]
+}

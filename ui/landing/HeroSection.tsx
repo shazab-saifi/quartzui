@@ -68,7 +68,7 @@ const HeroSection = () => {
         <motion.p
           initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
           className="md:text-para max-w-xl text-center text-sm text-neutral-600 dark:text-neutral-400"
         >
           Our UI library gives you elegant, production-ready components built
@@ -76,7 +76,12 @@ const HeroSection = () => {
           and focus on what truly matters your product.
         </motion.p>
       </div>
-      <div className="z-10 mt-12 space-x-4 md:mt-14 md:space-x-6">
+      <motion.div
+        initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
+        animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
+        transition={{ duration: 0.3, delay: 0.8 }}
+        className="z-10 mt-12 space-x-4 md:mt-14 md:space-x-6"
+      >
         <Button
           variant="secondary"
           onClick={() => router.push('/components')}
@@ -92,7 +97,7 @@ const HeroSection = () => {
         >
           Request component
         </Button>
-      </div>
+      </motion.div>
       <div className="mt-16 flex justify-between gap-4 overflow-hidden mask-r-from-80% mask-l-from-80% sm:w-[80%] md:mt-24 lg:mt-32">
         <Marquee>
           <div className="flex justify-between gap-16">

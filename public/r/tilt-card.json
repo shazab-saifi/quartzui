@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt-card",
+  "type": "registry:component",
+  "title": "Tilt Card",
+  "description": "A card component that features a smooth 3D tilt effect on hover.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/TiltCard.tsx",
+      "content": "'use client';\n\nimport { motion, useMotionValue, useSpring, useTransform } from 'motion/react';\nimport { useRef } from 'react';\n\nexport const TiltCard = ({ children }: { children: React.ReactNode }) => {\n  const ref = useRef<HTMLDivElement | null>(null);\n  const x = useMotionValue(0);\n  const y = useMotionValue(0);\n  const mouseXSpring = useSpring(x);\n  const mouseYSpring = useSpring(y);\n\n  const rotateX = useTransform(\n    mouseYSpring,\n    [-0.5, 0.5],\n    ['8.5deg', '-8.5deg']\n  );\n\n  const rotateY = useTransform(\n    mouseXSpring,\n    [-0.5, 0.5],\n    ['-8.5deg', '8.5deg']\n  );\n\n  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {\n    if (!ref.current) return;\n    const rect = ref.current.getBoundingClientRect();\n\n    const mouseX = e.clientX - rect.left;\n    const mouseY = e.clientY - rect.top;\n\n    const xPct = mouseX / rect.width - 0.5;\n    const yPct = mouseY / rect.height - 0.5;\n\n    x.set(xPct);\n    y.set(yPct);\n  };\n\n  const handleMouseLeave = () => {\n    x.set(0);\n    y.set(0);\n  };\n\n  return (\n    <motion.div\n      ref={ref}\n      onMouseMove={(e) => handleMouseMove(e)}\n      onMouseLeave={handleMouseLeave}\n      style={{ transformStyle: 'preserve-3d', rotateX, rotateY }}\n      className=\"h-96 w-72 rounded-xl bg-gradient-to-br from-neutral-200/50 to-neutral-400/50 dark:from-neutral-900/60 dark:to-neutral-800/60\"\n    >\n      <div\n        style={{\n          transform: 'translateZ(75px)',\n          transformStyle: 'preserve-3d',\n        }}\n        className=\"absolute inset-3 overflow-hidden rounded-xl shadow-2xl\"\n      >\n        {children}\n      </div>\n    </motion.div>\n  );\n};\n",
+      "type": "registry:component"
+    }
+  ]
+}

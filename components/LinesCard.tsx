@@ -2,10 +2,28 @@
 
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+
+function useResolvedTheme(): 'light' | 'dark' {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const root = window.document.documentElement;
+      const observer = new MutationObserver(() => {
+        setTheme(root.classList.contains('dark') ? 'dark' : 'light');
+      });
+      setTheme(root.classList.contains('dark') ? 'dark' : 'light');
+      observer.observe(root, { attributes: true, attributeFilter: ['class'] });
+      return () => observer.disconnect();
+    }
+  }, []);
+
+  return theme;
+}
 
 export const LinesCard = () => {
-  const { resolvedTheme } = useTheme();
+  const resolvedTheme = useResolvedTheme();
 
   const topLogos = [
     { src: '/nextjs.svg', alt: 'nextjs', width: 36, height: 32 },
@@ -41,9 +59,9 @@ export const LinesCard = () => {
           ))}
         </div>
         <div className="flex items-center justify-center gap-1">
-          <SvgLeft resolvedTheme={resolvedTheme!} />
-          <SvgMiddle resolvedTheme={resolvedTheme!} />
-          <SvgRight resolvedTheme={resolvedTheme!} />
+          <SvgLeft resolvedTheme={resolvedTheme} />
+          <SvgMiddle resolvedTheme={resolvedTheme} />
+          <SvgRight resolvedTheme={resolvedTheme} />
         </div>
         <Image
           src={bottomLogo.src}
