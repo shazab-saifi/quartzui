@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Pointer Card",
   "description": "A pointer card component with animated SVG pointer animation.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/PointerCard.tsx",

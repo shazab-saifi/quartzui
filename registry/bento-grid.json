@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Bento Grid",
   "description": "A responsive bento grid where each grid item subtly animates to follow the cursor within a specific range, creating an interactive highlighting effect.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/BentoGrid.tsx",

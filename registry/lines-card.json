@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Lines Card",
   "description": "A card component featuring animated SVG lines with seamless linear and curved motion.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/LinesCard.tsx",

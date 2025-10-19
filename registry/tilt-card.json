@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Tilt Card",
   "description": "A card component that features a smooth 3D tilt effect on hover.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/TiltCard.tsx",

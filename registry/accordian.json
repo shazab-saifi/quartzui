@@ -4,10 +4,7 @@
   "type": "registry:component",
   "title": "Accordian",
   "description": "An animated accordion with fluid transitions and interactive cursor effects.",
-  "dependencies": [
-    "@tabler/icons",
-    "motion"
-  ],
+  "dependencies": ["@tabler/icons", "motion"],
   "files": [
     {
       "path": "components/Accordion.tsx",

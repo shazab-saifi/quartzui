@@ -4,10 +4,7 @@
   "type": "registry:component",
   "title": "Badge",
   "description": "A simple Badge component with multiple variants.",
-  "dependencies": [
-    "tailwind-variants",
-    "motion"
-  ],
+  "dependencies": ["tailwind-variants", "motion"],
   "files": [
     {
       "path": "components/Badge.tsx",

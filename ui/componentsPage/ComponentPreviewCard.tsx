@@ -21,8 +21,7 @@ const ComponentPreviewCard = ({
   return (
     <motion.div
       initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
-      whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
       transition={{ duration: 0.3, ease: 'easeOut', delay: idx * 0.1 }}
       className="group relative h-64 cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 md:h-72 lg:h-76 dark:border-neutral-800"
     >
@@ -36,10 +35,10 @@ const ComponentPreviewCard = ({
         />
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
         <div className="absolute bottom-0 left-0 z-20 w-full p-6 text-neutral-50 dark:text-white">
-          <div className="flex items-center gap-2 text-lg font-semibold group-hover:underline">
+          <div className="flex items-center gap-2 font-semibold group-hover:underline">
             <span>{heading}</span>
             <IconExternalLink
-              size={18}
+              size={16}
               className="invisible group-hover:visible"
             />
           </div>

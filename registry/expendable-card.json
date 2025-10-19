@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Expendable Card",
   "description": "A card component that changes its layout with subtle animations when clicked.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/ExpendableCard.tsx",

@@ -4,10 +4,7 @@
   "type": "registry:component",
   "title": "Floating Dock",
   "description": "A floating dock component that gently lifts and floats above the UI when hovered.",
-  "dependencies": [
-    "@tabler/icons-react",
-    "motion"
-  ],
+  "dependencies": ["@tabler/icons-react", "motion"],
   "files": [
     {
       "path": "components/FloatingDock.tsx",

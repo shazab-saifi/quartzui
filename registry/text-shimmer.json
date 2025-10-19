@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Text Shimmer",
   "description": "A Text Shimmer component.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/TextShimmer.tsx",

@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/Button';
 import { useRouter } from 'next/navigation';
+import { motion } from 'motion/react';
 
 interface VideoDataType {
   title: string;
@@ -64,7 +65,7 @@ const DemoSection = () => {
     <div className="relative columns-1 gap-4 overflow-hidden rounded-4xl sm:columns-2 md:columns-3 [&>div]:mb-4">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -bottom-6 z-0 h-[60%] bg-gradient-to-t from-white from-12% to-transparent dark:from-neutral-950"
+        className="pointer-events-none absolute inset-x-0 -bottom-6 z-10 h-[60%] bg-gradient-to-t from-white from-12% to-transparent dark:from-neutral-950"
       />
       {vidoesData.map((item, idx) => {
         let roundedExtra = '';
@@ -72,7 +73,11 @@ const DemoSection = () => {
         if (item.link === 'tab-select') roundedExtra = 'rounded-tl-4xl';
 
         return (
-          <div
+          <motion.div
+            initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
+            whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, ease: 'easeOut', delay: idx * 0.1 }}
             key={idx}
             onClick={() => router.push(`/components/${item.link}`)}
             className={`cursor-pointer break-inside-avoid rounded-lg dark:border dark:border-neutral-800 ${roundedExtra} transition-shadow hover:shadow-md`}
@@ -86,7 +91,7 @@ const DemoSection = () => {
               playsInline
               preload="auto"
             />
-          </div>
+          </motion.div>
         );
       })}
       <Button

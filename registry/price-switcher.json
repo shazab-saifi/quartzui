@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Price Switcher",
   "description": "A price switcher component with subtle animated transitions between monthly and yearly prices.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/PriceSwitcher.tsx",

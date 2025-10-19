@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Animated Text",
   "description": "A text component where each word animates into view sequentially.",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "components/AnimatedText.tsx",
