@@ -1,9 +1,27 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 
-const TabSelect = ({ tabs }: { tabs: string[] }) => {
-  const [activeTab, setActiveTab] = useState<string>(tabs[0]);
+type TabSelectProps = {
+  tabs: string[];
+  activeTab?: string;
+  setActiveTab?:
+    | React.Dispatch<React.SetStateAction<string>>
+    | ((tab: string) => void);
+  className?: string;
+  tabClassName?: string;
+};
+
+const TabSelect = ({
+  tabs,
+  activeTab: propActiveTab,
+  setActiveTab,
+  className,
+}: TabSelectProps) => {
+  const [localActiveTab, setLocalActiveTab] = useState(tabs[0]);
+  const activeTab = propActiveTab ?? localActiveTab;
+
   const containerRef = useRef<HTMLDivElement | null>(null);
   const tabButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -15,36 +33,49 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
     if (container && activeBtn) {
       const { offsetLeft, offsetWidth } = activeBtn;
       const containerWidth = container.offsetWidth;
-
       if (containerWidth === 0) return;
 
       const leftPercent = (offsetLeft / containerWidth) * 100;
       const rightPercent =
         100 - ((offsetLeft + offsetWidth) / containerWidth) * 100;
 
-      container.style.clipPath = `inset(0% ${rightPercent.toFixed(2)}% 0% ${leftPercent.toFixed(2)}% round 17px)`;
+      container.style.clipPath = `inset(0% ${rightPercent.toFixed(2)}% 0% ${leftPercent.toFixed(2)}% round 12px)`;
     }
   }, [activeTab, tabs]);
 
+  const handleClick = (tab: string) => {
+    if (setActiveTab) {
+      setActiveTab(tab);
+    } else {
+      setLocalActiveTab(tab);
+    }
+  };
+
   return (
-    <div className="relative mx-auto flex w-fit flex-col items-center">
-      <ul className="relative flex w-full flex-wrap justify-center gap-8">
+    <div className="relative flex w-fit flex-col items-center">
+      <div className="relative flex w-full flex-wrap justify-center gap-8">
         {tabs.map((tab, idx) => (
-          <li key={tab}>
+          <div key={tab} className="flex items-center">
             <button
               ref={(el) => {
                 tabButtonRefs.current[idx] = el;
               }}
               data-tab={tab}
-              onClick={() => setActiveTab(tab)}
-              className="flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold transition-colors dark:text-neutral-400"
+              onClick={() => handleClick(tab)}
+              className={cn(
+                'flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold transition-colors',
+                activeTab === tab
+                  ? 'text-neutral-950 dark:text-neutral-100'
+                  : 'dark:text-neutral-400',
+                className
+              )}
               type="button"
             >
               {tab}
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
 
       <div
         aria-hidden="true"
@@ -61,13 +92,16 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
           pointerEvents: 'none',
         }}
       >
-        <ul className="relative flex w-full flex-wrap justify-center gap-8 bg-neutral-950 dark:bg-neutral-100">
+        <div className="relative flex w-full flex-wrap justify-center gap-8 bg-neutral-950 dark:bg-neutral-100">
           {tabs.map((tab) => (
-            <li key={tab}>
+            <div key={tab} className="flex items-center">
               <button
                 tabIndex={-1}
                 aria-hidden="true"
-                className="flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold text-neutral-100 dark:text-black"
+                className={cn(
+                  'flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold text-neutral-100 dark:text-black',
+                  className
+                )}
                 type="button"
                 style={{
                   pointerEvents: 'none',
@@ -76,9 +110,9 @@ const TabSelect = ({ tabs }: { tabs: string[] }) => {
               >
                 {tab}
               </button>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
