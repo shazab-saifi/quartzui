@@ -34,25 +34,25 @@ export function CodeBlock({
       <div className="absolute top-2 right-2 flex items-center gap-2">
         <Image
           src="https://cdn.worldvectorlogo.com/logos/typescript.svg"
-          width={14}
-          height={14}
+          width={16}
+          height={16}
           className="not-prose my-0 rounded-xs"
           alt="typescript-icon"
         />
         <button
           onClick={handleCopy}
           style={{ justifyContent: 'flex-' + (copied ? 'end' : 'start') }}
-          className="flex h-6 cursor-pointer flex-col items-center gap-1 overflow-hidden rounded bg-neutral-100 px-2 py-1 text-xs text-neutral-950 dark:bg-neutral-800 dark:text-white"
+          className="flex h-6 cursor-pointer flex-col items-center gap-1 overflow-hidden rounded p-1 text-xs text-neutral-950 dark:bg-neutral-800 dark:text-white"
         >
           <motion.div layout className="flex items-center justify-center gap-1">
-            <IconCopy size={12} />
+            <IconCopy size={14} />
             <span>Copy</span>
           </motion.div>
           <motion.div
             layout
             className="flex items-center justify-center gap-1 text-green-500"
           >
-            <IconCheck size={12} />
+            <IconCheck size={14} />
             <span>Copied</span>
           </motion.div>
         </button>

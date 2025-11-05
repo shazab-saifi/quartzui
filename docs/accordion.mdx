@@ -2,8 +2,17 @@
 
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
+import InstallToggle from "./InstallToggle";
 
-A component that displays a list of items that can be expanded or collapsed.
+The `Accordion` component displays a list of collapsible items. Each item can be expanded to reveal its contents, while other items collapse. This makes it especially useful for FAQs, settings panels, or sections requiring progressive disclosure.
+
+It features:
+- Smooth opening/closing animation using [motion.dev](https://www.motion.dev)
+- A click-to-toggle interface with accessible ARIA attributes for screen readers
+- A subtle animated gradient background that follows pointer movement for a modern look
+- Optional custom items
+
+---
 
 ## Live Preview
 
@@ -11,36 +20,360 @@ A component that displays a list of items that can be expanded or collapsed.
   <LiveCode code={`<Accordion />`} />
 </div>
 
-## Usage
+---
 
-To use the accordion component, import it from `@/components/Accordion`.
+## Installation
 
-<CodeBlock code={`import Accordion from '@/components/Accordion';`} />
+You can install the Accordion component with the following CLI command, or copy the implementation manually:
 
-## Props
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/hello-world.json"
+  manualCode={`'use client';
 
-The accordion component takes an optional `items` prop, which is an array of objects with `title` and `content` properties.
+import React, { useState, useRef, useEffect } from 'react';
+import { IconChevronUp } from '@tabler/icons-react';
+import { motion, AnimatePresence } from 'motion/react';
 
-<CodeBlock code={`
 interface AccordionItem {
   title: string;
   content: React.ReactNode;
 }
 
-const items: AccordionItem[] = [
-{
-title: 'Section 1',
-content: <div>Lorem ipsum dolor sit amet...</div>,
-},
-{
-title: 'Section 2',
-content: <div>Sed do eiusmod tempor incididunt...</div>,
-},
-{
-title: 'Section 3',
-content: <div>Duis aute irure dolor in reprehenderit...</div>,
-},
+const defaultItems: AccordionItem[] = [
+  {
+    title: 'Why choose QuartzUI?',
+    content: (
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+        euismod, nisi vel consectetur. Mauris non tempor quam, et lacinia
+        sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit
+        elit, elementum sed varius at, adipiscing vitae est. Sed nec felis
+        pellentesque, lacinia dui sed, ultricies sapien. Pellentesque orci
+        lectus, consectetur vel posuere posuere, rutrum eu ipsum.
+      </div>
+    ),
+  },
+  {
+    title: 'How many components does QuartzUI have?',
+    content: (
+      <div>
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam. Quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+        officia deserunt mollit anim id est laborum.
+      </div>
+    ),
+  },
+  {
+    title: 'How is QuartzUI built?',
+    content: (
+      <div>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Curabitur pretium tincidunt lacus.
+        Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra,
+        est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+        Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus
+        vulputate vehicula.
+      </div>
+    ),
+  },
 ];
+
+// Visual pointer gradient config (optional)
+const GRADIENT_RADIUS = 160;
+
+export const Accordion = ({
+  items = defaultItems,
+}: {
+  items?: AccordionItem[];
+}) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [gradientPos, setGradientPos] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
+  const [isInside, setIsInside] = useState(false);
+
+  // Track pointer position for gradient
+  useEffect(() => {
+    const handleDocumentMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      ) {
+        setIsInside(true);
+        setGradientPos({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      } else {
+        setIsInside(false);
+      }
+    };
+
+    if (isInside) {
+      document.addEventListener('mousemove', handleDocumentMouseMove);
+    } else {
+      document.removeEventListener('mousemove', handleDocumentMouseMove);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleDocumentMouseMove);
+    };
+  }, [isInside]);
+
+  const handleToggle = (idx: number) => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const localX = e.clientX - rect.left;
+    const localY = e.clientY - rect.top;
+    setGradientPos({ x: localX, y: localY });
+  };
+
+  const handleMouseEnter = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setIsInside(true);
+    handleMouseMove(e);
+  };
+  const handleMouseLeave = () => setIsInside(false);
+
+  // Animated gradient background
+  const gradientStyle: React.CSSProperties = isInside
+    ? {
+        pointerEvents: 'none',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 1,
+        borderRadius: 'inherit',
+        background: \`
+          radial-gradient(
+            circle \${GRADIENT_RADIUS}\px at \${gradientPos.x}\px \${gradientPos.y}\px,
+            rgba(59,130,246,0.22) 22%,
+            rgba(59,130,246,0.13) 45%,
+            rgba(59,130,246,0.06) 70%,
+            rgba(255,255,255,0.01) 90%,
+            transparent 100%
+          )
+        \`,
+        transition: 'background 0.2s',
+      }
+    : {
+        pointerEvents: 'none',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 1,
+        borderRadius: 'inherit',
+        background: 'none',
+      };
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative max-w-136 rounded-md bg-white text-sm md:w-192 dark:bg-neutral-950"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ overflow: 'hidden' }}
+    >
+      <div style={gradientStyle} aria-hidden="true" />
+      <div className="relative z-10">
+        {items.map((item, idx) => (
+          <div
+            key={idx}
+            className="border-b border-neutral-200 last:border-b-0 dark:border-white/10"
+          >
+            <button
+              className="flex w-full items-center justify-between px-4 py-3 text-left text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-white dark:focus-visible:ring-white/30"
+              onClick={() => handleToggle(idx)}
+              aria-expanded={openIndex === idx}
+              aria-controls={\`accordion-content-\${idx}\`}
+              id={\`accordion-header-\${idx}\`}
+              type="button"
+            >
+              <span>{item.title}</span>
+              <motion.span
+                className="ml-2"
+                animate={{
+                  rotate: openIndex === idx ? 180 : 0,
+                }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                style={{ display: 'inline-flex' }}
+              >
+                <IconChevronUp size={18} />
+              </motion.span>
+            </button>
+            <AnimatePresence initial={false}>
+              {openIndex === idx && (
+                <motion.div
+                  id={\`accordion-content-\${idx}\`}
+                  role="region"
+                  aria-labelledby={\`accordion-header-\${idx}\`}
+                  initial="collapsed"
+                  animate="open"
+                  exit="collapsed"
+                  variants={{
+                    open: {
+                      height: 'auto',
+                      opacity: 1,
+                    },
+                    collapsed: {
+                      height: 0,
+                      opacity: 0,
+                      paddingTop: 0,
+                      paddingBottom: 0,
+                    },
+                  }}
+                  transition={{
+                    duration: 0.35,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  className="overflow-hidden px-4"
+                  style={{ willChange: 'height, opacity, padding' }}
+                >
+                  <div className="py-2 text-neutral-700 dark:text-neutral-200">
+                    {item.content}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Accordion;
+`}
+/>
+
+---
+
+## Import
+
+To use the Accordion component, import it in your code:
+
+<CodeBlock code={`import Accordion from '@/components/Accordion';`} />
+
+---
+
+## Props
+
+The Accordion component accepts the following prop:
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Type</th>
+      <th align="left">Default</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>items</code></td>
+      <td><code>AccordionItem[]</code> (optional)</td>
+      <td>See below</td>
+      <td>The list of items to display. Each item has a <code>title</code> and <code>content</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+### AccordionItem
+
+<CodeBlock code={`
+  interface AccordionItem {
+    title: string; // The heading for the section
+    content: React.ReactNode; // Rendered content shown when section is open
+  }
+`} />
+
+### Example usage
+
+#### Using default items
+
+By default, `<Accordion />` renders demo items.
+
+#### With custom items
+
+<CodeBlock code={`
+  const items: AccordionItem[] = [
+    {
+      title: 'Getting Started',
+      content: <div>First, install QuartzUI...</div>,
+    },
+    {
+      title: 'Customizable',
+      content: <div>You can pass any React node as content...</div>,
+    },
+    {
+      title: 'Powered by motion and Tabler icons',
+      content: <div>Animations and icons are built-in.</div>,
+    },
+  ];
 
 <Accordion items={items} />
 `} />
+
+---
+
+## Features
+
+- **Animations:** Opens and closes with smooth height and opacity transitions.
+- **Accessible:** Implements all required ARIA attributes for accessibility.
+- **Keyboard support:** Users can tab and activate with space/enter.
+- **Custom content:** Pass any React node as content.
+- **Modern look:** Responsive design plus animated pointer-following gradient (degrades gracefully if disabled).
+
+---
+
+## Accessibility Notes
+
+- Each item is implemented as a button with proper `aria-expanded`, `aria-controls`, and `aria-labelledby` attributes.
+- The expanded content is announced appropriately by assistive technologies.
+- Only one region is expanded at a time (single-open design).
+
+---
+
+## Customization
+
+- Change animation duration and curves by editing the `transition`/`variants` in the motion elements.
+- Change the gradient colors or radius (`GRADIENT_RADIUS`) to adjust the visual effect.
+- Supports dark mode via Tailwind dark: classes.
+
+---
+
+## Related
+
+- [motion.dev](https://www.motion.dev) for animation
+- [tabler-icons](https://tabler.io/icons) for chevron icon
+- [React](https://react.dev/) for basic UI
+
+---
+
+## Troubleshooting
+
+- If the gradient or animation is not appearing, make sure you have the correct dependencies installed and your build system supports CSS-in-JS (for inline styles).
+- If using custom content, make sure it is a React node (JSX), not plain string.
+
+
