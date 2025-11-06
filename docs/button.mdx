@@ -1,9 +1,12 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
+import InstallToggle from "./InstallToggle";
 
 # Button
 
-A simple, accessible button component for all your UI actions.
+A modern, accessible and theme-aware button component for all your UI actions. Flexible variants, sizes, and integrated loader for best-in-class interfaces.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Live Preview
 
@@ -11,19 +14,184 @@ A simple, accessible button component for all your UI actions.
   <LiveCode code={`<Button>Click me</Button>`} />
 </div>
 
-## Usage
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-To use the button component, import it from `@/components/Button`.
+## Installation
+
+You can install the Button component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/button.json"
+  manualCode={`
+  import { cn } from '@/lib/utils';
+  import { tv } from 'tailwind-variants';
+  import { IconLoader2 } from '@tabler/icons-react';
+  
+  export interface ButtonProps {
+    variant?: 'primary' | 'secondary' | 'gradient' | 'destructive';
+    loader?: boolean;
+    className?: string;
+    size?: 'sm' | 'md' | 'lg';
+    children: React.ReactNode;
+    onClick?: () => void;
+  }
+  
+  const buttonVariants = tv({
+    base: 'font-medium bg-blue-500 text-white transition-colors inset-shadow-xs shadow-lg rounded-lg cursor-pointer inline-flex gap-2 items-center justify-center',
+    variants: {
+      color: {
+        primary:
+          'bg-neutral-950 hover:bg-neutral-900 border-1 border-neutral-800 inset-shadow-neutral-500',
+        secondary:
+          'bg-neutral-100 text-black hover:bg-neutral-200 dark:inset-shadow-sm inset-shadow-neutral-400',
+        gradient:
+          'bg-linear-65 from-purple-500 to-pink-500 rounded-full font-semibold hover:ring-1',
+        destructive: 'bg-red-500 hover:bg-red-400 inset-shadow-neutral-400',
+      },
+      size: {
+        sm: 'text-sm',
+        md: 'text-base',
+        lg: 'px-6 py-3 text-lg',
+      },
+    },
+    compoundVariants: [
+      {
+        size: ['sm', 'md'],
+        class: 'px-5 py-2',
+      },
+    ],
+    defaultVariants: {
+      size: 'md',
+      color: 'primary',
+    },
+  });
+  
+  export const Button = ({
+    variant,
+    className,
+    size,
+    children,
+    onClick,
+    loader,
+    ...props
+  }: ButtonProps) => {
+    const loaderSizeMap: Record<'sm' | 'md' | 'lg', number> = {
+      sm: 16,
+      md: 18,
+      lg: 20,
+    };
+    const loaderIconSize = loaderSizeMap[size ?? 'md'];
+  
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={cn(buttonVariants({ size, color: variant }), className)}
+        {...props}
+      >
+        {loader && (
+          <span className="animate-spin">
+            <IconLoader2 size={loaderIconSize} />
+          </span>
+        )}
+        {children}
+      </button>
+    );
+  };
+`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Import
+
+To use the Button component, import it in your code:
 
 <CodeBlock code={`import { Button } from '@/components/Button';`} />
 
-## Variants
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-The button comes in four variants: `primary`, `secondary`, `gradient`, and `destructive`.
+## Props
 
-### Primary
+The Button component accepts the following props:
 
-The primary button is the default button.
+<table>
+  <thead>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Type</th>
+      <th align="left">Default</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>variant</code></td>
+      <td><code>'primary' | 'secondary' | 'gradient' | 'destructive'</code></td>
+      <td><code>'primary'</code></td>
+      <td>Visual style of the button.</td>
+    </tr>
+    <tr>
+      <td><code>size</code></td>
+      <td><code>'sm' | 'md' | 'lg'</code></td>
+      <td><code>'md'</code></td>
+      <td>Button size.</td>
+    </tr>
+    <tr>
+      <td><code>loader</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td>Show a spinning loader icon at the start, for loading state.</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>Additional utility classes for customizing the button styling.</td>
+    </tr>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>React.ReactNode</code></td>
+      <td>—</td>
+      <td>The content inside the button.</td>
+    </tr>
+    <tr>
+      <td><code>onClick</code></td>
+      <td><code>() =&gt; void</code></td>
+      <td>—</td>
+      <td>Callback fired when the button is clicked.</td>
+    </tr>
+  </tbody>
+</table>
+
+<CodeBlock
+  code={`
+  export interface ButtonProps {
+    variant?: 'primary' | 'secondary' | 'gradient' | 'destructive';
+    loader?: boolean;
+    className?: string;
+    size?: 'sm' | 'md' | 'lg';
+    children: React.ReactNode;
+    onClick?: () => void;
+  }
+`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Example usage
+
+### Basic
+
+<CodeBlock code={`<Button onClick={() => alert('Clicked!')}>Click me</Button>`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+### Variants
+
+The button supports multiple themes for various use-cases.
+
+#### Primary
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button variant="primary">Primary Button</Button>`} />
@@ -31,9 +199,7 @@ The primary button is the default button.
 
 <CodeBlock code={`<Button variant="primary">Primary Button</Button>`} />
 
-### Secondary
-
-The secondary button is a button with a white background and black text.
+#### Secondary
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button variant="secondary">Secondary Button</Button>`} />
@@ -41,9 +207,7 @@ The secondary button is a button with a white background and black text.
 
 <CodeBlock code={`<Button variant="secondary">Secondary Button</Button>`} />
 
-### Gradient
-
-The gradient button is a button with a gradient background.
+#### Gradient
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button variant="gradient">Gradient Button</Button>`} />
@@ -51,23 +215,21 @@ The gradient button is a button with a gradient background.
 
 <CodeBlock code={`<Button variant="gradient">Gradient Button</Button>`} />
 
-### Destructive
-
-The destructive button is a button with a red background.
+#### Destructive
 
 <div className="not-prose w-full overflow-x-auto">
-  <LiveCode
-    code={`<Button variant="destructive">Destructive Button</Button>`}
-  />
+  <LiveCode code={`<Button variant="destructive">Destructive Button</Button>`} />
 </div>
 
 <CodeBlock code={`<Button variant="destructive">Destructive Button</Button>`} />
 
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
 ## Sizes
 
-The button comes in three sizes: `sm`, `md`, and `lg`.
+The button can be rendered in small, medium, or large sizes.
 
-### Small
+#### Small
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button size="sm">Small Button</Button>`} />
@@ -75,9 +237,7 @@ The button comes in three sizes: `sm`, `md`, and `lg`.
 
 <CodeBlock code={`<Button size="sm">Small Button</Button>`} />
 
-### Medium
-
-The medium button is the default button size.
+#### Medium (Default)
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button size="md">Medium Button</Button>`} />
@@ -85,7 +245,7 @@ The medium button is the default button size.
 
 <CodeBlock code={`<Button size="md">Medium Button</Button>`} />
 
-### Large
+#### Large
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button size="lg">Large Button</Button>`} />
@@ -93,12 +253,39 @@ The medium button is the default button size.
 
 <CodeBlock code={`<Button size="lg">Large Button</Button>`} />
 
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
 ## Loader
 
-The button can show a loader.
+The button can show a spinner for loading state with the `loader` prop.
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<Button loader>Loading...</Button>`} />
 </div>
 
 <CodeBlock code={`<Button loader>Loading...</Button>`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Features
+
+- **Variants:** Primary, secondary, gradient, and destructive styling options for diverse UIs.
+- **Sizes:** Flexible sizing for small, medium, and large layouts.
+- **Loader:** Built-in loading spinner for async actions.
+- **Theme-aware:** Looks great in both light and dark mode.
+- **Highly customizable:** Add extra classes or extend the component for even more control.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Customization
+
+- **Styling:** Override or extend via the `className` prop or edit the Tailwind classes in the source file.
+- **Default variant/sizing:** Change `defaultVariants` in the source if you want a new default look.
+- **Loader options:** Replace the spinner icon if you want a custom loader.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Troubleshooting
+
+- If the loader icon doesn't appear, ensure `@tabler/icons-react` is installed.
+- If styles differ from expected, check your Tailwind config or class overrides.

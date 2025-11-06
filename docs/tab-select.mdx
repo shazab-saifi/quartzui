@@ -1,28 +1,275 @@
-# Tab Select
-
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
+import InstallToggle from './InstallToggle';
 
-A tab selection component with a smooth animation.
+# Tab Select
+
+A modern animated React tab selection component with a smooth, visually engaging transition effect.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Live Preview
 
 <div className="not-prose w-full overflow-x-auto">
-  <LiveCode code={`<TabSelect tabs={['Home', 'Comoponents', 'Pricing', 'Contact']} />`} />
+  <LiveCode code={`<TabSelect tabs={['Home', 'Components', 'Pricing', 'Contact']} />`} />
 </div>
 
-## Usage
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-To use the tab select component, import it from `@/components/TabSelect`.
+## Installation
+
+You can install the TabSelect component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/tab-select.json"
+  manualCode={`'use client';
+
+  import { cn } from '@/lib/utils';
+  import { useEffect, useRef, useState } from 'react';
+  
+  type TabSelectProps = {
+    tabs: string[];
+    activeTab?: string;
+    setActiveTab?:
+      | React.Dispatch<React.SetStateAction<string>>
+      | ((tab: string) => void);
+    className?: string;
+    tabClassName?: string;
+    gap?: string | number;
+  };
+  
+  const TabSelect = ({
+    tabs,
+    activeTab: propActiveTab,
+    setActiveTab,
+    className,
+    tabClassName,
+    gap = '2rem',
+  }: TabSelectProps) => {
+    const [localActiveTab, setLocalActiveTab] = useState(tabs[0]);
+    const activeTab = propActiveTab ?? localActiveTab;
+  
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const tabButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  
+    useEffect(() => {
+      const container = containerRef.current;
+      const idx = tabs.indexOf(activeTab);
+      const activeBtn = tabButtonRefs.current[idx];
+  
+      if (container && activeBtn) {
+        const { offsetLeft, offsetWidth } = activeBtn;
+        const containerWidth = container.offsetWidth;
+        if (containerWidth === 0) return;
+  
+        const leftPercent = (offsetLeft / containerWidth) * 100;
+        const rightPercent =
+          100 - ((offsetLeft + offsetWidth) / containerWidth) * 100;
+  
+        container.style.clipPath = \`inset(0% \${rightPercent.toFixed(2)}% 0% \${leftPercent.toFixed(2)}% round 12px)\`;
+      }
+    }, [activeTab, tabs]);
+  
+    const handleClick = (tab: string) => {
+      if (setActiveTab) {
+        setActiveTab(tab);
+      } else {
+        setLocalActiveTab(tab);
+      }
+    };
+  
+    return (
+      <div className="relative flex w-fit flex-col items-center">
+        <div
+          className="relative flex w-full flex-wrap justify-center"
+          style={{ gap }}
+        >
+          {tabs.map((tab, idx) => (
+            <div key={tab} className="flex items-center">
+              <button
+                ref={(el) => {
+                  tabButtonRefs.current[idx] = el;
+                }}
+                data-tab={tab}
+                onClick={() => handleClick(tab)}
+                className={cn(
+                  'flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold transition-colors',
+                  activeTab === tab
+                    ? 'text-neutral-950 dark:text-neutral-100'
+                    : 'dark:text-neutral-400',
+                  className,
+                  tabClassName
+                )}
+                type="button"
+              >
+                {tab}
+              </button>
+            </div>
+          ))}
+        </div>
+  
+        <div
+          aria-hidden="true"
+          ref={containerRef}
+          style={{
+            position: 'absolute',
+            zIndex: 0,
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            overflow: 'hidden',
+            transition: 'clip-path 0.25s ease',
+            pointerEvents: 'none',
+          }}
+        >
+          <div
+            className="relative flex w-full flex-wrap justify-center bg-neutral-950 dark:bg-neutral-100"
+            style={{ gap }}
+          >
+            {tabs.map((tab) => (
+              <div key={tab} className="flex items-center">
+                <button
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className={cn(
+                    'flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold text-neutral-100 dark:text-black',
+                    className,
+                    tabClassName
+                  )}
+                  type="button"
+                  style={{
+                    pointerEvents: 'none',
+                    background: 'transparent',
+                  }}
+                >
+                  {tab}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+  
+  export default TabSelect;
+`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Import
+
+To use the TabSelect component, import it in your code:
 
 <CodeBlock code={`import TabSelect from '@/components/TabSelect';`} />
 
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
 ## Props
 
-The tab select component takes a `tabs` prop, which is an array of strings.
+The TabSelect component accepts the following props:
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Type</th>
+      <th align="left">Default</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>tabs</code></td>
+      <td><code>string[]</code></td>
+      <td>—</td>
+      <td>Array of tab labels.</td>
+    </tr>
+    <tr>
+      <td><code>activeTab</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>Currently active tab (controlled mode).</td>
+    </tr>
+    <tr>
+      <td><code>setActiveTab</code></td>
+      <td><code>(tab: string) =&gt; void</code></td>
+      <td>—</td>
+      <td>Set the active tab (controlled mode, or use internal state if not provided).</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>CSS classes for the overall tab group.</td>
+    </tr>
+    <tr>
+      <td><code>tabClassName</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>CSS classes applied to each tab button.</td>
+    </tr>
+    <tr>
+      <td><code>gap</code></td>
+      <td><code>string &#124; number</code></td>
+      <td><code>"2rem"</code></td>
+      <td>Spacing between tabs.</td>
+    </tr>
+  </tbody>
+</table>
 
 <CodeBlock
   code={`
-<TabSelect tabs={['Home', 'Comoponents', 'Pricing']} />
+  type TabSelectProps = {
+    tabs: string[];
+    activeTab?: string;
+    setActiveTab?: React.Dispatch<React.SetStateAction<string>> | ((tab: string) => void);
+    className?: string;
+    tabClassName?: string;
+    gap?: string | number;
+  };
 `}
 />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Example usage
+
+### Basic
+
+<CodeBlock code={`<TabSelect tabs={['Home', 'Components', 'Pricing']} />`} />
+
+### Controlled (with external state)
+
+<CodeBlock code={`
+const [tab, setTab] = useState('Home');
+<TabSelect tabs={['Home', 'Components', 'Pricing']} activeTab={tab} setActiveTab={setTab} />
+`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Features
+
+- **Animated tab switcher:** Tab indicator animates smoothly between tabs.
+- **Type-safe:** Fully typed props for optimal developer experience.
+- **Customizable:** Change gap, class names, or control state externally.
+- **Theme-aware:** Colors adapt to light/dark mode.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Customization
+
+- Change the `gap` prop for tab spacing.
+- Provide your own colors or class names via `className`/`tabClassName`.
+- Control active tab from parent state for advanced logic.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Troubleshooting
+
+- Ensure you pass an array of tab labels via the `tabs` prop.
+- For controlled usage, remember to provide both `activeTab` and `setActiveTab`.
+- Make sure your app includes any required utility helpers (e.g. `cn`).
+

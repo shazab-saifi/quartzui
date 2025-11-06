@@ -1,68 +1,306 @@
 import { Dialog } from '../components/Dialog';
 import LiveCode from './LiveCode';
+import InstallToggle from './InstallToggle';
 import { CodeBlock } from './CodeBlock';
 
 # Dialog
 
-The Dialog component is a modal window that can be used to display content on top of the main application window.
+A modern, accessible modal dialog (popup) component with animated 3D transitions. Useful for overlays, confirmations, forms, and any UI that needs to appear above your app content.
 
-<LiveCode
-  code={`
-    <Dialog className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4" >
-      <h2 className="text-xl font-bold">Quartz Ui</h2>
-      <p className="max-w-sm mt-2">This is a dialog component with 3d enter and exist animtions, You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
-      <div className="flex justify-end mb-0 mt-6">
-        <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
-      </div>
-    </Dialog>
-  `}
-/>
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-## Usage
+## Live Preview
 
-<CodeBlock code={`import { Dialog } from '@/components/Dialog';
+<div className="not-prose w-full overflow-x-auto">
+  <LiveCode
+    code={`<Dialog className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+  <h2 className="text-xl font-bold">Quartz UI</h2>
+  <p className="max-w-sm mt-2">
+    This is a dialog component with 3D enter and exit animations. You can easily
+    use this component in your project by simply copy and pasting or using our CLI.
+  </p>
+  <div className="flex justify-end mt-6">
+    <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
+  </div>
+</Dialog>`}
+  />
+</div>
 
-  export default function MyComponent() {
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Installation
+
+You can install the Dialog component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/dialog.json"
+  manualCode={`'use client';
+  
+  import React, { useEffect, useRef, useState } from 'react';
+  import { AnimatePresence, motion } from 'motion/react';
+  import { cn } from '@/lib/utils';
+  
+  type DialogProps = {
+    children: React.ReactNode;
+    trigger?: React.ReactNode;
+    isOpen?: boolean;
+    className?: string;
+    setIsOpen?: (open: boolean) => void;
+  };
+  
+  export const Dialog = ({
+    children,
+    trigger,
+    isOpen: controlledIsOpen,
+    className,
+    setIsOpen: controlledSetIsOpen,
+  }: DialogProps) => {
+    const [internalIsOpen, internalSetIsOpen] = useState(false);
+    const isControlled =
+      typeof controlledIsOpen === 'boolean' &&
+      typeof controlledSetIsOpen === 'function';
+    const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+    const setIsOpen = isControlled ? controlledSetIsOpen! : internalSetIsOpen;
+  
+    const dialogRef = useRef<HTMLDivElement | null>(null);
+  
+    useEffect(() => {
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') {
+          setIsOpen(false);
+        }
+      };
+  
+      if (isOpen) {
+        document.addEventListener('keydown', handleKeyDown);
+        const scrollbarWidth =
+          window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = \`\${scrollbarWidth}px\`;
+      }
+  
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '0px';
+      };
+    }, [isOpen, setIsOpen]);
+  
     return (
-      <Dialog>
-        <h2 className="text-xl font-bold">Dialog Title</h2>
-        <p>This is the content of the dialog.</p>
-      </Dialog>
+      <div className="max-w-3xl">
+        {trigger ? (
+          <div onClick={() => setIsOpen(true)}>{trigger}</div>
+        ) : (
+          <button
+            className="cursor-pointer rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-neutral-100 dark:bg-neutral-100 dark:text-neutral-950"
+            onClick={() => setIsOpen(true)}
+          >
+            Open Dialog
+          </button>
+        )}
+  
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ filter: 'blur(10px)', opacity: 0 }}
+                animate={{ filter: 'blur(0px)', opacity: 1 }}
+                exit={{ filter: 'blur(10px)', opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+                onClick={() => setIsOpen(false)}
+                aria-hidden="true"
+              />
+              {/* Dialog */}
+              <div
+                className="fixed inset-0 z-50 flex items-center justify-center"
+                style={{ pointerEvents: 'none', perspective: '1000px' }}
+              >
+                <motion.div
+                  initial={{
+                    filter: 'blur(6px)',
+                    opacity: 0,
+                    rotateY: '20deg',
+                    rotateX: '20deg',
+                    transformOrigin: 'left center',
+                  }}
+                  animate={{
+                    filter: 'blur(0px)',
+                    opacity: 1,
+                    rotateY: '0deg',
+                    rotateX: '0deg',
+                    transformOrigin: 'left center',
+                  }}
+                  exit={{
+                    filter: 'blur(6px)',
+                    opacity: 0,
+                    rotateY: '20deg',
+                    rotateX: '20deg',
+                    transformOrigin: 'left center',
+                    transition: { duration: 0.3 },
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: 'easeOut',
+                  }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    perspective: 1000,
+                    pointerEvents: 'auto',
+                  }}
+                  ref={dialogRef}
+                  className={cn('relative', className)}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {children}
+                </motion.div>
+              </div>
+            </>
+          )}
+        </AnimatePresence>
+      </div>
     );
-  }
+  };
 `}
 />
 
-## Custom Trigger
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-You can also provide a custom trigger for the dialog.
+## Import
 
-<LiveCode
-  code={`<Dialog
-    trigger={
-      <button className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white">
-        Open Custom Dialog
-      </button>
-    }
-    className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4"
-  >
-    <h2 className="text-xl font-bold">Custom Trigger</h2>
-    <p className="max-w-sm mt-2">This is a dialog component with 3d enter and exist animtions, You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
-    <div className="flex justify-end mb-0 mt-6">
-      <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
-    </div>
-  </Dialog>`}
-/>
+To use the Dialog component, import it in your code:
+
+<CodeBlock code={`import { Dialog } from '@/components/Dialog';`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Props
 
 The Dialog component accepts the following props:
 
-- `children`: The content to be displayed inside the dialog.
-- `trigger`: An optional element to be used as the trigger to open the dialog.
+<table>
+  <thead>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Type</th>
+      <th align="left">Default</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>React.ReactNode</code></td>
+      <td>—</td>
+      <td>The content to render inside the dialog modal.</td>
+    </tr>
+    <tr>
+      <td><code>trigger</code></td>
+      <td><code>React.ReactNode</code></td>
+      <td><code>—</code></td>
+      <td>Custom element to trigger the dialog (optional).</td>
+    </tr>
+    <tr>
+      <td><code>isOpen</code></td>
+      <td><code>boolean</code></td>
+      <td>—</td>
+      <td>Control open state from outside (advanced/controlled mode).</td>
+    </tr>
+    <tr>
+      <td><code>setIsOpen</code></td>
+      <td><code>(open: boolean) ⇒ void</code></td>
+      <td>—</td>
+      <td>Setter for controlled dialog open state.</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>Custom class name for dialog surface.</td>
+    </tr>
+  </tbody>
+</table>
 
-## Behavior
+<CodeBlock
+  code={`
+  type DialogProps = {
+    children: React.ReactNode;
+    trigger?: React.ReactNode;
+    isOpen?: boolean;
+    className?: string;
+    setIsOpen?: (open: boolean) => void;
+  };
+`}
+  />
 
-- The dialog can be opened by clicking the trigger element.
-- The dialog can be closed by clicking the backdrop, pressing the Escape key, or clicking the close button in the top-right corner.
-- When the dialog is open, the rest of the page is not scrollable.
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Example usage
+
+### Basic
+
+<CodeBlock code={`<Dialog>
+  <h2 className="text-xl font-bold">Dialog Title</h2>
+  <p>This is the content of the dialog.</p>
+</Dialog>`} />
+
+### Dialog with custom surface style
+
+<CodeBlock code={`<Dialog className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+  <h2 className="text-xl font-bold">Quartz UI</h2>
+  <p>This is a dialog component with 3D enter and exit animations. You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
+  <div className="flex justify-end mt-6">
+    <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
+  </div>
+</Dialog>`} />
+
+### Custom trigger
+
+The trigger prop lets you use any element to open the dialog.
+
+<CodeBlock code={`<Dialog
+  trigger={
+    <button className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white">
+      Open Custom Dialog
+    </button>
+  }
+  className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4"
+>
+  <h2 className="text-xl font-bold">Custom Trigger</h2>
+  <p>This is a dialog component with 3D enter and exit animations. You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
+  <div className="flex justify-end mt-6">
+    <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
+  </div>
+</Dialog>`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Features
+
+- **Animated 3D transitions:** Dialog animates in/out with depth and blur effects for modern UI feel.
+- **Backdrop support:** Clicking the backdrop closes the dialog.
+- **Keyboard accessible:** Press <kbd>Escape</kbd> to close.
+- **Custom content:** Any React elements can be placed inside.
+- **Custom trigger:** Use your own button or element to open dialog.
+- **Controlled or uncontrolled:** Manage open state yourself, or let Dialog do it.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Customization
+
+- **Surface style:** Pass `className` prop to style the dialog background and border.
+- **Dialog size:** Change content container or surface classes as needed.
+- **Transitions:** Edit the motion props in the component for advanced animation.
+- **Trigger behavior:** Use the `trigger` prop for custom open buttons or UI.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Troubleshooting
+
+- If you see no animation, ensure [motion.dev](https://motion.dev/) is installed and properly imported.
+- If the dialog does not open, check that your trigger element works and `setIsOpen` is called.
+- If the rest of the page scrolls when dialog is open, verify that the component is mounted in a React client context.
+- If customizing behavior, be careful with ref forwarding and event handlers on the dialog surface.
+
+

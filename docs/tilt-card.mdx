@@ -1,63 +1,195 @@
-import { TiltCard } from '../components/TiltCard';
-import LiveCode from './LiveCode';
 import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
+import InstallToggle from './InstallToggle';
 
-# Tilt Card
+# TiltCard
 
-The Tilt component is a container that tilts in response to mouse movement, creating a 3D effect.
+A modern React component that provides a tilt 3D effect on hover, animating as your mouse moves across the card. Great for interactive UIs, product cards, and dashboards.
 
-<LiveCode code='<TiltCard>
-    <div className="flex flex-col items-center justify-center p-4 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 border border-neutral-100 dark:border-neutral-800 dark:to-neutral-950 h-full space-y-4 text-center">
-        <span className="block dark:hidden">
-          <img
-            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
-            alt="quartz-ui"
-            className="size-16"
-          />
-        </span>
-        <span className="hidden dark:inline">
-          <img
-            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
-            alt="quartz-ui"
-            className="size-16"
-          />
-        </span>
-        <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-          Beautiful 3D Card
-        </h3>
-        <p className="text-sm text-neutral-600 dark:text-neutral-300">
-          This card tilts with your mouse and adapts to light and dark themes.
-          Add your own content here!
-        </p>
-        <button className="mt-2 rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200">
-          Get Started
-        </button>
-      </div>
-  </TiltCard>' />
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-## Usage
+## Live Preview
 
-<CodeBlock code={`import { Tilt } from '@/components/Tilt';
+<div className="not-prose w-full overflow-x-auto">
+  <LiveCode code={`<TiltCard>
+  <div className="flex flex-col items-center justify-center p-4 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 border border-neutral-100 dark:border-neutral-800 dark:to-neutral-950 h-full space-y-4 text-center">
+    <span className="block dark:hidden">
+      <img
+        src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+        alt="quartz-ui"
+        className="size-16"
+      />
+    </span>
+    <span className="hidden dark:inline">
+      <img
+        src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+        alt="quartz-ui"
+        className="size-16"
+      />
+    </span>
+    <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
+      Beautiful 3D Card
+    </h3>
+    <p className="text-sm text-neutral-600 dark:text-neutral-300">
+      This card tilts with your mouse and adapts to light and dark themes.
+      Add your own content here!
+    </p>
+    <button className="mt-2 rounded-lg bg-neutral-950 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-950 dark:hover:bg-neutral-200">
+      Get Started
+    </button>
+  </div>
+</TiltCard>`} />
+</div>
 
-  export default function MyComponent() {
-    return (
-      <Tilt>
-        <div className="text-center">
-          <h2 className="text-xl font-bold">Tilt Me</h2>
-          <p>Move your mouse over me.</p>
-        </div>
-      </Tilt>
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Installation
+
+You can install the TiltCard component with the recommended CLI, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/tilt-card.json"
+  manualCode={`'use client';
+  
+  import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+  import { useRef } from 'react';
+  
+  export const TiltCard = ({ children }: { children: React.ReactNode }) => {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+  
+    const rotateX = useTransform(
+      mouseYSpring,
+      [-0.5, 0.5],
+      ['8.5deg', '-8.5deg']
     );
-  }
-`} />
+  
+    const rotateY = useTransform(
+      mouseXSpring,
+      [-0.5, 0.5],
+      ['-8.5deg', '8.5deg']
+    );
+  
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+  
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+  
+      const xPct = mouseX / rect.width - 0.5;
+      const yPct = mouseY / rect.height - 0.5;
+  
+      x.set(xPct);
+      y.set(yPct);
+    };
+  
+    const handleMouseLeave = () => {
+      x.set(0);
+      y.set(0);
+    };
+  
+    return (
+      <motion.div
+        ref={ref}
+        onMouseMove={(e) => handleMouseMove(e)}
+        onMouseLeave={handleMouseLeave}
+        style={{ transformStyle: 'preserve-3d', rotateX, rotateY }}
+        className="h-96 w-72 rounded-xl bg-gradient-to-br from-neutral-200/50 to-neutral-400/50 dark:from-neutral-900/60 dark:to-neutral-800/60"
+      >
+        <div
+          style={{
+            transform: 'translateZ(75px)',
+            transformStyle: 'preserve-3d',
+          }}
+          className="absolute inset-3 overflow-hidden rounded-xl shadow-2xl"
+        >
+          {children}
+        </div>
+      </motion.div>
+    );
+  };
+`} 
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Import
+
+To use the TiltCard component, import it in your code:
+
+<CodeBlock code={`import { TiltCard } from '@/components/TiltCard';`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Props
 
-The Tilt component accepts the following props:
+The TiltCard component accepts the following props:
 
-- `children`: The content to be displayed inside the tilt container.
+<table>
+  <thead>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Type</th>
+      <th align="left">Default</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>React.ReactN  ode</code></td>
+      <td>—</td>
+      <td>The content to be displayed inside the tilt card container.</td>
+    </tr>
+  </tbody>
+</table>
 
-## Behavior
+<CodeBlock
+  code={`
+export const TiltCard = ({ children }: { children: React.ReactNode }) => { ... }
+`}
+/>
 
-- When the mouse moves over the component, the container tilts to create a 3D effect.
-- When the mouse leaves the component, the container returns to its original position.
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Example usage
+
+### Basic
+
+<CodeBlock
+  code={`<TiltCard>
+    <div className="text-center">
+      <h2 className="text-xl font-bold">Tilt Me</h2>
+      <p>Move your mouse over me.</p>
+    </div>
+  </TiltCard>`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Features
+
+- **3D tilt animation:** Card reacts in 3D to mouse movement.
+- **Smooth motion:** Uses motion.dev for natural spring-physics animation.
+- **Easy composition:** Accepts any React children.
+- **Theming:** Card adapts to light/dark themes for seamless integration.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Customization
+
+- Adjust the inner card's markup and classes for your brand or content.
+- Tweak spring/transform config for different tilt intensity.
+- Modify the outer and inner div's styling for variant cards.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Troubleshooting
+
+- Ensure you have [motion.dev](https://motion.dev/) installed for animation support.
+- If tilt isn’t responsive, verify parent/container styles aren’t interfering with pointer events.
+- Card dimensions (`h-96 w-72`) and shadow may be customized for your layout.

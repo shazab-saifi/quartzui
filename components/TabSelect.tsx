@@ -11,6 +11,7 @@ type TabSelectProps = {
     | ((tab: string) => void);
   className?: string;
   tabClassName?: string;
+  gap?: string | number;
 };
 
 const TabSelect = ({
@@ -18,6 +19,8 @@ const TabSelect = ({
   activeTab: propActiveTab,
   setActiveTab,
   className,
+  tabClassName,
+  gap = '2rem',
 }: TabSelectProps) => {
   const [localActiveTab, setLocalActiveTab] = useState(tabs[0]);
   const activeTab = propActiveTab ?? localActiveTab;
@@ -53,7 +56,10 @@ const TabSelect = ({
 
   return (
     <div className="relative flex w-fit flex-col items-center">
-      <div className="relative flex w-full flex-wrap justify-center gap-8">
+      <div
+        className="relative flex w-full flex-wrap justify-center"
+        style={{ gap }}
+      >
         {tabs.map((tab, idx) => (
           <div key={tab} className="flex items-center">
             <button
@@ -67,7 +73,8 @@ const TabSelect = ({
                 activeTab === tab
                   ? 'text-neutral-950 dark:text-neutral-100'
                   : 'dark:text-neutral-400',
-                className
+                className,
+                tabClassName
               )}
               type="button"
             >
@@ -92,7 +99,10 @@ const TabSelect = ({
           pointerEvents: 'none',
         }}
       >
-        <div className="relative flex w-full flex-wrap justify-center gap-8 bg-neutral-950 dark:bg-neutral-100">
+        <div
+          className="relative flex w-full flex-wrap justify-center bg-neutral-950 dark:bg-neutral-100"
+          style={{ gap }}
+        >
           {tabs.map((tab) => (
             <div key={tab} className="flex items-center">
               <button
@@ -100,7 +110,8 @@ const TabSelect = ({
                 aria-hidden="true"
                 className={cn(
                   'flex h-9 items-center justify-center rounded-full p-4 text-center text-sm font-semibold text-neutral-100 dark:text-black',
-                  className
+                  className,
+                  tabClassName
                 )}
                 type="button"
                 style={{

@@ -155,7 +155,7 @@ export const Accordion = ({
   return (
     <div
       ref={containerRef}
-      className={`relative max-w-136 rounded-md bg-white text-sm md:w-192 dark:bg-neutral-950`}
+      className="relative max-w-136 rounded-md bg-white text-sm md:w-192 dark:bg-neutral-950"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

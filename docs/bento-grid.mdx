@@ -2,8 +2,17 @@
 
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
+import InstallToggle from "./InstallToggle";
 
-A grid layout for displaying content in a bento-style.
+The `BentoGrid` component displays content in a visually appealing, modern bento-style grid layout. It's well-suited for dashboards, marketing pages, and feature highlights, and features smooth pointer-following motion and a highly customizable card design using Tailwind CSS.
+
+It features:
+- Responsive CSS grid layout for visually striking square and wide cards
+- Each cell features parallax pointer movement powered by [motion.dev](https://motion.dev)
+- Customizable content and styling for each grid item (defined in `gridItems`)
+- Fully responsive, modern bento design layout for quick prototypes and polished UIs
+
+---
 
 ## Live Preview
 
@@ -11,12 +20,201 @@ A grid layout for displaying content in a bento-style.
   <LiveCode code={`<BentoGrid />`} />
 </div>
 
-## Usage
+---
 
-To use the bento grid component, import it from `@/components/BentoGrid`.
+## Installation
+
+You can install the BentoGrid component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/bento-grid.json"
+  manualCode={`
+  import React, { useRef } from 'react';
+  import { motion, useMotionValue, animate } from 'motion/react';
+  
+  const gridItems = [
+    {
+      className:
+        'col-span-2 row-span-1 flex flex-col items-center rounded-2xl border border-neutral-700 bg-neutral-950 p-4',
+      heading: 'Heading 1',
+      desc: 'This is a description for the first bento grid item.',
+    },
+    {
+      className:
+        'col-span-1 row-span-1 flex aspect-square flex-col items-center rounded-2xl border border-neutral-700 bg-neutral-950 p-4',
+      heading: 'Heading 2',
+      desc: 'This is a description for the second bento grid item.',
+    },
+    {
+      className:
+        'col-span-1 row-span-1 flex aspect-square flex-col items-center rounded-2xl border border-neutral-700 bg-neutral-950 p-4',
+      heading: 'Heading 3',
+      desc: 'This is a description for the third bento grid item.',
+    },
+    {
+      className:
+        'col-span-2 row-span-1 flex flex-col items-center rounded-2xl border border-neutral-700 bg-neutral-950 p-4',
+      heading: 'Heading 4',
+      desc: 'This is a description for the fourth bento grid item.',
+    },
+  ];
+  
+  const MAX_OFFSET = 16;
+  
+  function getDirectionContinuous(
+    x, y, rect
+  ) {
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const dx = x - centerX;
+    const dy = y - centerY;
+    const halfW = rect.width / 2;
+    const halfH = rect.height / 2;
+    const normX = Math.max(-1, Math.min(1, dx / halfW));
+    const normY = Math.max(-1, Math.min(1, dy / halfH));
+    return { normX, normY };
+  }
+  
+  const BentoGridItem = ({
+    className,
+    heading,
+    desc,
+  }) => {
+    const ref = useRef(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+  
+    const handleMouseMove = (e) => {
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+  
+      if (
+        mouseX >= rect.left &&
+        mouseX <= rect.right &&
+        mouseY >= rect.top &&
+        mouseY <= rect.bottom
+      ) {
+        const { normX, normY } = getDirectionContinuous(mouseX, mouseY, rect);
+        animate(x, normX * MAX_OFFSET, {
+          type: 'spring',
+          stiffness: 300,
+          damping: 30,
+        });
+        animate(y, normY * MAX_OFFSET, {
+          type: 'spring',
+          stiffness: 300,
+          damping: 30,
+        });
+      }
+    };
+  
+    const handleMouseLeave = () => {
+      animate(x, 0, { type: 'spring', stiffness: 300, damping: 30 });
+      animate(y, 0, { type: 'spring', stiffness: 300, damping: 30 });
+    };
+  
+    return (
+      <motion.div
+        ref={ref}
+        className={className}
+        style={{ x, y }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="h-[65%] w-full rounded-xl bg-gradient-to-l from-neutral-800 to-neutral-900"></div>
+        <div className="mt-4 flex w-full flex-col items-start gap-1">
+          <h3 className="font-semibold text-white">{heading}</h3>
+          <p className="text-sm text-neutral-400">{desc}</p>
+        </div>
+      </motion.div>
+    );
+  };
+  
+  const BentoGrid = () => {
+    return (
+      <div className="grid w-full grid-cols-3 grid-rows-2 gap-4">
+        {gridItems.map((item, i) => (
+          <BentoGridItem key={i} {...item} />
+        ))}
+      </div>
+    );
+  };
+  
+  export default BentoGrid;
+`}
+/>
+
+---
+
+## Import
+
+To use the BentoGrid component, import it in your code:
 
 <CodeBlock code={`import BentoGrid from '@/components/BentoGrid';`} />
 
+---
+
 ## Props
 
-The bento grid component does not take any props. It uses a default `gridItems` array to render the grid.
+The BentoGrid component does not accept any props. All grid items and their layout are defined directly inside the component source itself; you can edit or replace the `gridItems` array in the component file to customize content or layout.
+
+### gridItems (edit in source to customize):
+
+<CodeBlock code={`
+  const gridItems = [
+    {
+      className: "...", // Tailwind, span, and responsive classes
+      heading: "Heading text...",
+      desc: "Description for this grid cell.",
+    },
+    // ...add or change items!
+  ];
+`} />
+
+### Example usage
+
+#### Using default layout
+
+By default, `<BentoGrid />` renders demo items.
+
+#### Customizing items
+
+To create your own items/layout, amend or replace the `gridItems` array in `BentoGrid.tsx`.
+
+---
+
+## Features
+
+- **Pointer-following parallax animation:** Each card smoothly moves relative to pointer position with spring easing.
+- **Fully customizable:** Card content, column/row span, and styling via each grid item's `className`.
+- **Modern bento appearance:** Mix rectangular and square grid items for elegant, engaging layouts.
+- **Dark mode ready:** Utility classes use Tailwind's `dark:` variants for easy adaptation.
+- **Simple zero-prop usage:** Just drop `<BentoGrid />` anywhere.
+
+---
+
+## Customization
+
+- **Grid structure:** Edit `grid-cols-3`/`grid-rows-2` on the root grid for more or fewer cells.
+- **Cell animations:** Adjust `MAX_OFFSET`, spring `stiffness`, or `damping` for a more/less lively feel.
+- **Content:** Each `gridItems` entry can have any React node—swap titles, rich content, actions, or even nested layouts.
+- **Styling:** Edit Tailwind classes for different backgrounds, borders, spacing, or effects.
+
+---
+
+## Related
+
+- [motion.dev](https://motion.dev) for pointer-based card animation.
+- [Tailwind CSS](https://tailwindcss.com/) for utility styling.
+- [React](https://react.dev/) for core UI structure.
+
+---
+
+## Troubleshooting
+
+- If cell motion doesn't work, ensure you have `motion.dev` (the motion library) installed and correctly imported.
+- To expand or reduce cells, ensure your grid dimensions and item `col-span`/`row-span` classes fit together.
+- Edit or add to `gridItems` as needed to change displayed content and layout.
+

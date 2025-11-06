@@ -1,9 +1,12 @@
-# Price Switcher
-
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
+import InstallToggle from './InstallToggle';
 
-A component that animates a price change between monthly and annually.
+# Price Switcher
+
+A modern animated React component for toggling prices (e.g. between monthly and annual) with a smooth, visually engaging transition effect.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Live Preview
 
@@ -11,12 +14,145 @@ A component that animates a price change between monthly and annually.
   <LiveCode code={`<PriceSwitcher />`} />
 </div>
 
-## Usage
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-To use the price switcher component, import it from `@/components/PriceSwitcher`.
+## Installation
+
+You can install the PriceSwitcher component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/price-switcher.json"
+  manualCode={`'use client';
+  
+  import { useState } from 'react';
+  import { motion } from 'motion/react';
+  
+  const PriceSwitcher = () => {
+    const [isMonthly, setIsMonthly] = useState<boolean>(false);
+    const oneToNine = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  
+    return (
+      <div className="flex flex-col items-center gap-8">
+        <motion.div
+          layout
+          className="font-inter flex overflow-hidden text-6xl font-semibold text-black dark:text-white"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          <motion.span layout className="w-fit">
+            $
+          </motion.span>
+          <motion.span
+            initial={false}
+            animate={{
+              y: isMonthly ? '100%' : '0%',
+            }}
+            style={{
+              display: isMonthly ? 'none' : 'inline-block',
+            }}
+            transition={{ type: 'spring', stiffness: 120, damping: 16 }}
+          >
+            1
+          </motion.span>
+          <span className="flex h-[1em] w-auto min-w-0 flex-col overflow-hidden">
+            <motion.span
+              className="flex w-auto min-w-0 flex-col"
+              initial={false}
+              animate={{ y: isMonthly ? 0 : \`-\${(oneToNine.length - 1) * 1}em\` }}
+              transition={{ type: 'spring', stiffness: 120, damping: 16 }}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: 'auto',
+                minWidth: 0,
+                alignItems: 'center',
+              }}
+            >
+              {oneToNine.map((num) => (
+                <span
+                  key={num}
+                  style={{
+                    height: '1em',
+                    lineHeight: '1em',
+                    width: 'fit-content',
+                    minWidth: 0,
+                    display: 'inline-block',
+                    textAlign: 'center',
+                  }}
+                >
+                  {num}
+                </span>
+              ))}
+            </motion.span>
+          </span>
+          <motion.span layout className="w-fit">
+            9
+          </motion.span>
+        </motion.div>
+        <div className="space-x-8">
+          <button
+            onClick={() => setIsMonthly(true)}
+            className={\`rounded-lg px-4 py-2 \${isMonthly ? 'bg-neutral-100 text-black' : 'bg-black text-neutral-400'}\`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={() => setIsMonthly(false)}
+            className={\`rounded-lg px-4 py-2 \${!isMonthly ? 'bg-neutral-100 text-black' : 'bg-black text-neutral-400'}\`}
+          >
+            Annually
+          </button>
+        </div>
+      </div>
+    );
+  };
+  
+  export default PriceSwitcher;
+`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Import
+
+To use the PriceSwitcher component, import it in your code:
 
 <CodeBlock code={`import PriceSwitcher from '@/components/PriceSwitcher';`} />
 
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
 ## Props
 
-The price switcher component does not take any props.
+The PriceSwitcher component does **not** accept any props.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Example usage
+
+<CodeBlock code={`<PriceSwitcher />`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Features
+
+- **Animated price change**: Numbers animate smoothly as you toggle between monthly and annual pricing.
+- **Accessible**: Uses semantic HTML and native buttons for keyboard accessibility.
+- **Theme-aware**: Colors adapt to light/dark mode out-of-the-box.
+- **Zero config**: Drop-in usage; you can customize by editing the component.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Customization
+
+- Edit the component to change price range, animation duration, or add props.
+- Use Tailwind CSS to adjust color, font size, or other presentation styles.
+- Integrate the toggle with your actual pricing logic by connecting its state externally if needed.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Troubleshooting
+
+- Ensure [motion.dev](https://motion.dev/) is installed and properly configured in your project.
+- If prices don’t animate, verify that your React version is compatible and your bundler supports JSX.
+- For custom price ranges, update the `oneToNine` array within the component.
+- If you want to accept props or further customize, you may safely refactor the component as desired.
+

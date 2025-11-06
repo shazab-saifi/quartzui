@@ -46,7 +46,7 @@ const Headings = ({
             onClick={(e) => handleClick(e, heading.id)}
             className={
               heading.id === activeId
-                ? 'font-medium text-neutral-900 transition-colors dark:text-white'
+                ? 'font-medium text-neutral-900 transition-colors duration-300 dark:text-white'
                 : ''
             }
           >

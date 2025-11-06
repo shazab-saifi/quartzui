@@ -1,9 +1,12 @@
-# Badge
-
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
+import InstallToggle from "./InstallToggle";
 
-A component to display a badge with a label and a colored dot.
+# Badge
+
+A modern Badge component to display a label with a colored dot. Supports several color variants and can be easily customized for your UI needs.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Live Preview
 
@@ -11,11 +14,144 @@ A component to display a badge with a label and a colored dot.
   <LiveCode code={`<Badge label="Badge" />`} />
 </div>
 
-## Usage
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-To use the badge component, import it from `@/components/Badge`.
+## Installation
+
+You can install the Badge component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/badge.json"
+  manualCode={`import { cn } from '@/lib/utils';
+  import { tv } from 'tailwind-variants';
+  
+  const badgeVariants = tv({
+    base: 'gap-sm flex items-center justify-center rounded-md gap-1 cursor-pointer text-xs overflow-hidden',
+    variants: {
+      color: {
+        green: 'bg-green-500/20 text-green-500',
+        cyan: 'bg-cyan-500/20 text-cyan-500',
+        red: 'bg-red-500/20 text-red-500',
+        blue: 'bg-blue-500/20 text-blue-500',
+        yellow: 'bg-yellow-500/20 text-yellow-500',
+        purple: 'bg-purple-500/20 text-purple-500',
+      },
+    },
+    compoundVariants: [
+      {
+        class: 'px-2 py-1',
+      },
+    ],
+    defaultVariants: {
+      color: 'green',
+    },
+  });
+  
+  const Badge = ({
+    label,
+    variant,
+    className,
+  }: {
+    label: string;
+    variant?: 'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple';
+    className?: string;
+  }) => {
+    const dotBgByVariant: Record<
+      'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple',
+      string
+    > = {
+      green: 'bg-green-500',
+      cyan: 'bg-cyan-500',
+      red: 'bg-red-500',
+      blue: 'bg-blue-500',
+      yellow: 'bg-yellow-500',
+      purple: 'bg-purple-500',
+    };
+    const resolvedVariant:
+      | 'green'
+      | 'cyan'
+      | 'red'
+      | 'blue'
+      | 'yellow'
+      | 'purple' = variant ?? 'green';
+    return (
+      <div className={cn(badgeVariants({ color: variant }), className)}>
+        <div
+          className={cn('size-1.5 rounded-full', dotBgByVariant[resolvedVariant])}
+        ></div>
+        <span>{label}</span>
+      </div>
+    );
+  };
+  
+  export default Badge;
+`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Import
+
+To use the Badge component, import it in your code:
 
 <CodeBlock code={`import Badge from '@/components/Badge';`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Props
+
+The Badge component accepts the following props:
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Name</th>
+      <th align="left">Type</th>
+      <th align="left">Default</th>
+      <th align="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>label</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>The text to display inside the badge.</td>
+    </tr>
+    <tr>
+      <td><code>variant</code></td>
+      <td><code>'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple'</code></td>
+      <td><code>'green'</code></td>
+      <td>The color theme of the badge.</td>
+    </tr>
+    <tr>
+      <td><code>className</code></td>
+      <td><code>string</code></td>
+      <td>—</td>
+      <td>Additional utility classes for the badge.</td>
+    </tr>
+  </tbody>
+</table>
+
+<CodeBlock
+  code={`
+  {
+    label: string;
+    variant?: 'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple';
+    className?: string;
+  }
+`}
+/>
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Example usage
+
+### Basic
+
+<CodeBlock code={`<Badge label="Active" />`} />
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
 ## Variants
 
@@ -41,20 +177,27 @@ The badge comes in six variants: `green`, `cyan`, `red`, `blue`, `yellow`, and `
 `}
 />
 
-## Props
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
 
-The badge component takes the following props:
+## Features
 
-- `label`: The text to display on the badge.
-- `variant`: The color of the badge.
-- `className`: Additional classes to apply to the badge.
+- **Variants:** Green, cyan, red, blue, yellow, and purple for flexible UI usage.
+- **Simple API:** Just set `label` and optional color variant.
+- **Theme-aware:** Works well in both light and dark mode.
+- **Highly customizable:** Extend or override with `className`.
 
-<CodeBlock
-  code={`
-{
-  label: string;
-  variant?: 'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple';
-  className?: string;
-}
-`}
-/>
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Customization
+
+- Override the dot color or badge styling by changing `dotBgByVariant` or `badgeVariants` in the component.
+- Add extra classes to adjust padding, font, or size using the `className` prop.
+
+<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+
+## Troubleshooting
+
+- If you see no dot, ensure your Tailwind setup includes all used utility classes.
+- If color doesn't appear as expected, make sure you pass a valid `variant`.
+- You can safely edit the badge component to add more variants or change the style.
+
