@@ -143,7 +143,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
                     return (
                       <button
                         onClick={() => {
-                          router.push(`/components/${item.identifier}`);
+                          router.push(`/docs/${item.identifier}`);
                         }}
                         key={idx}
                         className={`relative cursor-pointer overflow-hidden rounded-md p-2 text-left text-sm ${

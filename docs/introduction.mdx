@@ -1,0 +1,122 @@
+import TechStack from "../ui/docs/tech-stack"
+import { Accordian } from "../components/Accordion"
+import FAQ from '../ui/pricing/FAQ';
+
+<img
+  src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+  width={48}
+  className='hidden dark:inline not-prose'
+/>
+<img
+  src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
+  width={48}
+  className='dark:hidden not-prose'
+/>
+
+<h2 className="not-prose mt-8 mb-2 text-2xl font-semibold text-black dark:text-white">
+  Introduction
+</h2>
+
+Welcome to <a href="/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline">QuartzUI</a>&nbsp;
+<a href="https://react.dev/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline" target="_blank" rel="noopener noreferrer">React</a>. This collection of open-source React components is inspired by world-class design systems and built to help you ship polished UIs fast—copy, paste, and build.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## What is Quartz UI?
+
+<a href="/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline">QuartzUI</a>&nbsp;is a growing collection of production-ready 
+<a href="https://react.dev/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline" target="_blank" rel="noopener noreferrer">React</a> components, styled with 
+<a href="https://tailwindcss.com/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline" target="_blank" rel="noopener noreferrer">Tailwind CSS</a> and based on accessible React primitives. Every component is crafted to be ready-to-use, cleanly structured, and easy to plug into your workflow.
+
+With motion-friendly patterns (via 
+<a href="https://motion.dev/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline" target="_blank" rel="noopener noreferrer">Motion.dev</a>
+) and full TypeScript support, you can develop quickly and confidently, tailoring the design to your own tokens and branding as needed.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Tech stack
+
+<a href="/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline">QuartzUI</a>&nbsp;is built with the following technologies:
+
+<TechStack />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Accessibility
+
+Accessibility is treated as essential. The components use accessible React primitives, ARIA-friendly patterns, and keyboard interactions to help you meet modern accessibility standards right from the start.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## How is this different from a library?
+
+Unlike typical UI libraries that provide bundled files, <a href="/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline">QuartzUI</a>&nbsp;supplies source code directly. This approach means you have ownership and full visibility over every component in your project. You can freely customize and adapt patterns to your needs, avoid vendor lock-in or hidden dependencies, and keep your project slim with no unnecessary package weight beyond your existing stack.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Next steps
+
+To get started, visit the Installation guide to add components to your project. You can then browse the documentation to see live previews and copy ready-to-use code. If you’d like to help improve <a href="/" className="text-black dark:text-white no-underline font-semibold transition-transform hover:underline">QuartzUI</a>, you’re welcome to open an issue or contribute with a pull request.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## FAQs
+
+<FAQ
+  className="space-y-6"
+  questionClassName="text-base font-semibold"
+  answerClassName="text-neutral-400 max-w-xl"
+  faqs={[
+    {
+      qes: 'What is Quartz UI and who is it for?',
+      ans: (
+        <>
+          <span className="text-white font-semibold transition-all hover:underline">
+            <a href="/" className="no-underline">Quartz UI</a>
+          </span>{' '}
+          is a modern, component-based UI library that helps developers and designers build sleek, responsive, and production-ready interfaces quickly. It’s designed for everyone—from solo developers who want to move fast, to startups and enterprises that need scalable, customizable solutions.
+        </>
+      ),
+    },
+    {
+      qes: 'What makes Quartz UI different from other React component libraries?',
+      ans: (
+        <>
+          <span className="text-white font-semibold transition-all hover:underline">
+            <a href="/" className="no-underline">Quartz UI</a>
+          </span>{' '}
+          gives you direct access to source code rather than black-boxed packages. You can fully customize, inspect, and adapt every component as you wish. No vendor lock-in, no hidden dependencies, and no unnecessary bloat.
+        </>
+      ),
+    },
+    {
+      qes: 'Is Quartz UI free and open source?',
+      ans: (
+        <>
+          Yes!{' '}
+          <span className="text-white font-semibold transition-all hover:underline">
+            <a href="/" className="no-underline">Quartz UI</a>
+          </span>{' '}
+          offers a generous free tier. All core components are MIT licensed for personal and small commercial projects. Additional features, advanced components, and commercial licences for larger projects are available on paid plans.
+        </>
+      ),
+    },
+    {
+      qes: 'How do I install Quartz UI in my project?',
+      ans: 'You can start in two simple ways: copy & paste components directly from our docs, or use the Quartz CLI for a faster, automated setup. Both options are beginner-friendly and flexible.',
+    },
+    {
+      qes: 'Does Quartz UI support TypeScript?',
+      ans: (
+        <>
+          Yes,{' '}
+          <span className="text-white font-semibold transition-all hover:underline">
+            <a href="/" className="no-underline">Quartz UI</a>
+          </span>{' '}
+          is built completely in TypeScript and all components ship with fully typed APIs and examples.
+        </>
+      ),
+    },
+  ]}
+/>
+

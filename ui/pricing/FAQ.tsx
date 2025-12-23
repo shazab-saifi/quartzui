@@ -2,8 +2,21 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
-const FAQ = ({ faqs }: { faqs: { qes: string; ans: string }[] }) => {
+interface FAQProps {
+  faqs: { qes: string; ans: string }[];
+  className?: string;
+  questionClassName?: string;
+  answerClassName?: string;
+}
+
+const FAQ = ({
+  faqs,
+  className,
+  questionClassName = 'text-lg',
+  answerClassName = 'py-2 text-neutral-700 dark:text-neutral-200',
+}: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (idx: number) => {
@@ -11,11 +24,11 @@ const FAQ = ({ faqs }: { faqs: { qes: string; ans: string }[] }) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className={cn('space-y-6', className)}>
       {faqs.map((item, idx) => (
         <div
           key={idx}
-          className="mx-auto max-w-192 border-b border-neutral-200 pb-6 last:border-b-0 dark:border-white/10"
+          className="mx-auto max-w-192 border-b border-neutral-200 pb-4 last:border-b-0 dark:border-white/10"
         >
           <button
             className="flex w-full cursor-pointer items-center justify-between py-3 text-left text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-300 dark:text-white dark:focus-visible:ring-white/30"
@@ -25,7 +38,7 @@ const FAQ = ({ faqs }: { faqs: { qes: string; ans: string }[] }) => {
             id={`accordion-header-${idx}`}
             type="button"
           >
-            <span className="text-lg">{item.qes}</span>
+            <span className={cn(questionClassName)}>{item.qes}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -79,9 +92,7 @@ const FAQ = ({ faqs }: { faqs: { qes: string; ans: string }[] }) => {
                 className="overflow-hidden"
                 style={{ willChange: 'height, opacity, padding' }}
               >
-                <div className="py-2 text-neutral-700 dark:text-neutral-200">
-                  {item.ans}
-                </div>
+                <div className={cn(answerClassName)}>{item.ans}</div>
               </motion.div>
             )}
           </AnimatePresence>

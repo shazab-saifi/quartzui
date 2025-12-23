@@ -1,6 +1,6 @@
 'use client';
 
-import { IconExternalLink } from '@tabler/icons-react';
+import { IconArrowUpRight } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
@@ -37,7 +37,7 @@ const ComponentPreviewCard = ({
         <div className="absolute bottom-0 left-0 z-20 w-full p-6 text-neutral-50 dark:text-white">
           <div className="flex items-center gap-2 font-semibold">
             <span>{heading}</span>
-            <IconExternalLink
+            <IconArrowUpRight
               size={16}
               className="invisible group-hover:visible"
             />
