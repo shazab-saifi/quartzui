@@ -28,13 +28,11 @@ export default function RootLayout({
         type="image/svg"
       />
       <body
-        className={`${inter.variable} mx-auto max-w-[128rem] bg-white antialiased dark:bg-neutral-950`}
+        className={`${inter.variable} bg-white antialiased dark:bg-neutral-950`}
       >
         <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
           <Navbar />
-          <div className="w-full px-4 sm:px-16 md:px-20 2xl:px-70">
-            {children}
-          </div>
+          <div>{children}</div>
           <Footer />
         </ThemeProvider>
       </body>

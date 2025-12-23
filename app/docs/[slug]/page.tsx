@@ -36,7 +36,7 @@ export default async function Page({
   const { slug } = await params;
 
   return (
-    <div className="mt-16 flex w-full justify-between gap-12">
+    <div className="mt-6 flex w-full justify-between gap-12 px-4 sm:px-6">
       <div className="hidden w-54 flex-shrink-0 lg:inline">
         <ComponentsBar slug={slug} />
       </div>

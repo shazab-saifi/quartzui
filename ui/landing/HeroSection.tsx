@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import AnimatedText from '@/components/AnimatedText';
 import Marquee from 'react-fast-marquee';
+import { Heading } from './heading';
 
 interface ItemType {
   icon: React.ElementType;
@@ -61,9 +62,11 @@ const HeroSection = () => {
           </TextShimmer>
         </motion.button>
         <div className="max-w-2xl">
-          <AnimatedText className="md:text-h3 text-center text-3xl font-bold text-neutral-950 dark:text-neutral-100">
-            Build Beautiful Interfaces, Faster with Quartz UI
-          </AnimatedText>
+          <Heading as="h1">
+            <AnimatedText>
+              Build Beautiful Interfaces, Faster with Quartz UI
+            </AnimatedText>
+          </Heading>
         </div>
         <motion.p
           initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}

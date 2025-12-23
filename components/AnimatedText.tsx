@@ -18,7 +18,7 @@ const AnimatedText = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: idx * 0.1, ease: 'easeInOut' }}
           key={idx}
-          className={cn('inline-block text-4xl font-bold', className)}
+          className={cn('inline-block', className)}
           style={{ display: 'inline-block', willChange: 'transform' }}
         >
           {word}&nbsp;

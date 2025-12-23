@@ -97,13 +97,6 @@ const previewData = [
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602397/Screenshot_from_2025-10-16_13-42-56_k6tj8m.png',
     link: '/components/animated-text',
   },
-  // {
-  //   title: 'Scale Card',
-  //   desc: 'A card component that scales up on hover, providing a dynamic and interactive way to highlight content.',
-  //   image:
-  //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759474288/scale-card_acvyub.png',
-  //   link: '/components/scale-card',
-  // },
   {
     title: 'Bento Grid',
     desc: 'A dynamic bento grid layout component featuring interactive, animated tiles that respond to pointer movement for an engaging UI experience.',
@@ -136,21 +129,46 @@ const previewData = [
 
 const page = () => {
   return (
-    <div className="mt-16 flex w-full gap-20">
+    <div className="mt-6 flex w-full px-4 sm:px-6">
       <div className="hidden w-54 flex-shrink-0 lg:inline">
         <ComponentsBar />
       </div>
-      <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
-        {previewData.map((item, idx) => (
-          <ComponentPreviewCard
-            key={item.title + idx}
-            src={item.image}
-            heading={item.title}
-            desc={item.desc}
-            link={item.link}
-            idx={idx}
-          />
-        ))}
+      <div className="mt-8 w-full md:px-12 xl:px-18">
+        <div>
+          <h5 className="mb-2 font-semibold">Components</h5>
+          <p className="mb-5 max-w-lg text-neutral-700 dark:text-neutral-400">
+            High-performance, modern components built with{' '}
+            <a
+              href="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-300 transition-colors hover:text-white hover:underline"
+            >
+              React.js
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://motion.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-300 transition-colors hover:text-white hover:underline"
+            >
+              motion.dev
+            </a>
+          </p>
+        </div>
+        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3">
+          {previewData.map((item, idx) => (
+            <ComponentPreviewCard
+              key={item.title + idx}
+              src={item.image}
+              heading={item.title}
+              desc={item.desc}
+              link={item.link}
+              idx={idx}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

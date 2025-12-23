@@ -1,4 +1,4 @@
-import { TextShimmer } from '@/components/TextShimmer';
+import TextShimmer from '@/components/TextShimmer';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {

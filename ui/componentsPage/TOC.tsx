@@ -2,7 +2,7 @@
 
 import useHeadingsData from '@/hooks/useHeadingsData';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-import { IconTable } from '@tabler/icons-react';
+import { IconAlignJustified } from '@tabler/icons-react';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 
@@ -66,8 +66,8 @@ const TOC = () => {
   return (
     <nav>
       <div className="mb-4 flex items-center gap-2 text-neutral-950 dark:text-white">
-        <IconTable size={14} />
-        <h3 className="text-sm font-bold">Table of Contents</h3>
+        <IconAlignJustified size={14} />
+        <h3 className="text-xs font-bold">On this page</h3>
       </div>
       <div className="relative flex items-stretch gap-2">
         <span
