@@ -1,0 +1,62 @@
+import { CodeBlock } from './CodeBlock';
+import { Step } from '../ui/docs/step';
+import { Steps } from '../ui/docs/steps';
+
+## Installation
+
+Set up QuartzUI on top of shadcn/ui with a few commands. Follow the steps in order and you’ll be ready to drop components into your app.
+
+You’ll need Node.js 18+ with your package manager (pnpm, npm, or yarn) and a Next.js/React project with Tailwind (or start fresh with `npx create-next-app`).
+
+<Steps>
+  <Step number={1} title="Install shadcn/ui">
+    <p className="mb-3">
+      Run the shadcn setup to scaffold the expected folders and tokens.
+    </p>
+    <CodeBlock code={`npx shadcn@latest init`} language="bash" />
+    <p className="mt-3">
+      Choose your styling options; the init will create `components` and `lib`
+      paths that QuartzUI components reference.
+    </p>
+  </Step>
+
+  <Step number={2} title="Align Tailwind">
+    <p>
+      Confirm `tailwind.config.(cjs|ts)` includes your `components`, `app`, and
+      `src` paths in `content`.
+    </p>
+    <p>
+      Ensure `globals.css` (or `app/globals.css`) has
+      `@tailwind base/components/utilities`.
+    </p>
+    <p>
+      If you customized tokens during shadcn init, keep them—QuartzUI uses the
+      same design token structure.
+    </p>
+  </Step>
+
+  <Step number={3} title="Add QuartzUI components">
+    <p>
+      From any component page, choose the CLI command or copy/paste the code.
+    </p>
+    <CodeBlock
+      code={`npx shadcn@latest add http://localhost:3000/r/button.json`}
+      language="bash"
+    />
+    <p className="mt-2">Repeat for other QuartzUI components you want to pull in.</p>
+  </Step>
+
+  <Step number={4} title="Verify">
+    <p>
+      Run `pnpm dev` (or `npm run dev` / `yarn dev`) and open a page using your
+      new component.
+    </p>
+    <p>
+      If styles look off, re-check Tailwind `content` paths and ensure globals
+      are imported once in your root layout.
+    </p>
+  </Step>
+</Steps>
+
+That’s it—shadcn/ui is initialized and QuartzUI components are ready to use.
+
