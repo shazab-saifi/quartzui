@@ -22,7 +22,7 @@ export function Step({
 
   return (
     <li className="relative mb-10 pl-8">
-      <span className="bg-background absolute top-0 -left-4 flex h-8 w-8 items-center justify-center rounded-full border text-sm font-medium">
+      <span className="bg-background absolute top-0 -left-4 flex h-8 w-8 items-center justify-center rounded-sm border text-sm font-medium">
         {number}
       </span>
 

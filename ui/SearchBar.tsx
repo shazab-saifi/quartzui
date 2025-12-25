@@ -1,6 +1,7 @@
 'use client';
 
 import { Dialog } from '@/components/Dialog';
+import { componentsData } from '@/lib/components-data';
 import {
   IconCircle,
   IconCommand,
@@ -10,33 +11,14 @@ import {
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const components = [
-  { name: 'Accordion', href: '/components/accordion' },
-  { name: 'Animated Button', href: '/components/animated-button' },
-  { name: 'Animated Text', href: '/components/animated-text' },
-  { name: 'Badge', href: '/components/badge' },
-  { name: 'Bento Grid', href: '/components/bento-grid' },
-  { name: 'Button', href: '/components/button' },
-  { name: 'Dialog', href: '/components/dialog' },
-  { name: 'Expandable Card', href: '/components/expendable-card' },
-  { name: 'Floating Dock', href: '/components/floating-dock' },
-  { name: 'Lines Card', href: '/components/lines-card' },
-  { name: 'Pointer Card', href: '/components/pointer-card' },
-  { name: 'Price Switcher', href: '/components/price-switcher' },
-  { name: 'Scale Card', href: '/components/scale-card' },
-  { name: 'Scroll Progress', href: '/components/scroll-progress' },
-  { name: 'Sidebar', href: '/components/sidebar' },
-  { name: 'Tab Select', href: '/components/tab-select' },
-  { name: 'Text Shimmer', href: '/components/text-shimmer' },
-  { name: 'Tilt', href: '/components/tilt' },
-];
-
 const SearchBar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const filteredComponents = components.filter((component) =>
-    component.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredComponents = componentsData.filter(
+    (component) =>
+      !component.isDoc &&
+      component.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {
@@ -90,13 +72,13 @@ const SearchBar = () => {
             {filteredComponents.length > 0 ? (
               filteredComponents.map((component) => (
                 <Link
-                  href={component.href}
-                  key={component.name}
+                  href={component.link as string}
+                  key={component.title}
                   className="flex items-center gap-2 rounded-lg p-2 hover:bg-neutral-200 dark:hover:bg-neutral-900"
                   onClick={() => setIsOpen(false)}
                 >
                   <IconCircle size={18} />
-                  <span>{component.name}</span>
+                  <span>{component.title}</span>
                 </Link>
               ))
             ) : (
