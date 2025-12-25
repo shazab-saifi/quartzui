@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import PricingPage from '../app/pricing/page';
+import PricingPage from '../app/(with-footer)/pricing/page';
 import RootLayout from '../app/layout';
 
 const meta = {

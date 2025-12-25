@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../ui/Navbar';
-import Footer from '../ui/Footer';
 import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({
@@ -33,7 +32,6 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
           <Navbar />
           <div>{children}</div>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

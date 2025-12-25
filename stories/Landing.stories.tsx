@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Landing from '../app/page';
+import Landing from '../app/(with-footer)/page';
 import RootLayout from '../app/layout';
 
 const meta = {
