@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-// import { motion } from 'motion/react';
 import useResolvedTheme from '@/hooks/useResolvedTheme';
 import Motion from '../motion';
 
@@ -20,7 +19,7 @@ const HeroImages = () => {
     <div className="relative min-h-200 w-full pt-20">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -inset-10 -bottom-2 left-0 z-10 bg-linear-to-t from-white from-30% to-transparent to-50% dark:from-neutral-950"
+        className="pointer-events-none absolute -inset-10 -bottom-16 left-0 z-10 bg-linear-to-t from-white from-30% to-transparent to-50% dark:from-neutral-950"
       />
       <Motion
         initial={{ opacity: 0, y: -100, x: 100 }}
