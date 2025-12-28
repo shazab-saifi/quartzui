@@ -1,13 +1,17 @@
-import Banner from '@/ui/landing/Banner';
-import HeroSection from './landing/HeroSection';
-import Testimonials from './landing/Testimonials';
-import UseSection from './landing/UseSection';
-import DemoSection from './landing/DemoSection';
+import {
+  Banner,
+  Carousel,
+  DemoSection,
+  HeroSection,
+  Testimonials,
+  UseSection,
+} from './landing';
 
 const Landing = () => {
   return (
-    <div className="space-y-24 md:space-y-32 lg:space-y-40 xl:space-y-50">
+    <div className="flex flex-col px-4 sm:px-8 lg:px-20 2xl:px-60">
       <HeroSection />
+      <Carousel />
       <DemoSection />
       <UseSection />
       <Testimonials />

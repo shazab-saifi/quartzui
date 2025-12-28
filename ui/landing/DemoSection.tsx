@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/components/Button';
+import { IconArrowUpRight } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
-import { motion } from 'motion/react';
+import Marquee from 'react-fast-marquee';
 
 interface VideoDataType {
   title: string;
@@ -10,7 +10,7 @@ interface VideoDataType {
   link: string;
 }
 
-const vidoesData: VideoDataType[] = [
+const videosData: VideoDataType[] = [
   {
     title: 'Tab Select',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760805392/tab-select_ljg0tl.mp4',
@@ -62,45 +62,41 @@ const DemoSection = () => {
   const router = useRouter();
 
   return (
-    <div className="relative columns-1 gap-4 overflow-hidden rounded-4xl sm:columns-2 md:columns-3 [&>div]:mb-4">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -bottom-6 z-10 h-[60%] bg-gradient-to-t from-white from-12% to-transparent dark:from-neutral-950"
-      />
-      {vidoesData.map((item, idx) => {
-        let roundedExtra = '';
-        if (item.link === 'expendable-card') roundedExtra = 'rounded-tr-4xl';
-        if (item.link === 'tab-select') roundedExtra = 'rounded-tl-4xl';
-
-        return (
-          <motion.div
-            initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
-            whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, ease: 'easeOut', delay: idx * 0.1 }}
+    <div className="relative my-64 w-full mask-x-from-90%">
+      <Marquee
+        gradient={false}
+        speed={35}
+        pauseOnHover
+        className="flex items-center"
+      >
+        {videosData.map((item, idx) => (
+          <div
             key={idx}
-            onClick={() => router.push(`/components/${item.link}`)}
-            className={`cursor-pointer break-inside-avoid rounded-lg dark:border dark:border-neutral-800 ${roundedExtra} transition-shadow hover:shadow-md`}
+            className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-900 p-1 shadow-sm transition hover:shadow-md dark:border dark:border-neutral-800`}
+            style={{ minWidth: 300, maxWidth: 400, width: '22vw' }}
+            onClick={() => router.push(`/docs/${item.link}`)}
+            tabIndex={0}
+            role="button"
           >
             <video
               src={item.href}
-              className={`w-full rounded-lg ${roundedExtra}`}
+              className="h-62 w-full rounded-lg object-cover"
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
+              title={item.title}
             />
-          </motion.div>
-        );
-      })}
-      <Button
-        variant="secondary"
-        className="absolute bottom-0 left-1/2 z-10 -translate-x-1/2 text-sm"
-        onClick={() => router.push('/components')}
-      >
-        More Components
-      </Button>
+            <div className="flex w-full items-center justify-between px-2 pt-2 pb-1 text-neutral-400 transition-colors group-hover:text-white">
+              <span className="text-left text-sm font-medium">
+                {item.title}
+              </span>
+              <IconArrowUpRight size={16} />
+            </div>
+          </div>
+        ))}
+      </Marquee>
     </div>
   );
 };

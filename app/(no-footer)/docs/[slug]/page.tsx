@@ -36,14 +36,14 @@ export default async function Page({
   const { slug } = await params;
 
   return (
-    <div className="mt-6 flex w-full justify-between gap-12 px-4 sm:px-6">
+    <div className="flex w-full justify-between gap-12 px-4 sm:px-6">
       <div className="hidden w-54 flex-shrink-0 lg:inline">
         <ComponentsBar slug={slug} />
       </div>
-      <div className="mt-12 xl:w-3xl">
+      <div className="my-16 xl:w-3xl">
         <Docs slug={slug} />
       </div>
-      <div className="mt-12 hidden w-54 flex-shrink-0 xl:inline">
+      <div className="mt-16 hidden w-54 flex-shrink-0 xl:inline">
         <div className="sticky top-24">
           <TOC />
         </div>

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactNode, isValidElement } from 'react';
 
 const variants = {
   initial: {
@@ -29,9 +29,11 @@ const variants = {
   },
 };
 
+type Logo = string | ReactNode;
+
 type LogoCarouselProps = {
   delay?: number;
-  logos: string[];
+  logos: Logo[];
 };
 
 const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
@@ -48,11 +50,20 @@ const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
 
   if (!logos || logos.length === 0) return null;
 
+  // For motion key, use string if available, otherwise fallback to index
+  const currentLogo = logos[index];
+  const key =
+    typeof currentLogo === 'string'
+      ? currentLogo
+      : isValidElement(currentLogo) && currentLogo.key != null
+        ? currentLogo.key
+        : `logo-${index}`;
+
   return (
     <div className="relative flex h-12 w-48 items-center justify-center">
       <AnimatePresence initial={false}>
         <motion.div
-          key={logos[index]}
+          key={key}
           variants={variants}
           initial="initial"
           animate="animate"
@@ -60,12 +71,16 @@ const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
           transition={{ duration: 0.6, ease: 'easeInOut', delay }}
           className="absolute top-0 left-0 flex h-16 w-40 items-center justify-center"
         >
-          <Image
-            src={logos[index]}
-            alt={`logo-${logos[index]}`}
-            width={160}
-            height={64}
-          />
+          {typeof currentLogo === 'string' ? (
+            <Image
+              src={currentLogo}
+              alt={`logo-${currentLogo}`}
+              width={160}
+              height={64}
+            />
+          ) : (
+            currentLogo
+          )}
         </motion.div>
       </AnimatePresence>
     </div>

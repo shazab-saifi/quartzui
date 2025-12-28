@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className="mt-6 flex w-full px-4 sm:px-6">
+    <div className="flex w-full px-4 sm:px-6">
       <div className="hidden w-54 flex-shrink-0 lg:inline">
         <ComponentsBar />
       </div>
-      <div className="mt-8 w-full md:px-12 xl:px-18">
+      <div className="my-16 w-full md:px-12 xl:px-18">
         <div>
           <h5 className="mb-2 font-semibold">Components</h5>
           <p className="mb-5 max-w-lg text-neutral-700 dark:text-neutral-400">

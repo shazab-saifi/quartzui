@@ -17,7 +17,7 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
   ];
 
   return (
-    <div className="scrollbar-thin scrollbar sticky top-24 max-h-[750px] overflow-y-scroll pr-4">
+    <div className="scrollbar-thin scrollbar sticky top-[69px] h-[calc(100vh-4.5rem)] overflow-y-scroll pt-8 pr-4">
       <div className="flex flex-col gap-6">
         {sections.map((sec, sectionIdx) => {
           const items = componentsData.filter((c) => c.category === sec.title);
