@@ -1,42 +1,16 @@
 import { Button } from '@/components/Button';
-import TextShimmer from '@/components/TextShimmer';
-import Image from 'next/image';
 import AnimatedText from '@/components/AnimatedText';
 import { Heading } from './heading';
 import HeroImages from './hero-images';
 import Motion from '../motion';
 import Link from 'next/link';
+import HeroBadge from './hero-badge';
 
 const HeroSection = () => {
   return (
-    <div className="mt-16 flex flex-col items-center md:mt-28">
+    <div className="mt-16 flex flex-col items-center px-4 sm:px-8 md:mt-28 lg:px-20 2xl:px-60">
       <div className="z-10 flex flex-col items-center gap-4 sm:px-8 md:gap-6">
-        <Link href="/docs">
-          <Motion
-            as="button"
-            initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
-            animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
-            className="mb-4 flex cursor-pointer items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-2 py-1 text-xs dark:border-neutral-800 dark:bg-neutral-900"
-          >
-            <Image
-              src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
-              alt="logo"
-              width={12}
-              height={12}
-              className="hidden dark:inline"
-            />
-            <Image
-              src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
-              alt="logo"
-              width={12}
-              height={12}
-              className="inline dark:hidden"
-            />
-            <TextShimmer>
-              Beautiful components. Effortless experience. »
-            </TextShimmer>
-          </Motion>
-        </Link>
+        <HeroBadge />
         <div className="max-w-2xl">
           <Heading as="h1">
             <AnimatedText>

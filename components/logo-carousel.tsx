@@ -50,7 +50,6 @@ const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
 
   if (!logos || logos.length === 0) return null;
 
-  // For motion key, use string if available, otherwise fallback to index
   const currentLogo = logos[index];
   const key =
     typeof currentLogo === 'string'
@@ -69,7 +68,7 @@ const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
           animate="animate"
           exit="exit"
           transition={{ duration: 0.6, ease: 'easeInOut', delay }}
-          className="absolute top-0 left-0 flex h-16 w-40 items-center justify-center"
+          className="absolute top-0 left-0 flex h-16 w-36 items-center justify-center"
         >
           {typeof currentLogo === 'string' ? (
             <Image

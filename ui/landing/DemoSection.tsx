@@ -2,7 +2,12 @@
 
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
+import { useRef } from 'react';
 import Marquee from 'react-fast-marquee';
+import { Heading } from './heading';
+import Balancer from 'react-wrap-balancer';
+import Link from 'next/link';
+import { Button } from '@/components/Button';
 
 interface VideoDataType {
   title: string;
@@ -62,42 +67,80 @@ const DemoSection = () => {
   const router = useRouter();
 
   return (
-    <div className="relative my-64 w-full mask-x-from-90%">
-      <Marquee
-        gradient={false}
-        speed={35}
-        pauseOnHover
-        className="flex items-center"
-      >
-        {videosData.map((item, idx) => (
-          <div
-            key={idx}
-            className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-900 p-1 shadow-sm transition hover:shadow-md dark:border dark:border-neutral-800`}
-            style={{ minWidth: 300, maxWidth: 400, width: '22vw' }}
-            onClick={() => router.push(`/docs/${item.link}`)}
-            tabIndex={0}
-            role="button"
-          >
-            <video
-              src={item.href}
-              className="h-62 w-full rounded-lg object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              title={item.title}
-            />
-            <div className="flex w-full items-center justify-between px-2 pt-2 pb-1 text-neutral-400 transition-colors group-hover:text-white">
-              <span className="text-left text-sm font-medium">
-                {item.title}
-              </span>
-              <IconArrowUpRight size={16} />
+    <div className="my-64 flex flex-col items-center gap-16">
+      <div className="w-fit">
+        <Heading as="h2" className="text-center">
+          Our Components
+        </Heading>
+        <Balancer>
+          <p className="mt-2 max-w-lg text-center text-neutral-600 dark:text-neutral-400">
+            Explore beautiful, production-ready React components built for speed
+            and flexibility.
+          </p>
+        </Balancer>
+      </div>
+      <div className="relative w-full mask-x-from-80%">
+        <Marquee
+          gradient={false}
+          speed={35}
+          pauseOnHover
+          className="flex items-center"
+        >
+          {videosData.map((item, idx) => (
+            <div
+              key={idx}
+              className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-100 p-1 transition dark:border dark:border-neutral-800 dark:bg-neutral-900`}
+              style={{ minWidth: 300, maxWidth: 360, width: '22vw' }}
+              onClick={() => router.push(`/docs/${item.link}`)}
+              tabIndex={0}
+              role="button"
+            >
+              <CustomVideo src={item.href} />
+              <div className="flex w-full items-center justify-between px-2 pt-2 pb-1 text-neutral-600 transition-colors group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white">
+                <span className="text-left text-sm font-medium">
+                  {item.title}
+                </span>
+                <IconArrowUpRight size={16} />
+              </div>
             </div>
-          </div>
-        ))}
-      </Marquee>
+          ))}
+        </Marquee>
+      </div>
+      <Link href="/docs">
+        <Button variant="secondary" className="px-6 text-sm">
+          Start Building with Quartz UI
+        </Button>
+      </Link>
     </div>
+  );
+};
+
+const CustomVideo = ({ src }: { src: string }) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleplay = () => {
+    if (!videoRef.current) return;
+    videoRef.current?.play();
+  };
+
+  const handlepause = () => {
+    if (!videoRef.current) return;
+    videoRef.current?.pause();
+    videoRef.current.currentTime = 0;
+  };
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      className="h-52 w-full rounded-lg object-cover"
+      loop
+      muted
+      playsInline
+      preload="auto"
+      onMouseEnter={handleplay}
+      onMouseLeave={handlepause}
+    />
   );
 };
 

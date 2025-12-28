@@ -17,7 +17,7 @@ const Carousel = () => {
     <div className="z-15 mx-auto flex w-fit flex-col items-center justify-between gap-18">
       <div>
         <Heading as="h2" className="text-center">
-          Our Customers
+          Trusted By
         </Heading>
         <p className="mt-2 text-center text-neutral-600 dark:text-neutral-400">
           Trusted by leading companies and professionals around the world.
@@ -49,9 +49,9 @@ const Carousel = () => {
         />
         <LogoCarousel
           logos={[
+            <Instagram key="instagram-carousel-4" />,
             <AppleMusic key="applemusic-carousel-4" />,
             <Samsung key="samsung-carousel-4" />,
-            <Instagram key="instagram-carousel-4" />,
           ]}
           delay={0.3}
         />
