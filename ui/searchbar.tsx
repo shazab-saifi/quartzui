@@ -16,10 +16,15 @@ const SearchBar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+  const filteredDocs = componentsData.filter(
+    (item) =>
+      item.isDoc === true &&
+      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   const filteredComponents = componentsData.filter(
-    (component) =>
-      !component.isDoc &&
-      component.title.toLowerCase().includes(searchQuery.toLowerCase())
+    (item) =>
+      !item.isDoc &&
+      item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {
@@ -65,11 +70,37 @@ const SearchBar = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <div className="flex max-h-72 flex-col gap-2 overflow-y-scroll p-2">
+          <div className="flex max-h-72 flex-col gap-1 overflow-y-scroll p-2">
             <h6 className="px-2 text-xs text-neutral-600 dark:text-neutral-400">
+              Documents
+            </h6>
+            {filteredDocs.length > 0 ? (
+              filteredDocs.map((doc) => (
+                <Link
+                  href={doc.link as string}
+                  key={doc.title}
+                  className="group flex items-center justify-between rounded-lg p-2 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-900"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <div className="flex items-center gap-2">
+                    <IconCircle size={18} />
+                    <span>{doc.title}</span>
+                  </div>
+                  <IconArrowUpRight
+                    size={18}
+                    className="opacity-0 transition-opacity group-hover:opacity-100"
+                  />
+                </Link>
+              ))
+            ) : (
+              <div className="text-center text-neutral-500 dark:text-neutral-400">
+                No documents found
+              </div>
+            )}
+
+            <h6 className="mt-1 px-2 text-xs text-neutral-600 dark:text-neutral-400">
               Components
             </h6>
-
             {filteredComponents.length > 0 ? (
               filteredComponents.map((component) => (
                 <Link
@@ -95,7 +126,6 @@ const SearchBar = () => {
             )}
           </div>
 
-          {/* Close Button */}
           <button
             onClick={() => setIsOpen(false)}
             className="absolute top-4 right-4 cursor-pointer rounded-full p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
