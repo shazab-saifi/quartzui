@@ -21,6 +21,15 @@ export const componentsData = [
     link: '/docs/tab-select',
   },
   {
+    title: 'Logo Carousel',
+    identifier: 'logo-carousel',
+    category: 'Other Components',
+    desc: 'An animated logo carousel where logos enter from the bottom, stay centered, and exit to the top with smooth, subtle transition effects.',
+    image:
+      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1767013195/logo-carousel_by1r24.png',
+    link: '/docs/logo-carousel',
+  },
+  {
     title: 'Price Switcher',
     identifier: 'price-switcher',
     category: 'Other Components',

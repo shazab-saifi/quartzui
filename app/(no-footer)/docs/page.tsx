@@ -28,7 +28,7 @@ const page = () => {
               href="https://react.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-neutral-300 transition-colors hover:text-white hover:underline"
+              className="font-semibold text-neutral-800 transition-colors hover:text-black hover:underline dark:text-neutral-300 dark:hover:text-white"
             >
               React.js
             </a>{' '}
@@ -37,7 +37,7 @@ const page = () => {
               href="https://motion.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-neutral-300 transition-colors hover:text-white hover:underline"
+              className="font-semibold text-neutral-800 transition-colors hover:text-black hover:underline dark:text-neutral-300 dark:hover:text-white"
             >
               motion.dev
             </a>

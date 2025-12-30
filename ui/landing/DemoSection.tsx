@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import Marquee from 'react-fast-marquee';
 import { Heading } from './heading';
-import Balancer from 'react-wrap-balancer';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 
@@ -52,9 +51,9 @@ const videosData: VideoDataType[] = [
     link: 'expendable-card',
   },
   {
-    title: 'Floating Dock',
-    href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760806965/floating-dock_o9bktj.mp4',
-    link: 'floating-dock',
+    title: 'Logo Carousel',
+    href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1767013267/logo-carousel_ygtjtr.mp4',
+    link: 'logo-carousel',
   },
   {
     title: 'Accordian',
@@ -72,12 +71,10 @@ const DemoSection = () => {
         <Heading as="h2" className="text-center">
           Our Components
         </Heading>
-        <Balancer>
-          <p className="mt-2 max-w-lg text-center text-neutral-600 dark:text-neutral-400">
-            Explore beautiful, production-ready React components built for speed
-            and flexibility.
-          </p>
-        </Balancer>
+        <p className="mt-2 max-w-lg text-center text-neutral-600 dark:text-neutral-400">
+          Explore beautiful, production-ready React components built for speed
+          and flexibility.
+        </p>
       </div>
       <div className="relative w-full mask-x-from-80%">
         <Marquee

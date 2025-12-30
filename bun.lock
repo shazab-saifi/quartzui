@@ -7,7 +7,6 @@
         "@mdx-js/loader": "^3.1.1",
         "@mdx-js/react": "^3.1.1",
         "@next/mdx": "^15.5.2",
-        "@prisma/client": "^6.15.0",
         "@tabler/icons-react": "3.34.1",
         "@tailwindcss/typography": "^0.5.16",
         "@types/mdx": "^2.0.13",
@@ -342,8 +341,6 @@
     "@pkgr/core": ["@pkgr/core@0.2.9", "", {}, "sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA=="],
 
     "@polka/url": ["@polka/url@1.0.0-next.29", "", {}, "sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww=="],
-
-    "@prisma/client": ["@prisma/client@6.15.0", "", { "peerDependencies": { "prisma": "*", "typescript": ">=5.1.0" }, "optionalPeers": ["prisma"] }, "sha512-wR2LXUbOH4cL/WToatI/Y2c7uzni76oNFND7+23ypLllBmIS8e3ZHhO+nud9iXSXKFt1SoM3fTZvHawg63emZw=="],
 
     "@rollup/pluginutils": ["@rollup/pluginutils@5.2.0", "", { "dependencies": { "@types/estree": "^1.0.0", "estree-walker": "^2.0.2", "picomatch": "^4.0.2" }, "peerDependencies": { "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0" } }, "sha512-qWJ2ZTbmumwiLFomfzTyt5Kng4hwPi9rwCYN4SHb6eaRU1KNO4ccxINHr/VhH4GgPlt1XfSTLX2LBTme8ne4Zw=="],
 

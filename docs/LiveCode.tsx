@@ -21,6 +21,8 @@ import { Dialog } from '@/components/Dialog';
 import { LinesCard } from '@/components/LinesCard';
 import TextShimmer from '@/components/TextShimmer';
 import { TiltCard } from '@/components/TiltCard';
+import LogoCarousel from '@/components/logo-carousel';
+import { Instagram, Samsung, Sony } from '@/icons';
 
 const scope = {
   React,
@@ -42,6 +44,10 @@ const scope = {
   LinesCard,
   TextShimmer,
   TiltCard,
+  LogoCarousel,
+  Sony,
+  Samsung,
+  Instagram,
 };
 
 export default function LiveCode({ code }: { code: string }) {

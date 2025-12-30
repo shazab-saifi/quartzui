@@ -1,0 +1,199 @@
+import { CodeBlock } from './CodeBlock';
+import LiveCode from './LiveCode';
+import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
+
+## Logo Carousel
+
+An animated React component that displays logos in a rotating carousel with smooth transitions. Perfect for showcasing company logos, partners, or featured brands.
+this component is inspired from <a href='https://x.com/raunofreiberg'>rauno's</a> logo carousel component.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Live Preview
+
+<div className="not-prose w-full overflow-x-auto">
+  <LiveCode code={`<LogoCarousel
+  logos={[
+    <Sony key="sony" />,
+    <Samsung key="samsung" />,
+    <Instagram key="instagram" />,
+  ]}
+/>`} />
+</div>
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Installation
+
+You can install the LogoCarousel component with the following CLI command, or copy the implementation manually:
+
+<InstallToggle
+  cliCode="npx shadcn@latest add http://localhost:3000/r/logo-carousel.json"
+  manualCode={`'use client';
+
+import Image from 'next/image';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState, ReactNode, isValidElement } from 'react';
+
+  const variants = {
+    initial: {
+      opacity: 0,
+      y: '100%',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      position: 'absolute',
+      left: 0,
+      right: 0,
+    },
+    exit: {
+      opacity: 0,
+      filter: 'blur(10px)',
+      y: '-100%',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+    },
+  };
+  
+  type Logo = string | ReactNode;
+  
+  type LogoCarouselProps = {
+    delay?: number;
+    logos: Logo[];
+  };
+  
+  const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
+    const [index, setIndex] = useState(0);
+  
+    useEffect(() => {
+      if (!logos || logos.length === 0) return;
+      const indexInterval = setInterval(() => {
+        setIndex((prev) => (prev === logos.length - 1 ? 0 : prev + 1));
+      }, 3000);
+  
+      return () => clearInterval(indexInterval);
+    }, [logos]);
+  
+    if (!logos || logos.length === 0) return null;
+  
+    const currentLogo = logos[index];
+    const key =
+      typeof currentLogo === 'string'
+        ? currentLogo
+        : isValidElement(currentLogo) && currentLogo.key != null
+          ? currentLogo.key
+          : \`logo-\${index}\`;
+  
+    return (
+      <div className="relative flex h-12 w-48 items-center justify-center">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={key}
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.6, ease: 'easeInOut', delay }}
+            className="absolute top-0 left-0 flex h-16 w-36 items-center justify-center"
+          >
+            {typeof currentLogo === 'string' ? (
+              <Image
+                src={currentLogo}
+                alt={\`logo-\${currentLogo}\`}
+                width={160}
+                height={64}
+              />
+            ) : (
+              currentLogo
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    );
+  };
+  
+export default LogoCarousel;
+`}
+/>
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Import
+
+To use the LogoCarousel component, import it in your code:
+
+<CodeBlock code={`import LogoCarousel from '@/components/logo-carousel';`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Props
+
+The LogoCarousel component accepts the following props:
+
+<PropsTable
+  rows={[
+    {
+      prop: 'logos',
+      type: '(string \\| ReactNode)[]',
+      default: '-',
+      description: 'Array of logos to display. Can be image URLs (strings) or React components/elements.',
+      required: 'Yes',
+    },
+    {
+      prop: 'delay',
+      type: 'number',
+      default: 'undefined',
+      description: 'Optional delay in seconds for animation transitions. Useful when using multiple carousels with staggered animations.',
+      required: 'No',
+    },
+  ]}
+/>
+
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Example usage
+
+### Basic usage with image URLs
+
+<CodeBlock code={`<LogoCarousel
+    logos={[
+      'https://cdn.worldvectorlogo.com/logos/duolingo-black.svg',
+      'https://cdn.worldvectorlogo.com/logos/continental-logo-2.svg',
+      'https://cdn.worldvectorlogo.com/logos/great-clips-stores.svg',
+    ]}
+/>`} />
+
+### With React components
+
+<CodeBlock code={`import { Sony, Samsung, Instagram } from '@/icons';
+
+<LogoCarousel
+    logos={[
+      <Sony key="sony" />,
+      <Samsung key="samsung" />,
+      <Instagram key="instagram" />,
+    ]}
+/>`} />
+
+### Multiple carousels with staggered delays
+
+<CodeBlock code={`<div className="flex gap-10">
+    <LogoCarousel
+      logos={[...]}
+    />
+    <LogoCarousel
+      logos={[...]}
+      delay={0.1}
+    />
+    <LogoCarousel
+      logos={[...]}
+      delay={0.2}
+    />
+</div>`} />

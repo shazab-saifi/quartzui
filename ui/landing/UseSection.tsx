@@ -8,7 +8,7 @@ const UseSection = () => {
   const [selected, setSelected] = useState<'cli' | 'manual'>('cli');
 
   return (
-    <div className="flex flex-col gap-12 md:flex-row lg:gap-16">
+    <div className="flex flex-col gap-12 px-4 sm:px-8 md:flex-row lg:gap-16 lg:px-20 2xl:px-60">
       <div className="space-y-12">
         <div className="max-w-sm space-y-4 md:space-y-6">
           <h3 className="md:text-h4 text-h5 leading-12 font-semibold text-neutral-950 dark:text-neutral-100">
