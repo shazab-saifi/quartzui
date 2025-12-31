@@ -63,8 +63,6 @@ const videosData: VideoDataType[] = [
 ];
 
 const DemoSection = () => {
-  const router = useRouter();
-
   return (
     <div className="my-64 flex flex-col items-center gap-16">
       <div className="w-fit">
@@ -84,22 +82,7 @@ const DemoSection = () => {
           className="flex items-center"
         >
           {videosData.map((item, idx) => (
-            <div
-              key={idx}
-              className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-100 p-1 transition dark:border dark:border-neutral-800 dark:bg-neutral-900`}
-              style={{ minWidth: 300, maxWidth: 360, width: '22vw' }}
-              onClick={() => router.push(`/docs/${item.link}`)}
-              tabIndex={0}
-              role="button"
-            >
-              <CustomVideo src={item.href} />
-              <div className="flex w-full items-center justify-between px-2 pt-2 pb-1 text-neutral-600 transition-colors group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white">
-                <span className="text-left text-sm font-medium">
-                  {item.title}
-                </span>
-                <IconArrowUpRight size={16} />
-              </div>
-            </div>
+            <CustomVideo key={idx} item={item} />
           ))}
         </Marquee>
       </div>
@@ -112,8 +95,9 @@ const DemoSection = () => {
   );
 };
 
-const CustomVideo = ({ src }: { src: string }) => {
+const CustomVideo = ({ item }: { item: VideoDataType }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const router = useRouter();
 
   const handleplay = () => {
     if (!videoRef.current) return;
@@ -127,17 +111,29 @@ const CustomVideo = ({ src }: { src: string }) => {
   };
 
   return (
-    <video
-      ref={videoRef}
-      src={src}
-      className="h-52 w-full rounded-lg object-cover"
-      loop
-      muted
-      playsInline
-      preload="auto"
+    <div
+      className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-100 p-1 transition dark:border dark:border-neutral-800 dark:bg-neutral-900`}
+      style={{ minWidth: 300, maxWidth: 360, width: '22vw' }}
+      onClick={() => router.push(`/docs/${item.link}`)}
+      tabIndex={0}
+      role="button"
       onMouseEnter={handleplay}
       onMouseLeave={handlepause}
-    />
+    >
+      <video
+        ref={videoRef}
+        src={item.href}
+        className="h-52 w-full rounded-lg object-cover"
+        loop
+        muted
+        playsInline
+        preload="auto"
+      />
+      <div className="flex w-full items-center justify-between px-2 pt-2 pb-1 text-neutral-600 transition-colors group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white">
+        <span className="text-left text-sm font-medium">{item.title}</span>
+        <IconArrowUpRight size={16} />
+      </div>
+    </div>
   );
 };
 

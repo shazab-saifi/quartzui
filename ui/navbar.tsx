@@ -15,12 +15,12 @@ const Navbar = () => {
     { title: 'Home', link: '/' },
     { title: 'Components', link: '/docs' },
     { title: 'Pricing', link: '/pricing' },
-    { title: 'Owner', link: '/owner' },
+    { title: 'Creator', link: 'https://x.com/shazabsaifi_s9' },
   ];
 
   return (
     <nav className="sticky top-0 left-0 z-40 flex w-full items-center justify-between border-b border-neutral-100 bg-white px-4 py-4 sm:px-8 dark:border-neutral-800/60 dark:bg-neutral-950">
-      <div className="flex items-center gap-16">
+      <div className="flex items-center gap-24">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
@@ -40,7 +40,7 @@ const Navbar = () => {
             Quartz UI
           </h3>
         </Link>
-        <div className="hidden gap-6 lg:flex">
+        <div className="hidden gap-8 lg:flex">
           {navItems.map((item, idx) => (
             <Link
               key={idx}

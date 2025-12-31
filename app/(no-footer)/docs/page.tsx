@@ -1,6 +1,6 @@
 import { componentsData } from '@/lib/components-data';
 import ComponentPreviewCard from '@/ui/componentsPage/ComponentPreviewCard';
-import ComponentsBar from '@/ui/componentsPage/ComponentsBar';
+import ComponentsBar from '@/ui/componentsPage/componentsbar';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

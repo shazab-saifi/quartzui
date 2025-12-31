@@ -1,4 +1,4 @@
-import Navbar from '@/ui/Navbar';
+import Navbar from '@/ui/navbar';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta = {

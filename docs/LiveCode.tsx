@@ -55,7 +55,7 @@ export default function LiveCode({ code }: { code: string }) {
     <LiveProvider code={code.trim()} scope={scope} language="tsx">
       <div className="not-prose overflow-hidden rounded-xl shadow">
         <div className="flex items-center justify-center rounded-xl border border-neutral-100 bg-neutral-50 py-10 sm:py-16 md:py-20 dark:border-neutral-900 dark:bg-neutral-950">
-          <div className="flex w-full max-w-full items-center justify-center overflow-hidden px-2 sm:px-4 md:px-8">
+          <div className="flex w-full max-w-full items-center justify-center px-2 sm:px-4 md:px-8">
             <LivePreview />
           </div>
         </div>

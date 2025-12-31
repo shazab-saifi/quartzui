@@ -1,6 +1,6 @@
 import TOC from '@/ui/componentsPage/TOC';
 import Docs from '@/ui/componentsPage/Docs';
-import ComponentsBar from '@/ui/componentsPage/ComponentsBar';
+import ComponentsBar from '@/ui/componentsPage/componentsbar';
 import type { Metadata } from 'next';
 
 export function slugFormatter(slug: string) {

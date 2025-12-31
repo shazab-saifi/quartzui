@@ -4,12 +4,14 @@ export const componentsData = [
     category: 'Documentation',
     identifier: 'introduction',
     isDoc: true,
+    link: '/docs/introduction',
   },
   {
     title: 'Installation',
     category: 'Documentation',
     identifier: 'installation',
     isDoc: true,
+    link: '/docs/installation',
   },
   {
     title: 'Tab Select',
