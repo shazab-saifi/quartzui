@@ -5,21 +5,21 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import React, { memo } from 'react';
 
+export const categories = [
+  { title: 'Documentation' },
+  { title: 'Buttons' },
+  { title: 'Text' },
+  { title: 'Cards' },
+  { title: 'Other Components' },
+];
+
 const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
   const router = useRouter();
-
-  const sections = [
-    { title: 'Documentation' },
-    { title: 'Buttons' },
-    { title: 'Text' },
-    { title: 'Cards' },
-    { title: 'Other Components' },
-  ];
 
   return (
     <div className="scrollbar-thin scrollbar sticky top-[69px] h-[calc(100vh-4.5rem)] overflow-y-scroll pt-8 pr-4 pb-4">
       <div className="flex flex-col gap-6">
-        {sections.map((sec, sectionIdx) => {
+        {categories.map((sec, sectionIdx) => {
           const items = componentsData.filter((c) => c.category === sec.title);
           return (
             <div key={sectionIdx} className="flex flex-col">
