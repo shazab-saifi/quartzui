@@ -11,10 +11,10 @@ const HeroSection = () => {
     <div className="mt-16 flex flex-col items-center px-4 sm:px-8 md:mt-28 lg:px-20 2xl:px-60">
       <div className="z-10 flex flex-col items-center gap-4 sm:px-8 md:gap-6">
         <HeroBadge />
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <Heading as="h1">
             <AnimatedText>
-              Build Beautiful Interfaces, Faster with Quartz UI
+              Get Performance Efficient React.js component on Quartz UI
             </AnimatedText>
           </Heading>
         </div>
@@ -23,7 +23,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
           animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
           transition={{ duration: 0.3, delay: 0.6 }}
-          className="md:text-para max-w-xl text-center text-sm text-neutral-600 dark:text-neutral-400"
+          className="max-w-xl text-center text-lg text-neutral-600 dark:text-neutral-400"
         >
           Our UI library gives you elegant, production-ready components built
           for speed, flexibility, and creativity. Design smarter, ship faster,
@@ -46,7 +46,7 @@ const HeroSection = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button className="px-5 text-sm">Request component</Button>
+          <Button className="px-5 text-sm">Introduction</Button>
         </a>
       </Motion>
       <HeroImages />

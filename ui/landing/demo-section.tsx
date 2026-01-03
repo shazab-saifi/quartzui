@@ -64,12 +64,12 @@ const videosData: VideoDataType[] = [
 
 const DemoSection = () => {
   return (
-    <div className="my-64 flex flex-col items-center gap-16">
+    <div className="mt-64 flex flex-col items-center gap-16">
       <div className="w-fit">
         <Heading as="h2" className="text-center">
           Our Components
         </Heading>
-        <p className="mt-2 max-w-lg text-center text-neutral-600 dark:text-neutral-400">
+        <p className="mt-4 max-w-md text-center text-lg text-neutral-600 dark:text-neutral-400">
           Explore beautiful, production-ready React components built for speed
           and flexibility.
         </p>

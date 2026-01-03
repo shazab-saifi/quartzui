@@ -19,7 +19,7 @@ const Carousel = () => {
         <Heading as="h2" className="text-center">
           Trusted By
         </Heading>
-        <p className="mt-2 text-center text-neutral-600 dark:text-neutral-400">
+        <p className="mt-4 max-w-md text-center text-lg text-neutral-600 dark:text-neutral-400">
           Trusted by leading companies and professionals around the world.
         </p>
       </div>

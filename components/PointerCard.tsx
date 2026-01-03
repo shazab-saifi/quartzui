@@ -156,14 +156,9 @@ const PointerCard = ({
           </div>
           <div className="flex flex-col gap-8 p-4">
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">
+              <h3 className="max-w-48 text-lg font-semibold tracking-tight">
                 Awesome Hover Card Component
               </h3>
-              <p className="text-neutral-500 dark:text-neutral-400">
-                This card demonstrates a stylish hover effect, perfect for
-                showcasing interactive UI elements or highlighting important
-                information in your application.
-              </p>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm text-neutral-500 dark:text-neutral-400">

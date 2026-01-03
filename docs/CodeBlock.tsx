@@ -8,13 +8,16 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
 export function CodeBlock({
   code,
   language = 'tsx',
+  className,
 }: {
   code: string;
   language?: string;
+  className?: string;
 }) {
   const [copied, setCopied] = useState(false);
   const { theme } = useTheme();
@@ -30,7 +33,11 @@ export function CodeBlock({
   };
 
   return (
-    <div className="group relative max-w-85 overflow-y-auto rounded-md bg-neutral-100 sm:max-w-full dark:bg-neutral-900">
+    <div
+      className={cn(
+        'group relative max-w-85 overflow-y-auto rounded-md border border-neutral-100 bg-white sm:max-w-full dark:border-neutral-800 dark:bg-neutral-950'
+      )}
+    >
       <div className="absolute top-2 right-2 flex items-center gap-2">
         <Image
           src="https://cdn.worldvectorlogo.com/logos/typescript.svg"
@@ -42,7 +49,7 @@ export function CodeBlock({
         <button
           onClick={handleCopy}
           style={{ justifyContent: 'flex-' + (copied ? 'end' : 'start') }}
-          className="flex h-6 cursor-pointer flex-col items-center gap-1 overflow-hidden rounded p-1 text-xs text-neutral-950 dark:bg-neutral-800 dark:text-white"
+          className="flex h-6 cursor-pointer flex-col items-center gap-1 overflow-hidden rounded p-1 text-xs text-neutral-950 dark:bg-neutral-900 dark:text-white"
         >
           <motion.div layout className="flex items-center justify-center gap-1">
             <IconCopy size={14} />
@@ -58,7 +65,7 @@ export function CodeBlock({
         </button>
       </div>
 
-      <div className="max-h-136 w-full">
+      <div className={cn('max-h-136 w-full', className)}>
         <SyntaxHighlighter
           showLineNumbers
           language={language}

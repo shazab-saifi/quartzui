@@ -14,8 +14,8 @@ export const Heading = ({
   const Tag = as;
   const sizeClass =
     Tag === 'h1'
-      ? 'text-3xl md:text-4xl lg:text-5xl'
-      : 'text-xl md:text-2xl lg:text-3xl';
+      ? 'text-3xl md:text-4xl lg:text-5xl 2xl:6xl leading-14'
+      : 'text-xl md:text-2xl lg:text-3xl 2xl:text-4xl';
   return (
     <Tag
       className={cn(sizeClass, 'font-bold tracking-tight', className)}
