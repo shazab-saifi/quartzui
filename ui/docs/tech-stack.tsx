@@ -28,9 +28,19 @@ const stack = [
   },
 ];
 
-const TechStack = () => {
+type TechStackProps = {
+  islanding?: boolean;
+};
+
+const TechStack = ({ islanding }: TechStackProps) => {
+  // Tailwind classes: by default grid-cols-1, md:grid-cols-2,
+  // and if islanding grid-cols-1 sm:grid-cols-2 md:grid-cols-4
+  const gridClasses = islanding
+    ? 'grid w-fit grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-4'
+    : 'grid w-fit grid-cols-1 items-center gap-4 md:grid-cols-2';
+
   return (
-    <div className="grid w-fit grid-cols-1 items-center gap-4 md:grid-cols-2">
+    <div className={gridClasses}>
       {stack.map((item, idx) => (
         <a
           key={idx}

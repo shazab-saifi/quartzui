@@ -40,12 +40,12 @@ const Navbar = () => {
             Quartz UI
           </h3>
         </Link>
-        <div className="hidden gap-8 lg:flex">
+        <div className="hidden gap-6 lg:flex">
           {navItems.map((item, idx) => (
             <Link
               key={idx}
               href={item.link}
-              className="text-small text-neutral-600 transition-transform hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-300"
+              className="rounded-sm px-3 py-1 text-sm text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
             >
               {item.title}
             </Link>

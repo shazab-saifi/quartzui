@@ -4,7 +4,7 @@ import { motion, MotionProps } from 'motion/react';
 
 type MotionOwnProps<T extends React.ElementType> = {
   as?: T;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 type MotionComponentProps<T extends React.ElementType> = MotionOwnProps<T> &

@@ -1,5 +1,5 @@
 import {
-  Banner,
+  Cta,
   Carousel,
   DemoSection,
   HeroSection,
@@ -15,7 +15,7 @@ const Landing = () => {
       <DemoSection />
       <UseSection />
       <Testimonials />
-      <Banner />
+      <Cta />
     </div>
   );
 };

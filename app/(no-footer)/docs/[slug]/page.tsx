@@ -40,7 +40,7 @@ export default async function Page({
       <div className="hidden w-54 flex-shrink-0 lg:inline">
         <ComponentsBar slug={slug} />
       </div>
-      <div className="my-16 xl:w-3xl">
+      <div className="py-16 xl:w-3xl">
         <Docs slug={slug} />
       </div>
       <div className="mt-16 hidden w-54 flex-shrink-0 xl:inline">

@@ -43,7 +43,7 @@ export default function Footer() {
             A project by{' '}
             <a
               href="https://github.com/shazab-saifi"
-              className="font-semibold text-sky-500 underline decoration-sky-500 underline-offset-4"
+              className="font-semibold text-indigo-500 underline decoration-indigo-500 underline-offset-4"
               target="_blank"
               rel="noreferrer"
             >
@@ -52,7 +52,7 @@ export default function Footer() {
             . Building in public at{' '}
             <a
               href="https://x.com/shazabsaifi_s9"
-              className="font-semibold text-sky-500 underline decoration-sky-500 underline-offset-4"
+              className="font-semibold text-indigo-500 underline decoration-indigo-500 underline-offset-4"
               target="_blank"
               rel="noreferrer"
             >
@@ -72,6 +72,8 @@ export default function Footer() {
               { label: 'Templates', href: '/templates' },
               { label: 'Showcase', href: '/showcase' },
               { label: 'Playground', href: '/play' },
+              { label: 'Roadmap', href: '/roadmap' },
+              { label: 'Blog', href: '/blog' },
             ]}
           />
           <FooterColumn title="Components" links={components} />
@@ -82,6 +84,12 @@ export default function Footer() {
               { label: 'Guides', href: '/docs/guides' },
               { label: 'Changelog', href: '/docs/changelog' },
               { label: 'FAQ', href: '/docs/faq' },
+              { label: 'API Reference', href: '/docs/api' },
+              { label: 'Tutorials', href: '/docs/tutorials' },
+              { label: 'Cheat Sheet', href: '#' },
+              { label: 'Patterns', href: '#' },
+              { label: 'Examples', href: '#' },
+              { label: 'Roadmap', href: '#' },
             ]}
           />
           <FooterColumn
@@ -103,11 +111,22 @@ export default function Footer() {
                 href: 'https://github.com/sponsors',
                 external: true,
               },
+              {
+                label: 'Reddit',
+                href: 'https://reddit.com/',
+                external: true,
+              },
+              {
+                label: 'Forum',
+                href: 'https://forum.quartzui.dev',
+                external: true,
+              },
+              { label: 'Email', href: '#' },
             ]}
           />
         </nav>
       </div>
-      <p className="mt-4 text-center text-xs text-neutral-500 sm:mt-6 dark:text-neutral-400">
+      <p className="mt-4 text-center text-xs text-neutral-500 sm:mt-6 md:mt-16 lg:mt-24 dark:text-neutral-400">
         © {year} QuartzUI
       </p>
     </footer>
@@ -127,27 +146,29 @@ function FooterColumn({
         {title}
       </h3>
       <ul className="space-y-2 sm:space-y-3">
-        {links.map((link) => (
-          <li key={link.label}>
-            {link.external ? (
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                href={link.href}
-                className="text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
-              >
-                {link.label}
-              </Link>
-            )}
-          </li>
-        ))}
+        {links.map((link, idx) =>
+          link.label ? (
+            <li key={link.label + idx}>
+              {link.external ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  {link.label}
+                </Link>
+              )}
+            </li>
+          ) : null
+        )}
       </ul>
     </div>
   );

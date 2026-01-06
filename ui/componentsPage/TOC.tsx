@@ -37,7 +37,7 @@ const Headings = ({
               <motion.span
                 layoutId="span-animation"
                 transition={{ duration: 0.3, stiffness: 500, damping: 30 }}
-                className="absolute h-5 w-1 rounded-full bg-sky-500"
+                className="absolute h-5 w-1 rounded-full bg-indigo-500"
               />
             )}
           </div>
@@ -65,7 +65,7 @@ const TOC = () => {
 
   return (
     <nav>
-      <div className="mb-4 flex items-center gap-2 text-neutral-950 dark:text-white">
+      <div className="mb-4 -ml-[1.75px] flex items-center gap-2 text-neutral-950 dark:text-white">
         <IconAlignJustified size={14} />
         <h3 className="text-xs font-bold">On this page</h3>
       </div>

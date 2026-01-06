@@ -14,8 +14,8 @@ interface FAQProps {
 const FAQ = ({
   faqs,
   className,
-  questionClassName = 'text-lg',
-  answerClassName = 'py-2 text-neutral-700 dark:text-neutral-200',
+  questionClassName = '',
+  answerClassName = 'py-2 text-neutral-700 dark:text-neutral-300',
 }: FAQProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -38,7 +38,9 @@ const FAQ = ({
             id={`accordion-header-${idx}`}
             type="button"
           >
-            <span className={cn(questionClassName)}>{item.qes}</span>
+            <span className={cn('text-base font-medium', questionClassName)}>
+              {item.qes}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
