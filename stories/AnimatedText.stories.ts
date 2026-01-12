@@ -15,6 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: 'Where all problems have a solution, and every idea finds its spark in creativity and collaboration.',
+    children:
+      'Where all problems have a solution, and every idea finds its spark in creativity and collaboration.',
   },
 };

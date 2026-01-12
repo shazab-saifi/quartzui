@@ -2,13 +2,7 @@ import TOC from '@/ui/componentsPage/TOC';
 import Docs from '@/ui/componentsPage/Docs';
 import ComponentsBar from '@/ui/componentsPage/componentsbar';
 import type { Metadata } from 'next';
-
-export function slugFormatter(slug: string) {
-  return slug
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
+import { slugFormatter } from '@/lib/slug-formater';
 
 export async function generateMetadata({
   params,

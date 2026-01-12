@@ -13,4 +13,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    logos: [
+      'https://cdn.worldvectorlogo.com/logos/great-clips-stores.svg',
+      'https://cdn.worldvectorlogo.com/logos/ebsco-logo.svg',
+      'https://cdn.worldvectorlogo.com/logos/duolingo-black.svg',
+      'https://cdn.worldvectorlogo.com/logos/continental-logo-2.svg',
+    ],
+  },
+};
