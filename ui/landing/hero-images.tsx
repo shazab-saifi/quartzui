@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import useResolvedTheme from '@/hooks/useResolvedTheme';
 import Motion from '../motion';
+import DottedBackground from '@/components/DottedBackground';
 
 const HERO_IMG_DARK_1 =
   'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1766669805/quartzui-hero-image-2_gufuqf.png';
@@ -16,23 +17,23 @@ const HeroImages = () => {
   const isDark = resolvedTheme === 'dark';
 
   return (
-    <div className="relative min-h-200 w-full pt-20">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -inset-10 -bottom-16 left-0 z-10 bg-linear-to-t from-white from-30% to-transparent to-50% dark:from-neutral-950"
-      />
+    <div className="relative min-h-112 w-full sm:min-h-124 lg:min-h-200">
+      <div className="pointer-events-none absolute -inset-10 -bottom-12 left-0 z-10 bg-linear-to-t from-white from-30% to-transparent to-50% dark:from-neutral-950" />
+      <div className="invisible relative h-[300px] -translate-y-48 mask-x-from-80% mask-radial-to-90% mask-radial-at-center md:h-[800px] dark:visible">
+        <DottedBackground />
+      </div>
       <Motion
         initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 2, delay: 1, ease: [0.16, 1, 0.6, 1] }}
-        className="perspective-[4000px]"
+        className="absolute top-16 perspective-[4000px]"
       >
         <Image
           src={isDark ? HERO_IMG_DARK_1 : HERO_IMG_LIGHT}
           alt="hero-image-1"
           height={1080}
           width={1020}
-          className="absolute translate-x-[10%] rounded-lg border border-neutral-200 [filter:drop-shadow(0_20px_40px_rgba(0,0,0,0.20))] dark:border-neutral-800"
+          className="rounded-lg border border-neutral-200 [filter:drop-shadow(0_20px_40px_rgba(0,0,0,0.20))] md:translate-x-[5%] 2xl:translate-x-[15%] dark:border-neutral-800"
           style={{
             transform: 'rotateY(20deg) rotateX(20deg) rotateZ(-5deg)',
           }}
@@ -42,14 +43,14 @@ const HeroImages = () => {
         initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 2, delay: 1.5, ease: [0.16, 1, 0.6, 1] }}
-        className="perspective-[4000px]"
+        className="absolute top-16 perspective-[4000px]"
       >
         <Image
           src={isDark ? HERO_IMG_DARK_2 : HERO_IMG_LIGHT}
           alt="hero-image-2"
           height={1080}
           width={1020}
-          className="absolute translate-x-[40%] translate-y-12 rounded-lg border border-neutral-200 [filter:drop-shadow(0_20px_40px_rgba(0,0,0,0.20))] dark:border-neutral-800"
+          className="translate-x-[20%] translate-y-[10%] rounded-lg border border-neutral-200 [filter:drop-shadow(0_20px_40px_rgba(0,0,0,0.20))] xl:translate-x-[40%] dark:border-neutral-800"
           style={{
             transform: 'rotateY(20deg) rotateX(20deg) rotateZ(-5deg)',
           }}

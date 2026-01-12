@@ -35,10 +35,10 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        'group relative max-w-85 overflow-y-auto rounded-md border border-neutral-100 bg-white sm:max-w-full dark:border-neutral-800 dark:bg-neutral-950'
+        'group max-w-[calc(100vw-2rem)] overflow-y-auto rounded-md border border-neutral-100 bg-white dark:border-neutral-800 dark:bg-neutral-950'
       )}
     >
-      <div className="absolute top-2 right-2 flex items-center gap-2">
+      <div className="flex items-center justify-end gap-2 p-2">
         <Image
           src="https://cdn.worldvectorlogo.com/logos/typescript.svg"
           width={16}

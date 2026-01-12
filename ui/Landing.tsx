@@ -9,7 +9,7 @@ import {
 
 const Landing = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex min-h-screen max-w-screen flex-col overflow-hidden">
       <HeroSection />
       <Carousel />
       <DemoSection />

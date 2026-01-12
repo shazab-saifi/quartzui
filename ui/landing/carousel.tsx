@@ -14,16 +14,16 @@ import { Heading } from './heading';
 
 const Carousel = () => {
   return (
-    <div className="z-15 mx-auto flex w-fit flex-col items-center justify-between gap-18">
+    <div className="z-15 mx-auto flex w-fit flex-col items-center justify-between gap-18 md:mt-16 lg:mt-24">
       <div>
         <Heading as="h2" className="text-center">
           Trusted By
         </Heading>
-        <p className="mt-4 max-w-md text-center text-lg text-neutral-600 dark:text-neutral-400">
+        <p className="mt-2 max-w-md text-center text-lg text-neutral-600 sm:mt-4 dark:text-neutral-400">
           Trusted by leading companies and professionals around the world.
         </p>
       </div>
-      <div className="mx-auto flex w-full flex-col items-center gap-10 sm:w-fit sm:flex-row sm:gap-20">
+      <div className="mx-auto grid w-fit grid-cols-2 justify-center gap-8 px-4 md:grid-cols-4 md:gap-12 lg:gap-16 xl:gap-24 2xl:gap-32">
         <LogoCarousel
           logos={[
             <Sony key="sony-carousel-1" />,

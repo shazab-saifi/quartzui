@@ -62,17 +62,17 @@ const TextShimmer = ({
 export default TextShimmer;`;
 
 const UseSection = () => (
-  <div className="mt-64 flex flex-col items-center gap-16 px-4 sm:px-8 lg:px-20 2xl:px-60">
+  <div className="mt-36 flex flex-col items-center gap-16 px-4 sm:px-8 md:mt-64 lg:px-20 2xl:px-60">
     <div>
       <Heading as="h2" className="text-center">
         Just Copy Paste Our CLI or Code
       </Heading>
-      <p className="mt-4 max-w-lg text-center text-lg text-neutral-600 dark:text-neutral-400">
+      <p className="mt-2 max-w-lg text-center text-lg text-neutral-600 sm:mt-4 dark:text-neutral-400">
         We provide you with the CLI and code to easily install and use our
         components.
       </p>
     </div>
-    <div className="flex flex-col items-center gap-4 md:flex-row md:gap-12 lg:gap-16 xl:gap-28 2xl:gap-32">
+    <div className="flex flex-col items-center gap-4 md:gap-12 lg:gap-16 xl:flex-row xl:gap-28 2xl:gap-32">
       <div className="space-y-4">
         <p className="mt-2 max-w-lg text-neutral-600 dark:text-neutral-400">
           You can install any of our components using our CLI. We use{' '}

@@ -8,13 +8,13 @@ import HeroBadge from './hero-badge';
 
 const HeroSection = () => {
   return (
-    <div className="mt-16 flex flex-col items-center px-4 sm:px-8 md:mt-28 lg:px-20 2xl:px-60">
-      <div className="z-10 flex flex-col items-center gap-4 sm:px-8 md:gap-6">
+    <div className="mt-16 flex flex-col items-center px-4 sm:px-8 lg:mt-28 lg:px-20 2xl:px-60">
+      <div className="z-10 flex flex-col items-center gap-4 sm:px-8 lg:gap-6">
         <HeroBadge />
-        <div className="max-w-3xl">
+        <div className="max-w-2xl lg:max-w-3xl">
           <Heading as="h1">
             <AnimatedText>
-              Get Performance Efficient React.js component on Quartz UI
+              Get Components with Subtle Animations for React.js
             </AnimatedText>
           </Heading>
         </div>
@@ -41,13 +41,9 @@ const HeroSection = () => {
             Components
           </Button>
         </Link>
-        <a
-          href="https://x.com/shazabsaifi_s9"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/docs/introduction">
           <Button className="px-5 text-sm">Introduction</Button>
-        </a>
+        </Link>
       </Motion>
       <HeroImages />
     </div>

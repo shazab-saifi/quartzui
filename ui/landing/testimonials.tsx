@@ -144,7 +144,7 @@ const testimonialsSet3: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <div className="my-64 flex flex-col items-center gap-12 px-4 sm:px-8 md:gap-16 lg:px-20 2xl:px-60">
+    <div className="mt-36 flex flex-col items-center gap-12 px-4 sm:px-8 md:mt-64 md:gap-16 lg:px-20 2xl:px-60">
       <div>
         <Heading as="h2" className="text-center">
           Loved by developers & designers
@@ -154,7 +154,7 @@ const Testimonials = () => {
           effortless integration.
         </p>
       </div>
-      <div className="grid max-h-216 grid-cols-1 gap-12 overflow-hidden mask-y-from-80% sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid max-h-216 grid-cols-1 gap-6 overflow-hidden mask-y-from-80% sm:grid-cols-2 md:grid-cols-3 xl:gap-12">
         <div className="flex flex-col gap-6">
           {testimonials.map((testimonial, idx) => (
             <TestimonialCard key={idx} testimonial={testimonial} />
@@ -184,7 +184,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
             <IconStarFilled
               key={idx}
               fill="var(--color-yellow-500)"
-              size={18}
+              size={16}
             />
           ))}
         </div>
