@@ -59,7 +59,7 @@ const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
         : `logo-${index}`;
 
   return (
-    <div className="relative flex h-12 w-48 items-center justify-center">
+    <div className="relative flex h-16 w-32 items-center justify-center">
       <AnimatePresence initial={false}>
         <motion.div
           key={key}
@@ -68,7 +68,7 @@ const LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {
           animate="animate"
           exit="exit"
           transition={{ duration: 0.6, ease: 'easeInOut', delay }}
-          className="absolute top-0 left-0 flex h-16 w-36 items-center justify-center"
+          className="absolute top-0 left-0 flex h-16 w-32 items-center justify-center"
         >
           {typeof currentLogo === 'string' ? (
             <Image

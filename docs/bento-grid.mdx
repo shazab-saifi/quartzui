@@ -1,18 +1,14 @@
-# Bento Grid
-
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
-import InstallToggle from "./InstallToggle";
+import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-The `BentoGrid` component displays content in a visually appealing, modern bento-style grid layout. It's well-suited for dashboards, marketing pages, and feature highlights, and features smooth pointer-following motion and a highly customizable card design using Tailwind CSS.
+## Bento Grid
 
-It features:
-- Responsive CSS grid layout for visually striking square and wide cards
-- Each cell features parallax pointer movement powered by [motion.dev](https://motion.dev)
-- Customizable content and styling for each grid item (defined in `gridItems`)
-- Fully responsive, modern bento design layout for quick prototypes and polished UIs
+A modern, animated React component that displays content in a **bento-style grid** of cards with parallax pointer motion and full customization. Perfect for dashboards, feature highlights, marketing, and beautiful layouts.  
+Inspired by modern bento grid layouts in leading UIs.
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -20,7 +16,7 @@ It features:
   <LiveCode code={`<BentoGrid />`} />
 </div>
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
@@ -28,10 +24,12 @@ You can install the BentoGrid component with the following CLI command, or copy 
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/bento-grid.json"
-  manualCode={`
+  manualCode={`'use client';
+
   import React, { useRef } from 'react';
   import { motion, useMotionValue, animate } from 'motion/react';
   
+  // Demo grid items array
   const gridItems = [
     {
       className:
@@ -61,9 +59,7 @@ You can install the BentoGrid component with the following CLI command, or copy 
   
   const MAX_OFFSET = 16;
   
-  function getDirectionContinuous(
-    x, y, rect
-  ) {
+  function getDirectionContinuous(x, y, rect) {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     const dx = x - centerX;
@@ -123,7 +119,7 @@ You can install the BentoGrid component with the following CLI command, or copy 
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="h-[65%] w-full rounded-xl bg-gradient-to-l from-neutral-800 to-neutral-900"></div>
+        <div className="h-[65%] w-full rounded-xl bg-gradient-to-l from-neutral-800 to-neutral-900" />
         <div className="mt-4 flex w-full flex-col items-start gap-1">
           <h3 className="font-semibold text-white">{heading}</h3>
           <p className="text-sm text-neutral-400">{desc}</p>
@@ -146,7 +142,7 @@ You can install the BentoGrid component with the following CLI command, or copy 
 `}
 />
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
@@ -154,67 +150,82 @@ To use the BentoGrid component, import it in your code:
 
 <CodeBlock code={`import BentoGrid from '@/components/BentoGrid';`} />
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
-The BentoGrid component does not accept any props. All grid items and their layout are defined directly inside the component source itself; you can edit or replace the `gridItems` array in the component file to customize content or layout.
+The BentoGrid component **does not** accept any props. All grid items and their layout are defined directly inside the component source itself; you can edit or replace the `gridItems` array in the component file to customize content or layout.
 
-### gridItems (edit in source to customize):
+<PropsTable
+  rows={[
+    {
+      prop: '—',
+      type: '—',
+      default: '—',
+      description: 'All bento items and layout are defined in the gridItems array (see source).',
+      required: '—',
+    },
+  ]}
+/>
 
-<CodeBlock code={`
-  const gridItems = [
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+### gridItems (edit in source to customize)
+
+<CodeBlock code={`const gridItems = [
     {
       className: "...", // Tailwind, span, and responsive classes
       heading: "Heading text...",
       desc: "Description for this grid cell.",
     },
     // ...add or change items!
-  ];
-`} />
+];`} />
 
-### Example usage
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
-#### Using default layout
+## Example usage
 
-By default, `<BentoGrid />` renders demo items.
+### Basic usage (default grid)
 
-#### Customizing items
+<CodeBlock code={`<BentoGrid />`} />
 
-To create your own items/layout, amend or replace the `gridItems` array in `BentoGrid.tsx`.
+### Customizing items
 
----
+To create your own items or layout, just amend or replace the `gridItems` array in your BentoGrid source file.
+
+hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Pointer-following parallax animation:** Each card smoothly moves relative to pointer position with spring easing.
-- **Fully customizable:** Card content, column/row span, and styling via each grid item's `className`.
-- **Modern bento appearance:** Mix rectangular and square grid items for elegant, engaging layouts.
-- **Dark mode ready:** Utility classes use Tailwind's `dark:` variants for easy adaptation.
-- **Simple zero-prop usage:** Just drop `<BentoGrid />` anywhere.
+- **Pointer-following parallax animation** — Each card smoothly moves relative to pointer position using spring easing from [motion.dev](https://motion.dev).
+- **Fully customizable** — Card content, column/row span, and styling via each grid item's `className`.
+- **Modern bento appearance** — Mix rectangular and square grid items for elegant, engaging, adaptable layouts.
+- **Dark mode ready** — Utility classes use Tailwind’s `dark:` variants for instant adaptation.
+- **Simple usage** — Just drop `<BentoGrid />` anywhere, with no props required.
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
 - **Grid structure:** Edit `grid-cols-3`/`grid-rows-2` on the root grid for more or fewer cells.
-- **Cell animations:** Adjust `MAX_OFFSET`, spring `stiffness`, or `damping` for a more/less lively feel.
+- **Cell animations:** Adjust `MAX_OFFSET`, spring `stiffness`, or `damping` for a more/less lively effect.
 - **Content:** Each `gridItems` entry can have any React node—swap titles, rich content, actions, or even nested layouts.
 - **Styling:** Edit Tailwind classes for different backgrounds, borders, spacing, or effects.
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Related
 
 - [motion.dev](https://motion.dev) for pointer-based card animation.
-- [Tailwind CSS](https://tailwindcss.com/) for utility styling.
-- [React](https://react.dev/) for core UI structure.
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling.
+- [React](https://react.dev/) for UI core.
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- If cell motion doesn't work, ensure you have `motion.dev` (the motion library) installed and correctly imported.
-- To expand or reduce cells, ensure your grid dimensions and item `col-span`/`row-span` classes fit together.
-- Edit or add to `gridItems` as needed to change displayed content and layout.
+- If card motion doesn’t work, ensure you have `motion.dev` installed and properly imported.
+- To expand or reduce cards, make sure your grid structure and `.col-span`/`.row-span` classes match.
+- Edit or add to `gridItems` in the source code as needed to change displayed content and layout.
 
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />

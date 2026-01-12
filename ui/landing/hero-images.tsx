@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import useResolvedTheme from '@/hooks/useResolvedTheme';
 import Motion from '../motion';
-import DottedBackground from '@/components/DottedBackground';
+import DottedBackground from '@/ui/landing/DottedBackground';
 
 const HERO_IMG_DARK_1 =
   'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1766669805/quartzui-hero-image-2_gufuqf.png';

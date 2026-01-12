@@ -1,12 +1,13 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# Expandable Card
+## Expandable Card
 
-A modern expandable/expandable card component for React. It displays a set of cards, and clicking a card expands it into a modal with more details — complete with smooth motion transitions and blur overlay.
+A modern, animated React component that displays a set of cards; clicking a card expands it smoothly into a modal with more details and a nice blur overlay. Perfect for showcasing detailed collections, product features, SaaS integrations, or informational cards in a sleek design—heavily powered by [motion.dev](https://motion.dev/).
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -14,17 +15,16 @@ A modern expandable/expandable card component for React. It displays a set of ca
   <LiveCode code={`<ExpandableCard />`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
-You can install the ExpandableCard component using the recommended CLI, or manually copy the implementation:
+Install the ExpandableCard component using the recommended CLI, or copy/paste the implementation into your codebase:
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/expendable-card.json"
-  manualCode={`
-  'use client';
-  
+  manualCode={`'use client';
+
   import Image from 'next/image';
   import { useState } from 'react';
   import { AnimatePresence, motion } from 'motion/react';
@@ -75,7 +75,7 @@ You can install the ExpandableCard component using the recommended CLI, or manua
     },
   ];
   
-  const ExpendableCard = () => {
+  const ExpandableCard = () => {
     const [activeCard, setActiveCard] = useState<CardType | null>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
   
@@ -93,9 +93,7 @@ You can install the ExpandableCard component using the recommended CLI, or manua
               className={\`flex cursor-pointer items-center justify-between gap-4 rounded-2xl border border-neutral-200 bg-white p-3 md:min-w-sm dark:border-neutral-800 dark:bg-neutral-900 \${
                 isOpen ? 'pointer-events-none opacity-50' : ''
               }\`}
-              style={{
-                transition: 'opacity 0.2s',
-              }}
+              style={{ transition: 'opacity 0.2s' }}
             >
               <div className="flex items-center gap-4">
                 <motion.div
@@ -209,47 +207,68 @@ You can install the ExpandableCard component using the recommended CLI, or manua
     );
   };
   
-  export default ExpendableCard;
+  export default ExpandableCard;
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
-To use the ExpandableCard component, import it in your app:
+To use the ExpandableCard component, import it in your code:
 
-<CodeBlock code={`import ExpendableCard from '@/components/ExpendableCard';`} />
+<CodeBlock code={`import ExpandableCard from '@/components/ExpandableCard';`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
-This component does **not** accept any props.  
-To customize cards and content, manually edit the array and markup inside the component file.
+<PropsTable
+  rows={[
+    {
+      prop: '-',
+      type: '-',
+      default: '-',
+      description: 'This component does **not** accept any props. To customize cards/content, edit the array and markup inside the file.',
+      required: 'No',
+    },
+  ]}
+/>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Example usage
+
+### Basic Example
+
+<CodeBlock code={`<ExpandableCard />`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated expand/collapse:** Card smoothly expands into a modal with transitions.
-- **Backdrop/blur:** Overlay with blur and click-to-dismiss.
-- **Motion-powered:** Uses [motion.dev](https://motion.dev/) animation for smooth layout transitions.
-- **No props — manual customization:** Customize the card set/content directly in the file.
+- **Animated expansion**: Click a card to expand it to a modal with smooth layout transitions.
+- **Backdrop/blur overlay**: Modal pops over a blurred, click-to-dismiss background.
+- **Motion-powered**: Leverages [motion.dev](https://motion.dev/) for buttery-smooth transitions.
+- **No props/manual content**: Customization is done by editing the component directly (the array and JSX markup).
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Edit the `cards` array in the component file to change cards, images, and descriptions.
-- Change appearance, animation timing, and layout in the JSX as needed.
-- Use Tailwind CSS classes via `className` for coloring, sizing, and layout tweaks.
+- Edit the `cards` array to change cards, logos, and descriptions.
+- You can adjust appearance, animation, and modal layout in the JSX.
+- Change logo URLs, add or remove card entries as you wish.
+- Tweak Tailwind classes for appearance, sizing, and spacing.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- If animation does not work, check that you're using [motion.dev](https://motion.dev/).
-- If your cards or content need to be changed, edit the card array inside the component.
-- Make sure your images are allowed by your Next.js image configuration if using remote URLs.
+- Requires [motion.dev](https://motion.dev/) for animation.
+- If you use remote images, ensure your Next.js image config allows the domains.
+- If cards or modal don't match your needs, customize the demo array and markup.
+- Card array and content are in the component file—no props for customization.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 

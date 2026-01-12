@@ -85,8 +85,8 @@ export const Dialog = ({
                 initial={{
                   filter: 'blur(6px)',
                   opacity: 0,
-                  rotateY: '20deg',
-                  rotateX: '20deg',
+                  rotateY: '15deg',
+                  rotateX: '15deg',
                   transformOrigin: 'left center',
                 }}
                 animate={{
@@ -99,8 +99,8 @@ export const Dialog = ({
                 exit={{
                   filter: 'blur(6px)',
                   opacity: 0,
-                  rotateY: '20deg',
-                  rotateX: '20deg',
+                  rotateY: '15deg',
+                  rotateX: '15deg',
                   transformOrigin: 'left center',
                   transition: { duration: 0.3 },
                 }}

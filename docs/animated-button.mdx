@@ -1,12 +1,13 @@
-# Animated Button
-
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
-import InstallToggle from "./InstallToggle";
+import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-The `AnimatedButton` component is a modern, animated call-to-action button for your apps and websites. It features animated gradients, smooth interactions, and accessible props for maximum impact. Use it for landing pages, feature cards, or anywhere you want an eye-catching button.
+## Animated Button
 
----
+A modern, animated, and accessible call-to-action button featuring spinning conic gradients, smooth transitions, and comprehensive customization. Ideal for landing pages, feature cards, or anywhere you want to draw attention with eye-catching interaction.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -14,7 +15,7 @@ The `AnimatedButton` component is a modern, animated call-to-action button for y
   <LiveCode code={`<AnimatedButton className="text-sm font-semibold" onClick={() => alert('Clicked!')}>Quartz UI</AnimatedButton>`} />
 </div>
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
@@ -22,9 +23,8 @@ You can install the AnimatedButton component with the following CLI command, or 
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/animated-button.json"
-  manualCode={`
-  'use client';
-  
+  manualCode={`'use client';
+
   import { cn } from '@/lib/utils';
   
   export type AnimatedButtonProps = {
@@ -74,7 +74,7 @@ You can install the AnimatedButton component with the following CLI command, or 
 `}
 />
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
@@ -82,107 +82,100 @@ To use the AnimatedButton component, import it in your code:
 
 <CodeBlock code={`import AnimatedButton from '@/components/AnimatedButton';`} />
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
 The AnimatedButton component accepts the following props:
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>children</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>The text displayed inside the button.</td>
-    </tr>
-    <tr>
-      <td><code>onClick</code></td>
-      <td><code>() =&gt; void</code></td>
-      <td>—</td>
-      <td>Callback fired when the button is clicked.</td>
-    </tr>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Additional utility classes for customizing the button styling.</td>
-    </tr>
-    <tr>
-      <td><code>type</code></td>
-      <td><code>'button' | 'submit' | 'reset'</code></td>
-      <td><code>'button'</code></td>
-      <td>Type of button.</td>
-    </tr>
-    <tr>
-      <td><code>ariaLabel</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Aria-label for accessibility; defaults to the button <code>children</code>.</td>
-    </tr>
-    <tr>
-      <td><code>disabled</code></td>
-      <td><code>boolean</code></td>
-      <td><code>false</code></td>
-      <td>Whether the button is disabled.</td>
-    </tr>
-  </tbody>
-</table>
-
-<CodeBlock
-  code={`
-  export type AnimatedButtonProps = {
-    children: string;
-    onClick: () => void;
-    className?: string;
-    type?: 'button' | 'submit' | 'reset';
-    ariaLabel?: string;
-    disabled?: boolean;
-  };
-`}
+<PropsTable
+  rows={[
+    {
+      prop: 'children',
+      type: 'string',
+      default: '-',
+      description: 'The text displayed inside the button.',
+      required: 'Yes',
+    },
+    {
+      prop: 'onClick',
+      type: '() => void',
+      default: '-',
+      description: 'Callback fired when the button is clicked.',
+      required: 'Yes',
+    },
+    {
+      prop: 'className',
+      type: 'string',
+      default: '-',
+      description: 'Additional utility classes for customizing the button styling.',
+      required: 'No',
+    },
+    {
+      prop: 'type',
+      type: `'button' | 'submit' | 'reset'`,
+      default: `'button'`,
+      description: 'Type of button.',
+      required: 'No',
+    },
+    {
+      prop: 'ariaLabel',
+      type: 'string',
+      default: '-',
+      description: 'Aria-label for accessibility; defaults to the button text.',
+      required: 'No',
+    },
+    {
+      prop: 'disabled',
+      type: 'boolean',
+      default: 'false',
+      description: 'Whether the button is disabled.',
+      required: 'No',
+    },
+  ]}
 />
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
-### Basic
+### Basic usage
 
 <CodeBlock code={`<AnimatedButton onClick={() => alert('Hello!')}>Click me</AnimatedButton>`} />
 
-### Custom style
+### Custom color/background
 
-<CodeBlock code={'<AnimatedButton className="bg-sky-100 dark:bg-slate-800" onClick={() => alert(\'Styled!\')}>Custom</AnimatedButton>'} />
+<CodeBlock code={`<AnimatedButton className="bg-sky-100 dark:bg-slate-800" onClick={() => alert('Styled!')}>Custom</AnimatedButton>`} />
 
----
+### Disabled button
+
+<CodeBlock code={`<AnimatedButton disabled onClick={() => {}}>Can't Click</AnimatedButton>`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated:** Multiple spinning gradients for an eye-catching effect.
-- **Accessible:** `aria-label` and `disabled` supported for improved accessibility.
-- **Customizable:** Easily apply Tailwind utility classes with `className`.
-- **Type-safe:** Strongly typed props for React & TypeScript.
-- **Modern look:** Distinctive appearance for call-to-action buttons in light or dark mode.
+- **Animated:** Multiple spinning gradients for a striking visual effect.
+- **Accessible:** `aria-label` and `disabled` for improved accessibility.
+- **Customizable:** Accepts Tailwind utility class overrides via `className`.
+- **Type safe:** Strict React & TypeScript prop types.
+- **Distinctive:** Modern, vibrant appearance for impactful call-to-actions in any theme.
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Adjust colors or gradient stops in the button implementation for different accent colors.
-- Change default size or border styles by editing Tailwind classes in the root `button`.
-- Update the spinning gradient by editing the background-image and animation utility strings.
+- **Gradient colors:** Tweak the conic gradient stops in the button implementation for custom accent colors and branding.
+- **Size & shape:** Edit Tailwind size classes (`h-12 w-32`, `rounded-full`, etc) for different form factors.
+- **Animation speed:** Adjust `[animation-duration:2s]` utility for slower or faster spins.
+- **Inner content:** Style the foreground by editing the innermost `div` (e.g., background, padding, text styles).
 
----
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- If gradients or animation do not appear, ensure Tailwind supports `[background-image:...]` and `[animation-...]` utility syntax.
-- Check you are passing an `onClick` function and a string child to the button.
+- If the conic gradients or animation do not appear, verify your Tailwind config allows arbitrary `[background-image:...]` and `[animation-...]` syntax (see Tailwind’s config docs).
+- Make sure to pass a string as `children` and an `onClick` function.
+- For best effect, use this button in a prominent spot—otherwise the motion may distract users.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />

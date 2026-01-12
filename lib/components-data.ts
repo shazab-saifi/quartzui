@@ -31,15 +31,15 @@ export const componentsData = [
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1767013195/logo-carousel_by1r24.png',
     link: '/docs/logo-carousel',
   },
-  {
-    title: 'Price Switcher',
-    identifier: 'price-switcher',
-    category: 'Other Components',
-    desc: 'A price switcher component that allows users to toggle between monthly and annual pricing options with ease.',
-    image:
-      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603095/Screenshot_from_2025-10-16_13-54-38_waqas1.png',
-    link: '/docs/price-switcher',
-  },
+  // {
+  //   title: 'Price Switcher',
+  //   identifier: 'price-switcher',
+  //   category: 'Other Components',
+  //   desc: 'A price switcher component that allows users to toggle between monthly and annual pricing options with ease.',
+  //   image:
+  //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603095/Screenshot_from_2025-10-16_13-54-38_waqas1.png',
+  //   link: '/docs/price-switcher',
+  // },
   {
     title: 'Pointer Card',
     identifier: 'pointer-card',
@@ -58,15 +58,15 @@ export const componentsData = [
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602904/Screenshot_from_2025-10-16_13-51-26_goiwaw.png',
     link: '/docs/expendable-card',
   },
-  {
-    title: 'Lines Card',
-    identifier: 'lines-card',
-    category: 'Cards',
-    desc: 'A card component featuring animated SVG lines for a visually striking and dynamic presentation.',
-    image:
-      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760604707/Screenshot_from_2025-10-16_14-21-30_zi2lhw.png',
-    link: '/docs/lines-card',
-  },
+  // {
+  //   title: 'Lines Card',
+  //   identifier: 'lines-card',
+  //   category: 'Cards',
+  //   desc: 'A card component featuring animated SVG lines for a visually striking and dynamic presentation.',
+  //   image:
+  //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760604707/Screenshot_from_2025-10-16_14-21-30_zi2lhw.png',
+  //   link: '/docs/lines-card',
+  // },
   {
     title: 'Tilt Card',
     identifier: 'tilt-card',
@@ -76,15 +76,15 @@ export const componentsData = [
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603718/Screenshot_from_2025-10-16_14-04-57_qsznjk.png',
     link: '/docs/tilt-card',
   },
-  {
-    title: 'Floating Dock',
-    identifier: 'floating-dock',
-    category: 'Other Components',
-    desc: 'A floating dock for quick access to actions or links, designed to stay visible and accessible on any page.',
-    image:
-      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602699/Screenshot_from_2025-10-16_13-47-56_viqbca.png',
-    link: '/docs/floating-dock',
-  },
+  // {
+  //   title: 'Floating Dock',
+  //   identifier: 'floating-dock',
+  //   category: 'Other Components',
+  //   desc: 'A floating dock for quick access to actions or links, designed to stay visible and accessible on any page.',
+  //   image:
+  //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602699/Screenshot_from_2025-10-16_13-47-56_viqbca.png',
+  //   link: '/docs/floating-dock',
+  // },
   {
     title: 'Button',
     identifier: 'button',
@@ -157,13 +157,13 @@ export const componentsData = [
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603832/Screenshot_from_2025-10-16_14-06-54_wmkpi5.png',
     link: '/docs/dialog',
   },
-  {
-    title: 'Sidebar',
-    identifier: 'sidebar',
-    category: 'Other Components',
-    desc: 'A collapsible sidebar component for navigation, allowing users to easily access different sections of your app.',
-    image:
-      'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759474309/sidebar_aouroh.png',
-    link: '/docs/sidebar',
-  },
+  // {
+  //   title: 'Sidebar',
+  //   identifier: 'sidebar',
+  //   category: 'Other Components',
+  //   desc: 'A collapsible sidebar component for navigation, allowing users to easily access different sections of your app.',
+  //   image:
+  //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759474309/sidebar_aouroh.png',
+  //   link: '/docs/sidebar',
+  // },
 ];

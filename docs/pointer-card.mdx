@@ -1,12 +1,13 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# PointerCard
+## Pointer Card
 
-A versatile React component that displays a stylish card with a custom animated pointer and label that follows your mouse on hover.
+A React component that displays a stylish card with a custom animated pointer/label following your mouse. Useful for interactive UI cards, hero sections, or feature spotlights. Inspired by modern web design trends.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -14,11 +15,11 @@ A versatile React component that displays a stylish card with a custom animated 
   <LiveCode code={`<PointerCard />`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
-You can install the PointerCard component using the recommended CLI, or manually copy the implementation:
+You can install the PointerCard component with the following CLI command, or copy the implementation manually:
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/pointer-card.json"
@@ -42,88 +43,77 @@ You can install the PointerCard component using the recommended CLI, or manually
     x: MotionValue<number>;
     y: MotionValue<number>;
     title?: string;
-  }) => {
-    return (
-      <motion.div
-        className="absolute z-50 h-4 w-4 rounded-full"
-        style={{
-          top: y,
-          left: x,
-          pointerEvents: 'none',
-        }}
+  }) => (
+    <motion.div
+      className="absolute z-50 h-4 w-4 rounded-full"
+      style={{
+        top: y,
+        left: x,
+        pointerEvents: 'none',
+      }}
+      initial={{ scale: 1, opacity: 1 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0, opacity: 0 }}
+    >
+      <motion.svg
+        stroke="currentColor"
+        fill="currentColor"
+        strokeWidth="1"
+        viewBox="0 0 16 16"
+        className="h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-white"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
         initial={{
-          scale: 1,
-          opacity: 1,
+          color: 'var(--color-yellow-500)',
+        }}
+        animate={{
+          color: 'var(--color-purple-500)',
+        }}
+        transition={{
+          color: {
+            duration: 10,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          },
+        }}
+      >
+        <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
+      </motion.svg>
+      <motion.div
+        initial={{
+          scale: 0.5,
+          opacity: 0,
+          backgroundColor: 'var(--color-yellow-500)',
         }}
         animate={{
           scale: 1,
           opacity: 1,
+          backgroundColor: 'var(--color-purple-500)',
         }}
         exit={{
-          scale: 0,
+          scale: 0.5,
           opacity: 0,
         }}
+        transition={{
+          backgroundColor: {
+            duration: 10,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          },
+        }}
+        className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 p-1 text-sm leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
       >
-        <motion.svg
-          stroke="currentColor"
-          fill="currentColor"
-          strokeWidth="1"
-          viewBox="0 0 16 16"
-          className="h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform stroke-white"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-          initial={{
-            color: 'var(--color-yellow-500)',
-          }}
-          animate={{
-            color: 'var(--color-purple-500)',
-          }}
-          transition={{
-            color: {
-              duration: 10,
-              repeat: Infinity,
-              repeatType: 'reverse',
-            },
-          }}
-        >
-          <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
-        </motion.svg>
-        <motion.div
-          initial={{
-            scale: 0.5,
-            opacity: 0,
-            backgroundColor: 'var(--color-yellow-500)',
-          }}
-          animate={{
-            scale: 1,
-            opacity: 1,
-            backgroundColor: 'var(--color-purple-500)',
-          }}
-          exit={{
-            scale: 0.5,
-            opacity: 0,
-          }}
-          transition={{
-            backgroundColor: {
-              duration: 10,
-              repeat: Infinity,
-              repeatType: 'reverse',
-            },
-          }}
-          className="flex min-w-max items-center gap-1 rounded-lg border border-neutral-200 p-1 text-sm leading-0 font-semibold whitespace-nowrap text-white backdrop-blur-xs dark:border-neutral-700"
-        >
-          <Image
-            src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
-            alt="quartzui"
-            width={24}
-            height={24}
-          />
-          <span className="mr-1">{title || 'Quartz UI'}</span>
-        </motion.div>
+        <Image
+          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
+          alt="quartzui"
+          width={24}
+          height={24}
+        />
+        <span className="mr-1">{title || 'Quartz UI'}</span>
       </motion.div>
-    );
-  };
+    </motion.div>
+  );
   
   const PointerCard = ({
     children,
@@ -204,102 +194,103 @@ You can install the PointerCard component using the recommended CLI, or manually
     );
   };
   
-  export default PointerCard;`}
-  />
-
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
-
-## Import
-
-To use the PointerCard component, import it into your app:
-
-<CodeBlock code={`import PointerCard from '@/components/PointerCard';`} />
-
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
-
-## Props
-
-PointerCard accepts the following props:
-
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>children</code></td>
-      <td><code>React.ReactNode</code></td>
-      <td>—</td>
-      <td>The main content inside the card. If not provided, a demo card is displayed.</td>
-    </tr>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Additional CSS classes to customize the card container style.</td>
-    </tr>
-    <tr>
-      <td><code>title</code></td>
-      <td><code>string</code></td>
-      <td><code>"Quartz UI"</code></td>
-      <td>Label shown in the animated pointer. Defaults to "Quartz UI".</td>
-    </tr>
-  </tbody>
-</table>
-
-<CodeBlock
-  code={`
-  interface PointerCardProps {
-    children?: React.ReactNode;
-    className?: string;
-    title?: string;
-  }
+  export default PointerCard;
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Import
+
+To use the PointerCard component, import it in your code:
+
+<CodeBlock code={`import PointerCard from '@/components/PointerCard';`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Props
+
+The PointerCard component accepts the following props:
+
+<PropsTable
+  rows={[
+    {
+      prop: 'children',
+      type: 'React.ReactNode',
+      default: '-',
+      description: 'Content to display as the card body. If omitted, a default demo card is shown.',
+      required: 'No',
+    },
+    {
+      prop: 'className',
+      type: 'string',
+      default: '-',
+      description: 'Extra CSS classes for the card container.',
+      required: 'No',
+    },
+    {
+      prop: 'title',
+      type: 'string',
+      default: '"Quartz UI"',
+      description: 'Label to show inside the animated pointer on hover.',
+      required: 'No',
+    },
+  ]}
+/>
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
-### Basic
+### Basic usage
 
 <CodeBlock code={`<PointerCard />`} />
 
-### Custom with Title
+### Custom label in pointer
 
 <CodeBlock code={`<PointerCard title="Cool Pointer!">Custom content</PointerCard>`} />
 
-### Add Custom Styling
+### With custom styling
 
 <CodeBlock code={`<PointerCard className="max-w-md border-blue-300">Your content</PointerCard>`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated pointer:** Cursor-following indicator with a smooth color transition.
-- **Custom label:** Displays a label or logo in the pointer on hover.
-- **Composable:** Accepts any children as content.
-- **Tailwind CSS ready:** Easily style the card appearance with className.
+- **Animated pointer**: The card features a mouse-following pointer with smooth color transitions.
+- **Customizable label**: Show your brand, action, or call-to-action in the pointer on hover.
+- **Composable**: Use any children/content as the card body.
+- **Styled with Tailwind**: Easily add custom styling with the `className` prop.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
+## Example: Custom Content
+
+<CodeBlock code={`<PointerCard title="CTA Pointer">
+    <div className="flex flex-col p-6 gap-4">
+      <h2 className="text-2xl font-bold">Interactive Card</h2>
+      <p>This card responds to your mouse—great for onboarding, landing pages, or playful UI highlights!</p>
+      <button className="rounded bg-purple-600 text-white py-2 px-4 text-sm font-semibold hover:bg-purple-700">Try Now</button>
+    </div>
+</PointerCard>`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Pass your own `children` to change the card body.
-- Use the `title` prop for a custom pointer label.
-- Customize dimensions and colors with the `className` prop and editing internal markup.
+- Pass your own `children` to create any content or card body.
+- Use the `title` prop to set the animated pointer label.
+- Style freely with `className` or edit the included demo markup.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- Make sure to use [motion.dev](https://motion.dev/) for animations.
-- If image URLs don't load, verify external domains are allowed in your Next.js config.
-- The animated pointer only appears on mouse hover inside the card.
-- For styling issues, check Tailwind CSS configuration.
+- Requires [motion.dev](https://motion.dev/) for animations.
+- If images fail to load, update Next.js image domains in your config.
+- The pointer appears only on mouse hover inside the card.
+- Style or layout issues? Check your TailwindCSS config.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+

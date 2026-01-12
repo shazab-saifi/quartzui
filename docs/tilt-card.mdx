@@ -1,12 +1,14 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# TiltCard
+## Tilt Card
 
-A modern React component that provides a tilt 3D effect on hover, animating as your mouse moves across the card. Great for interactive UIs, product cards, and dashboards.
+A modern, interactive React component that provides a 3D "tilt" effect as the user moves their mouse across the card, animating rotation for a tactile, playful experience. Perfect for showcasing product cards, interactive UI elements, hero sections, and dashboards.
+Inspired by clean motion-driven web UI patterns.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -41,81 +43,81 @@ A modern React component that provides a tilt 3D effect on hover, animating as y
 </TiltCard>`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
-You can install the TiltCard component with the recommended CLI, or copy the implementation manually:
+You can install the TiltCard component with the following CLI command, or copy the implementation manually:
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/tilt-card.json"
   manualCode={`'use client';
-  
-  import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-  import { useRef } from 'react';
-  
-  export const TiltCard = ({ children }: { children: React.ReactNode }) => {
-    const ref = useRef<HTMLDivElement | null>(null);
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-    const mouseXSpring = useSpring(x);
-    const mouseYSpring = useSpring(y);
-  
-    const rotateX = useTransform(
-      mouseYSpring,
-      [-0.5, 0.5],
-      ['8.5deg', '-8.5deg']
-    );
-  
-    const rotateY = useTransform(
-      mouseXSpring,
-      [-0.5, 0.5],
-      ['-8.5deg', '8.5deg']
-    );
-  
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-  
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-  
-      const xPct = mouseX / rect.width - 0.5;
-      const yPct = mouseY / rect.height - 0.5;
-  
-      x.set(xPct);
-      y.set(yPct);
-    };
-  
-    const handleMouseLeave = () => {
-      x.set(0);
-      y.set(0);
-    };
-  
-    return (
-      <motion.div
-        ref={ref}
-        onMouseMove={(e) => handleMouseMove(e)}
-        onMouseLeave={handleMouseLeave}
-        style={{ transformStyle: 'preserve-3d', rotateX, rotateY }}
-        className="h-96 w-72 rounded-xl bg-gradient-to-br from-neutral-200/50 to-neutral-400/50 dark:from-neutral-900/60 dark:to-neutral-800/60"
-      >
-        <div
-          style={{
-            transform: 'translateZ(75px)',
-            transformStyle: 'preserve-3d',
-          }}
-          className="absolute inset-3 overflow-hidden rounded-xl shadow-2xl"
-        >
-          {children}
-        </div>
-      </motion.div>
-    );
+
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { useRef } from 'react';
+
+export const TiltCard = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ['8.5deg', '-8.5deg']
+  );
+
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ['-8.5deg', '8.5deg']
+  );
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / rect.width - 0.5;
+    const yPct = mouseY / rect.height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
   };
-`} 
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transformStyle: 'preserve-3d', rotateX, rotateY }}
+      className="h-96 w-72 rounded-xl bg-gradient-to-br from-neutral-200/50 to-neutral-400/50 dark:from-neutral-900/60 dark:to-neutral-800/60"
+    >
+      <div
+        style={{
+          transform: 'translateZ(75px)',
+          transformStyle: 'preserve-3d',
+        }}
+        className="absolute inset-3 overflow-hidden rounded-xl shadow-2xl"
+      >
+        {children}
+      </div>
+    </motion.div>
+  );
+};
+`}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
@@ -123,30 +125,23 @@ To use the TiltCard component, import it in your code:
 
 <CodeBlock code={`import { TiltCard } from '@/components/TiltCard';`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
 The TiltCard component accepts the following props:
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>children</code></td>
-      <td><code>React.ReactN  ode</code></td>
-      <td>—</td>
-      <td>The content to be displayed inside the tilt card container.</td>
-    </tr>
-  </tbody>
-</table>
+<PropsTable
+  rows={[
+    {
+      prop: 'children',
+      type: 'React.ReactNode',
+      default: '-',
+      description: 'The content to display inside the tilt card.',
+      required: 'Yes',
+    },
+  ]}
+/>
 
 <CodeBlock
   code={`
@@ -154,42 +149,53 @@ export const TiltCard = ({ children }: { children: React.ReactNode }) => { ... }
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
-### Basic
+### Basic usage
 
-<CodeBlock
-  code={`<TiltCard>
+<CodeBlock code={`<TiltCard>
     <div className="text-center">
       <h2 className="text-xl font-bold">Tilt Me</h2>
       <p>Move your mouse over me.</p>
     </div>
-  </TiltCard>`}
-/>
+</TiltCard>`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+### With custom content
+
+<CodeBlock code={`<TiltCard>
+    <div className="flex flex-col items-center justify-center p-6 space-y-2">
+      <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="github" className="w-14 h-14 rounded-full shadow" />
+      <h3 className="text-lg font-semibold">Profile Tilt</h3>
+      <p className="text-neutral-600 dark:text-neutral-300">Even avatars and stacked layouts can tilt in 3D!</p>
+    </div>
+</TiltCard>`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **3D tilt animation:** Card reacts in 3D to mouse movement.
-- **Smooth motion:** Uses motion.dev for natural spring-physics animation.
-- **Easy composition:** Accepts any React children.
-- **Theming:** Card adapts to light/dark themes for seamless integration.
+- **3D tilt animation:** Card moves in response to your mouse for a high-tactile feel.
+- **Physics-based:** Uses [motion.dev](https://motion.dev/) and spring-based animation.
+- **Composable:** Accepts any child content—brand, UI, or marketing.
+- **Theme-aware:** Card appearance adapts to light and dark modes.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Adjust the inner card's markup and classes for your brand or content.
-- Tweak spring/transform config for different tilt intensity.
-- Modify the outer and inner div's styling for variant cards.
+- Adjust inner/outer card markup and styles for your brand or design system.
+- Change the tilt effect's angle/intensity by tuning the transform/spring.
+- Use with any React children for product cards, info blocks, or playful UI.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- Ensure you have [motion.dev](https://motion.dev/) installed for animation support.
-- If tilt isn’t responsive, verify parent/container styles aren’t interfering with pointer events.
-- Card dimensions (`h-96 w-72`) and shadow may be customized for your layout.
+- You must have [motion.dev](https://motion.dev/) installed for animation support.
+- If the card doesn't tilt, check that your parent/container doesn't block pointer events.
+- Adjust or remove the `h-96 w-72` classes to match your layout.
+- If you see odd clipping or shadow bugs, make sure overflow and Z stacking are correct and your children aren't absolutely positioned outside the card div.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />

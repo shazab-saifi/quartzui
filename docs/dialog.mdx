@@ -1,13 +1,14 @@
-import { Dialog } from '../components/Dialog';
+import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
-import { CodeBlock } from './CodeBlock';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# Dialog
+## Dialog
 
-A modern, accessible modal dialog (popup) component with animated 3D transitions. Useful for overlays, confirmations, forms, and any UI that needs to appear above your app content.
+A modern, accessible modal dialog (popup) component with animated 3D transitions. Useful for overlays, confirmations, forms, and any UI that needs to appear above your app content.<br/>
+Inspired by modern design patterns and delightful UI.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -22,11 +23,10 @@ A modern, accessible modal dialog (popup) component with animated 3D transitions
   <div className="flex justify-end mt-6">
     <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
   </div>
-</Dialog>`}
-  />
+</Dialog>`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
@@ -35,7 +35,7 @@ You can install the Dialog component with the following CLI command, or copy the
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/dialog.json"
   manualCode={`'use client';
-  
+
   import React, { useEffect, useRef, useState } from 'react';
   import { AnimatePresence, motion } from 'motion/react';
   import { cn } from '@/lib/utils';
@@ -165,7 +165,7 @@ You can install the Dialog component with the following CLI command, or copy the
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
@@ -173,54 +173,49 @@ To use the Dialog component, import it in your code:
 
 <CodeBlock code={`import { Dialog } from '@/components/Dialog';`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
-The Dialog component accepts the following props:
-
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>children</code></td>
-      <td><code>React.ReactNode</code></td>
-      <td>—</td>
-      <td>The content to render inside the dialog modal.</td>
-    </tr>
-    <tr>
-      <td><code>trigger</code></td>
-      <td><code>React.ReactNode</code></td>
-      <td><code>—</code></td>
-      <td>Custom element to trigger the dialog (optional).</td>
-    </tr>
-    <tr>
-      <td><code>isOpen</code></td>
-      <td><code>boolean</code></td>
-      <td>—</td>
-      <td>Control open state from outside (advanced/controlled mode).</td>
-    </tr>
-    <tr>
-      <td><code>setIsOpen</code></td>
-      <td><code>(open: boolean) ⇒ void</code></td>
-      <td>—</td>
-      <td>Setter for controlled dialog open state.</td>
-    </tr>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Custom class name for dialog surface.</td>
-    </tr>
-  </tbody>
-</table>
+<PropsTable
+  rows={[
+    {
+      name: 'children',
+      type: 'React.ReactNode',
+      required: 'true',
+      default: '–',
+      description: 'The content to render inside the dialog modal.'
+    },
+    {
+      name: 'trigger',
+      type: 'React.ReactNode',
+      required: 'false',
+      default: '–',
+      description: 'Custom element to trigger the dialog (optional).'
+    },
+    {
+      name: 'isOpen',
+      type: 'boolean',
+      required: 'false',
+      default: '–',
+      description: 'Control open state from outside (advanced/controlled mode).'
+    },
+    {
+      name: 'setIsOpen',
+      type: '(open: boolean) => void',
+      required: 'false',
+      default: '–',
+      description: 'Setter for controlled dialog open state.'
+    },
+    {
+      name: 'className',
+      type: 'string',
+      required: 'false',
+      default: '–',
+      description: 'Custom class name for dialog surface.'
+    }
+  ]}
+/>
 
 <CodeBlock
   code={`
@@ -232,69 +227,68 @@ The Dialog component accepts the following props:
     setIsOpen?: (open: boolean) => void;
   };
 `}
-  />
+/>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
 ### Basic
 
 <CodeBlock code={`<Dialog>
-  <h2 className="text-xl font-bold">Dialog Title</h2>
-  <p>This is the content of the dialog.</p>
+    <h2 className="text-xl font-bold">Dialog Title</h2>
+    <p>This is the content of the dialog.</p>
 </Dialog>`} />
 
-### Dialog with custom surface style
+### With custom surface style
 
 <CodeBlock code={`<Dialog className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
-  <h2 className="text-xl font-bold">Quartz UI</h2>
-  <p>This is a dialog component with 3D enter and exit animations. You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
-  <div className="flex justify-end mt-6">
-    <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
-  </div>
+    <h2 className="text-xl font-bold">Quartz UI</h2>
+    <p>This is a dialog component with 3D enter and exit animations. You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
+    <div className="flex justify-end mt-6">
+      <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
+    </div>
 </Dialog>`} />
 
 ### Custom trigger
 
-The trigger prop lets you use any element to open the dialog.
+Use the trigger prop to use any element as the open button.
 
 <CodeBlock code={`<Dialog
-  trigger={
-    <button className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white">
-      Open Custom Dialog
-    </button>
-  }
-  className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4"
->
-  <h2 className="text-xl font-bold">Custom Trigger</h2>
-  <p>This is a dialog component with 3D enter and exit animations. You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
-  <div className="flex justify-end mt-6">
-    <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
-  </div>
+    trigger={
+      <button className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-semibold text-white">
+        Open Custom Dialog
+      </button>
+    }
+    className="bg-neutral-100 dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4">
+    <h2 className="text-xl font-bold">Custom Trigger</h2>
+    <p>This is a dialog component with 3D enter and exit animations. You can easily use this component in your project by simply copy and pasting or using our CLI.</p>
+    <div className="flex justify-end mt-6">
+      <button className="dark:bg-neutral-100 hover:bg-neutral-800 transition-colors cursor-pointer dark:hover:bg-neutral-200 dark:text-neutral-950 text-white bg-neutral-950 px-4 py-2 rounded-md text-sm font-semibold">Learn more</button>
+    </div>
 </Dialog>`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated 3D transitions:** Dialog animates in/out with depth and blur effects for modern UI feel.
+- **Animated 3D transitions:** Dialog animates in and out with depth and blur for a modern UI feel.
 - **Backdrop support:** Clicking the backdrop closes the dialog.
 - **Keyboard accessible:** Press <kbd>Escape</kbd> to close.
 - **Custom content:** Any React elements can be placed inside.
-- **Custom trigger:** Use your own button or element to open dialog.
+- **Custom trigger:** Use your own button or element to open the dialog.
 - **Controlled or uncontrolled:** Manage open state yourself, or let Dialog do it.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
 - **Surface style:** Pass `className` prop to style the dialog background and border.
 - **Dialog size:** Change content container or surface classes as needed.
-- **Transitions:** Edit the motion props in the component for advanced animation.
+- **Transitions:** Edit the motion props in the component for advanced animations.
 - **Trigger behavior:** Use the `trigger` prop for custom open buttons or UI.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
@@ -303,4 +297,4 @@ The trigger prop lets you use any element to open the dialog.
 - If the rest of the page scrolls when dialog is open, verify that the component is mounted in a React client context.
 - If customizing behavior, be careful with ref forwarding and event handlers on the dialog surface.
 
-
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />

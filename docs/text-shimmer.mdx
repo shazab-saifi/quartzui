@@ -1,12 +1,13 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# Text Shimmer
+## Text Shimmer
 
-A modern React component that applies an animated shimmer effect to text, perfect for loading states, attention-grabbing headlines, or subtle visual flair.
+A modern, highly customizable React component that animates a shimmer effect over text. Great for loading states, eye-catching headlines, or subtle UI highlights. Inspired by the best shimmer text patterns in modern UIs.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -14,7 +15,7 @@ A modern React component that applies an animated shimmer effect to text, perfec
   <LiveCode code={`<TextShimmer>Quartz UI</TextShimmer>`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
@@ -22,148 +23,143 @@ You can install the TextShimmer component with the following CLI command, or cop
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/text-shimmer.json"
-  manualCode={`
-  'use client';
-  
-  import { cn } from '@/lib/utils';
-  import { motion } from 'motion/react';
-  import { useMemo } from 'react';
-  
-  interface TextShimmerProps {
-    duration?: number;
-    children: string;
-    className?: string;
-    spread?: number;
-    baseColor?: string;
-    shimmerColor?: string;
-  }
-  
-  const TextShimmer = ({
-    duration = 3,
-    children,
-    className,
-    spread = 2,
-    baseColor = '#FFF',
-    shimmerColor = '#000',
-  }: TextShimmerProps) => {
-    const dynamicSpread = useMemo(() => {
-      return children.length * spread;
-    }, [children, spread]);
-  
-    return (
-      <motion.p
-        initial={{ backgroundPosition: '100% center' }}
-        animate={{ backgroundPosition: '0% center' }}
-        transition={{
-          repeat: Infinity,
-          duration,
-          ease: 'linear',
-        }}
-        style={
-          {
-            '--spread': \`\${dynamicSpread}px\`,
-            '--base-color': baseColor,
-            '--base-gradient-color': shimmerColor,
-            backgroundImage: \`var(--bg), linear-gradient(var(--base-color), var(--base-color))\`,
-          } as React.CSSProperties
-        }
-        className={cn(
-          'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',
-          'text-transparent',
-          '[background-repeat:no-repeat,padding-box] [--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
-          className
-        )}
-      >
-        {children}
-      </motion.p>
-    );
-  };
-  
-  export default TextShimmer;
+  manualCode={`'use client';
+
+import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
+import { useMemo } from 'react';
+
+interface TextShimmerProps {
+  duration?: number;
+  children: string;
+  className?: string;
+  spread?: number;
+  baseColor?: string;
+  shimmerColor?: string;
+}
+
+const TextShimmer = ({
+  duration = 3,
+  children,
+  className,
+  spread = 2,
+  baseColor = '#FFF',
+  shimmerColor = '#000',
+}: TextShimmerProps) => {
+  const dynamicSpread = useMemo(() => {
+    return children.length * spread;
+  }, [children, spread]);
+
+  return (
+    <motion.p
+      initial={{ backgroundPosition: '100% center' }}
+      animate={{ backgroundPosition: '0% center' }}
+      transition={{
+        repeat: Infinity,
+        duration,
+        ease: 'linear',
+      }}
+      style={
+        {
+          '--spread': \`\${dynamicSpread}px\`,
+          '--base-color': baseColor,
+          '--base-gradient-color': shimmerColor,
+          backgroundImage: \`var(--bg), linear-gradient(var(--base-color), var(--base-color))\`,
+        } as React.CSSProperties
+      }
+      className={cn(
+        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',
+        'text-transparent',
+        '[background-repeat:no-repeat,padding-box] [--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
+        className
+      )}
+    >
+      {children}
+    </motion.p>
+  );
+};
+
+export default TextShimmer;
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
 To use the TextShimmer component, import it in your code:
 
-<CodeBlock code={`import { TextShimmer } from '@/components/TextShimmer';`} />
+<CodeBlock code={`import TextShimmer from '@/components/TextShimmer';`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
 The TextShimmer component accepts the following props:
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>children</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>The text to shimmer.</td>
-    </tr>
-    <tr>
-      <td><code>duration</code></td>
-      <td><code>number</code></td>
-      <td><code>3</code></td>
-      <td>Duration of the shimmer animation, in seconds.</td>
-    </tr>
-    <tr>
-      <td><code>spread</code></td>
-      <td><code>number</code></td>
-      <td><code>2</code></td>
-      <td>The spread (width) of the shimmer highlight. Higher values make a wider shimmer.</td>
-    </tr>
-    <tr>
-      <td><code>baseColor</code></td>
-      <td><code>string</code></td>
-      <td><code>#FFF</code></td>
-      <td>Base color of the text.</td>
-    </tr>
-    <tr>
-      <td><code>shimmerColor</code></td>
-      <td><code>string</code></td>
-      <td><code>#000</code></td>
-      <td>Color of the shimmer highlight.</td>
-    </tr>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Additional CSS classes for styling.</td>
-    </tr>
-  </tbody>
-</table>
+<PropsTable
+  rows={[
+    {
+      prop: 'children',
+      type: 'string',
+      default: '-',
+      description: 'The text to shimmer.',
+      required: 'Yes',
+    },
+    {
+      prop: 'duration',
+      type: 'number',
+      default: '3',
+      description: 'Duration of the shimmer animation (in seconds).',
+      required: 'No',
+    },
+    {
+      prop: 'spread',
+      type: 'number',
+      default: '2',
+      description: 'Visual width of the shimmer highlight (multiplied by children length).',
+      required: 'No',
+    },
+    {
+      prop: 'baseColor',
+      type: 'string',
+      default: '#FFF',
+      description: 'The base color of the text.',
+      required: 'No',
+    },
+    {
+      prop: 'shimmerColor',
+      type: 'string',
+      default: '#000',
+      description: 'The color of the shimmer animation/gradient.',
+      required: 'No',
+    },
+    {
+      prop: 'className',
+      type: 'string',
+      default: '-',
+      description: 'Additional utility classes for fine-tuning the shimmered text.',
+      required: 'No',
+    },
+  ]}
+/>
 
 <CodeBlock
-  code={`
-  interface TextShimmerProps {
+  code={`interface TextShimmerProps {
     duration?: number;
     children: string;
     className?: string;
     spread?: number;
     baseColor?: string;
     shimmerColor?: string;
-  }
-`}
-/>
+}`}
+></CodeBlock>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
-### Basic
+### Basic Usage
 
 <CodeBlock code={`<TextShimmer>Text Shimmer</TextShimmer>`} />
 
@@ -171,32 +167,41 @@ The TextShimmer component accepts the following props:
 
 <CodeBlock code={`<TextShimmer duration={5} spread={4}>Custom Text Shimmer</TextShimmer>`} />
 
-### Change Base or Shimmer Color
+### Custom Colors
 
 <CodeBlock code={`<TextShimmer baseColor="#333" shimmerColor="#fbbf24">Gold Shimmer!</TextShimmer>`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+### With Custom Utility Classes
+
+<CodeBlock code={`<TextShimmer className="text-xl font-bold uppercase">Bigger & Bold</TextShimmer>`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated shimmer:** Moving highlight animates smoothly across text.
-- **Highly customizable:** Control duration, spread, base color, shimmer color, and text style.
-- **Type-safe:** Fully typed props for optimal DX.
-- **Universal:** Works with any string content.
+- **Animated shimmer:** Moves smoothly across the text for attractive loading or highlight states
+- **Highly customizable:** Control animation duration, shimmer width, base/shimmer color, and more
+- **Type-safe:** Fully typed props for developer confidence
+- **Utility-class compatible:** Style with any Tailwind or custom classes
+- **Universal:** Works with any string content
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Adjust the `duration` and `spread` props to control speed and width of shimmer.
-- Use `baseColor` and `shimmerColor` for visual style.
-- Tailwind classes via `className` for size, font, and color.
-- Modify animation or styles inside the component for advanced use cases.
+- **Animation speed:** Adjust with the `duration` prop (in seconds)
+- **Shimmer width:** Control with the `spread` prop (higher = wider shimmer)
+- **Base/shimmer colors:** Set via `baseColor` and `shimmerColor`
+- **Text styles:** Use `className` prop for font size, weight, color, etc.
+- **Advanced:** Edit the inline style or class lists for specialty effects
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- Ensure you pass a string as children; other nodes won't render as intended.
-- If the shimmer doesn't animate, check that your project is using [motion.dev](https://motion.dev/).
-- If custom text styles don't apply, verify your Tailwind CSS config includes the used utilities.
+- Ensure the `children` prop is a **string** (not JSX/element) or the effect will not render as intended.
+- If the shimmer doesn’t animate: Confirm [motion.dev](https://motion.dev/) is installed and configured in your project.
+- If custom text styles don't appear, check your Tailwind CSS config supports used utilities and class names.
+- You can add more sophisticated color stops and patterns by editing the dynamic `backgroundImage` or CSS variables.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />

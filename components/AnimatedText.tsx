@@ -18,8 +18,10 @@ const AnimatedText = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: idx * 0.1, ease: 'easeInOut' }}
           key={idx}
-          className={cn('inline-block', className)}
-          style={{ display: 'inline-block', willChange: 'transform' }}
+          className={cn(
+            'block leading-10 md:leading-12 lg:leading-14',
+            className
+          )}
         >
           {word}&nbsp;
         </motion.span>

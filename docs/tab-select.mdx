@@ -1,12 +1,15 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# Tab Select
+## Tab Select
 
-A modern animated React tab selection component with a smooth, visually engaging transition effect.
+A modern React component that displays an animated tab switcher with a smooth visual indicator for the current selection. It’s perfect for navigation bars or section pickers with beautiful, theme-aware transitions.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+This component was inspired by various design systems’ high-contrast, tactile tab selectors.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
@@ -14,7 +17,7 @@ A modern animated React tab selection component with a smooth, visually engaging
   <LiveCode code={`<TabSelect tabs={['Home', 'Components', 'Pricing', 'Contact']} />`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
@@ -157,7 +160,7 @@ You can install the TabSelect component with the following CLI command, or copy 
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
@@ -165,60 +168,58 @@ To use the TabSelect component, import it in your code:
 
 <CodeBlock code={`import TabSelect from '@/components/TabSelect';`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
 The TabSelect component accepts the following props:
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>tabs</code></td>
-      <td><code>string[]</code></td>
-      <td>—</td>
-      <td>Array of tab labels.</td>
-    </tr>
-    <tr>
-      <td><code>activeTab</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Currently active tab (controlled mode).</td>
-    </tr>
-    <tr>
-      <td><code>setActiveTab</code></td>
-      <td><code>(tab: string) =&gt; void</code></td>
-      <td>—</td>
-      <td>Set the active tab (controlled mode, or use internal state if not provided).</td>
-    </tr>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>CSS classes for the overall tab group.</td>
-    </tr>
-    <tr>
-      <td><code>tabClassName</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>CSS classes applied to each tab button.</td>
-    </tr>
-    <tr>
-      <td><code>gap</code></td>
-      <td><code>string &#124; number</code></td>
-      <td><code>"2rem"</code></td>
-      <td>Spacing between tabs.</td>
-    </tr>
-  </tbody>
-</table>
+<PropsTable
+  rows={[
+    {
+      prop: 'tabs',
+      type: 'string[]',
+      default: '-',
+      description: 'Array of tab labels.',
+      required: 'Yes',
+    },
+    {
+      prop: 'activeTab',
+      type: 'string',
+      default: '-',
+      description: 'Optional controlled value for the current active tab.',
+      required: 'No',
+    },
+    {
+      prop: 'setActiveTab',
+      type: '(tab: string) => void',
+      default: '-',
+      description: 'Function to set the active tab (for controlled usage). Internal state will be used if not provided.',
+      required: 'No',
+    },
+    {
+      prop: 'className',
+      type: 'string',
+      default: '-',
+      description: 'Class name for the overall tab group container.',
+      required: 'No',
+    },
+    {
+      prop: 'tabClassName',
+      type: 'string',
+      default: '-',
+      description: 'Class name for each tab button.',
+      required: 'No',
+    },
+    {
+      prop: 'gap',
+      type: 'string | number',
+      default: '"2rem"',
+      description: 'Spacing between tabs.',
+      required: 'No',
+    },
+  ]}
+/>
 
 <CodeBlock
   code={`
@@ -233,43 +234,60 @@ The TabSelect component accepts the following props:
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
-### Basic
+### Basic usage
 
 <CodeBlock code={`<TabSelect tabs={['Home', 'Components', 'Pricing']} />`} />
 
 ### Controlled (with external state)
 
 <CodeBlock code={`
-const [tab, setTab] = useState('Home');
-<TabSelect tabs={['Home', 'Components', 'Pricing']} activeTab={tab} setActiveTab={setTab} />
+  const [tab, setTab] = useState('Home');
+  <TabSelect
+    tabs={['Home', 'Components', 'Pricing']}
+    activeTab={tab}
+    setActiveTab={setTab}
+  />
 `} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+### Custom tab spacing and class names
+
+<CodeBlock code={`<TabSelect
+    tabs={['Overview', 'Features', 'Pricing', 'FAQ']}
+    gap="1.5rem"
+    className="bg-blue-50 dark:bg-neutral-900"
+    tabClassName="text-base"
+/>`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated tab switcher:** Tab indicator animates smoothly between tabs.
-- **Type-safe:** Fully typed props for optimal developer experience.
-- **Customizable:** Change gap, class names, or control state externally.
-- **Theme-aware:** Colors adapt to light/dark mode.
+- **Animated:** Beautiful, performant animated tab indicator with smooth transitions.
+- **Type-safe:** All props are fully typed.
+- **Customizable:** Change gap, color, or add your own class names via props.
+- **Supports controlled/uncontrolled state:** Easily integrate with application state or let it manage itself.
+- **Theme-aware:** Automatically adapts to light and dark modes.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Change the `gap` prop for tab spacing.
-- Provide your own colors or class names via `className`/`tabClassName`.
-- Control active tab from parent state for advanced logic.
+- Use the `gap` prop to control distance between tabs.
+- Pass your own `className` or `tabClassName` for custom visual appearance.
+- Use controlled mode (`activeTab` and `setActiveTab`) if you want to fully manage selected tab from parent state logic.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- Ensure you pass an array of tab labels via the `tabs` prop.
-- For controlled usage, remember to provide both `activeTab` and `setActiveTab`.
-- Make sure your app includes any required utility helpers (e.g. `cn`).
+- The `tabs` prop is required and must be a non-empty array of strings.
+- For controlled usage, pass both `activeTab` and `setActiveTab`.
+- Make sure your project includes the required utility helper (`cn` from your utilities).
+- Double-check that tab labels are unique (as they’re used as keys).
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 

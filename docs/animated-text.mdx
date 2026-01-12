@@ -1,20 +1,22 @@
 import { CodeBlock } from './CodeBlock';
 import LiveCode from './LiveCode';
 import InstallToggle from './InstallToggle';
+import { PropsTable } from '@/ui/docs/props-table';
 
-# Animated Text
+## Animated Text
 
-A modern animated text component for React, animating each word as it appears. Perfect for headlines, landing pages, or anywhere you want dynamic text with a simple API.
+A modern React component that animates the appearance of each word for dynamic, attractive text transitions. Perfect for headlines, hero sections, or anywhere dynamic, eye-catching text is needed.  
+Inspired by popular animated heading techniques found in top-tier UIs.
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Live Preview
 
 <div className="not-prose w-full overflow-x-auto">
-  <LiveCode code={`<AnimatedText className="text-2xl" >This is an animated text.</AnimatedText>`} />
+  <LiveCode code={`<AnimatedText className="text-2xl">This is an animated text.</AnimatedText>`} />
 </div>
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Installation
 
@@ -22,19 +24,20 @@ You can install the AnimatedText component with the following CLI command, or co
 
 <InstallToggle
   cliCode="npx shadcn@latest add http://localhost:3000/r/animated-text.json"
-  manualCode={`
-  'use client';
-  
+  manualCode={`'use client';
+
   import { cn } from '@/lib/utils';
   import { motion } from 'motion/react';
+  
+  type AnimatedTextProps = {
+    children: string;
+    className?: string;
+  };
   
   const AnimatedText = ({
     children,
     className,
-  }: {
-    children: string;
-    className?: string;
-  }) => {
+  }: AnimatedTextProps) => {
     return (
       <div className="flex max-w-4xl flex-wrap justify-center">
         {children.split(' ').map((word, idx) => (
@@ -57,7 +60,7 @@ You can install the AnimatedText component with the following CLI command, or co
 `}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Import
 
@@ -65,79 +68,79 @@ To use the AnimatedText component, import it in your code:
 
 <CodeBlock code={`import AnimatedText from '@/components/AnimatedText';`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Props
 
 The AnimatedText component accepts the following props:
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>children</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>The text/string to animate. Each word will be animated in sequence.</td>
-    </tr>
-    <tr>
-      <td><code>className</code></td>
-      <td><code>string</code></td>
-      <td>—</td>
-      <td>Additional utility classes for customizing the text styling.</td>
-    </tr>
-  </tbody>
-</table>
-
-<CodeBlock
-  code={`
-  type AnimatedTextProps = {
-    children: string;
-    className?: string;
-  };
-`}
+<PropsTable
+  rows={[
+    {
+      prop: 'children',
+      type: 'string',
+      default: '-',
+      description: 'The text to animate, one word at a time.',
+      required: 'Yes',
+    },
+    {
+      prop: 'className',
+      type: 'string',
+      default: '-',
+      description: 'Utility classes for controlling text style/size/weight.',
+      required: 'No',
+    },
+  ]}
 />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<CodeBlock
+  code={`type AnimatedTextProps = {
+    children: string;
+    className?: string;
+};`}
+/>
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Example usage
 
-### Basic
+### Basic usage
 
 <CodeBlock code={`<AnimatedText>This is an animated text.</AnimatedText>`} />
 
-### With custom size
+### With custom font size and color
 
-<CodeBlock code={`<AnimatedText className="text-2xl text-blue-700">Big and blue!</AnimatedText>`} />
+<CodeBlock code={`<AnimatedText className="text-3xl text-blue-700">Big & Blue</AnimatedText>`} />
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+### Uppercase with spacing
+
+<CodeBlock code={`<AnimatedText className="uppercase tracking-widest">Fancy Style Reveal</AnimatedText>`} />
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Features
 
-- **Animated-in:** Words appear in sequence, creating a flowing reveal animation.
-- **Highly customizable:** Control text size and style with className.
-- **Type-safe:** TypeScript support for strict prop types.
-- **Easy integration:** Use anywhere you'd put a string of text.
+- **Staggered animation:** Words appear in sequence for a modern animation effect
+- **Customizable:** Style with any className, including font size, color, and more
+- **Type-safe:** TypeScript definitions for strict props
+- **Easy integration:** Plug-and-play for Next.js, React, or any modern React stack
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Customization
 
-- Adjust animation timing and style in the component logic (`motion.span`).
-- Use Tailwind classes (via `className`) for color, font, and size.
-- Replace or expand the animation with your own motion props for effects.
+- **Animation speed:** Adjust the delay interval or duration in the `motion.span` logic
+- **Text style:** Pass className for custom size, color, weight, etc.
+- **Layout:** By default text is wrapped and centered; change container flex classes for layout variants
+- **Advanced:** Swap the animation for your own `framer-motion` or motion library variants
 
-<hr style={{ borderColor: "var(--color-neutral-900)", borderWidth: 1 }} />
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
 
 ## Troubleshooting
 
-- Ensure you pass a string as children; other nodes won't animate word by word.
-- If animations don't trigger, confirm your project uses [framer-motion](https://www.framer.com/docs/motion/) or your preferred motion library.
-- Check Tailwind config if custom text styles don't apply.
+- Ensure the `children` prop is a **string** (not JSX/element), or the effect will not render as intended.
+- If animation does not appear, check that the motion library you use is properly installed and imported.
+- For custom fonts or styles, ensure your Tailwind or global CSS config is loaded.
+
+<hr className="border-0 border-t border-dotted border-neutral-200 dark:border-neutral-800 my-6" />
+
