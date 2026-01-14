@@ -1,7 +1,6 @@
 'use client';
 
 import { IconCheck, IconCopy } from '@tabler/icons-react';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -9,6 +8,7 @@ import { vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
+import useResolvedTheme from '@/hooks/useResolvedTheme';
 
 export function CodeBlock({
   code,
@@ -20,7 +20,7 @@ export function CodeBlock({
   className?: string;
 }) {
   const [copied, setCopied] = useState(false);
-  const { theme } = useTheme();
+  const resolvedTheme = useResolvedTheme();
 
   const handleCopy = async () => {
     try {
@@ -69,7 +69,7 @@ export function CodeBlock({
         <SyntaxHighlighter
           showLineNumbers
           language={language}
-          style={theme === 'dark' ? atomDark : vs}
+          style={resolvedTheme === 'dark' ? atomDark : vs}
           customStyle={{
             background: 'transparent',
             backgroundColor: 'transparent',

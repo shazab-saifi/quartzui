@@ -1,6 +1,9 @@
+'use client';
+
 import { IconMoon, IconSun } from '@tabler/icons-react';
 import { useTheme } from 'next-themes';
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -43,16 +46,28 @@ function ThemeToggle() {
       onClick={handleThemeToggle}
       className="flex cursor-pointer items-center rounded-md border border-neutral-200 bg-white p-2 px-2 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900"
     >
-      <span
-        className={`transition-opacityz duration-200 ease-in-out ${theme === 'dark' ? 'scale-100 opacity-100' : 'pointer-events-none absolute scale-90 opacity-0'} `}
+      <motion.span
+        animate={{
+          opacity: theme === 'dark' ? 1 : 0,
+          scale: theme === 'dark' ? 1 : 0.9,
+          position: theme === 'dark' ? 'static' : 'absolute',
+          pointerEvents: theme === 'dark' ? 'auto' : 'none',
+        }}
+        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
       >
         <IconSun size={16} />
-      </span>
-      <span
-        className={`transition-opacity duration-200 ease-in-out ${theme !== 'dark' ? 'scale-100 opacity-100' : 'pointer-events-none absolute scale-90 opacity-0'} `}
+      </motion.span>
+      <motion.span
+        animate={{
+          opacity: theme !== 'dark' ? 1 : 0,
+          scale: theme !== 'dark' ? 1 : 0.9,
+          position: theme !== 'dark' ? 'static' : 'absolute',
+          pointerEvents: theme !== 'dark' ? 'auto' : 'none',
+        }}
+        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
       >
         <IconMoon size={16} />
-      </span>
+      </motion.span>
     </button>
   );
 }

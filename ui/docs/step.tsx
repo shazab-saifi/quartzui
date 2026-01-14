@@ -1,4 +1,6 @@
-import { useTheme } from 'next-themes';
+'use client';
+
+import useResolvedTheme from '@/hooks/useResolvedTheme';
 
 export function Step({
   number,
@@ -11,10 +13,10 @@ export function Step({
   children: React.ReactNode;
   isLast?: boolean;
 }) {
-  const { theme } = useTheme();
+  const resolvedTheme = useResolvedTheme();
 
   const getBorderImage = () => {
-    if (theme === 'dark') {
+    if (resolvedTheme === 'dark') {
       return 'repeating-linear-gradient(to bottom, var(--color-neutral-800) 0, var(--color-neutral-800) 4px, transparent 4px, transparent 10px) 1';
     }
     return 'repeating-linear-gradient(to bottom, var(--color-neutral-200) 0, var(--color-neutral-200) 4px, transparent 4px, transparent 10px) 1';
