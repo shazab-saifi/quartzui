@@ -61,7 +61,7 @@ export function PropsTable({ rows }: PropsTableProps) {
             const lastCellBorder = isLastRow ? '' : `border-b ${borderClass}`;
 
             return (
-              <tr key={row.prop}>
+              <tr key={index}>
                 <td className={`${cellPadding} ${lastRowBorder}`}>
                   <code>{row.prop}</code>
                 </td>

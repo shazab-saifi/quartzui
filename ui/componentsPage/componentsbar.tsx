@@ -3,7 +3,6 @@
 import { componentsData } from '@/lib/components-data';
 import { AnimatePresence, motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
-import React, { memo } from 'react';
 
 export const categories = [
   { title: 'Documentation' },
@@ -13,7 +12,7 @@ export const categories = [
   { title: 'Other Components' },
 ];
 
-const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
+const ComponentsBar = ({ slug }: { slug?: string }) => {
   const router = useRouter();
 
   return (
@@ -72,6 +71,6 @@ const ComponentsBar = memo(function ComponentsBar({ slug }: { slug?: string }) {
       </div>
     </div>
   );
-});
+};
 
 export default ComponentsBar;

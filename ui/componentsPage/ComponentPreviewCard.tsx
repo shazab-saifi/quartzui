@@ -33,7 +33,7 @@ const ComponentPreviewCard = ({
           height={248}
           alt="preview-image"
         />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
         <div className="absolute bottom-0 left-0 z-20 w-full p-6 text-neutral-50 dark:text-white">
           <div className="flex items-center gap-2 font-semibold">
             <span>{heading}</span>

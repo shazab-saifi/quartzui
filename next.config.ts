@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
-import remarkSlug from "remark-slug";
+import rehypeSlug from "rehype-slug";
 
 const nextConfig: NextConfig = {
   images: {
@@ -26,13 +26,13 @@ const nextConfig: NextConfig = {
     ],
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  reactStrictMode: true,
 };
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [remarkSlug],
-    rehypePlugins: [],
+    rehypePlugins: [rehypeSlug],
   },
 })
  
