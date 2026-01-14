@@ -28,16 +28,17 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  console.log(slug);
 
   return (
     <div className="flex w-full justify-between gap-12 px-4 sm:px-6">
-      <div className="hidden w-54 flex-shrink-0 lg:inline">
+      <div className="hidden w-54 shrink-0 lg:inline">
         <ComponentsBar slug={slug} />
       </div>
       <div className="py-16 xl:w-3xl">
         <Docs slug={slug} />
       </div>
-      <div className="mt-16 hidden w-54 flex-shrink-0 xl:inline">
+      <div className="mt-16 hidden w-54 shrink-0 xl:inline">
         <div className="sticky top-24">
           <TOC />
         </div>
