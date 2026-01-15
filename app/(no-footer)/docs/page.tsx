@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div className="flex w-full px-4 sm:px-6">
-      <div className="hidden w-54 flex-shrink-0 lg:inline">
+      <div className="hidden w-54 shrink-0 lg:inline">
         <ComponentsBar />
       </div>
       <div className="my-16 w-full md:px-12 xl:px-18">

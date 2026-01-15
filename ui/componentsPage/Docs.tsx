@@ -1,24 +1,18 @@
 'use client';
 
 import DocsLayout from '@/docs/layout';
-import React from 'react';
+import { docsMap } from '@/lib/registry';
 
 const Docs = ({ slug }: { slug: string }) => {
   const key = slug ? slug.toLowerCase() : 'button';
 
-  const ComponentToRender = React.useMemo(() => {
-    try {
-      const doc = React.lazy(() => import(`@/docs/${key}.mdx`));
-      return doc;
-    } catch {
-      return React.lazy(() => import(`@/docs/button.mdx`));
-    }
-  }, [key]);
+  console.log(key);
+  const Doc = docsMap[key] ?? docsMap.button;
 
   return (
     <div>
       <DocsLayout>
-        <ComponentToRender />
+        <Doc />
       </DocsLayout>
     </div>
   );

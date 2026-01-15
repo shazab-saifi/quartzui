@@ -28,7 +28,6 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  console.log(slug);
 
   return (
     <div className="flex w-full justify-between gap-12 px-4 sm:px-6">
