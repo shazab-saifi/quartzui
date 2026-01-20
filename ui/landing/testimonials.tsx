@@ -1,6 +1,6 @@
 import {
   IconRosetteDiscountCheckFilled,
-  IconStarFilled,
+  // IconStarFilled,
 } from '@tabler/icons-react';
 import Image from 'next/image';
 import { Heading } from './heading';
@@ -149,7 +149,7 @@ const Testimonials = () => {
         <Heading as="h2" className="text-center">
           Loved by developers & designers
         </Heading>
-        <p className="mt-3 max-w-xl text-center text-lg text-neutral-600 dark:text-neutral-400">
+        <p className="mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
           Real stories from teams who trust our UI kit for speed, quality, and
           effortless integration.
         </p>
@@ -179,7 +179,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
     <div className="flex flex-col gap-8 rounded-2xl border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-950">
       <div>
-        <div className="mb-3 flex gap-1">
+        {/* <div className="mb-3 flex gap-1">
           {Array.from({ length: 5 }).map((_, idx) => (
             <IconStarFilled
               key={idx}
@@ -187,7 +187,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
               size={16}
             />
           ))}
-        </div>
+        </div> */}
         <p>{testimonial.review}</p>
       </div>
       <div className="flex items-center gap-3">

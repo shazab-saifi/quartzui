@@ -2,7 +2,7 @@ import LiveCode from '@/docs/LiveCode';
 import { Heading } from './heading';
 import { CodeBlock } from '@/docs/CodeBlock';
 
-const CLI_COMMAND = `npx shadcn@latest add http://localhost:3000/r/text-shimmer.json`;
+const CLI_COMMAND = `npx shadcn@latest add http://quartzui.shazab.site/r/text-shimmer.json`;
 const COMPONENT_CODE = `'use client';
 
 import { cn } from '@/lib/utils';
@@ -48,7 +48,7 @@ const TextShimmer = ({
         } as React.CSSProperties
       }
       className={cn(
-        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',
+        'relative inline-block bg-size-[250%_100%,auto] bg-clip-text',
         'text-transparent',
         '[background-repeat:no-repeat,padding-box] [--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
         className
@@ -67,7 +67,7 @@ const UseSection = () => (
       <Heading as="h2" className="text-center">
         Just Copy Paste Our CLI or Code
       </Heading>
-      <p className="mt-2 max-w-lg text-center text-lg text-neutral-600 sm:mt-4 dark:text-neutral-400">
+      <p className="mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
         We provide you with the CLI and code to easily install and use our
         components.
       </p>

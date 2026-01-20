@@ -16,7 +16,7 @@ export function PropsTable({ rows }: PropsTableProps) {
   const borderBase = `border-r border-b ${borderClass}`;
 
   return (
-    <div className="max-w-[calc(100vw-2rem)] overflow-x-scroll">
+    <div className="max-w-[calc(100vw-2rem)] overflow-x-auto">
       <table className="w-full rounded-lg border border-neutral-200 dark:border-neutral-800">
         <thead>
           <tr>

@@ -3,6 +3,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
 
+* {
+  overscroll-behavior: none;
+}
+
+.Typewriter__cursor {
+  color: var(--color-indigo-500);
+}
+
 ::view-transition-old(root) {
   animation-delay: 1s;
 }

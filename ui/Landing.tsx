@@ -5,6 +5,7 @@ import {
   HeroSection,
   Testimonials,
   UseSection,
+  SearchSection,
 } from './landing';
 
 const Landing = () => {
@@ -12,6 +13,7 @@ const Landing = () => {
     <div className="flex min-h-screen max-w-screen flex-col overflow-hidden">
       <HeroSection />
       <Carousel />
+      <SearchSection />
       <DemoSection />
       <UseSection />
       <Testimonials />

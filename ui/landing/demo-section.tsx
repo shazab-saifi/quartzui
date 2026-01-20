@@ -64,12 +64,12 @@ const videosData: VideoDataType[] = [
 
 const DemoSection = () => {
   return (
-    <div className="mt-36 flex flex-col items-center gap-16 md:mt-64">
-      <div className="w-fit px-4">
+    <div className="flex flex-col items-center gap-16 px-4 sm:px-8 md:mt-16 lg:px-20 2xl:px-60">
+      <div className="w-fit">
         <Heading as="h2" className="text-center">
           Our Components
         </Heading>
-        <p className="mt-2 max-w-md text-center text-lg text-neutral-600 sm:mt-4 dark:text-neutral-400">
+        <p className="mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
           Explore beautiful, production-ready React components built for speed
           and flexibility.
         </p>
@@ -112,7 +112,7 @@ const CustomVideo = ({ item }: { item: VideoDataType }) => {
 
   return (
     <div
-      className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-100 p-1 transition dark:border dark:border-neutral-800 dark:bg-neutral-900`}
+      className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-100 p-1 transition dark:border dark:border-neutral-800 dark:bg-neutral-950`}
       style={{ minWidth: 300, maxWidth: 360, width: '22vw' }}
       onClick={() => router.push(`/docs/${item.link}`)}
       tabIndex={0}

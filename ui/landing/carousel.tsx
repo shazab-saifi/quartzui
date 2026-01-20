@@ -14,12 +14,12 @@ import { Heading } from './heading';
 
 const Carousel = () => {
   return (
-    <div className="z-15 mx-auto flex w-fit flex-col items-center justify-between gap-18 md:mt-16 lg:mt-24">
+    <div className="z-15 mx-auto flex w-fit flex-col items-center justify-between gap-18">
       <div>
         <Heading as="h2" className="text-center">
           Trusted By
         </Heading>
-        <p className="mt-2 max-w-md text-center text-lg text-neutral-600 sm:mt-4 dark:text-neutral-400">
+        <p className="mt-2 max-w-md px-2 text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
           Trusted by leading companies and professionals around the world.
         </p>
       </div>

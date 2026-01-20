@@ -115,7 +115,7 @@ const SearchBar = () => {
                   </div>
                   <IconArrowUpRight
                     size={18}
-                    className="opacity-0 transition-opacity group-hover:opacity-100"
+                    className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
                 </Link>
               ))
