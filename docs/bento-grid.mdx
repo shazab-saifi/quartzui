@@ -23,7 +23,7 @@ Inspired by modern bento grid layouts in leading UIs.
 You can install the BentoGrid component with the following CLI command, or copy the implementation manually:
 
 <InstallToggle
-  cliCode="npx shadcn@latest add http://localhost:3000/r/bento-grid.json"
+  cliCode="npx shadcn@latest add https://quartzui.shazab.site/registry/bento-grid.json"
   manualCode={`'use client';
 
   import React, { useRef } from 'react';
@@ -119,7 +119,7 @@ You can install the BentoGrid component with the following CLI command, or copy 
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="h-[65%] w-full rounded-xl bg-gradient-to-l from-neutral-800 to-neutral-900" />
+        <div className="h-[65%] w-full rounded-xl bg-linear-to-l from-neutral-800 to-neutral-900" />
         <div className="mt-4 flex w-full flex-col items-start gap-1">
           <h3 className="font-semibold text-white">{heading}</h3>
           <p className="text-sm text-neutral-400">{desc}</p>

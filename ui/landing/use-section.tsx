@@ -67,7 +67,7 @@ const UseSection = () => (
       <Heading as="h2" className="text-center">
         Just Copy Paste Our CLI or Code
       </Heading>
-      <p className="mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
+      <p className="mx-auto mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
         We provide you with the CLI and code to easily install and use our
         components.
       </p>

@@ -149,7 +149,7 @@ const Testimonials = () => {
         <Heading as="h2" className="text-center">
           Loved by developers & designers
         </Heading>
-        <p className="mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
+        <p className="mx-auto mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">
           Real stories from teams who trust our UI kit for speed, quality, and
           effortless integration.
         </p>

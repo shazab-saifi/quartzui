@@ -14,7 +14,7 @@ Inspired by clean motion-driven web UI patterns.
 
 <div className="not-prose w-full overflow-x-auto">
   <LiveCode code={`<TiltCard>
-  <div className="flex flex-col items-center justify-center p-4 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 border border-neutral-100 dark:border-neutral-800 dark:to-neutral-950 h-full space-y-4 text-center">
+  <div className="flex flex-col items-center justify-center p-4 bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 border border-neutral-100 dark:border-neutral-800 dark:to-neutral-950 h-full space-y-4 text-center">
     <span className="block dark:hidden">
       <img
         src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
@@ -50,7 +50,7 @@ Inspired by clean motion-driven web UI patterns.
 You can install the TiltCard component with the following CLI command, or copy the implementation manually:
 
 <InstallToggle
-  cliCode="npx shadcn@latest add http://localhost:3000/r/tilt-card.json"
+  cliCode="npx shadcn@latest add https://quartzui.shazab.site/registry/tilt-card.json"
   manualCode={`'use client';
 
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
@@ -100,7 +100,7 @@ export const TiltCard = ({ children }: { children: React.ReactNode }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ transformStyle: 'preserve-3d', rotateX, rotateY }}
-      className="h-96 w-72 rounded-xl bg-gradient-to-br from-neutral-200/50 to-neutral-400/50 dark:from-neutral-900/60 dark:to-neutral-800/60"
+      className="h-96 w-72 rounded-xl bg-linear-to-br from-neutral-200/50 to-neutral-400/50 dark:from-neutral-900/60 dark:to-neutral-800/60"
     >
       <div
         style={{
