@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import SearchBar from './searchbar';
 import Sidebar from './Sidebar';
-import { IconMenu4 } from '@tabler/icons-react';
+import { IconBrandGithub, IconMenu4 } from '@tabler/icons-react';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
@@ -53,6 +53,12 @@ const Navbar = () => {
         </div>
       </div>
       <div className="hidden items-center gap-4 text-neutral-600 lg:flex dark:text-neutral-400">
+        <Link
+          href="https://github.com/shazab-saifi/quartzui"
+          className="mr-2 transition-colors hover:text-neutral-100"
+        >
+          <IconBrandGithub size={20} />
+        </Link>
         <ThemeToggle />
         <SearchBar />
       </div>

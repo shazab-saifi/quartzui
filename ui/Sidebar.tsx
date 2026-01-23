@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IconX } from '@tabler/icons-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useEffect } from 'react';
 
 interface NavItem {
   title: string;
@@ -17,6 +18,20 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isOpen, onClose, navItems }: SidebarProps) => {
+  useEffect(() => {
+    if (isOpen) {
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '0px';
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
