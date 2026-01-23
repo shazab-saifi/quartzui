@@ -30,7 +30,7 @@ export const SearchBarSkeleton = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.3 }}
         aria-hidden="true"
-        className="absolute -top-0.5 left-0 h-0.5 w-full bg-linear-to-r from-transparent from-20% via-neutral-500 via-50% to-transparent to-80% dark:via-white"
+        className="absolute -top-0.5 left-0 h-0.5 w-full bg-linear-to-r from-transparent from-20% via-neutral-500 via-50% to-transparent to-80% dark:via-neutral-400"
       />
       <div className="flex items-center gap-2.5 border-b border-neutral-200 px-4 py-3 text-lg md:gap-3 md:px-8 md:py-5 md:text-xl dark:border-neutral-800">
         <IconSearch

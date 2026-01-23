@@ -4,7 +4,7 @@ import { Heading } from './heading';
 
 const Cta = () => {
   return (
-    <section className="mt-36 mb-16 flex flex-col items-center justify-center px-4 sm:px-8 md:mt-64 md:mb-24 lg:px-20 2xl:px-60">
+    <section className="mt-44 mb-8 flex flex-col items-center justify-center px-4 sm:px-8 lg:px-20 2xl:px-60">
       <Image
         src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
         alt="Quartz UI logo light"
