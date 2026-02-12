@@ -56,9 +56,9 @@ const videosData: VideoDataType[] = [
     link: 'logo-carousel',
   },
   {
-    title: 'Accordian',
+    title: 'Accordion',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760807337/accordian_yhukty.mp4',
-    link: 'accordian',
+    link: 'accordion',
   },
 ];
 

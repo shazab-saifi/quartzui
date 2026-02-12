@@ -4,11 +4,11 @@
   "homepage": "https://quartzui.shazab.site",
   "items": [
     {
-      "name": "accordian",
+      "name": "accordion",
       "type": "registry:component",
-      "title": "Accordian",
+      "title": "Accordion",
       "description": "An animated accordion with fluid transitions and interactive cursor effects.",
-      "dependencies": ["@tabler/icons", "motion"],
+      "dependencies": ["@tabler/icons-react", "motion"],
       "files": [
         {
           "path": "components/Accordion.tsx",
@@ -84,7 +84,7 @@
       "type": "registry:component",
       "title": "Button",
       "description": "A minimal button component with multiple variants.",
-      "dependencies": ["tailwind-variants", "@tabler/icons"],
+      "dependencies": ["tailwind-variants", "@tabler/icons-react"],
       "files": [
         {
           "path": "components/Button.tsx",
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "name": "pointer-Card",
+      "name": "pointer-card",
       "type": "registry:component",
       "title": "Pointer Card",
       "description": "A pointer card component with animated SVG pointer animation.",

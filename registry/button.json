@@ -4,7 +4,7 @@
   "type": "registry:component",
   "title": "Button",
   "description": "A minimal button component with multiple variants.",
-  "dependencies": ["tailwind-variants", "@tabler/icons"],
+  "dependencies": ["tailwind-variants", "@tabler/icons-react"],
   "files": [
     {
       "path": "components/Button.tsx",

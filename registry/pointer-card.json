@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "pointer-Card",
+  "name": "pointer-card",
   "type": "registry:component",
   "title": "Pointer Card",
   "description": "A pointer card component with animated SVG pointer animation.",

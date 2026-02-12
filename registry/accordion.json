@@ -1,10 +1,10 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "accordian",
+  "name": "accordion",
   "type": "registry:component",
-  "title": "Accordian",
+  "title": "Accordion",
   "description": "An animated accordion with fluid transitions and interactive cursor effects.",
-  "dependencies": ["@tabler/icons", "motion"],
+  "dependencies": ["@tabler/icons-react", "motion"],
   "files": [
     {
       "path": "components/Accordion.tsx",
