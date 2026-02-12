@@ -157,6 +157,19 @@
       ]
     },
     {
+      "name": "logo-carousel",
+      "type": "registry:component",
+      "title": "Logo Carousel",
+      "description": "An animated React component that displays logos in a rotating carousel.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/logo-carousel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "pointer-card",
       "type": "registry:component",
       "title": "Pointer Card",

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-carousel",
+  "type": "registry:component",
+  "title": "Logo Carousel",
+  "description": "An animated React component that displays logos in a rotating carousel.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "components/logo-carousel.tsx",
+      "content": "'use client';\n\nimport Image from 'next/image';\nimport { AnimatePresence, motion } from 'motion/react';\nimport { useEffect, useState, ReactNode, isValidElement } from 'react';\n\nconst variants = {\n  initial: {\n    opacity: 0,\n    y: '100%',\n    position: 'absolute',\n    left: 0,\n    right: 0,\n  },\n  animate: {\n    opacity: 1,\n    y: 0,\n    position: 'absolute',\n    left: 0,\n    right: 0,\n  },\n  exit: {\n    opacity: 0,\n    filter: 'blur(10px)',\n    y: '-100%',\n    position: 'absolute',\n    left: 0,\n    right: 0,\n  },\n};\n\ntype Logo = string | ReactNode;\n\ntype LogoCarouselProps = {\n  delay?: number;\n  logos: Logo[];\n};\n\nconst LogoCarousel = ({ delay, logos }: LogoCarouselProps) => {\n  const [index, setIndex] = useState(0);\n\n  useEffect(() => {\n    if (!logos || logos.length === 0) return;\n    const indexInterval = setInterval(() => {\n      setIndex((prev) => (prev === logos.length - 1 ? 0 : prev + 1));\n    }, 3000);\n\n    return () => clearInterval(indexInterval);\n  }, [logos]);\n\n  if (!logos || logos.length === 0) return null;\n\n  const currentLogo = logos[index];\n  const key =\n    typeof currentLogo === 'string'\n      ? currentLogo\n      : isValidElement(currentLogo) && currentLogo.key != null\n        ? currentLogo.key\n        : `logo-${index}`;\n\n  return (\n    <div className=\"relative flex h-16 w-32 items-center justify-center\">\n      <AnimatePresence initial={false}>\n        <motion.div\n          key={key}\n          variants={variants}\n          initial=\"initial\"\n          animate=\"animate\"\n          exit=\"exit\"\n          transition={{ duration: 0.6, ease: 'easeInOut', delay }}\n          className=\"absolute top-0 left-0 flex h-16 w-32 items-center justify-center\"\n        >\n          {typeof currentLogo === 'string' ? (\n            <Image\n              src={currentLogo}\n              alt={`logo-${currentLogo}`}\n              width={160}\n              height={64}\n            />\n          ) : (\n            currentLogo\n          )}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n};\n\nexport default LogoCarousel;\n",
+      "type": "registry:component"
+    }
+  ]
+}
