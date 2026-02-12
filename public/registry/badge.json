@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:component",
+  "title": "Badge",
+  "description": "A simple Badge component with multiple variants.",
+  "dependencies": ["tailwind-variants", "motion"],
+  "files": [
+    {
+      "path": "components/Badge.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { tv } from 'tailwind-variants';\n\nconst badgeVariants = tv({\n  base: 'gap-sm flex items-center justify-center rounded-md gap-1 cursor-pointer text-xs overflow-hidden',\n  variants: {\n    color: {\n      green: 'bg-green-500/20 text-green-500',\n      cyan: 'bg-cyan-500/20 text-cyan-500',\n      red: 'bg-red-500/20 text-red-500',\n      blue: 'bg-blue-500/20 text-blue-500',\n      yellow: 'bg-yellow-500/20 text-yellow-500',\n      purple: 'bg-purple-500/20 text-purple-500',\n    },\n  },\n  compoundVariants: [\n    {\n      class: 'px-2 py-1',\n    },\n  ],\n  defaultVariants: {\n    color: 'green',\n  },\n});\n\nconst Badge = ({\n  label,\n  variant,\n  className,\n}: {\n  label: string;\n  variant?: 'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple';\n  className?: string;\n}) => {\n  const dotBgByVariant: Record<\n    'green' | 'cyan' | 'red' | 'blue' | 'yellow' | 'purple',\n    string\n  > = {\n    green: 'bg-green-500',\n    cyan: 'bg-cyan-500',\n    red: 'bg-red-500',\n    blue: 'bg-blue-500',\n    yellow: 'bg-yellow-500',\n    purple: 'bg-purple-500',\n  };\n  const resolvedVariant:\n    | 'green'\n    | 'cyan'\n    | 'red'\n    | 'blue'\n    | 'yellow'\n    | 'purple' = variant ?? 'green';\n  return (\n    <div className={cn(badgeVariants({ color: variant }), className)}>\n      <div\n        className={cn('size-1.5 rounded-full', dotBgByVariant[resolvedVariant])}\n      ></div>\n      <span>{label}</span>\n    </div>\n  );\n};\n\nexport default Badge;\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from 'clsx';\nimport { twMerge } from 'tailwind-merge';\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

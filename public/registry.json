@@ -1,0 +1,245 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "quartzui",
+  "homepage": "https://quartzui.shazab.site",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "An animated accordion with fluid transitions and interactive cursor effects.",
+      "dependencies": ["@tabler/icons-react", "motion"],
+      "files": [
+        {
+          "path": "components/Accordion.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "animated-button",
+      "type": "registry:component",
+      "title": "Animated Button",
+      "description": "A button component with animated, moving gradient border effects for eye-catching interactive feedback.",
+      "files": [
+        {
+          "path": "components/AnimatedButton.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "animated-text",
+      "type": "registry:component",
+      "title": "Animated Text",
+      "description": "A text component where each word animates into view sequentially.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/AnimatedText.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "A simple Badge component with multiple variants.",
+      "dependencies": ["tailwind-variants", "motion"],
+      "files": [
+        {
+          "path": "components/Badge.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:component",
+      "title": "Bento Grid",
+      "description": "A responsive bento grid where each grid item subtly animates to follow the cursor within a specific range, creating an interactive highlighting effect.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/BentoGrid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A minimal button component with multiple variants.",
+      "dependencies": ["tailwind-variants", "@tabler/icons-react"],
+      "files": [
+        {
+          "path": "components/Button.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "A dialog component featuring a 3D animated enter and exit transition.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/Dialog.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "expendable-card",
+      "type": "registry:component",
+      "title": "Expendable Card",
+      "description": "A card component that changes its layout with subtle animations when clicked.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/ExpendableCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "floating-dock",
+      "type": "registry:component",
+      "title": "Floating Dock",
+      "description": "A floating dock component that gently lifts and floats above the UI when hovered.",
+      "dependencies": ["@tabler/icons-react", "motion"],
+      "files": [
+        {
+          "path": "components/FloatingDock.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "lines-card",
+      "type": "registry:component",
+      "title": "Lines Card",
+      "description": "A card component featuring animated SVG lines with seamless linear and curved motion.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/LinesCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pointer-card",
+      "type": "registry:component",
+      "title": "Pointer Card",
+      "description": "A pointer card component with animated SVG pointer animation.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/PointerCard.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "price-switcher",
+      "type": "registry:component",
+      "title": "Price Switcher",
+      "description": "A price switcher component with subtle animated transitions between monthly and yearly prices.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/PriceSwitcher.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A Sidebar component with subtle animations",
+      "dependencies": ["@tabler/icons-react", "motion"],
+      "files": [
+        {
+          "path": "components/Sidebar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tab-select",
+      "type": "registry:component",
+      "title": "Tab Select",
+      "description": "A tab selector component with smooth animations.",
+      "files": [
+        {
+          "path": "components/TabSelect.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:component",
+      "title": "Text Shimmer",
+      "description": "A Text Shimmer component.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/TextShimmer.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "tilt-card",
+      "type": "registry:component",
+      "title": "Tilt Card",
+      "description": "A card component that features a smooth 3D tilt effect on hover.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/TiltCard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

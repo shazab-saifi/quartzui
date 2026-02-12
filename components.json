@@ -18,5 +18,7 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "registries": {
+    "quartzui": "https://quartzui.shazab.site/registry.json"
+  }
 }

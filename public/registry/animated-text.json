@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-text",
+  "type": "registry:component",
+  "title": "Animated Text",
+  "description": "A text component where each word animates into view sequentially.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "components/AnimatedText.tsx",
+      "content": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { motion } from 'motion/react';\n\nconst AnimatedText = ({\n  children,\n  className,\n}: {\n  children: string;\n  className?: string;\n}) => {\n  return (\n    <div className=\"flex max-w-4xl flex-wrap justify-center\">\n      {children.split(' ').map((word, idx) => (\n        <motion.span\n          initial={{ opacity: 0, y: 10 }}\n          animate={{ opacity: 1, y: 0 }}\n          transition={{ duration: 1, delay: idx * 0.1, ease: 'easeInOut' }}\n          key={idx}\n          className={cn('inline-block text-4xl font-bold', className)}\n          style={{ display: 'inline-block', willChange: 'transform' }}\n        >\n          {word}&nbsp;\n        </motion.span>\n      ))}\n    </div>\n  );\n};\n\nexport default AnimatedText;\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from 'clsx';\nimport { twMerge } from 'tailwind-merge';\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}
