@@ -14,7 +14,7 @@ const HeroSection = () => {
         <div className="max-w-2xl lg:max-w-3xl">
           <Heading as="h1">
             <AnimatedText>
-              Get Components with Subtle Animations for React.js
+              Upgrade Your UI with Subtle Animated React Components
             </AnimatedText>
           </Heading>
         </div>

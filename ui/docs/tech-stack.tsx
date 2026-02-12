@@ -47,7 +47,7 @@ const TechStack = ({ islanding }: TechStackProps) => {
           href={item.link}
           rel="noopener noreferrer"
           target="_blank"
-          className="group not-prose relative h-46 w-[364px] overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 p-4 no-underline transition-colors hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+          className="group not-prose relative h-46 w-[91vw] overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 p-4 no-underline transition-colors hover:bg-neutral-100 sm:w-[364px] dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800"
         >
           <p className="not-prose font-semibold text-neutral-600 dark:text-white">
             {item.name}

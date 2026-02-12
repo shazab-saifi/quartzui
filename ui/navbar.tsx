@@ -15,7 +15,11 @@ const Navbar = () => {
     { title: 'Home', link: '/' },
     { title: 'Components', link: '/docs' },
     { title: 'Pricing', link: '/pricing' },
-    { title: 'Creator', link: 'https://x.com/shazabsaifi_s9' },
+    {
+      title: 'Creator',
+      link: 'https://x.com/shazabsaifi_s9',
+      isExternal: true,
+    },
   ];
 
   return (
@@ -36,29 +40,43 @@ const Navbar = () => {
             height={22}
             className="inline dark:hidden"
           />
-          <h3 className="text-h5 hidden font-bold text-neutral-950 sm:block dark:text-neutral-100">
+          <h3 className="text-h5 font-bold text-neutral-950 dark:text-neutral-100">
             Quartz UI
           </h3>
         </Link>
         <div className="hidden gap-6 lg:flex">
-          {navItems.map((item, idx) => (
-            <Link
-              key={idx}
-              href={item.link}
-              className="rounded-sm px-3 py-1 text-sm text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
-            >
-              {item.title}
-            </Link>
-          ))}
+          {navItems.map((item, idx) =>
+            item.isExternal ? (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                key={idx}
+                href={item.link}
+                className="rounded-sm px-3 py-1 text-sm text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
+              >
+                {item.title}
+              </a>
+            ) : (
+              <Link
+                key={idx}
+                href={item.link}
+                className="rounded-sm px-3 py-1 text-sm text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
+              >
+                {item.title}
+              </Link>
+            )
+          )}
         </div>
       </div>
       <div className="hidden items-center gap-4 text-neutral-600 lg:flex dark:text-neutral-400">
-        <Link
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://github.com/shazab-saifi/quartzui"
           className="mr-2 transition-colors hover:text-neutral-100"
         >
           <IconBrandGithub size={20} />
-        </Link>
+        </a>
         <ThemeToggle />
         <SearchBar />
       </div>

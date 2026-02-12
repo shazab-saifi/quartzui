@@ -3,8 +3,20 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
 
-* {
+html,
+body {
   overscroll-behavior: none;
+}
+
+/* Allow vertical page scrolling even when touch starts on live preview content */
+.docs-preview,
+.docs-preview * {
+  touch-action: pan-y !important;
+}
+
+.docs-content,
+.docs-content * {
+  touch-action: pan-y !important;
 }
 
 .Typewriter__cursor {

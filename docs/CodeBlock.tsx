@@ -35,7 +35,7 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        'group relative max-w-[calc(100vw-2rem)] overflow-y-auto rounded-md border border-neutral-100 bg-white dark:border-neutral-800 dark:bg-neutral-950'
+        'group relative max-w-[calc(100vw-2rem)] rounded-md border border-neutral-100 bg-white dark:border-neutral-800 dark:bg-neutral-950'
       )}
     >
       <div className="absolute top-1 right-1 flex items-center justify-end gap-2 p-2">
@@ -65,35 +65,36 @@ export function CodeBlock({
         </button>
       </div>
 
-      <div className={cn('max-h-136 w-full', className)}>
-        <SyntaxHighlighter
-          showLineNumbers
-          language={language}
-          style={resolvedTheme === 'dark' ? atomDark : vs}
-          customStyle={{
+      <SyntaxHighlighter
+        showLineNumbers
+        language={language}
+        style={resolvedTheme === 'dark' ? atomDark : vs}
+        className={cn('max-h-136 w-full overflow-y-auto', className)}
+        customStyle={{
+          background: 'transparent',
+          backgroundColor: 'transparent',
+          margin: 0,
+          padding: '1rem',
+          borderRadius: '0.5rem',
+          minWidth: 0,
+          width: '100%',
+          boxSizing: 'border-box',
+          fontSize: '0.95rem',
+          touchAction: 'auto',
+          WebkitOverflowScrolling: 'touch',
+        }}
+        codeTagProps={{
+          style: {
             background: 'transparent',
             backgroundColor: 'transparent',
-            margin: 0,
-            padding: '1rem',
-            borderRadius: '0.5rem',
             minWidth: 0,
             width: '100%',
             boxSizing: 'border-box',
-            fontSize: '0.95rem',
-          }}
-          codeTagProps={{
-            style: {
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              minWidth: 0,
-              width: '100%',
-              boxSizing: 'border-box',
-            },
-          }}
-        >
-          {code}
-        </SyntaxHighlighter>
-      </div>
+          },
+        }}
+      >
+        {code}
+      </SyntaxHighlighter>
     </div>
   );
 }

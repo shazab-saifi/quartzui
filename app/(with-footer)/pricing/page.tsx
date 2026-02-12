@@ -190,9 +190,9 @@ const FAQS: FAQType[] = [
 
 const page = () => {
   return (
-    <div className="mt-16 space-y-24 bg-white px-4 sm:px-8 md:space-y-32 lg:space-y-40 lg:px-20 xl:space-y-50 2xl:px-40 dark:bg-neutral-950">
+    <div className="mt-8 space-y-24 bg-white px-4 sm:mt-16 sm:px-8 md:space-y-32 lg:space-y-40 lg:px-20 xl:space-y-50 2xl:px-40 dark:bg-neutral-950">
       <div className="space-y-16 md:space-y-20 lg:space-y-24">
-        <div className="flex w-full flex-col items-center gap-6">
+        <div className="flex w-full flex-col items-center gap-2 sm:gap-6">
           <Heading as="h1">Pricing</Heading>
           <p className="max-w-xl text-center text-lg text-neutral-600 dark:text-neutral-400">
             Use Quartz UI for free with your whole team. Upgrade to enable
@@ -206,7 +206,7 @@ const page = () => {
           ))}
         </div>
       </div>
-      <div className="mt-32 space-y-12 md:space-y-16">
+      <div className="my-32 space-y-12 md:space-y-16">
         <Heading as="h2" className="text-center">
           Frequently Asked Questions
         </Heading>
