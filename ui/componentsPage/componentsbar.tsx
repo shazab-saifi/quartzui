@@ -17,14 +17,14 @@ const ComponentsBar = ({ slug }: { slug?: string }) => {
 
   return (
     <div className="scrollbar-thin scrollbar sticky top-[69px] h-[calc(100vh-4.5rem)] overflow-y-auto pt-8 pr-4 pb-4">
-      <div className="relative flex flex-col gap-6 pl-3">
+      <div className="relative flex flex-col gap-6 pl-5">
         {categories.map((sec, sectionIdx) => {
           const items = componentsData.filter((c) => c.category === sec.title);
           return (
             <div key={sectionIdx}>
               <div
                 aria-hidden={true}
-                className="absolute bottom-0 left-1.5 z-0 h-[96%] w-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800"
+                className="absolute bottom-0 left-1.5 z-0 h-[96%] w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800"
               />
               <div className="flex flex-col">
                 <h4 className="px-2 text-sm font-semibold text-black dark:text-white">
@@ -57,7 +57,7 @@ const ComponentsBar = ({ slug }: { slug?: string }) => {
                                 type: 'spring',
                                 bounce: 0.3,
                               }}
-                              className="absolute top-1/2 -left-[11px] h-5 w-1 -translate-y-1/2 rounded-full bg-neutral-950 dark:bg-neutral-100"
+                              className="absolute top-1/2 -left-4.75 h-5 w-1 -translate-y-1/2 rounded-full bg-neutral-950 dark:bg-neutral-100"
                             />
                           )}
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { componentsData } from '@/lib/components-data';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -57,27 +55,26 @@ const ComponentsNav = () => {
           ? 'justify-end'
           : 'justify-between';
 
+  const containerClasses =
+    'flex flex-col items-start gap-2 transition-opacity hover:opacity-80';
+  const titleClasses =
+    'text-sm font-medium text-neutral-600 dark:text-neutral-400';
+  const linkClasses =
+    'cursor-pointer text-sm font-semibold text-black transition-colors dark:text-white';
+
   return (
-    <nav className={`not-prose mt-4 flex items-center ${justifyClass}`}>
+    <nav className={`not-prose mt-4 flex items-center ${justifyClass} `}>
       {prevDoc && (
-        <Link href={prevDoc.link} className="flex flex-col items-start gap-2">
-          <span className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">
-            Previous
-          </span>
-          <p className="cursor-pointer text-sm font-semibold text-black transition-colors dark:text-white">
-            {prevDoc.title}
-          </p>
+        <Link href={prevDoc.link} className={containerClasses}>
+          <span className={titleClasses}>Previous</span>
+          <p className={linkClasses}>{prevDoc.title}</p>
         </Link>
       )}
 
       {nextDoc && (
-        <Link href={nextDoc.link} className="flex flex-col items-end gap-2">
-          <span className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">
-            Next
-          </span>
-          <p className="cursor-pointer text-sm font-semibold text-black transition-colors dark:text-white">
-            {nextDoc.title}
-          </p>
+        <Link href={nextDoc.link} className={containerClasses}>
+          <span className={titleClasses}>Next</span>
+          <p className={linkClasses}>{nextDoc.title}</p>
         </Link>
       )}
     </nav>
