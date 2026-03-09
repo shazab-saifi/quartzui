@@ -1,5 +1,5 @@
 import { componentsData } from '@/lib/components-data';
-import ComponentPreviewCard from '@/ui/componentsPage/ComponentPreviewCard';
+import ComponentPreviewCard from '@/ui/componentsPage/component-preview-card';
 import ComponentsBar from '@/ui/componentsPage/componentsbar';
 import type { Metadata } from 'next';
 
@@ -19,7 +19,7 @@ const page = () => {
       <div className="hidden w-54 shrink-0 lg:inline">
         <ComponentsBar />
       </div>
-      <div className="my-16 w-full md:px-12 xl:px-18">
+      <div className="my-16 w-full md:px-6 lg:px-12 xl:px-18">
         <div>
           <h5 className="mb-2 font-semibold">Components</h5>
           <p className="mb-5 max-w-lg text-neutral-700 dark:text-neutral-400">
@@ -43,7 +43,7 @@ const page = () => {
             </a>
           </p>
         </div>
-        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3">
+        <div className="3xl:grid-cols-4 mt-8 grid w-full grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3">
           {componentsData
             .filter((item) => !item.isDoc)
             .map((item, idx) => (

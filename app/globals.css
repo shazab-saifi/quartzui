@@ -81,6 +81,7 @@ body {
 }
 
 @theme inline {
+  --breakpoint-3xl: 112rem;
   --text-h1: 4rem; /* 64px */
   --text-h2: 3.5rem; /* 60px */
   --text-h3: 3rem; /* 48px */

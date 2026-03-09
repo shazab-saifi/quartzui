@@ -23,26 +23,28 @@ const ComponentPreviewCard = ({
       initial={{ opacity: 0, filter: 'blur(10px)', y: 10 }}
       animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
       transition={{ duration: 0.3, ease: 'easeOut', delay: idx * 0.1 }}
-      className="group relative h-64 cursor-pointer overflow-hidden rounded-2xl border border-neutral-200 sm:h-72 lg:h-76 dark:border-neutral-800"
+      className="group mx-auto cursor-pointer md:mx-0"
     >
       <Link href={link}>
-        <Image
-          src={src}
-          className="absolute z-0 h-full w-full object-cover transition-transform group-hover:scale-112"
-          width={448}
-          height={248}
-          alt="preview-image"
-        />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-        <div className="absolute bottom-0 left-0 z-20 w-full p-6 text-neutral-50 dark:text-white">
-          <div className="flex items-center gap-2 font-semibold">
+        <div className="h-52 w-84 overflow-hidden rounded-3xl border-2 border-neutral-200 transition-transform duration-300 group-hover:scale-105 dark:border-neutral-800">
+          <Image
+            src={src}
+            className="z-0 h-full w-full object-cover duration-300 group-hover:scale-112"
+            width={448}
+            height={248}
+            alt="preview-image"
+          />
+        </div>
+
+        <div className="mt-6 w-full max-w-84">
+          <div className="flex items-center gap-2 overflow-hidden text-sm font-semibold">
             <span>{heading}</span>
             <IconArrowUpRight
               size={16}
-              className="invisible group-hover:visible"
+              className="translate-y-full transition-transform duration-150 group-hover:translate-y-0"
             />
           </div>
-          <p className="mt-2 text-sm text-neutral-200 dark:text-neutral-400">
+          <p className="mt-2 text-sm text-balance text-neutral-600 dark:text-neutral-400">
             {desc}
           </p>
         </div>

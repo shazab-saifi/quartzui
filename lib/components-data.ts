@@ -17,7 +17,7 @@ export const componentsData = [
     title: 'Tab Select',
     identifier: 'tab-select',
     category: 'Other Components',
-    desc: 'A tab selection component that lets users switch between different views or content panels with a clean and intuitive UI.',
+    desc: 'A tab selector for switching between multiple views or content panels easily.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760601641/Screenshot_from_2025-10-16_13-27-41_dwkpw9.png',
     link: '/docs/tab-select',
@@ -26,7 +26,7 @@ export const componentsData = [
     title: 'Logo Carousel',
     identifier: 'logo-carousel',
     category: 'Other Components',
-    desc: 'An animated logo carousel where logos enter from the bottom, stay centered, and exit to the top with smooth, subtle transition effects.',
+    desc: 'An animated carousel that displays logos with smooth vertical transitions.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1767013195/logo-carousel_by1r24.png',
     link: '/docs/logo-carousel',
@@ -35,7 +35,7 @@ export const componentsData = [
   //   title: 'Price Switcher',
   //   identifier: 'price-switcher',
   //   category: 'Other Components',
-  //   desc: 'A price switcher component that allows users to toggle between monthly and annual pricing options with ease.',
+  //   desc: 'Switch between monthly and annual pricing quickly with this component.',
   //   image:
   //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603095/Screenshot_from_2025-10-16_13-54-38_waqas1.png',
   //   link: '/docs/price-switcher',
@@ -44,7 +44,7 @@ export const componentsData = [
     title: 'Pointer Card',
     identifier: 'pointer-card',
     category: 'Cards',
-    desc: 'A card component that follows your pointer, creating an interactive and engaging user experience.',
+    desc: 'A card that follows your pointer, creating a lively interactive effect.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602832/Screenshot_from_2025-10-16_13-50-13_bip78l.png',
     link: '/docs/pointer-card',
@@ -53,7 +53,7 @@ export const componentsData = [
     title: 'Expendable Card',
     identifier: 'expendable-card',
     category: 'Cards',
-    desc: 'A card that expands to reveal more information, great for showing details on demand without cluttering the UI.',
+    desc: 'A card that expands to reveal extra info, saving screen space.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602904/Screenshot_from_2025-10-16_13-51-26_goiwaw.png',
     link: '/docs/expendable-card',
@@ -62,7 +62,7 @@ export const componentsData = [
   //   title: 'Lines Card',
   //   identifier: 'lines-card',
   //   category: 'Cards',
-  //   desc: 'A card component featuring animated SVG lines for a visually striking and dynamic presentation.',
+  //   desc: 'A card with animated SVG lines for a unique visual presentation.',
   //   image:
   //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760604707/Screenshot_from_2025-10-16_14-21-30_zi2lhw.png',
   //   link: '/docs/lines-card',
@@ -71,7 +71,7 @@ export const componentsData = [
     title: 'Tilt Card',
     identifier: 'tilt-card',
     category: 'Cards',
-    desc: 'A card component with a 3D tilt effect that responds to your pointer, creating an interactive and modern visual experience.',
+    desc: 'A 3D tilt card that moves with your pointer for a dynamic look.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603718/Screenshot_from_2025-10-16_14-04-57_qsznjk.png',
     link: '/docs/tilt-card',
@@ -80,7 +80,7 @@ export const componentsData = [
   //   title: 'Floating Dock',
   //   identifier: 'floating-dock',
   //   category: 'Other Components',
-  //   desc: 'A floating dock for quick access to actions or links, designed to stay visible and accessible on any page.',
+  //   desc: 'A floating dock giving quick access to key actions or links.',
   //   image:
   //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602699/Screenshot_from_2025-10-16_13-47-56_viqbca.png',
   //   link: '/docs/floating-dock',
@@ -89,7 +89,7 @@ export const componentsData = [
     title: 'Button',
     identifier: 'button',
     category: 'Buttons',
-    desc: 'A simple and customizable button component suitable for a wide range of actions and use cases.',
+    desc: 'A customizable button for general actions, suitable for many uses.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603008/Screenshot_from_2025-10-16_13-53-11_lit16t.png',
     link: '/docs/button',
@@ -98,7 +98,7 @@ export const componentsData = [
     title: 'Animated Button',
     identifier: 'animated-button',
     category: 'Buttons',
-    desc: 'A button component featuring smooth and modern animation effects to enhance user interaction and engagement.',
+    desc: 'A button with modern animation to enhance clicks and interactions.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602142/Screenshot_from_2025-10-16_13-38-26_qfnnkg.png',
     link: '/docs/animated-button',
@@ -107,7 +107,7 @@ export const componentsData = [
     title: 'Badges',
     identifier: 'badge',
     category: 'Other Components',
-    desc: 'Colorful badge components for displaying statuses, labels, or notifications in a visually appealing way.',
+    desc: 'Colorful badges for statuses, labels, or notifications anywhere.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602262/Screenshot_from_2025-10-16_13-40-41_hkebsf.png',
     link: '/docs/badge',
@@ -116,7 +116,7 @@ export const componentsData = [
     title: 'Text Shimmer',
     identifier: 'text-shimmer',
     category: 'Text',
-    desc: 'A text component that uses a shimmering animated effect to draw attention, perfect for highlighting headings, labels, or important information.',
+    desc: 'Text that uses a shimmer effect to highlight special content.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760604405/Screenshot_from_2025-10-16_14-16-12_mxjefe.png',
     link: '/docs/text-shimmer',
@@ -125,7 +125,7 @@ export const componentsData = [
     title: 'Animated Text',
     identifier: 'animated-text',
     category: 'Text',
-    desc: 'A text component with engaging animation styles, ideal for drawing attention to important messages or headlines.',
+    desc: 'A text component with engaging animations for important messages.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760602397/Screenshot_from_2025-10-16_13-42-56_k6tj8m.png',
     link: '/docs/animated-text',
@@ -134,7 +134,7 @@ export const componentsData = [
     title: 'Bento Grid',
     identifier: 'bento-grid',
     category: 'Other Components',
-    desc: 'A dynamic bento grid layout component featuring interactive, animated tiles that respond to pointer movement for an engaging UI experience.',
+    desc: 'An animated bento grid of tiles that respond to pointer movement.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760605055/Screenshot_from_2025-10-16_14-27-18_zgtykg.png',
     link: '/docs/bento-grid',
@@ -143,7 +143,7 @@ export const componentsData = [
     title: 'Accordion',
     identifier: 'accordion',
     category: 'Other Components',
-    desc: 'An accordion component for expanding and collapsing content sections, perfect for FAQs or grouped information.',
+    desc: 'An accordion for expanding and hiding grouped content, ideal for FAQs.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760601765/Screenshot_from_2025-10-16_13-32-25_s8ddct.png',
     link: '/docs/accordion',
@@ -152,7 +152,7 @@ export const componentsData = [
     title: 'Dialog',
     identifier: 'dialog',
     category: 'Other Components',
-    desc: 'A dialog component with smooth 3D enter and exit animations, perfect for drawing attention to important information or user interactions.',
+    desc: 'A dialog with smooth 3D animations for messages and user actions.',
     image:
       'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1760603832/Screenshot_from_2025-10-16_14-06-54_wmkpi5.png',
     link: '/docs/dialog',
@@ -161,7 +161,7 @@ export const componentsData = [
   //   title: 'Sidebar',
   //   identifier: 'sidebar',
   //   category: 'Other Components',
-  //   desc: 'A collapsible sidebar component for navigation, allowing users to easily access different sections of your app.',
+  //   desc: 'A collapsible sidebar for navigation to different app sections.',
   //   image:
   //     'https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759474309/sidebar_aouroh.png',
   //   link: '/docs/sidebar',
