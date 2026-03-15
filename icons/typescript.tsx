@@ -1,4 +1,6 @@
-const TypeScriptSVG = () => {
+import { cn } from '@/lib/utils';
+
+const TypeScriptSVG = ({ className }: { className?: string }) => {
   return (
     <svg
       width="110"
@@ -6,7 +8,7 @@ const TypeScriptSVG = () => {
       viewBox="0 0 110 110"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute -right-4 -bottom-4"
+      className={cn('absolute -right-4 -bottom-4', className)}
     >
       <g clipPath="url(#clip0_151_151)">
         <path

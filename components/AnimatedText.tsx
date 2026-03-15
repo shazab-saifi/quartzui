@@ -14,7 +14,7 @@ const AnimatedText = ({
     <div className="flex max-w-4xl flex-wrap justify-center">
       {children.split(' ').map((word, idx) => (
         <motion.span
-          initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
+          initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, delay: idx * 0.1, ease: 'easeOut' }}
           key={idx}

@@ -144,7 +144,7 @@ const testimonialsSet3: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <div className="mt-36 flex flex-col items-center gap-12 px-4 sm:px-8 md:mt-64 md:gap-16 lg:px-20 2xl:px-60">
+    <div className="mt-24 flex flex-col items-center gap-12 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-32 md:gap-16 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
       <div>
         <Heading as="h2" className="text-center">
           Loved by developers & designers

@@ -14,7 +14,7 @@ import { Heading } from './heading';
 
 const Carousel = () => {
   return (
-    <div className="z-15 mx-auto flex w-fit flex-col items-center justify-between gap-18">
+    <div className="z-15 mx-auto mt-24 flex w-fit flex-col items-center justify-between gap-18 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-32 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
       <div>
         <Heading as="h2" className="text-center">
           Trusted By

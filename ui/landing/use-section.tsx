@@ -62,7 +62,7 @@ const TextShimmer = ({
 export default TextShimmer;`;
 
 const UseSection = () => (
-  <div className="mt-24 flex flex-col items-center gap-16 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-36 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800 dark:bg-neutral-950">
+  <div className="mt-24 flex flex-col items-center gap-16 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-32 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
     <div>
       <Heading as="h2" className="text-center">
         Just Copy Paste Our CLI or Code

@@ -4,7 +4,7 @@ import { SearchBarSkeleton } from './search-skeleton';
 
 const SearchSection = () => {
   return (
-    <div className="mt-24 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-36 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800 dark:bg-neutral-950">
+    <div className="mt-8 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-16 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mx-auto flex w-fit flex-col items-center">
         <Heading>Search Components & Docs</Heading>
         <p className="mt-2 max-w-md text-center text-neutral-600 sm:mt-4 md:text-lg dark:text-neutral-400">

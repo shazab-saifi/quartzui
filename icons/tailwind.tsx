@@ -1,4 +1,6 @@
-const TailwindSVG = () => {
+import { cn } from '@/lib/utils';
+
+const TailwindSVG = ({ className }: { className?: string }) => {
   return (
     <svg
       width="120"
@@ -6,7 +8,7 @@ const TailwindSVG = () => {
       viewBox="0 0 120 120"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute -right-4 bottom-0"
+      className={cn('absolute -right-4 bottom-0', className)}
     >
       <g clipPath="url(#clip0_151_158)">
         <path

@@ -16,7 +16,7 @@ const ComponentsBar = ({ slug }: { slug?: string }) => {
   const router = useRouter();
 
   return (
-    <div className="scrollbar-thin scrollbar sticky top-[69px] h-[calc(100vh-4.5rem)] overflow-y-auto pt-8 pr-4 pb-4">
+    <div className="scrollbar-thin scrollbar sticky top-[69px] h-[calc(100vh-4.5rem)] overflow-y-auto border-r border-neutral-800 pt-8 pr-4 pb-4">
       <div className="relative flex flex-col gap-6 pl-5">
         {categories.map((sec, sectionIdx) => {
           const items = componentsData.filter((c) => c.category === sec.title);
