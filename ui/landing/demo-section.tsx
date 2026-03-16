@@ -1,7 +1,6 @@
 'use client';
 
 import { IconArrowUpRight } from '@tabler/icons-react';
-import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import Marquee from 'react-fast-marquee';
 import { Heading } from './heading';
@@ -12,51 +11,61 @@ interface VideoDataType {
   title: string;
   href: string;
   link: string;
+  desc: string;
 }
 
-const videosData: VideoDataType[] = [
+const videosData: (VideoDataType & { desc: string })[] = [
   {
     title: 'Tab Select',
+    desc: 'Animated tab switcher.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760805392/tab-select_ljg0tl.mp4',
     link: 'tab-select',
   },
   {
     title: 'Bento Grid',
+    desc: 'Modern bento grid layout.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760807137/bento-grid_awcdmm.mp4',
     link: 'bento-grid',
   },
   {
     title: 'Animated Button',
+    desc: 'Button with smooth animation.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760792644/animated-button_xzqaih.mp4',
     link: 'animated-button',
   },
   {
     title: 'Lines Card',
+    desc: 'Card with animated lines.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760806830/lines-card_zpirou.mp4',
     link: 'lines-card',
   },
   {
     title: 'Price Switcher',
+    desc: 'Toggle pricing plans.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760806684/price-switcher_b7vnic.mp4',
     link: 'price-switcher',
   },
   {
     title: 'Tilt Card',
+    desc: 'Card follows mouse tilt.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760807592/tilt-card_be3t0y.mp4',
     link: 'tilt-card',
   },
   {
     title: 'Expendable Card',
+    desc: 'Show or hide card content.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760806141/expendable-card_nxlkal.mp4',
     link: 'expendable-card',
   },
   {
     title: 'Logo Carousel',
+    desc: 'Scroll company logos.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1767013267/logo-carousel_ygtjtr.mp4',
     link: 'logo-carousel',
   },
   {
     title: 'Accordion',
+    desc: 'Expandable/collapsible panels.',
     href: 'https://res.cloudinary.com/dlpjh3fcx/video/upload/v1760807337/accordian_yhukty.mp4',
     link: 'accordion',
   },
@@ -88,7 +97,7 @@ const DemoSection = () => {
       </div>
       <Link href="/docs">
         <Button variant="secondary" className="px-6 text-sm">
-          Start Building with Quartz UI
+          View All Components
         </Button>
       </Link>
     </div>
@@ -97,7 +106,6 @@ const DemoSection = () => {
 
 const CustomVideo = ({ item }: { item: VideoDataType }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const router = useRouter();
 
   const handleplay = () => {
     if (!videoRef.current) return;
@@ -111,29 +119,37 @@ const CustomVideo = ({ item }: { item: VideoDataType }) => {
   };
 
   return (
-    <div
-      className={`group mx-3 flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-neutral-100 p-1 transition dark:border dark:border-neutral-800 dark:bg-neutral-950`}
+    <Link
+      href={`/docs/${item.link}`}
+      className="group mx-3 block cursor-pointer"
       style={{ minWidth: 300, maxWidth: 360, width: '22vw' }}
-      onClick={() => router.push(`/docs/${item.link}`)}
-      tabIndex={0}
-      role="button"
       onMouseEnter={handleplay}
       onMouseLeave={handlepause}
     >
-      <video
-        ref={videoRef}
-        src={item.href}
-        className="h-52 w-full rounded-lg object-cover"
-        loop
-        muted
-        playsInline
-        preload="auto"
-      />
-      <div className="flex w-full items-center justify-between px-2 pt-2 pb-1 text-neutral-600 transition-colors group-hover:text-black dark:text-neutral-400 dark:group-hover:text-white">
-        <span className="text-left text-sm font-medium">{item.title}</span>
-        <IconArrowUpRight size={16} />
+      <div className="h-60 w-full overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800">
+        <video
+          ref={videoRef}
+          src={item.href}
+          className="object-cover2 h-full w-full"
+          loop
+          muted
+          playsInline
+          preload="auto"
+        />
       </div>
-    </div>
+      <div className="mt-4 w-full">
+        <div className="flex items-center gap-2 overflow-hidden text-sm font-semibold text-neutral-950 dark:text-neutral-100">
+          <span className="text-left">{item.title}</span>
+          <IconArrowUpRight
+            size={16}
+            className="translate-y-full transition-transform duration-150 group-hover:translate-y-0"
+          />
+        </div>
+        <p className="mt-1 text-sm text-balance text-neutral-600 dark:text-neutral-400">
+          {item.desc}
+        </p>
+      </div>
+    </Link>
   );
 };
 
