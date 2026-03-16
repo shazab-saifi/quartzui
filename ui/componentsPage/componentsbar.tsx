@@ -2,7 +2,7 @@
 
 import { componentsData } from '@/lib/components-data';
 import { motion } from 'motion/react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export const categories = [
   { title: 'Documentation' },
@@ -13,18 +13,16 @@ export const categories = [
 ];
 
 const ComponentsBar = ({ slug }: { slug?: string }) => {
-  const router = useRouter();
-
   return (
     <div className="scrollbar-thin scrollbar sticky top-[69px] h-[calc(100vh-4.5rem)] overflow-y-auto border-r border-neutral-800 pt-8 pr-4 pb-4">
-      <div className="relative flex flex-col gap-6 pl-5">
+      <div className="relative flex flex-col gap-6 pl-4">
         {categories.map((sec, sectionIdx) => {
           const items = componentsData.filter((c) => c.category === sec.title);
           return (
             <div key={sectionIdx}>
               <div
                 aria-hidden={true}
-                className="absolute bottom-0 left-1.5 z-0 h-[96%] w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800"
+                className="absolute bottom-0 left-0 z-0 h-[96%] w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800"
               />
               <div className="flex flex-col">
                 <h4 className="px-2 text-sm font-semibold text-black dark:text-white">
@@ -38,10 +36,8 @@ const ComponentsBar = ({ slug }: { slug?: string }) => {
                   ) : (
                     items.map((item, idx) => {
                       return (
-                        <button
-                          onClick={() => {
-                            router.push(`/docs/${item.identifier}`);
-                          }}
+                        <Link
+                          href={`/docs/${item.identifier}`}
                           key={idx}
                           className={`relative z-10 cursor-pointer rounded-md px-2 py-1.5 text-left text-sm font-medium transition-all hover:translate-x-1 ${
                             item.identifier === slug
@@ -57,12 +53,12 @@ const ComponentsBar = ({ slug }: { slug?: string }) => {
                                 type: 'spring',
                                 bounce: 0.3,
                               }}
-                              className="absolute top-1/2 -left-4.75 h-5 w-1 -translate-y-1/2 rounded-full bg-neutral-950 dark:bg-neutral-100"
+                              className="absolute top-1/2 -left-5 h-5 w-0.5 -translate-y-1/2 rounded-full bg-neutral-950 dark:bg-neutral-100"
                             />
                           )}
 
                           <span>{item.title}</span>
-                        </button>
+                        </Link>
                       );
                     })
                   )}

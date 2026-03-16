@@ -37,7 +37,7 @@ const Headings = ({
               <motion.span
                 layoutId="span-animation"
                 transition={{ duration: 0.3, stiffness: 500, damping: 30 }}
-                className="absolute h-5 w-1 rounded-full bg-indigo-500"
+                className="absolute left-0.25 h-5 w-0.5 rounded-full bg-indigo-500"
               />
             )}
           </div>
@@ -71,7 +71,7 @@ const TOC = () => {
       </div>
       <div className="relative flex items-stretch gap-2">
         <span
-          className="absolute left-px w-[2px] rounded-full bg-neutral-200 dark:bg-neutral-800"
+          className="absolute left-px w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800"
           style={{ minHeight: '100%' }}
         ></span>
         <Headings headings={nestedHeadings} activeId={activeId} />

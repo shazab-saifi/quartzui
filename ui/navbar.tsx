@@ -14,7 +14,6 @@ const Navbar = () => {
   const navItems = [
     { title: 'Home', link: '/' },
     { title: 'Components', link: '/docs' },
-    { title: 'Pricing', link: '/pricing' },
     {
       title: 'Creator',
       link: 'https://x.com/shazabsaifi_s9',

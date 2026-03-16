@@ -46,7 +46,7 @@ export const BuildWith = () => {
               href={item.link}
               rel="noopener noreferrer"
               target="_blank"
-              className="group not-prose relative h-52 w-full min-w-0 overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 from-40% p-5 no-underline shadow-md transition-colors hover:bg-linear-to-br hover:from-white hover:to-neutral-100 sm:max-w-104 xl:w-88 2xl:h-64 2xl:w-136 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:from-neutral-950 dark:hover:to-neutral-900"
+              className="group not-prose hover:bg-radial-to-br relative h-52 w-full min-w-0 overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 from-40% p-5 no-underline shadow-md transition-colors hover:from-white hover:to-neutral-100 sm:max-w-104 xl:w-88 2xl:h-64 2xl:w-136 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:from-neutral-950 dark:hover:to-neutral-900"
             >
               <p className="not-prose relative z-10 text-base font-semibold text-neutral-600 dark:text-white">
                 {item.name}

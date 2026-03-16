@@ -26,7 +26,7 @@ const ComponentPreviewCard = ({
       className="group mx-auto cursor-pointer md:mx-0"
     >
       <Link href={link}>
-        <div className="h-52 w-84 overflow-hidden rounded-3xl border-2 border-neutral-200 transition-transform duration-300 group-hover:scale-105 dark:border-neutral-800">
+        <div className="h-52 w-84 overflow-hidden rounded-3xl border border-neutral-200 transition-transform duration-300 group-hover:scale-105 dark:border-neutral-800">
           <Image
             src={src}
             className="z-0 h-full w-full object-cover duration-300 group-hover:scale-112"
