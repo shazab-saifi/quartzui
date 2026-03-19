@@ -91,7 +91,7 @@ const DemoSection = () => {
           className="flex items-center"
         >
           {videosData.map((item, idx) => (
-            <CustomVideo key={idx} item={item} />
+            <ComponentCard key={idx} item={item} />
           ))}
         </Marquee>
       </div>
@@ -104,7 +104,7 @@ const DemoSection = () => {
   );
 };
 
-const CustomVideo = ({ item }: { item: VideoDataType }) => {
+const ComponentCard = ({ item }: { item: VideoDataType }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const handleplay = () => {
@@ -130,7 +130,7 @@ const CustomVideo = ({ item }: { item: VideoDataType }) => {
         <video
           ref={videoRef}
           src={item.href}
-          className="object-cover2 h-full w-full"
+          className="h-full w-full object-cover"
           loop
           muted
           playsInline

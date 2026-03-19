@@ -1,48 +1,39 @@
 'use client';
 
-import Link from 'next/link';
-import Motion from '../motion';
 import Image from 'next/image';
-import TextShimmer from '@/components/TextShimmer';
-import useResolvedTheme from '@/hooks/useResolvedTheme';
+import { motion } from 'motion/react';
 
 const HeroBadge = () => {
-  const theme = useResolvedTheme();
-
   return (
-    <Link href="/docs">
-      <Motion
-        as="button"
-        initial={{ opacity: 0, filter: 'blue(10px)', y: 10 }}
-        animate={{ opacity: 1, filter: 'blue(0px)', y: 0 }}
-        className="mb-4 flex cursor-pointer items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-2 py-1 text-xs dark:border-neutral-800 dark:bg-neutral-900"
-      >
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(5px)' }}
+      animate={{ opacity: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 0.3 }}
+      className="absolute top-0 left-1/2 grid -translate-x-1/2 grid-cols-3 grid-rows-3 mask-radial-from-10 mask-radial-to-60 mask-radial-at-center"
+    >
+      {Array.from({ length: 4 }).map((_, idx) => (
+        <div key={idx} className="h-full w-full border" />
+      ))}
+      <div className="flex items-center gap-2 border border-neutral-200 p-2 md:p-4 dark:border-neutral-800">
         <Image
-          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
-          alt="logo"
-          width={12}
-          height={12}
+          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1773813875/quartzui-light_ijauex.svg"
+          alt="illustration"
+          width={144}
+          height={144}
           className="hidden dark:inline"
         />
         <Image
-          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
-          alt="logo"
-          width={12}
-          height={12}
+          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1773813886/quartzui-dark_oiqar0.svg"
+          alt="illustration"
+          width={144}
+          height={144}
           className="inline dark:hidden"
         />
-        <TextShimmer
-          baseColor={
-            theme === 'dark' ? 'var(--color-white)' : 'var(--color-black)'
-          }
-          shimmerColor={
-            theme === 'dark' ? 'var(--color-black)' : 'var(--color-white)'
-          }
-        >
-          Beautiful components. Effortless experience. »
-        </TextShimmer>
-      </Motion>
-    </Link>
+      </div>
+      {Array.from({ length: 4 }).map((_, idx) => (
+        <div key={idx} className="h-full w-full border" />
+      ))}
+    </motion.div>
   );
 };
 

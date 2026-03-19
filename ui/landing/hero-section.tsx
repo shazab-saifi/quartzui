@@ -1,17 +1,22 @@
 import { Button } from '@/components/Button';
 import AnimatedText from '@/components/AnimatedText';
 import { Heading } from './heading';
-import HeroImages from './hero-images';
 import Motion from '../motion';
 import Link from 'next/link';
 import HeroBadge from './hero-badge';
+import { HeroLogos } from './hero-logos';
 
 const HeroSection = () => {
   return (
-    <div className="mt-16 flex flex-col items-center px-4 sm:px-8 lg:mt-28 lg:px-20 2xl:px-60">
-      <div className="z-10 flex flex-col items-center gap-4 sm:px-8 lg:gap-6">
+    <div
+      data-hero-section
+      className="flex flex-col items-center px-4 pt-8 pb-28 sm:px-8 md:pt-0 md:pb-36 lg:px-20 2xl:px-60"
+    >
+      <div className="relative z-10 flex flex-col items-center gap-4 pt-[clamp(8rem,30vw,18rem)] sm:px-8 sm:pt-[clamp(12rem,30vw,18rem)] lg:gap-6">
         <HeroBadge />
-        <div className="max-w-2xl lg:max-w-3xl">
+        <HeroLogos />
+
+        <div className="font-instru-serif max-w-2xl lg:max-w-3xl">
           <Heading as="h1">
             <AnimatedText>
               Upgrade Your UI with Subtle Animated React Components
@@ -45,7 +50,6 @@ const HeroSection = () => {
           <Button className="px-5 text-sm">Introduction</Button>
         </Link>
       </Motion>
-      <HeroImages />
     </div>
   );
 };

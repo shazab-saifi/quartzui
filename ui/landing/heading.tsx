@@ -18,7 +18,11 @@ export const Heading = ({
       : 'text-2xl lg:text-3xl 2xl:text-4xl';
   return (
     <Tag
-      className={cn(sizeClass, 'font-semibold tracking-tight', className)}
+      className={cn(
+        sizeClass,
+        'font-semibold tracking-tight text-balance',
+        className
+      )}
       {...props}
     >
       <Balance>{children}</Balance>
