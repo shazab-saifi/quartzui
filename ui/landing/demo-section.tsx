@@ -73,7 +73,7 @@ const videosData: (VideoDataType & { desc: string })[] = [
 
 const DemoSection = () => {
   return (
-    <div className="mt-8 flex flex-col items-center gap-16 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-16 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
+    <div className="mt-8 flex flex-col items-center gap-16 border-y border-neutral-200 px-4 py-28 sm:px-8 md:mt-16 md:py-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
       <div className="w-fit">
         <Heading as="h2" className="text-center">
           Our Components

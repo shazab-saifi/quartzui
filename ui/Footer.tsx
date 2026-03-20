@@ -13,7 +13,7 @@ export default function Footer() {
     }));
 
   return (
-    <footer className="w-full border-t border-neutral-200/60 bg-white px-4 pt-8 pb-4 text-sm text-neutral-600 sm:mt-20 sm:px-8 sm:pt-12 lg:mt-24 lg:px-20 lg:pt-14 2xl:px-60 dark:border-neutral-800/60 dark:bg-neutral-950 dark:text-neutral-400">
+    <footer className="w-full border-t border-neutral-200/60 bg-white px-4 pt-8 pb-4 text-sm text-neutral-600 sm:px-8 sm:pt-12 lg:px-20 lg:pt-14 2xl:px-60 dark:border-neutral-800/60 dark:bg-neutral-950 dark:text-neutral-400">
       <div className="flex w-full flex-col justify-between lg:flex-row lg:gap-16">
         <div>
           <Link href="/" className="flex items-center gap-2">

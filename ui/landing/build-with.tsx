@@ -31,7 +31,7 @@ const stack = [
 
 export const BuildWith = () => {
   return (
-    <div className="mx-auto mt-24 flex w-fit flex-col items-center gap-16 border-t border-neutral-200 px-4 pt-28 sm:px-8 md:mt-32 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
+    <div className="mx-auto flex w-fit flex-col items-center gap-8 px-4 pt-28 sm:px-8 md:pt-36 lg:px-20 2xl:px-60 dark:border-neutral-800">
       <Heading as="h2" className="text-center">
         Build with Modern Stack
       </Heading>

@@ -9,7 +9,7 @@ const HeroBadge = () => {
       initial={{ opacity: 0, filter: 'blur(5px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
       transition={{ duration: 0.3 }}
-      className="absolute top-0 left-1/2 grid -translate-x-1/2 grid-cols-3 grid-rows-3 mask-radial-from-10 mask-radial-to-60 mask-radial-at-center"
+      className="absolute top-0 left-1/2 grid -translate-x-1/2 grid-cols-3 grid-rows-3 mask-radial-from-10% mask-radial-to-60 mask-radial-at-center"
     >
       {Array.from({ length: 4 }).map((_, idx) => (
         <div key={idx} className="h-full w-full border" />
