@@ -50,27 +50,42 @@ export const HeroLogos = () => {
     };
   }, [rawX, rawY]);
 
+  const initial = { opacity: 0, filter: 'blur(10px)' };
+  const animate = { opacity: 1, filter: 'blur(0px)' };
+
   return (
     <div ref={containerRef} className="hidden xl:block">
       <motion.div
+        initial={initial}
+        animate={animate}
+        transition={{ duration: 0.3 }}
         style={{ x, y }}
         className="absolute top-full -left-1/6 -rotate-25 2xl:-left-1/3"
       >
         <Image src="tailwind.svg" width={84} height={84} alt="tailwind-logo" />
       </motion.div>
       <motion.div
+        initial={initial}
+        animate={animate}
+        transition={{ duration: 0.3 }}
         style={{ x, y }}
         className="absolute top-1/4 -left-1/6 rotate-25 2xl:-left-1/4"
       >
         <Image src="react.svg" width={84} height={84} alt="react-logo" />
       </motion.div>
       <motion.div
+        initial={initial}
+        animate={animate}
+        transition={{ duration: 0.3 }}
         style={{ x, y }}
         className="absolute top-full -right-1/6 -rotate-25 2xl:-right-1/3"
       >
         <Image src="motion.svg" width={84} height={84} alt="motion-logo" />
       </motion.div>
       <motion.div
+        initial={initial}
+        animate={animate}
+        transition={{ duration: 0.3 }}
         style={{ x, y }}
         className="absolute top-1/4 -right-1/6 rotate-25 2xl:-right-1/4"
       >
