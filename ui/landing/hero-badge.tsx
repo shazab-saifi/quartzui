@@ -16,14 +16,14 @@ const HeroBadge = () => {
       ))}
       <div className="flex items-center gap-2 border border-neutral-200 p-2 md:p-4 dark:border-neutral-800">
         <Image
-          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1773813875/quartzui-light_ijauex.svg"
+          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296296/quartzui-light_ytrk9a.svg"
           alt="illustration"
           width={144}
           height={144}
           className="hidden dark:inline"
         />
         <Image
-          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1773813886/quartzui-dark_oiqar0.svg"
+          src="https://res.cloudinary.com/dlpjh3fcx/image/upload/v1759296311/quartzui-dark_ixfmns.svg"
           alt="illustration"
           width={144}
           height={144}
